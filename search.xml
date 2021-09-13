@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo基本使用</title>
+    <url>/2021/09/07/Hexo%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h2><p> <code>hexo init</code> 文件夹名称</p>
+<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p> <code>hexo new</code> 文章名称<br>(或者)<br> <code>hexo n</code> 文章名称</p>
+<h2 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h2><p> <code>hexo server</code><br>(或者)<br><code>hexo s</code></p>
+<h2 id="一键部署"><a href="#一键部署" class="headerlink" title="一键部署"></a>一键部署</h2><p> <code>hexo deploy</code><br>(或者)<br> <code>hexo d</code></p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
+<p>hexo clean</p>
+<p>hexo g</p>
+<p>hexo s  localhost:4000查看</p>
+<p><code>hexo d</code> 推到GitHub远端</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>—    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm –registry=<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo的基本使用</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2021/09/07/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -24,24 +45,31 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo基本使用</title>
-    <url>/2021/09/07/Hexo%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h2><p> <code>hexo init</code> 文件夹名称</p>
-<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p> <code>hexo new</code> 文章名称<br>(或者)<br> <code>hexo n</code> 文章名称</p>
-<h2 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h2><p> <code>hexo server</code><br>(或者)<br><code>hexo s</code></p>
-<h2 id="一键部署"><a href="#一键部署" class="headerlink" title="一键部署"></a>一键部署</h2><p> <code>hexo deploy</code><br>(或者)<br> <code>hexo d</code></p>
-<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
-<p>hexo clean</p>
-<p>hexo g</p>
-<p>hexo s  localhost:4000查看</p>
-<p><code>hexo d</code> 推到GitHub远端</p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>—    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm –registry=<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件</p>
+    <title>二分查找详解</title>
+    <url>/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/binary-search/solution/er-fen-cha-zhao-xiang-jie-by-labuladong/">原文链接:二分查找细节详解  –LeetCode labuladong</a></p>
+<p>相关题目:</p>
+<p><a href="https://leetcode-cn.com/problems/binary-search/">LeetCode 704. 二分查找</a></p>
+<p><a href="https://leetcode-cn.com/problems/first-bad-version/">LeetCode 278. 第一个错误的版本</a></p>
+<p><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode 35. 搜索插入位置</a></p>
+<span id="more"></span>
+
+<p>本人懒狗一枚，详解可以看看上面链接，hhhhh。</p>
+<h4 id="1-寻找一个数（基本的二分搜索）"><a href="#1-寻找一个数（基本的二分搜索）" class="headerlink" title="1. 寻找一个数（基本的二分搜索）"></a>1. 寻找一个数（基本的二分搜索）</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;	<span class="comment">//这里-1时，while循环条件得加上=</span></span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;			<span class="comment">//注意</span></span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>; <span class="comment">//防止了 left 和 right 太大直接相加导致溢出</span></span><br><span class="line">            <span class="keyword">if</span>(target == nums[mid])&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &lt; nums[mid])&#123;</span><br><span class="line">                <span class="comment">//如果right初始化为nums.length - 1，这里应该为mid-1;</span></span><br><span class="line">                right = mid - <span class="number">1</span>;		</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &gt; nums[mid])&#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;			<span class="comment">//注意</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-寻找左侧边界的二分搜索"><a href="#2-寻找左侧边界的二分搜索" class="headerlink" title="2. 寻找左侧边界的二分搜索"></a>2. 寻找左侧边界的二分搜索</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>,right = nums.length;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="comment">//寻找左、右侧边界的二分搜索要注意</span></span><br><span class="line">            <span class="comment">//收紧边界时的条件很重要，</span></span><br><span class="line">            <span class="comment">//这里right = mid ，并且循环结束的条件是 right = left</span></span><br><span class="line">            <span class="comment">//所以循环结束是 right = mid = left</span></span><br><span class="line">            <span class="keyword">if</span>(target == nums[mid])&#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &lt; nums[mid])&#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &gt; nums[mid])&#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(left &gt;= nums.length || nums[left] != target) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-寻找右侧边界的二分搜索"><a href="#3-寻找右侧边界的二分搜索" class="headerlink" title="3. 寻找右侧边界的二分搜索"></a>3. 寻找右侧边界的二分搜索</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>,right = nums.length;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(target == nums[mid])&#123;</span><br><span class="line">                <span class="comment">//收紧边界时的条件很重要，</span></span><br><span class="line">                <span class="comment">//这里left = mid + 1;并且循环结束的条件是 right = left</span></span><br><span class="line">            	<span class="comment">//所以循环结束是 mid = left - 1 = right - 1；</span></span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &lt; nums[mid])&#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &gt; nums[mid])&#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(right - <span class="number">1</span> &lt; <span class="number">0</span> || nums[right - <span class="number">1</span>] != target) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> right -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>Hexo的基本使用</tag>
+        <tag>二分查找</tag>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>模板题</tag>
       </tags>
   </entry>
   <entry>
@@ -99,9 +127,25 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>双指针</tag>
         <tag>算法</tag>
+        <tag>双指针</tag>
         <tag>Leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博客文章</title>
+    <url>/2021/09/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>#第一章<br>hhh</p>
+<hr>
+<p>#第二章<br>hhh</p>
+<hr>
+<p>#第三章<br><a href="http://www.baidu.com/">www.baidu.com</a></p>
+]]></content>
+      <categories>
+        <category>test</category>
+      </categories>
+      <tags>
+        <tag>test1</tag>
       </tags>
   </entry>
   <entry>
@@ -120,50 +164,6 @@
         <tag>算法</tag>
         <tag>工具函数</tag>
         <tag>汇总</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>二分查找详解</title>
-    <url>/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/binary-search/solution/er-fen-cha-zhao-xiang-jie-by-labuladong/">原文链接:二分查找细节详解  –LeetCode labuladong</a></p>
-<p>相关题目:</p>
-<p><a href="https://leetcode-cn.com/problems/binary-search/">LeetCode 704. 二分查找</a></p>
-<p><a href="https://leetcode-cn.com/problems/first-bad-version/">LeetCode 278. 第一个错误的版本</a></p>
-<p><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode 35. 搜索插入位置</a></p>
-<span id="more"></span>
-
-<p>本人懒狗一枚，详解可以看看上面链接，hhhhh。</p>
-<h4 id="1-寻找一个数（基本的二分搜索）"><a href="#1-寻找一个数（基本的二分搜索）" class="headerlink" title="1. 寻找一个数（基本的二分搜索）"></a>1. 寻找一个数（基本的二分搜索）</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;	<span class="comment">//这里-1时，while循环条件得加上=</span></span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;			<span class="comment">//注意</span></span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>; <span class="comment">//防止了 left 和 right 太大直接相加导致溢出</span></span><br><span class="line">            <span class="keyword">if</span>(target == nums[mid])&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &lt; nums[mid])&#123;</span><br><span class="line">                <span class="comment">//如果right初始化为nums.length - 1，这里应该为mid-1;</span></span><br><span class="line">                right = mid - <span class="number">1</span>;		</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &gt; nums[mid])&#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;			<span class="comment">//注意</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-寻找左侧边界的二分搜索"><a href="#2-寻找左侧边界的二分搜索" class="headerlink" title="2. 寻找左侧边界的二分搜索"></a>2. 寻找左侧边界的二分搜索</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>,right = nums.length;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="comment">//寻找左、右侧边界的二分搜索要注意</span></span><br><span class="line">            <span class="comment">//收紧边界时的条件很重要，</span></span><br><span class="line">            <span class="comment">//这里right = mid ，并且循环结束的条件是 right = left</span></span><br><span class="line">            <span class="comment">//所以循环结束是 right = mid = left</span></span><br><span class="line">            <span class="keyword">if</span>(target == nums[mid])&#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &lt; nums[mid])&#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &gt; nums[mid])&#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(left &gt;= nums.length || nums[left] != target) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-寻找右侧边界的二分搜索"><a href="#3-寻找右侧边界的二分搜索" class="headerlink" title="3. 寻找右侧边界的二分搜索"></a>3. 寻找右侧边界的二分搜索</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>,right = nums.length;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(target == nums[mid])&#123;</span><br><span class="line">                <span class="comment">//收紧边界时的条件很重要，</span></span><br><span class="line">                <span class="comment">//这里left = mid + 1;并且循环结束的条件是 right = left</span></span><br><span class="line">            	<span class="comment">//所以循环结束是 mid = left - 1 = right - 1；</span></span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &lt; nums[mid])&#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &gt; nums[mid])&#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(right - <span class="number">1</span> &lt; <span class="number">0</span> || nums[right - <span class="number">1</span>] != target) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> right -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>二分查找</tag>
-        <tag>LeetCode</tag>
-        <tag>模板题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇博客文章</title>
-    <url>/2021/09/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>#第一章<br>hhh</p>
-<hr>
-<p>#第二章<br>hhh</p>
-<hr>
-<p>#第三章<br><a href="http://www.baidu.com/">www.baidu.com</a></p>
-]]></content>
-      <categories>
-        <category>test</category>
-      </categories>
-      <tags>
-        <tag>test1</tag>
       </tags>
   </entry>
   <entry>
