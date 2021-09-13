@@ -6,7 +6,7 @@
   <link href="https://yangyizzx.github.io/atom.xml" rel="self"/>
   
   <link href="https://yangyizzx.github.io/"/>
-  <updated>2021-09-13T12:19:54.088Z</updated>
+  <updated>2021-09-13T12:33:32.387Z</updated>
   <id>https://yangyizzx.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo+Next个人博客优化</title>
+    <link href="https://yangyizzx.github.io/2021/09/13/Hexo-Next%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/"/>
+    <id>https://yangyizzx.github.io/2021/09/13/Hexo-Next%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</id>
+    <published>2021-09-13T12:29:07.000Z</published>
+    <updated>2021-09-13T12:33:32.387Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Hexo版本：4.3.0&lt;/p&gt;
+&lt;p&gt;NexT版本：7.8.0&lt;/p&gt;
+&lt;p&gt;整合了网上的一些资料，写了这篇在上述版本能修改优化的文章，大家根据自身的环境进行修改。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Hexo" scheme="https://yangyizzx.github.io/categories/Hexo/"/>
+    
+    
+    <category term="Hexo" scheme="https://yangyizzx.github.io/tags/Hexo/"/>
+    
+    <category term="NexT" scheme="https://yangyizzx.github.io/tags/NexT/"/>
+    
+    <category term="个人博客" scheme="https://yangyizzx.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>算法工具函数汇总</title>
