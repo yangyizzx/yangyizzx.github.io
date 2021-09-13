@@ -6,7 +6,7 @@
   <link href="https://yangyizzx.github.io/atom.xml" rel="self"/>
   
   <link href="https://yangyizzx.github.io/"/>
-  <updated>2021-09-08T08:04:28.276Z</updated>
+  <updated>2021-09-13T12:19:54.088Z</updated>
   <id>https://yangyizzx.github.io/</id>
   
   <author>
@@ -15,6 +15,83 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>算法工具函数汇总</title>
+    <link href="https://yangyizzx.github.io/2021/09/13/%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/"/>
+    <id>https://yangyizzx.github.io/2021/09/13/%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/</id>
+    <published>2021-09-13T12:05:17.000Z</published>
+    <updated>2021-09-13T12:19:54.088Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;将刷算法题中的遇到和用到的工具函数汇总。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://yangyizzx.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://yangyizzx.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="工具函数" scheme="https://yangyizzx.github.io/tags/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/"/>
+    
+    <category term="汇总" scheme="https://yangyizzx.github.io/tags/%E6%B1%87%E6%80%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>双指针指南</title>
+    <link href="https://yangyizzx.github.io/2021/09/13/%E5%8F%8C%E6%8C%87%E9%92%88%E6%8C%87%E5%8D%97/"/>
+    <id>https://yangyizzx.github.io/2021/09/13/%E5%8F%8C%E6%8C%87%E9%92%88%E6%8C%87%E5%8D%97/</id>
+    <published>2021-09-13T10:33:47.000Z</published>
+    <updated>2021-09-13T12:25:42.102Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;原题链接：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/squares-of-a-sorted-array/&quot;&gt;LeetCode 977. 有序数组的平方&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/rotate-array/&quot;&gt;LeetCode 189. 旋转数组&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://yangyizzx.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="双指针" scheme="https://yangyizzx.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+    <category term="算法" scheme="https://yangyizzx.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="Leetcode" scheme="https://yangyizzx.github.io/tags/Leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>二分查找详解</title>
+    <link href="https://yangyizzx.github.io/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/"/>
+    <id>https://yangyizzx.github.io/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/</id>
+    <published>2021-09-12T11:50:55.000Z</published>
+    <updated>2021-09-13T10:33:16.139Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/binary-search/solution/er-fen-cha-zhao-xiang-jie-by-labuladong/&quot;&gt;原文链接:二分查找细节详解  –LeetCode labuladong&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;相关题目:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/binary-search/&quot;&gt;LeetCode 704. 二分查找&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/first-bad-version/&quot;&gt;LeetCode 278. 第一个错误的版本&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/search-insert-position/&quot;&gt;LeetCode 35. 搜索插入位置&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://yangyizzx.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://yangyizzx.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="二分查找" scheme="https://yangyizzx.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    
+    <category term="LeetCode" scheme="https://yangyizzx.github.io/tags/LeetCode/"/>
+    
+    <category term="模板题" scheme="https://yangyizzx.github.io/tags/%E6%A8%A1%E6%9D%BF%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo基本使用</title>
