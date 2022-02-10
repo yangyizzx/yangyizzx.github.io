@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yangyizzx.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="LeetCode 144. 二叉树的前序遍历 「方法一」递归      public List&lt;Integer&gt; preorderTraversal(TreeNode root) &amp;#123;         List&lt;Integer&gt; preArr &#x3D; new ArrayList&lt;&gt;();         preorder(root,preArr);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树遍历详解">
+<meta property="og:url" content="https://yangyizzx.github.io/2021/09/15/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="二乔二手车">
+<meta property="og:description" content="LeetCode 144. 二叉树的前序遍历 「方法一」递归      public List&lt;Integer&gt; preorderTraversal(TreeNode root) &amp;#123;         List&lt;Integer&gt; preArr &#x3D; new ArrayList&lt;&gt;();         preorder(root,preArr);">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-15T14:44:42.000Z">
+<meta property="article:modified_time" content="2021-09-16T07:18:00.016Z">
+<meta property="article:author" content="Josef Joestar">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="模板题">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="二叉树">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://yangyizzx.github.io/2021/09/15/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E8%AF%A6%E8%A7%A3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>二叉树遍历详解 | 二乔二手车</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="二乔二手车" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <script src="https://yangyizzx.github.io/live2d/autoload.js"></script>
+
+
+  <div class="container use-motion">
+
+	<div class="headband"></div>
+	
+	<a target="_blank" rel="noopener" href="https://github.com/yangyizzx" class="github-corner" aria-label="View source on GitHub">
+	<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+	<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+	<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+	<path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+	</svg>
+	</a>
+	<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">二乔二手车</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">你的下一句话是</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yangyizzx.github.io/2021/09/15/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Josef Joestar">
+      <meta itemprop="description" content="不乱于心，不困于情，不念过往，不畏将来。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二乔二手车">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          二叉树遍历详解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-15 22:44:42" itemprop="dateCreated datePublished" datetime="2021-09-15T22:44:42+08:00">2021-09-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-16 15:18:00" itemprop="dateModified" datetime="2021-09-16T15:18:00+08:00">2021-09-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <span id="more"></span>
+
+<h4 id="LeetCode-144-二叉树的前序遍历"><a href="#LeetCode-144-二叉树的前序遍历" class="headerlink" title="LeetCode 144. 二叉树的前序遍历"></a>LeetCode <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-preorder-traversal/">144. 二叉树的前序遍历</a></h4><blockquote>
+<p>「方法一」递归</p>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; preorderTraversal(TreeNode root) &#123;
+        List&lt;Integer&gt; preArr = new ArrayList&lt;&gt;();
+        preorder(root,preArr);
+        return preArr;
+    &#125;
+
+    public void preorder(TreeNode root,List&lt;Integer&gt; preArr)&#123;
+        if(root == null) return;
+        arr.add(root.val);
+        preorder(root.left,preArr);
+        preorder(root.right,preArr);
+    &#125;
+</code></pre>
+<blockquote>
+<p>「方法二」迭代</p>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; preorderTraversal(TreeNode root) &#123;
+        if(root == null) return new ArrayList&lt;&gt;();
+        List&lt;Integer&gt; preList = new ArrayList&lt;&gt;();
+        Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;();
+        stack.push(root);
+        while(!stack.isEmpty())&#123;
+            TreeNode node = stack.pop();
+            preList.add(node.val);
+            //因为出栈顺序是左子树，右子树
+            //所以入栈时右子树应该先进，左子树后进。
+            if(node.right != null)&#123;
+                stack.push(node.right);
+            &#125;
+            if(node.left != null)&#123;
+                stack.push(node.left);
+            &#125;
+        &#125;
+        return preList;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-94-二叉树的中序遍历"><a href="#LeetCode-94-二叉树的中序遍历" class="headerlink" title="LeetCode 94. 二叉树的中序遍历"></a>LeetCode <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">94. 二叉树的中序遍历</a></h4><blockquote>
+<p>「方法一」递归</p>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; inorderTraversal(TreeNode root) &#123;
+        List&lt;Integer&gt; inList = new ArrayList&lt;&gt;();
+        inorder(root,inList);
+        return inList;
+    &#125;
+
+    public void inorder(TreeNode root,List&lt;Integer&gt; inList)&#123;
+        if(root == null) return;
+        if(root.left != null) inorder(root.left,inList);
+        inList.add(root.val);
+        inorder(root.right,inList);
+    &#125;
+</code></pre>
+<blockquote>
+<p>「方法二」迭代</p>
+<ol>
+<li>创建一个Stack，然后按 左 中 右的顺序输出节点。</li>
+<li>尽可能的将这个节点的左子树压入Stack，此时栈顶的元素是最左侧的元素，其目的是找到一个最小单位的子树(也就是最左侧的一个节点)，并且在寻找的过程中记录了来源，才能返回上层,同时在返回上层的时候已经处理完毕左子树了。。</li>
+<li>当处理完最小单位的子树时，返回到上层处理了中间节点。（如果把整个左中右的遍历都理解成子树的话，就是处理完 左子树-&gt;中间(就是一个节点)-&gt;右子树）</li>
+<li>如果有右节点，其也要进行中序遍历。当整个左子树退栈的时候这个时候输出了该子树的根节点 2，之后输出中间节点 1。然后处理根节点为3右子树。</li>
+</ol>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; inorderTraversal(TreeNode root) &#123;
+        if (root == null) return new ArrayList&lt;&gt;();
+        List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+        Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;();
+        TreeNode cur = root;
+        while(!stack.isEmpty() || cur != null)&#123;
+            while(cur != null)&#123;
+                stack.push(cur);
+                cur = cur.left;
+            &#125;
+            TreeNode node = stack.pop();
+            list.add(node.val);
+            if(node.right != null)&#123;
+                cur = node.right;
+            &#125;
+        &#125;
+        return list;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-145-二叉树的后序遍历"><a href="#LeetCode-145-二叉树的后序遍历" class="headerlink" title="LeetCode 145. 二叉树的后序遍历"></a>LeetCode <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal/">145. 二叉树的后序遍历</a></h4><blockquote>
+<p>「方法一」递归</p>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; postorderTraversal(TreeNode root) &#123;
+        if(root == null) return new ArrayList&lt;&gt;();
+        List&lt;Integer&gt; postList = new ArrayList&lt;&gt;();
+        postorder(root,postList);
+        return postList;
+    &#125;
+    public void postorder(TreeNode root,List&lt;Integer&gt; postList)&#123;
+        if(root.left != null) postorder(root.left,postList);
+        if(root.right != null) postorder(root.right,postList);
+        postList.add(root.val);
+    &#125;
+</code></pre>
+<blockquote>
+<p>「方法二」迭代(还没研究，再嗦)</p>
+</blockquote>
+<h4 id="LeetCode-102-二叉树的层序遍历"><a href="#LeetCode-102-二叉树的层序遍历" class="headerlink" title="LeetCode 102. 二叉树的层序遍历"></a>LeetCode <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/">102. 二叉树的层序遍历</a></h4><blockquote>
+<p>使用队列模拟每一层</p>
+</blockquote>
+<pre><code class="java">/**
+ Queue 前面的方法是Queue特有的方法，推荐使用前面的方法操作队列
+ offer() add()        添加数据
+ poll()  remove()    删除数据
+ peek()  element()    返回第一个数据
+ */
+class Solution &#123;
+    public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;
+        if(root == null) return new ArrayList&lt;&gt;();
+        List&lt;List&lt;Integer&gt;&gt; ansList = new ArrayList&lt;&gt;();
+        Queue&lt;TreeNode&gt; queue = new LinkedList&lt;&gt;();
+        queue.offer(root);
+        while(!queue.isEmpty())&#123;
+            //获取每次队列长度，因为循环中队列size()会改变
+            int n = queue.size();
+            List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+            for(int i = 0;i &lt; n;i++)&#123;
+                TreeNode node = queue.poll();
+                list.add(node.val);
+                //入队前要判断是否存在左右节点。
+                if(node.left != null)&#123;
+                    queue.offer(node.left);
+                &#125;
+                if(node.right != null)&#123;
+                    queue.offer(node.right);
+                &#125;
+            &#125;
+            //将处理好的list加入ansList
+            ansList.add(list);
+        &#125;
+        return ansList;
+    &#125;
+&#125;
+</code></pre>
+
+    </div>
+	
+	<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+    
+	</div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Josef Joestar 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Josef Joestar 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Josef Joestar
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://yangyizzx.github.io/2021/09/15/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E8%AF%A6%E8%A7%A3/" title="二叉树遍历详解">https://yangyizzx.github.io/2021/09/15/二叉树遍历详解/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
+              <a href="/tags/%E6%A8%A1%E6%9D%BF%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 模板题</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+              <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 二叉树</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/09/15/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/" rel="prev" title="操作系统面经">
+      <i class="fa fa-chevron-left"></i> 操作系统面经
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/09/16/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/" rel="next" title="位运算刷题指南">
+      位运算刷题指南 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#LeetCode-144-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.</span> <span class="nav-text">LeetCode 144. 二叉树的前序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LeetCode-94-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">2.</span> <span class="nav-text">LeetCode 94. 二叉树的中序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LeetCode-145-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">3.</span> <span class="nav-text">LeetCode 145. 二叉树的后序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LeetCode-102-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">4.</span> <span class="nav-text">LeetCode 102. 二叉树的层序遍历</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Josef Joestar"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Josef Joestar</p>
+  <div class="site-description" itemprop="description">不乱于心，不困于情，不念过往，不畏将来。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yangyizzx" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yangyizzx" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yangyiyuxin@163.com" title="E-Mail → mailto:yangyiyuxin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=3061897725&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;3061897725&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fas fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://cn.bing.com/" title="http:&#x2F;&#x2F;cn.bing.com&#x2F;" rel="noopener" target="_blank">Bing</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Josef Joestar</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">27k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">25 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

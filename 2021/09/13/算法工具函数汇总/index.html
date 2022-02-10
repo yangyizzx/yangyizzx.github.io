@@ -34,7 +34,7 @@
 <meta property="og:description" content="将刷算法题中的遇到和用到的工具函数汇总。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-13T12:05:17.000Z">
-<meta property="article:modified_time" content="2021-09-13T15:17:03.953Z">
+<meta property="article:modified_time" content="2021-09-15T02:12:59.995Z">
 <meta property="article:author" content="Josef Joestar">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="工具函数">
@@ -246,10 +246,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-09-13 20:05:17 / 修改时间：23:17:03" itemprop="dateCreated datePublished" datetime="2021-09-13T20:05:17+08:00">2021-09-13</time>
+              <time title="创建时间：2021-09-13 20:05:17" itemprop="dateCreated datePublished" datetime="2021-09-13T20:05:17+08:00">2021-09-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-15 10:12:59" itemprop="dateModified" datetime="2021-09-15T10:12:59+08:00">2021-09-15</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -266,7 +272,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>164</span>
+              <span>208</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -288,10 +294,30 @@
         <p>将刷算法题中的遇到和用到的工具函数汇总。</p>
 <span id="more"></span>
 
-<h4 id="求最大公约数和最小公倍数"><a href="#求最大公约数和最小公倍数" class="headerlink" title="求最大公约数和最小公倍数"></a>求最大公约数和最小公倍数</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//最大公约数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> y &gt; <span class="number">0</span> ? gcd(y , x % y) : x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//最小公倍数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x / gdc * y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h4 id="求最大公约数和最小公倍数"><a href="#求最大公约数和最小公倍数" class="headerlink" title="求最大公约数和最小公倍数"></a>求最大公约数和最小公倍数</h4><pre><code class="java">    //最大公约数
+    public int gcd(int x,int y)&#123;
+        return y &gt; 0 ? gcd(y , x % y) : x;
+    &#125;
+    //最小公倍数
+    public int lcm(int x,int y)&#123;
+            return x / gdc * y;
+    &#125;
+</code></pre>
+<h4 id="复制数组内容"><a href="#复制数组内容" class="headerlink" title="复制数组内容"></a>复制数组内容</h4><pre><code class="java">    //复制数组
+    System.arraycopy(fromArr,0,toArr,0,len);
+</code></pre>
 
     </div>
+	
+	<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+    
+	</div>
 
     
     
@@ -413,7 +439,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">求最大公约数和最小公倍数</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">求最大公约数和最小公倍数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E6%95%B0%E7%BB%84%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">复制数组内容</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -429,20 +455,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -503,13 +529,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">18k</span>
+    <span title="站点总字数">27k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">16 分钟</span>
+    <span title="站点阅读时长">25 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

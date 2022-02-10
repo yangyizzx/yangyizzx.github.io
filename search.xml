@@ -22,6 +22,278 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2021/09/07/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>Hello</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>二分查找详解</title>
+    <url>/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/binary-search/solution/er-fen-cha-zhao-xiang-jie-by-labuladong/">原文链接:二分查找细节详解  –LeetCode labuladong</a></p>
+<p>相关题目:</p>
+<p><a href="https://leetcode-cn.com/problems/binary-search/">LeetCode 704. 二分查找</a></p>
+<p><a href="https://leetcode-cn.com/problems/first-bad-version/">LeetCode 278. 第一个错误的版本</a></p>
+<p><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode 35. 搜索插入位置</a></p>
+<span id="more"></span>
+
+<p>本人懒狗一枚，详解可以看看上面链接，hhhhh。</p>
+<h4 id="寻找一个数（基本的二分搜索）"><a href="#寻找一个数（基本的二分搜索）" class="headerlink" title="寻找一个数（基本的二分搜索）"></a>寻找一个数（基本的二分搜索）</h4><pre><code class="java">class Solution &#123;
+    public int search(int[] nums, int target) &#123;
+        int left = 0;
+        int right = nums.length - 1;    //这里-1时，while循环条件得加上=
+        while(left &lt;= right)&#123;            //注意
+            int mid = left + (right - left) / 2; //防止了 left 和 right 太大直接相加导致溢出
+            if(target == nums[mid])&#123;
+                return mid;
+            &#125;else if(target &lt; nums[mid])&#123;
+                //如果right初始化为nums.length - 1，这里应该为mid-1;
+                right = mid - 1;        
+            &#125;else if(target &gt; nums[mid])&#123;
+                left = mid + 1;            //注意
+            &#125;
+        &#125;
+        return -1;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="寻找左侧边界的二分搜索"><a href="#寻找左侧边界的二分搜索" class="headerlink" title="寻找左侧边界的二分搜索"></a>寻找左侧边界的二分搜索</h4><pre><code class="java">public int search(int[] nums, int target) &#123;
+        int left = 0,right = nums.length;
+        while(left &lt; right)&#123;
+            int mid = left + (right - left) / 2;
+            //寻找左、右侧边界的二分搜索要注意
+            //收紧边界时的条件很重要，
+            //这里right = mid ，并且循环结束的条件是 right = left
+            //所以循环结束是 right = mid = left
+            if(target == nums[mid])&#123;
+                right = mid;
+            &#125;else if(target &lt; nums[mid])&#123;
+                right = mid;
+            &#125;else if(target &gt; nums[mid])&#123;
+                left = mid + 1;
+            &#125;
+        &#125;
+        if(left &gt;= nums.length || nums[left] != target) return -1;
+        return left;
+    &#125;
+</code></pre>
+<h4 id="寻找右侧边界的二分搜索"><a href="#寻找右侧边界的二分搜索" class="headerlink" title="寻找右侧边界的二分搜索"></a>寻找右侧边界的二分搜索</h4><pre><code class="java">public int search(int[] nums, int target) &#123;
+        int left = 0,right = nums.length;
+        while(left &lt; right)&#123;
+            int mid = left + (right - left) / 2;
+            if(target == nums[mid])&#123;
+                //收紧边界时的条件很重要，
+                //这里left = mid + 1;并且循环结束的条件是 right = left
+                //所以循环结束是 mid = left - 1 = right - 1；
+                left = mid + 1;
+            &#125;else if(target &lt; nums[mid])&#123;
+                right = mid;
+            &#125;else if(target &gt; nums[mid])&#123;
+                left = mid + 1;
+            &#125;
+        &#125;
+        if(right - 1 &lt; 0 || nums[right - 1] != target) return -1;
+        return right -1;
+    &#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>二分查找</tag>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>模板题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>位运算刷题指南</title>
+    <url>/2021/09/16/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>位运算</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二叉树遍历详解</title>
+    <url>/2021/09/15/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h4 id="LeetCode-144-二叉树的前序遍历"><a href="#LeetCode-144-二叉树的前序遍历" class="headerlink" title="LeetCode 144. 二叉树的前序遍历"></a>LeetCode <a href="https://leetcode-cn.com/problems/binary-tree-preorder-traversal/">144. 二叉树的前序遍历</a></h4><blockquote>
+<p>「方法一」递归</p>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; preorderTraversal(TreeNode root) &#123;
+        List&lt;Integer&gt; preArr = new ArrayList&lt;&gt;();
+        preorder(root,preArr);
+        return preArr;
+    &#125;
+
+    public void preorder(TreeNode root,List&lt;Integer&gt; preArr)&#123;
+        if(root == null) return;
+        arr.add(root.val);
+        preorder(root.left,preArr);
+        preorder(root.right,preArr);
+    &#125;
+</code></pre>
+<blockquote>
+<p>「方法二」迭代</p>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; preorderTraversal(TreeNode root) &#123;
+        if(root == null) return new ArrayList&lt;&gt;();
+        List&lt;Integer&gt; preList = new ArrayList&lt;&gt;();
+        Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;();
+        stack.push(root);
+        while(!stack.isEmpty())&#123;
+            TreeNode node = stack.pop();
+            preList.add(node.val);
+            //因为出栈顺序是左子树，右子树
+            //所以入栈时右子树应该先进，左子树后进。
+            if(node.right != null)&#123;
+                stack.push(node.right);
+            &#125;
+            if(node.left != null)&#123;
+                stack.push(node.left);
+            &#125;
+        &#125;
+        return preList;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-94-二叉树的中序遍历"><a href="#LeetCode-94-二叉树的中序遍历" class="headerlink" title="LeetCode 94. 二叉树的中序遍历"></a>LeetCode <a href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">94. 二叉树的中序遍历</a></h4><blockquote>
+<p>「方法一」递归</p>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; inorderTraversal(TreeNode root) &#123;
+        List&lt;Integer&gt; inList = new ArrayList&lt;&gt;();
+        inorder(root,inList);
+        return inList;
+    &#125;
+
+    public void inorder(TreeNode root,List&lt;Integer&gt; inList)&#123;
+        if(root == null) return;
+        if(root.left != null) inorder(root.left,inList);
+        inList.add(root.val);
+        inorder(root.right,inList);
+    &#125;
+</code></pre>
+<blockquote>
+<p>「方法二」迭代</p>
+<ol>
+<li>创建一个Stack，然后按 左 中 右的顺序输出节点。</li>
+<li>尽可能的将这个节点的左子树压入Stack，此时栈顶的元素是最左侧的元素，其目的是找到一个最小单位的子树(也就是最左侧的一个节点)，并且在寻找的过程中记录了来源，才能返回上层,同时在返回上层的时候已经处理完毕左子树了。。</li>
+<li>当处理完最小单位的子树时，返回到上层处理了中间节点。（如果把整个左中右的遍历都理解成子树的话，就是处理完 左子树-&gt;中间(就是一个节点)-&gt;右子树）</li>
+<li>如果有右节点，其也要进行中序遍历。当整个左子树退栈的时候这个时候输出了该子树的根节点 2，之后输出中间节点 1。然后处理根节点为3右子树。</li>
+</ol>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; inorderTraversal(TreeNode root) &#123;
+        if (root == null) return new ArrayList&lt;&gt;();
+        List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+        Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;();
+        TreeNode cur = root;
+        while(!stack.isEmpty() || cur != null)&#123;
+            while(cur != null)&#123;
+                stack.push(cur);
+                cur = cur.left;
+            &#125;
+            TreeNode node = stack.pop();
+            list.add(node.val);
+            if(node.right != null)&#123;
+                cur = node.right;
+            &#125;
+        &#125;
+        return list;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-145-二叉树的后序遍历"><a href="#LeetCode-145-二叉树的后序遍历" class="headerlink" title="LeetCode 145. 二叉树的后序遍历"></a>LeetCode <a href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal/">145. 二叉树的后序遍历</a></h4><blockquote>
+<p>「方法一」递归</p>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; postorderTraversal(TreeNode root) &#123;
+        if(root == null) return new ArrayList&lt;&gt;();
+        List&lt;Integer&gt; postList = new ArrayList&lt;&gt;();
+        postorder(root,postList);
+        return postList;
+    &#125;
+    public void postorder(TreeNode root,List&lt;Integer&gt; postList)&#123;
+        if(root.left != null) postorder(root.left,postList);
+        if(root.right != null) postorder(root.right,postList);
+        postList.add(root.val);
+    &#125;
+</code></pre>
+<blockquote>
+<p>「方法二」迭代(还没研究，再嗦)</p>
+</blockquote>
+<h4 id="LeetCode-102-二叉树的层序遍历"><a href="#LeetCode-102-二叉树的层序遍历" class="headerlink" title="LeetCode 102. 二叉树的层序遍历"></a>LeetCode <a href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/">102. 二叉树的层序遍历</a></h4><blockquote>
+<p>使用队列模拟每一层</p>
+</blockquote>
+<pre><code class="java">/**
+ Queue 前面的方法是Queue特有的方法，推荐使用前面的方法操作队列
+ offer() add()        添加数据
+ poll()  remove()    删除数据
+ peek()  element()    返回第一个数据
+ */
+class Solution &#123;
+    public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;
+        if(root == null) return new ArrayList&lt;&gt;();
+        List&lt;List&lt;Integer&gt;&gt; ansList = new ArrayList&lt;&gt;();
+        Queue&lt;TreeNode&gt; queue = new LinkedList&lt;&gt;();
+        queue.offer(root);
+        while(!queue.isEmpty())&#123;
+            //获取每次队列长度，因为循环中队列size()会改变
+            int n = queue.size();
+            List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+            for(int i = 0;i &lt; n;i++)&#123;
+                TreeNode node = queue.poll();
+                list.add(node.val);
+                //入队前要判断是否存在左右节点。
+                if(node.left != null)&#123;
+                    queue.offer(node.left);
+                &#125;
+                if(node.right != null)&#123;
+                    queue.offer(node.right);
+                &#125;
+            &#125;
+            //将处理好的list加入ansList
+            ansList.add(list);
+        &#125;
+        return ansList;
+    &#125;
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>模板题</tag>
+        <tag>数据结构</tag>
+        <tag>二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>双指针指南</title>
     <url>/2021/09/13/%E5%8F%8C%E6%8C%87%E9%92%88%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p>原题链接：</p>
@@ -29,13 +301,37 @@
 <p><a href="https://leetcode-cn.com/problems/rotate-array/">LeetCode 189. 旋转数组</a></p>
 <span id="more"></span>
 
-<h4 id="LeetCode-977-有序数组的平方"><a href="#LeetCode-977-有序数组的平方" class="headerlink" title="LeetCode 977. 有序数组的平方"></a>LeetCode 977. 有序数组的平方</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortedSquares(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">int</span> pos = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>,j = n-<span class="number">1</span>;i &lt;= j;pos--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] * nums[i] &gt; nums[j] * nums[j])&#123;</span><br><span class="line">                ans[pos] = nums[i] * nums[i];</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                ans[pos] = nums[j] * nums[j];</span><br><span class="line">                j --;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h4 id="LeetCode-977-有序数组的平方"><a href="#LeetCode-977-有序数组的平方" class="headerlink" title="LeetCode 977. 有序数组的平方"></a>LeetCode 977. 有序数组的平方</h4><pre><code class="java">class Solution &#123;
+    public int[] sortedSquares(int[] nums) &#123;
+        int n = nums.length;
+        int[] ans = new int[n];
+        int pos = n - 1;
+        for(int i = 0,j = n-1;i &lt;= j;pos--)&#123;
+            if(nums[i] * nums[i] &gt; nums[j] * nums[j])&#123;
+                ans[pos] = nums[i] * nums[i];
+                i ++;
+            &#125;else&#123;
+                ans[pos] = nums[j] * nums[j];
+                j --;
+            &#125;
+        &#125;
+        return ans;
+    &#125;
+&#125;
+</code></pre>
 <h4 id="LeetCode-189-旋转数组"><a href="#LeetCode-189-旋转数组" class="headerlink" title="LeetCode 189. 旋转数组"></a>LeetCode 189. 旋转数组</h4><blockquote>
 <p>方法一：使用额外数组</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = nums.length;</span><br><span class="line">    <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len ;i++)&#123;</span><br><span class="line">        ans[(i + k) % len] = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//复制数组</span></span><br><span class="line">    System.arraycopy(ans,<span class="number">0</span>,nums,<span class="number">0</span>,len);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">    public void rotate(int[] nums, int k) &#123;
+        int len = nums.length;
+        int[] ans = new int[len];
+        for(int i = 0; i &lt; len ;i++)&#123;
+            ans[(i + k) % len] = nums[i];
+        &#125;
+        //复制数组
+        System.arraycopy(ans,0,nums,0,len);
+    &#125;
+</code></pre>
 <blockquote>
 <p>方法二：环状替换</p>
 </blockquote>
@@ -67,30 +363,226 @@
 <td>5 6 7 1 2 3 4</td>
 </tr>
 </tbody></table>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        k %= n;</span><br><span class="line">        reverse(nums,<span class="number">0</span>,n-<span class="number">1</span>);</span><br><span class="line">        reverse(nums,<span class="number">0</span>,k-<span class="number">1</span>);</span><br><span class="line">        reverse(nums,k,n-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> start,<span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(start &lt; end)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = nums[start];</span><br><span class="line">            nums[start] = nums[end];</span><br><span class="line">            nums[end] = temp;</span><br><span class="line">            start++;</span><br><span class="line">            end--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">    public void rotate(int[] nums, int k) &#123;
+        int n = nums.length;
+        k %= n;
+        reverse(nums,0,n-1);
+        reverse(nums,0,k-1);
+        reverse(nums,k,n-1);
+    &#125;
 
+    public void reverse(int[] nums, int start,int end)&#123;
+        while(start &lt; end)&#123;
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        &#125;
+    &#125;
+</code></pre>
 <h4 id="LeetCode-283-移动零"><a href="#LeetCode-283-移动零" class="headerlink" title="LeetCode 283. 移动零"></a>LeetCode 283. 移动零</h4><blockquote>
 <p>方法一：覆盖前面的值，后续补零</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != <span class="number">0</span>)&#123;</span><br><span class="line">                nums[j++] = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = j;i &lt; nums.length;i++)&#123;</span><br><span class="line">            nums[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">    public void moveZeroes(int[] nums) &#123;
+        int j = 0;
+        for(int i = 0;i &lt; nums.length;i++)&#123;
+            if(nums[i] != 0)&#123;
+                nums[j++] = nums[i];
+            &#125;
+        &#125;
+        for(int i = j;i &lt; nums.length;i++)&#123;
+            nums[i] = 0;
+        &#125;
+    &#125;
+</code></pre>
 <blockquote>
 <p>方法二：双指针</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//left指向已处理好的序列尾部</span></span><br><span class="line">        <span class="comment">//right指向待处理的序列头部</span></span><br><span class="line">        <span class="keyword">int</span> n = nums.length,left = <span class="number">0</span>,right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(right &lt; n)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[right] != <span class="number">0</span>)&#123;</span><br><span class="line">                swap(nums,left,right);</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = nums[i];</span><br><span class="line">        nums[i] = nums[j];</span><br><span class="line">        nums[j] = temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">    public void moveZeroes(int[] nums) &#123;
+        //left指向已处理好的序列尾部
+        //right指向待处理的序列头部
+        int n = nums.length,left = 0,right = 0;
+        while(right &lt; n)&#123;
+            if(nums[right] != 0)&#123;
+                swap(nums,left,right);
+                left++;
+            &#125;
+            right++;
+        &#125;
+    &#125;
 
-<h4 id="LeetCode-167-两数之和-II-输入有序数组"><a href="#LeetCode-167-两数之和-II-输入有序数组" class="headerlink" title="LeetCode 167. 两数之和 II - 输入有序数组"></a>LeetCode 167. 两数之和 II - 输入有序数组</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">if</span>(numbers.length == <span class="number">2</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> n = numbers.length;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = n-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">if</span>(numbers[left] + numbers[right] == target)&#123;</span><br><span class="line">                ans[<span class="number">0</span>] = left+<span class="number">1</span>;</span><br><span class="line">                ans[<span class="number">1</span>] = right+<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">return</span> ans;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[left] + numbers[right] &gt; target)&#123;</span><br><span class="line">                right --;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                left ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+    public void swap(int[] nums,int i,int j)&#123;
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-167-两数之和-II-输入有序数组"><a href="#LeetCode-167-两数之和-II-输入有序数组" class="headerlink" title="LeetCode 167. 两数之和 II - 输入有序数组"></a>LeetCode 167. 两数之和 II - 输入有序数组</h4><pre><code class="java">    public int[] twoSum(int[] numbers, int target) &#123;
+        if(numbers.length == 2) return new int[]&#123;1,2&#125;;
+        int n = numbers.length;
+        int[] ans = new int[2];
+        int left = 0;
+        int right = n-1;
+        while(left &lt; right)&#123;
+            if(numbers[left] + numbers[right] == target)&#123;
+                ans[0] = left+1;
+                ans[1] = right+1;
+                return ans;
+            &#125;else if(numbers[left] + numbers[right] &gt; target)&#123;
+                right --;
+            &#125;else&#123;
+                left ++;
+            &#125;
+        &#125;
+        return ans;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-344-反转字符串"><a href="#LeetCode-344-反转字符串" class="headerlink" title="LeetCode 344. 反转字符串"></a>LeetCode 344. 反转字符串</h4><pre><code class="java">    public void reverseString(char[] s) &#123;
+        int left = 0;
+        int right = s.length - 1;
+        while(left &lt; right)&#123;
+            swap(s,left++,right--);
+        &#125;
+    &#125;
 
-<h4 id="LeetCode-344-反转字符串"><a href="#LeetCode-344-反转字符串" class="headerlink" title="LeetCode 344. 反转字符串"></a>LeetCode 344. 反转字符串</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reverseString</span><span class="params">(<span class="keyword">char</span>[] s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = s.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            swap(s,left++,right--);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">char</span>[] s,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">char</span> temp = s[i];</span><br><span class="line">        s[i] = s[j];</span><br><span class="line">        s[j] = temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="LeetCode-557-反转字符串中的单词-III"><a href="#LeetCode-557-反转字符串中的单词-III" class="headerlink" title="LeetCode 557. 反转字符串中的单词 III"></a>LeetCode 557. 反转字符串中的单词 III</h4>]]></content>
+    public void swap(char[] s,int i,int j)&#123;
+        char temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-557-反转字符串中的单词-III"><a href="#LeetCode-557-反转字符串中的单词-III" class="headerlink" title="LeetCode 557. 反转字符串中的单词 III"></a>LeetCode 557. 反转字符串中的单词 III</h4><h4 id="LeetCode-876-链表的中间结点"><a href="#LeetCode-876-链表的中间结点" class="headerlink" title="LeetCode 876. 链表的中间结点"></a>LeetCode <a href="https://leetcode-cn.com/problems/middle-of-the-linked-list/">876. 链表的中间结点</a></h4><blockquote>
+<p>快慢指针</p>
+</blockquote>
+<pre><code class="java">    public ListNode middleNode(ListNode head) &#123;
+        if(head == null) return null;
+        ListNode fast = head,slow = head;
+        //当链表长度是偶数时，需要判断fast.next,如果fast.next == null 说明fast已经走到链表尾端
+        while(fast != null &amp;&amp; fast.next != null)&#123;
+            fast = fast.next.next;
+            slow = slow.next;
+        &#125;
+        return slow;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-19-删除链表的倒数第-N-个结点"><a href="#LeetCode-19-删除链表的倒数第-N-个结点" class="headerlink" title="LeetCode 19. 删除链表的倒数第 N 个结点"></a>LeetCode <a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/">19. 删除链表的倒数第 N 个结点</a></h4><blockquote>
+<p>快慢指针</p>
+<ol>
+<li>将快指针start、慢指针end指向预先节点dummy</li>
+<li>start先走n个节点，然后start，end一起走</li>
+<li>当start走到链表最后一个节点时，end就到了链表倒数第 n + 1 个节点。 </li>
+</ol>
+</blockquote>
+<pre><code class="java">    public ListNode removeNthFromEnd(ListNode head, int n) &#123;
+        if(head.next == null) return null;
+        //防止head节点被删除，设置预先节点指向head
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        ListNode start = dummy;
+        ListNode end = dummy;
+        for(int i = 0;i &lt; n;i++)&#123;
+            start = start.next;
+        &#125;
+        while(start.next != null)&#123;
+            start = start.next;
+            end = end.next;
+        &#125;
+        end.next = end.next.next;
+        return dummy.next;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-11-盛最多水的容器"><a href="#LeetCode-11-盛最多水的容器" class="headerlink" title="LeetCode 11. 盛最多水的容器"></a>LeetCode <a href="https://leetcode-cn.com/problems/container-with-most-water/">11. 盛最多水的容器</a></h4><blockquote>
+<p>双指针</p>
+<ol>
+<li>初始化： 双指针 i , j 分列水槽左右两端；</li>
+<li>循环收窄： 直至双指针相遇时跳出；</li>
+<li>更新面积最大值 res ；</li>
+<li>选定两板高度中的短板，向中间收窄一格；</li>
+<li>返回值： 返回面积最大值 res 即可；</li>
+</ol>
+</blockquote>
+<pre><code class="java">    public int maxArea(int[] height) &#123;
+        int res = 0;        //结果
+        int S = 0;            //每次循环时的面积
+        int i = 0,j = height.length - 1;
+        while(i &lt; j)&#123;
+            S = Math.min(height[i],height[j]) * (j - i);
+            res = Math.max(res,S);
+            //选择移动的指针
+            if(height[i] &lt; height[j])&#123;
+                i++;
+            &#125;else&#123;
+                j--;
+            &#125;
+        &#125;
+        return res;
+    &#125;
+</code></pre>
+]]></content>
       <categories>
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>双指针</tag>
         <tag>算法</tag>
+        <tag>双指针</tag>
         <tag>Leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统面经</title>
+    <url>/2021/09/15/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/</url>
+    <content><![CDATA[<!--mroe-->
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态规划刷题指南</title>
+    <url>/2021/09/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h4 id="LeetCode-139-单词拆分"><a href="#LeetCode-139-单词拆分" class="headerlink" title="LeetCode 139. 单词拆分"></a>LeetCode <a href="https://leetcode-cn.com/problems/word-break/">139. 单词拆分</a></h4><ol>
+<li><p><code>dp[i*]</code> 表示字符串 <code>s</code> 前 <code>i</code> 个字符组成的字符串 <code>s[0..i-1]</code> 是否能被空格拆分成若干个字典中出现的单词 </p>
+</li>
+<li><p>在前 <code>i</code> 个字符组成的字符串找个位置 <code>j</code> 将字符串切成  <code>s[0..j-1]</code> 和 <code>s[j...i-1]</code> ,因此只需判断 <code>dp[j]</code> 是否为 <code>true</code> 以及后续单词 <code>s[j...i-1]</code>是否存在于列表中。</p>
+</li>
+<li><p>得出公式：</p>
+<p> ​                <code>dp[i]</code> = <code>dp[j]</code> &amp;&amp; <code>checks( s[j...i-1] )</code>;</p>
+</li>
+<li><p> 对于边界条件，我们定义 dp[0]=true 表示空串且合法。</p>
+</li>
+</ol>
+<pre><code class="java">    public boolean wordBreak(String s, List&lt;String&gt; wordDict) &#123;
+        //dp[i] 表示字符串 s 前 i 个字符组成的字符串 s[0..i-1] 是否能被空格拆分成若干个字典中出现的单词
+        HashSet&lt;String&gt; wordDictSet = new HashSet&lt;&gt;(wordDict);
+        int n = s.length();
+        boolean[] dp = new boolean[n + 1];
+        dp[0] = true;
+        for(int i = 1;i &lt;= n;i++)&#123;
+            for(int j = 0;j &lt; i;j++)&#123;
+                if(dp[j] &amp;&amp; wordDictSet.contains(s.substring(j,i)))&#123;
+                    dp[i] = true;
+                    break;
+                &#125;
+            &#125;
+        &#125;
+        return dp[n];
+    &#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
@@ -110,54 +602,260 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/09/07/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+    <title>数组刷题指南</title>
+    <url>/2021/09/14/%E6%95%B0%E7%BB%84%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>原题链接：</p>
+<p><a href="https://leetcode-cn.com/problems/contains-duplicate/">LeetCode 217. 存在重复元素</a></p>
+<p><a href="https://leetcode-cn.com/problems/maximum-subarray/">LeetCode 53. 最大子序和</a></p>
 <span id="more"></span>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>Hello</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>二分查找详解</title>
-    <url>/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/binary-search/solution/er-fen-cha-zhao-xiang-jie-by-labuladong/">原文链接:二分查找细节详解  –LeetCode labuladong</a></p>
-<p>相关题目:</p>
-<p><a href="https://leetcode-cn.com/problems/binary-search/">LeetCode 704. 二分查找</a></p>
-<p><a href="https://leetcode-cn.com/problems/first-bad-version/">LeetCode 278. 第一个错误的版本</a></p>
-<p><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode 35. 搜索插入位置</a></p>
-<span id="more"></span>
-
-<p>本人懒狗一枚，详解可以看看上面链接，hhhhh。</p>
-<h4 id="寻找一个数（基本的二分搜索）"><a href="#寻找一个数（基本的二分搜索）" class="headerlink" title="寻找一个数（基本的二分搜索）"></a>寻找一个数（基本的二分搜索）</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;	<span class="comment">//这里-1时，while循环条件得加上=</span></span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;			<span class="comment">//注意</span></span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>; <span class="comment">//防止了 left 和 right 太大直接相加导致溢出</span></span><br><span class="line">            <span class="keyword">if</span>(target == nums[mid])&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &lt; nums[mid])&#123;</span><br><span class="line">                <span class="comment">//如果right初始化为nums.length - 1，这里应该为mid-1;</span></span><br><span class="line">                right = mid - <span class="number">1</span>;		</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &gt; nums[mid])&#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;			<span class="comment">//注意</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="寻找左侧边界的二分搜索"><a href="#寻找左侧边界的二分搜索" class="headerlink" title="寻找左侧边界的二分搜索"></a>寻找左侧边界的二分搜索</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>,right = nums.length;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="comment">//寻找左、右侧边界的二分搜索要注意</span></span><br><span class="line">            <span class="comment">//收紧边界时的条件很重要，</span></span><br><span class="line">            <span class="comment">//这里right = mid ，并且循环结束的条件是 right = left</span></span><br><span class="line">            <span class="comment">//所以循环结束是 right = mid = left</span></span><br><span class="line">            <span class="keyword">if</span>(target == nums[mid])&#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &lt; nums[mid])&#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &gt; nums[mid])&#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(left &gt;= nums.length || nums[left] != target) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="寻找右侧边界的二分搜索"><a href="#寻找右侧边界的二分搜索" class="headerlink" title="寻找右侧边界的二分搜索"></a>寻找右侧边界的二分搜索</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>,right = nums.length;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(target == nums[mid])&#123;</span><br><span class="line">                <span class="comment">//收紧边界时的条件很重要，</span></span><br><span class="line">                <span class="comment">//这里left = mid + 1;并且循环结束的条件是 right = left</span></span><br><span class="line">            	<span class="comment">//所以循环结束是 mid = left - 1 = right - 1；</span></span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &lt; nums[mid])&#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &gt; nums[mid])&#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(right - <span class="number">1</span> &lt; <span class="number">0</span> || nums[right - <span class="number">1</span>] != target) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> right -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
+<h4 id="LeetCode-217-存在重复元素"><a href="#LeetCode-217-存在重复元素" class="headerlink" title="LeetCode 217. 存在重复元素"></a>LeetCode 217. 存在重复元素</h4><blockquote>
+<p>方法一：排序后查找</p>
+</blockquote>
+<pre><code class="java">    public boolean containsDuplicate(int[] nums) &#123;
+        Arrays.sort(nums);
+        for(int i = 0;i &lt; nums.length - 1;i++)&#123;
+            if(nums[i] == nums[i+1])&#123;
+                return true;
+            &#125;
+        &#125;
+        return false;
+    &#125;
+</code></pre>
+<blockquote>
+<p>方法二：HashMap方法</p>
+</blockquote>
+<pre><code class="java">    public boolean containsDuplicate(int[] nums) &#123;
+        Map&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();
+        for(int num:nums)&#123;
+            if(map.get(num) == null)&#123;
+                map.put(num,1);
+            &#125;else&#123;
+                return true;
+            &#125;
+        &#125;
+        return false;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-53-最大子序和"><a href="#LeetCode-53-最大子序和" class="headerlink" title="LeetCode 53. 最大子序和"></a>LeetCode 53. 最大子序和</h4><blockquote>
+<p>方法一：动态规划</p>
+</blockquote>
+<pre><code class="java">    //原始递归
+    public int maxSubArray(int[] nums) &#123;
+        int ans = Integer.MIN_VALUE;
+        for(int i = 0;i &lt; nums.length;i++)&#123;
+            ans = Math.max(ans,dp(nums,i));
+        &#125;
+        return ans;
+    &#125;
+    //dp(i)表示以第i个数结尾的「连续子数组的最大和」
+    public int dp(int[] nums,int i)&#123;
+        if(i == 0) return nums[0];
+        return Math.max(dp(nums,i - 1) + nums[i] , nums[i]);
+    &#125;
+</code></pre>
+<pre><code class="java">    //改良版
+    public int maxSubArray(int[] nums) &#123;
+        int pre = 0;
+        int ans = Integer.MIN_VALUE;
+        for(int num:nums)&#123;
+            pre = Math.max(pre + num , num );
+            ans = Math.max(pre,ans);
+        &#125;
+        return ans;
+    &#125;
+</code></pre>
+<blockquote>
+<p>方法二：分治（还没研究，再嗦）</p>
+</blockquote>
+<h4 id="LeetCode-1-两数之和"><a href="#LeetCode-1-两数之和" class="headerlink" title="LeetCode 1. 两数之和"></a>LeetCode 1. 两数之和</h4><blockquote>
+<p>使用HashMap存储数据查找第二个数</p>
+</blockquote>
+<pre><code class="java">    public int[] twoSum(int[] nums, int target) &#123;
+        Map&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();
+        for(int i = 0;i &lt; nums.length;i++)&#123;
+            if(map.containsKey(target - nums[i]))&#123;
+                return new int[]&#123;map.get(target - nums[i]),i&#125;;
+            &#125;
+            map.put(nums[i],i);
+        &#125;
+        return new int[]&#123;0,1&#125;;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-88-合并两个有序数组"><a href="#LeetCode-88-合并两个有序数组" class="headerlink" title="LeetCode 88. 合并两个有序数组"></a>LeetCode 88. 合并两个有序数组</h4><blockquote>
+<p>使用双指针指向两个数组，开辟一个新数组，将数据存到新数组中。</p>
+</blockquote>
+<pre><code>    public void merge(int[] nums1, int m, int[] nums2, int n) &#123;
+        int[] sorted = new int[m + n];
+        int p1 = 0,p2 = 0;
+        int cur;
+        while(p1 &lt; m || p2 &lt; n)&#123;
+            if(p1 == m)&#123;
+                cur = nums2[p2++];
+            &#125;else if(p2 == n)&#123;
+                cur = nums1[p1++];
+            &#125;else if(nums1[p1] &lt; nums2[p2])&#123;
+                cur = nums1[p1++];
+            &#125;else&#123;
+                cur = nums2[p2++];
+            &#125;
+            sorted[p1 + p2 - 1] = cur;
+        &#125;
+        System.arraycopy(sorted,0,nums1,0,m+n);
+    &#125;
+</code></pre>
+<h4 id="LeetCode-73-矩阵置零"><a href="#LeetCode-73-矩阵置零" class="headerlink" title="LeetCode 73. 矩阵置零"></a>LeetCode 73. 矩阵置零</h4><blockquote>
+<p>使用matrix数组的第0行、第0列存储二维数组中的0的标志信息，但是在这之前要先判断第0行或第0列是否存在0，如果存在后续还需处理第0行、第0列。</p>
+<p>时间复杂度：O(nm)</p>
+<p>空间复杂度：O(1)</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    public void setZeroes(int[][] matrix) &#123;
+        //第0行或第0列是否存在0；
+        Boolean flag_row0 = false;
+        Boolean flag_col0 = false;
+        int row = matrix.length;
+        int col = matrix[0].length;
+        //先判断第0行或第0列是否存在0
+        for(int i = 0;i &lt; row;i++)&#123;
+            if(matrix[i][0] == 0)&#123;
+                flag_col0 = true;
+            &#125;
+        &#125;
+        for(int j = 0;j &lt; col;j++)&#123;
+            if(matrix[0][j] == 0)&#123;
+                flag_row0 = true;
+            &#125;
+        &#125;
+        //使用第0行，第0列标记
+        for(int i = 1; i &lt; row;i++)&#123;
+            for(int j = 1; j &lt; col;j++)&#123;
+                if(matrix[i][j] == 0)&#123;
+                    matrix[i][0] = matrix[0][j] = 0;
+                &#125;
+            &#125;
+        &#125;
+        //赋值0；
+        for(int i = 1; i &lt; row;i++)&#123;
+            for(int j = 1; j &lt; col;j++)&#123;
+                if(matrix[i][0] == 0 || matrix[0][j] == 0)&#123;
+                    matrix[i][j] = 0;
+                &#125;
+            &#125;
+        &#125;
+        if(flag_row0)&#123;
+            for(int j = 0;j &lt; col;j++)&#123;
+                matrix[0][j] = 0;
+            &#125;
+        &#125;
+        if(flag_col0)&#123;
+            for(int i = 0;i &lt; row;i++)&#123;
+                matrix[i][0] = 0;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="LeetCode-121-买卖股票的最佳时机"><a href="#LeetCode-121-买卖股票的最佳时机" class="headerlink" title="LeetCode 121. 买卖股票的最佳时机"></a>LeetCode <a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">121. 买卖股票的最佳时机</a></h4><blockquote>
+<p>方法一：和LeetCode 53. 最大子序和有点像。</p>
+</blockquote>
+<pre><code>    public int maxProfit(int[] prices) &#123;
+        int maxAns = 0;
+        //f(i)表示第i天买出可获得的最大利润
+        int fi = 0;
+        for(int i = 1;i &lt; prices.length;i++)&#123;
+            if(i == 1)&#123;
+                fi = Math.max(0,prices[i] - prices[i-1]);
+            &#125;else&#123;
+                fi = Math.max(fi+prices[i] - prices[i-1],prices[i] - prices[i-1]);
+            &#125;
+            maxAns = Math.max(fi,maxAns);
+        &#125;
+        return maxAns;
+    &#125;
+</code></pre>
+<blockquote>
+<p>方法二：前i天的最大收益 = max{前i-1天的最大收益，第i天的价格-前i-1天中的最小价格}</p>
+<ol>
+<li>记录【今天之前买入的最小值】</li>
+<li>计算【今天之前最小值买入，今天卖出的获利】，也即【今天卖出的最大获利】</li>
+<li>比较【每天的最大获利】，取最大值即可</li>
+</ol>
+</blockquote>
+<pre><code class="java">    public int maxProfit(int[] prices) &#123;
+        int maxAns = 0;
+        //记录【今天之前买入的最小值】
+        int min = prices[0];
+        for(int i = 1; i &lt; prices.length;i++)&#123;
+            maxAns = Math.max(maxAns,prices[i] - min);
+            min = Math.min(min,prices[i]);
+        &#125;
+        return maxAns;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-350-两个数组的交集-II"><a href="#LeetCode-350-两个数组的交集-II" class="headerlink" title="LeetCode 350. 两个数组的交集 II"></a>LeetCode <a href="https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/">350. 两个数组的交集 II</a></h4><blockquote>
+<p>方法一：HashMap存储数组</p>
+</blockquote>
+<pre><code class="java">    public int[] intersect(int[] nums1, int[] nums2) &#123;
+        Map&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();
+        for(int num1:nums1)&#123;
+            if(!map.containsKey(num1))&#123;
+                map.put(num1,1);
+            &#125;else&#123;
+                map.put(num1,map.get(num1) + 1);
+            &#125;
+        &#125;
+        List&lt;Integer&gt; ansList = new ArrayList&lt;&gt;();
+        for(int num2:nums2)&#123;
+            if(map.containsKey(num2) &amp;&amp; map.get(num2) &gt; 0)&#123;
+                ansList.add(num2);
+                map.put(num2,map.get(num2) - 1);
+            &#125;
+        &#125;
+        int[] arr = new int[ansList.size()];
+        for(int i = 0;i &lt; ansList.size();i++)&#123;
+            arr[i] = ansList.get(i);
+        &#125;
+        return arr;
+    &#125;
+</code></pre>
+<blockquote>
+<p>方法二：排序+双指针</p>
+</blockquote>
+<pre><code>class Solution &#123;
+    public int[] intersect(int[] nums1, int[] nums2) &#123;
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int p1 = 0,p2 = 0;
+        ArrayList&lt;Integer&gt; ansList = new ArrayList&lt;&gt;();
+        while(p1 &lt; nums1.length &amp;&amp; p2 &lt; nums2.length)&#123;
+            if(nums1[p1] == nums2[p2])&#123;
+                ansList.add(nums1[p1]);
+                p1++;
+                p2++;
+            &#125;else if(nums1[p1] &lt; nums2[p2])&#123;
+                p1++;
+            &#125;else&#123;
+                p2++;
+            &#125;
+        &#125;
+        int[] ans = new int[ansList.size()];
+        int i = 0;
+        for(int an:ansList)&#123;
+            ans[i++] = an;
+        &#125;
+        return ans;
+    &#125;
+&#125;
+</code></pre>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>算法</tag>
-        <tag>二分查找</tag>
         <tag>LeetCode</tag>
-        <tag>模板题</tag>
+        <tag>数据结构</tag>
+        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
@@ -166,8 +864,18 @@
     <content><![CDATA[<p>将刷算法题中的遇到和用到的工具函数汇总。</p>
 <span id="more"></span>
 
-<h4 id="求最大公约数和最小公倍数"><a href="#求最大公约数和最小公倍数" class="headerlink" title="求最大公约数和最小公倍数"></a>求最大公约数和最小公倍数</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//最大公约数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> y &gt; <span class="number">0</span> ? gcd(y , x % y) : x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//最小公倍数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x / gdc * y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h4 id="求最大公约数和最小公倍数"><a href="#求最大公约数和最小公倍数" class="headerlink" title="求最大公约数和最小公倍数"></a>求最大公约数和最小公倍数</h4><pre><code class="java">    //最大公约数
+    public int gcd(int x,int y)&#123;
+        return y &gt; 0 ? gcd(y , x % y) : x;
+    &#125;
+    //最小公倍数
+    public int lcm(int x,int y)&#123;
+            return x / gdc * y;
+    &#125;
+</code></pre>
+<h4 id="复制数组内容"><a href="#复制数组内容" class="headerlink" title="复制数组内容"></a>复制数组内容</h4><pre><code class="java">    //复制数组
+    System.arraycopy(fromArr,0,toArr,0,len);
+</code></pre>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -179,6 +887,38 @@
       </tags>
   </entry>
   <entry>
+    <title>滑动窗口刷题指南</title>
+    <url>/2021/09/17/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>出现以下情况时，考虑滑动窗口：</p>
+<ol>
+<li>涉及到子串</li>
+</ol>
+<span id="more"></span>
+
+<h4 id="LeetCode-3-无重复字符的最长子串"><a href="#LeetCode-3-无重复字符的最长子串" class="headerlink" title="LeetCode 3. 无重复字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. 无重复字符的最长子串</a></h4><h4 id="LeetCode-30-串联所有单词的子串"><a href="#LeetCode-30-串联所有单词的子串" class="headerlink" title="LeetCode 30. 串联所有单词的子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/">30. 串联所有单词的子串</a></h4><h4 id="LeetCode-76-最小覆盖子串"><a href="#LeetCode-76-最小覆盖子串" class="headerlink" title="LeetCode 76. 最小覆盖子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-substring/">76. 最小覆盖子串</a></h4><h4 id="LeetCode-159-至多包含两个不同字符的最长子串"><a href="#LeetCode-159-至多包含两个不同字符的最长子串" class="headerlink" title="LeetCode 159. 至多包含两个不同字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters/">159. 至多包含两个不同字符的最长子串</a></h4><h4 id="LeetCode-209-长度最小的子数组"><a href="#LeetCode-209-长度最小的子数组" class="headerlink" title="LeetCode 209. 长度最小的子数组"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-size-subarray-sum/">209. 长度最小的子数组</a></h4><h4 id="LeetCode-239-滑动窗口最大值"><a href="#LeetCode-239-滑动窗口最大值" class="headerlink" title="LeetCode 239. 滑动窗口最大值"></a>LeetCode <a href="https://leetcode-cn.com/problems/sliding-window-maximum/">239. 滑动窗口最大值</a></h4><h4 id="LeetCode-567-字符串的排列"><a href="#LeetCode-567-字符串的排列" class="headerlink" title="LeetCode 567. 字符串的排列"></a>LeetCode <a href="https://leetcode-cn.com/problems/permutation-in-string/">567. 字符串的排列</a></h4><h4 id="LeetCode-632-最小区间"><a href="#LeetCode-632-最小区间" class="headerlink" title="LeetCode 632. 最小区间"></a>LeetCode <a href="https://leetcode-cn.com/problems/smallest-range/">632. 最小区间</a></h4><h4 id="LeetCode-727-最小窗口子序列"><a href="#LeetCode-727-最小窗口子序列" class="headerlink" title="LeetCode 727. 最小窗口子序列"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-subsequence/">727. 最小窗口子序列</a></h4>]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>滑动窗口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络面经</title>
+    <url>/2021/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/</url>
+    <content><![CDATA[<span id="more"></span>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo+Next个人博客优化</title>
     <url>/2021/09/13/Hexo+Next%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<p>Hexo版本：4.3.0</p>
@@ -187,194 +927,533 @@
 <span id="more"></span>
 
 <h3 id="设置（更换）主题风格"><a href="#设置（更换）主题风格" class="headerlink" title="设置（更换）主题风格"></a>设置（更换）主题风格</h3><p>打开 <code>themes/next/_config.yml</code> 文件，搜索  <code>scheme</code> 关键字，将你需用启用的 <code>scheme</code> 前面注释 # 去除即可。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Scheme Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse # 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白</span></span><br><span class="line"><span class="comment">#scheme: Mist # Muse 的紧凑版本，整洁有序的单栏外观</span></span><br><span class="line">scheme: Pisces <span class="comment"># 双栏 Scheme，小家碧玉似的清新</span></span><br><span class="line"><span class="comment">#scheme: Gemini # 类似 Pisces</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash"># ---------------------------------------------------------------
+# Scheme Settings
+# ---------------------------------------------------------------
 
+# Schemes
+#scheme: Muse # 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白
+#scheme: Mist # Muse 的紧凑版本，整洁有序的单栏外观
+scheme: Pisces # 双栏 Scheme，小家碧玉似的清新
+#scheme: Gemini # 类似 Pisces
+</code></pre>
 <h3 id="设置菜单项的显示文本和图标"><a href="#设置菜单项的显示文本和图标" class="headerlink" title="设置菜单项的显示文本和图标"></a>设置菜单项的显示文本和图标</h3><p>NexT 使用的是 <a href="http://fontawesome.dashgame.com/">Font Awesome</a>  提供的图标， <a href="http://fontawesome.dashgame.com/">Font Awesome</a> 提供了 600+ 的图标，可以满足绝大的多数的场景，同时无须担心在 Retina 屏幕下图标模糊的问题。</p>
 <h4 id="设置菜单项的显示中文文本："><a href="#设置菜单项的显示中文文本：" class="headerlink" title="设置菜单项的显示中文文本："></a>设置菜单项的显示中文文本：</h4><p>打开 <code>themes/next/languages/zh-CN.yml</code> 文件,搜索 <code>menu</code> 关键字，修改对应中文或者新增。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: 首页</span><br><span class="line">  archives: 归档</span><br><span class="line">  categories: 分类</span><br><span class="line">  tags: 标签</span><br><span class="line">  about: 关于</span><br><span class="line">  search: 搜索</span><br><span class="line">  schedule: 日程表</span><br><span class="line">  sitemap: 站点地图</span><br><span class="line">  commonweal: 公益404</span><br><span class="line">  <span class="comment"># 新增menu</span></span><br><span class="line">  catalogue: 目录</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">menu:
+  home: 首页
+  archives: 归档
+  categories: 分类
+  tags: 标签
+  about: 关于
+  search: 搜索
+  schedule: 日程表
+  sitemap: 站点地图
+  commonweal: 公益404
+  # 新增menu
+  catalogue: 目录
+</code></pre>
 <p>修改<code>themes/next/_config.yml</code>文件，找到<code>language</code>项改为<code>zh-CN</code>。</p>
 <p>同时回到博客根目录，打开<code>_config.yml</code>文件，找到<code>language</code>项改为<code>zh-CN</code>。</p>
 <h4 id="设定菜单项的文件目录和对应图标（新版两项合并）"><a href="#设定菜单项的文件目录和对应图标（新版两项合并）" class="headerlink" title="设定菜单项的文件目录和对应图标（新版两项合并）"></a>设定菜单项的文件目录和对应图标（新版两项合并）</h4><p>打开 <code>themes/next/_config.yml</code> 文件，搜索    <code>menu_icons</code> 关键字，修改对应图标名称或者新增对应 <code>menu</code> 的图标。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Menu Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Usage: `Key: /link/ || icon`</span></span><br><span class="line"><span class="comment"># Key is the name of menu item. If the translation for this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.</span></span><br><span class="line"><span class="comment"># Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.</span></span><br><span class="line"><span class="comment"># When running the site in a subdirectory (e.g. yoursite.com/blog), remove the leading slash from link value (/archives -&gt; archives).</span></span><br><span class="line"><span class="comment"># External url should start with http:// or https://</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="attr">commonweal:</span> <span class="string">/404/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-heartbeat</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable / Disable menu icons / item badges.</span></span><br><span class="line"><span class="attr">menu_settings:</span></span><br><span class="line">  <span class="attr">icons:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">badges:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<pre><code class="yaml"># ---------------------------------------------------------------
+# Menu Settings
+# ---------------------------------------------------------------
 
+# Usage: `Key: /link/ || icon`
+# Key is the name of menu item. If the translation for this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.
+# Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.
+# When running the site in a subdirectory (e.g. yoursite.com/blog), remove the leading slash from link value (/archives -&gt; archives).
+# External url should start with http:// or https://
+menu:
+  home: / || fa fa-home
+  about: /about/ || fa fa-user
+  tags: /tags/ || fa fa-tags
+  categories: /categories/ || fa fa-th
+  archives: /archives/ || fa fa-archive
+  #schedule: /schedule/ || fa fa-calendar
+  #sitemap: /sitemap.xml || fa fa-sitemap
+  commonweal: /404/ || fa fa-heartbeat
+
+# Enable / Disable menu icons / item badges.
+menu_settings:
+  icons: true
+  badges: false
+</code></pre>
 <p>除了 <code>home</code>， <code>archives</code> , <code>/</code>后面都需要手动创建这个页面</p>
 <p><a href="https://blog.csdn.net/Awt_FuDongLai/article/details/107314881">如何创建新的页面？</a></p>
 <h4 id="创建菜单项对应文件目录-以分类为例"><a href="#创建菜单项对应文件目录-以分类为例" class="headerlink" title="创建菜单项对应文件目录,以分类为例"></a>创建菜单项对应文件目录,以分类为例</h4><p>在终端窗口下，定位到 <code>Hexo</code> 站点目录下。使用 <code>hexo new page</code> 新建一个页面，命名为 categories ：</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>cd your-hexo-site</span><br><span class="line"><span class="variable">$ </span>hexo new page categories</span><br></pre></td></tr></table></figure>
-
+<pre><code class="ruby">$ cd your-hexo-site
+$ hexo new page categories
+</code></pre>
 <p>编辑刚新建的页面,设置分类</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2014-12-22 12:39:04</span><br><span class="line">categories: Testing <span class="comment">#分类名 ??不理解什么意思</span></span><br><span class="line"><span class="built_in">type</span>: <span class="string">&quot;categories&quot;</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">---
+title: 分类
+date: 2014-12-22 12:39:04
+categories: Testing #分类名 ??不理解什么意思
+type: &quot;categories&quot;
+---
+</code></pre>
 <h3 id="头像设置"><a href="#头像设置" class="headerlink" title="头像设置"></a>头像设置</h3><h4 id="添加头像"><a href="#添加头像" class="headerlink" title="添加头像"></a>添加头像</h4><p>打开 <code>themes/next/_config.yml</code> 文件，搜索  <code>Sidebar Avatar</code> 关键字，去掉 <code>avatar</code> 前面的<code>#</code>：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="meta"># Sidebar Avatar</span></span><br><span class="line"><span class="meta"># in theme directory(source/images): /images/avatar.jpg</span></span><br><span class="line"><span class="meta"># in site  directory(source/uploads): /uploads/avatar.jpg</span></span><br><span class="line">avatar: http:<span class="comment">//example.com/avatar.png</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="csharp"># Sidebar Avatar
+# in theme directory(source/images): /images/avatar.jpg
+# in site  directory(source/uploads): /uploads/avatar.jpg
+avatar: http://example.com/avatar.png
+</code></pre>
 <p>或者使用本地图片,把图片放入 <code>themes/next/source/images</code> 下,修改 <code>avatar</code>：</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">avatar: <span class="regexp">/images/</span>avatar.gif</span><br></pre></td></tr></table></figure>
-
+<pre><code class="jsx">avatar: /images/avatar.gif
+</code></pre>
 <h4 id="设置头像为圆形并且触碰旋转"><a href="#设置头像为圆形并且触碰旋转" class="headerlink" title="设置头像为圆形并且触碰旋转"></a>设置头像为圆形并且触碰旋转</h4><p>打开主题配置文件</p>
 <blockquote>
 <p>themes/next/_config.yml</p>
 </blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Sidebar Avatar</span></span><br><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">/images/avatar.gif</span></span><br><span class="line">  <span class="comment"># 新版本Hexo将下面下个设置为true，代码判断自动生效</span></span><br><span class="line">  <span class="comment"># If true, the avatar will be dispalyed in circle.</span></span><br><span class="line">  <span class="attr">rounded:</span> <span class="literal">true</span> </span><br><span class="line">  <span class="comment"># If true, the avatar will be rotated with the cursor.</span></span><br><span class="line">  <span class="attr">rotated:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="yaml"># Sidebar Avatar
+avatar:
+  # Replace the default image and set the url here.
+  url: /images/avatar.gif
+  # 新版本Hexo将下面下个设置为true，代码判断自动生效
+  # If true, the avatar will be dispalyed in circle.
+  rounded: true 
+  # If true, the avatar will be rotated with the cursor.
+  rotated: true
+</code></pre>
 <p><a href="https://crayonnew.github.io/2018/11/05/Hexo-NexT%E4%B8%BB%E9%A2%98-%E8%AE%BE%E7%BD%AE%E5%9C%86%E5%BD%A2%E5%A4%B4%E5%83%8F%E5%B9%B6%E6%97%8B%E8%BD%AC/">旧版Hexo设置</a></p>
 <p>新版主题配置文件更换了位置(“/themes/next/source/css/_common/outline/sidebar/sidebar-author.styl”)</p>
 <h3 id="浏览页面的时候显示当前浏览进度"><a href="#浏览页面的时候显示当前浏览进度" class="headerlink" title="浏览页面的时候显示当前浏览进度"></a>浏览页面的时候显示当前浏览进度</h3><p>打开 <code>themes/next/_config.yml</code> ,搜索关键字 <code>scrollpercent</code> ,把 <code>false</code> 改为 <code>true</code>。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Scroll percent label in b2t button</span></span><br><span class="line">scrollpercent: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">  # Scroll percent label in b2t button
+  scrollpercent: true
+</code></pre>
 <p>如果想把 <code>top</code>按钮放在侧边栏,打开 <code>themes/next/_config.yml</code> ,搜索关键字 <code>b2t</code> ,把 <code>false</code> 改为 <code>true</code>。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Back to top in sidebar</span></span><br><span class="line"> b2t: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"> <span class="comment"># Scroll percent label in b2t button</span></span><br><span class="line"> scrollpercent: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash"> # Back to top in sidebar
+  b2t: true
 
+  # Scroll percent label in b2t button
+  scrollpercent: true
+</code></pre>
 <h3 id="侧边栏设置"><a href="#侧边栏设置" class="headerlink" title="侧边栏设置"></a>侧边栏设置</h3><h4 id="设置侧边栏社交链接"><a href="#设置侧边栏社交链接" class="headerlink" title="设置侧边栏社交链接"></a>设置侧边栏社交链接</h4><p>打开 <code>themes/next/_config.yml</code> 文件,搜索关键字 <code>social</code> ,然后添加社交站点名称与地址即可。</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Sidebar Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Social Links.</span></span><br><span class="line"><span class="comment"># Usage: `Key: permalink || icon`</span></span><br><span class="line"><span class="comment"># Key is the link label showing to end users.</span></span><br><span class="line"><span class="comment"># Value before `||` delimeter is the target permalink.</span></span><br><span class="line"><span class="comment"># Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.</span></span><br><span class="line"><span class="symbol">social:</span></span><br><span class="line">  E-<span class="symbol">Mail:</span> <span class="symbol">mailto:</span>yourname<span class="variable">@gmail</span>.com <span class="params">||</span> envelope</span><br><span class="line">  <span class="symbol">Google:</span> <span class="symbol">https:</span>/<span class="regexp">/plus.google.com/yourname</span> <span class="params">||</span> google</span><br><span class="line">  <span class="symbol">Twitter:</span> <span class="symbol">https:</span>/<span class="regexp">/twitter.com/yourname</span> <span class="params">||</span> twitter</span><br><span class="line">  FB <span class="symbol">Page:</span> <span class="symbol">https:</span>/<span class="regexp">/www.facebook.com/yourname</span> <span class="params">||</span> facebook</span><br><span class="line">  <span class="comment"># 等等</span></span><br></pre></td></tr></table></figure>
+<pre><code class="ruby"># ---------------------------------------------------------------
+# Sidebar Settings
+# ---------------------------------------------------------------
 
+# Social Links.
+# Usage: `Key: permalink || icon`
+# Key is the link label showing to end users.
+# Value before `||` delimeter is the target permalink.
+# Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
+social:
+  E-Mail: mailto:yourname@gmail.com || envelope
+  Google: https://plus.google.com/yourname || google
+  Twitter: https://twitter.com/yourname || twitter
+  FB Page: https://www.facebook.com/yourname || facebook
+  # 等等
+</code></pre>
 <h4 id="设置侧边栏社交图标"><a href="#设置侧边栏社交图标" class="headerlink" title="设置侧边栏社交图标"></a>设置侧边栏社交图标</h4><p>打开 <code>themes/next/_config.yml</code> 文件,搜索关键字 <code>social_icons</code> ，添加社交站点名称（注意大小写）图标，<a href="http://fontawesome.dashgame.com/">Font Awesome</a>图标地。</p>
 <h4 id="RSS"><a href="#RSS" class="headerlink" title="RSS"></a>RSS</h4><p>在你 <code>Hexo</code> 站点目录下：</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
-
+<pre><code class="ruby">$ npm install hexo-generator-feed --save
+</code></pre>
 <p>打开 <code>Hexo</code> 站点下的 <code>_config.yml</code> ,添加如下配置：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># feed</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/hexojs/hexo-generator-feed</span></span><br><span class="line">feed:</span><br><span class="line">  <span class="built_in">type</span>: atom</span><br><span class="line">  path: atom.xml</span><br><span class="line">  <span class="built_in">limit</span>: 20</span><br><span class="line">  hub:</span><br><span class="line">  content:</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash"># feed
+# Dependencies: https://github.com/hexojs/hexo-generator-feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+</code></pre>
 <h4 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h4><p>打开 <code>themes/next/_config.yml</code> 文件,搜索关键字 <code>Blog rolls</code>：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="meta"># Blog rolls</span></span><br><span class="line">links_title: 友情链接 <span class="meta">#标题</span></span><br><span class="line">links_layout: block <span class="meta">#布局，一行一个连接</span></span><br><span class="line"><span class="meta">#links_layout: inline</span></span><br><span class="line">links: <span class="meta">#连接</span></span><br><span class="line">  baidu: http:<span class="comment">//example.com/</span></span><br><span class="line">  google: http:<span class="comment">//example.com/</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="csharp"># Blog rolls
+links_title: 友情链接 #标题
+links_layout: block #布局，一行一个连接
+#links_layout: inline
+links: #连接
+  baidu: http://example.com/
+  google: http://example.com/
+</code></pre>
 <h3 id="主页文章添加边框阴影效果"><a href="#主页文章添加边框阴影效果" class="headerlink" title="主页文章添加边框阴影效果"></a>主页文章添加边框阴影效果</h3><p>打开 <code>themes/next/source/css/_custom/custom.styl</code> ,向里面加代码:（旧版本NexT）</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 主页文章添加阴影效果</span></span><br><span class="line">.post &#123;</span><br><span class="line">   margin-top: <span class="number">0</span>px;</span><br><span class="line">   margin-bottom: <span class="number">60</span>px;</span><br><span class="line">   padding: <span class="number">25</span>px;</span><br><span class="line">   -webkit-box-shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, <span class="number">.5</span>)</span></span>;</span><br><span class="line">   -moz-box-shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span><span class="function">px <span class="title">rgba</span><span class="params">(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, <span class="number">.5</span>)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="cpp">// 主页文章添加阴影效果
+.post &#123;
+   margin-top: 0px;
+   margin-bottom: 60px;
+   padding: 25px;
+   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+&#125;
+</code></pre>
 <p>打开<code>themes\next\source\css\_common\components\post\post.styl</code>文件，将<code>post-block</code>代码进行如下更改：（新版本NexT）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (hexo-config(&#x27;motion.transition.post_block&#x27;)) &#123;</span><br><span class="line">    .post-block&#123;</span><br><span class="line">        margin-top: 60px;</span><br><span class="line">        margin-bottom: 60px;</span><br><span class="line">        padding: 25px;</span><br><span class="line">        background:rgba(255,255,255,0.9) none repeat scroll !important; //添加透明效果</span><br><span class="line">        -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">        -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">    &#125;</span><br><span class="line">    .pagination, .comments &#123;</span><br><span class="line">      opacity: 0;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code>if (hexo-config(&#39;motion.transition.post_block&#39;)) &#123;
+    .post-block&#123;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        padding: 25px;
+        background:rgba(255,255,255,0.9) none repeat scroll !important; //添加透明效果
+        -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+        -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+    &#125;
+    .pagination, .comments &#123;
+      opacity: 0;
+    &#125;
+  &#125;
+</code></pre>
 <h3 id="修改文章间分割线"><a href="#修改文章间分割线" class="headerlink" title="修改文章间分割线"></a>修改文章间分割线</h3><blockquote>
 <p>新版NexT已配置好</p>
 </blockquote>
 <p>打开 <code>themes/next/source/css/_common/components/post/post-eof.styl</code> ,修改：</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">.posts-expand &#123;</span><br><span class="line">  .post-eof &#123;</span><br><span class="line">    <span class="symbol">display:</span> block;</span><br><span class="line">  <span class="regexp">//</span>  <span class="symbol">margin:</span> <span class="variable">$post</span>-eof-margin-top auto <span class="variable">$post</span>-eof-margin-bottom;  </span><br><span class="line">    <span class="symbol">width:</span> <span class="number">0</span>%; <span class="regexp">//</span>分割线长度</span><br><span class="line">    <span class="symbol">height:</span> 0px; <span class="regexp">//</span> 分割线高度</span><br><span class="line">    <span class="symbol">background:</span> <span class="variable">$grey</span>-light;</span><br><span class="line">    text-<span class="symbol">align:</span> center;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="ruby">.posts-expand &#123;
+  .post-eof &#123;
+    display: block;
+  //  margin: $post-eof-margin-top auto $post-eof-margin-bottom;  
+    width: 0%; //分割线长度
+    height: 0px; // 分割线高度
+    background: $grey-light;
+    text-align: center;
+  &#125;
+&#125;
+</code></pre>
 <h3 id="代码块自定义样式"><a href="#代码块自定义样式" class="headerlink" title="代码块自定义样式"></a>代码块自定义样式</h3><blockquote>
 <p>不知道是啥</p>
 </blockquote>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Custom styles.</span></span><br><span class="line">code &#123;</span><br><span class="line">    color: <span class="meta">#ff7600;</span></span><br><span class="line">    background: <span class="meta">#fbf7f8;</span></span><br><span class="line">    margin: <span class="number">2</span>px;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 边框的自定义样式</span></span><br><span class="line">.highlight, pre &#123;</span><br><span class="line">    margin: <span class="number">5</span>px <span class="number">0</span>;</span><br><span class="line">    padding: <span class="number">5</span>px;</span><br><span class="line">    border-radius: <span class="number">3</span>px;</span><br><span class="line">&#125;</span><br><span class="line">.highlight, code, pre &#123;</span><br><span class="line">    border: <span class="number">1</span>px solid <span class="meta">#d6d6d6;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="csharp">// Custom styles.
+code &#123;
+    color: #ff7600;
+    background: #fbf7f8;
+    margin: 2px;
+&#125;
+// 边框的自定义样式
+.highlight, pre &#123;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 3px;
+&#125;
+.highlight, code, pre &#123;
+    border: 1px solid #d6d6d6;
+&#125;
+</code></pre>
 <h3 id="开启版权声明"><a href="#开启版权声明" class="headerlink" title="开启版权声明"></a>开启版权声明</h3><blockquote>
 <p>旧版本NexT</p>
 </blockquote>
 <p>主题配置文件下,搜索关键字 <code>post_copyright</code> , <code>enable</code> 改为 <code>true</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Declare license on posts</span></span><br><span class="line"><span class="attr">post_copyright:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">CC</span> <span class="string">BY-NC-SA</span> <span class="number">4.0</span></span><br><span class="line">  <span class="attr">license_url:</span> <span class="string">https://creativecommons.org/licenses/by-nc-sa/4.0/</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="yaml"># Declare license on posts
+post_copyright:
+  enable: true
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+</code></pre>
 <blockquote>
 <p>新版本NexT</p>
 </blockquote>
 <p>主题配置文件下,搜索关键字 <code>creative_commons</code> , <code>post</code> 改为 <code>true</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Creative Commons 4.0 International License.</span></span><br><span class="line"><span class="comment"># See: https://creativecommons.org/share-your-work/licensing-types-examples</span></span><br><span class="line"><span class="comment"># Available values of license: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span></span><br><span class="line"><span class="comment"># You can set a language value if you prefer a translated version of CC license, e.g. deed.zh</span></span><br><span class="line"><span class="comment"># CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org</span></span><br><span class="line"><span class="attr">creative_commons:</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">by-nc-sa</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">post:</span> <span class="literal">true</span> 	<span class="comment"># 默认显示版权信息</span></span><br><span class="line">  <span class="attr">language:</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="yaml"># Creative Commons 4.0 International License.
+# See: https://creativecommons.org/share-your-work/licensing-types-examples
+# Available values of license: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
+# You can set a language value if you prefer a translated version of CC license, e.g. deed.zh
+# CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org
+creative_commons:
+  license: by-nc-sa
+  sidebar: false
+  post: true     # 默认显示版权信息
+  language:
+</code></pre>
 <blockquote>
 <p><a href="https://blog.pangao.vip/Hexo%E5%8D%9A%E5%AE%A2NexT%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E/">自定义版权声明文件内容</a></p>
 </blockquote>
 <h3 id="设置页面加载动画"><a href="#设置页面加载动画" class="headerlink" title="设置页面加载动画"></a>设置页面加载动画</h3><p><a href="https://tding.top/archives/dfac1e9c.html">原文链接</a></p>
 <p>主题配置文件下,<code>enable</code>改为<code>true</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">pace:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Themes list:</span></span><br><span class="line">  <span class="comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span></span><br><span class="line">  <span class="comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">minimal</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<pre><code class="yaml">pace:
+  enable: true
+  # Themes list:
+  # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple
+  # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal
+  theme: minimal
+</code></pre>
 <p>但是这个加载动画需要安装依赖，地址：<a href="https://github.com/theme-next/theme-next-pace">Progress bar for NexT</a>。</p>
 <ul>
 <li>方法 1：安装文件</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 进入主题目录</span><br><span class="line">cd themes/next</span><br><span class="line"></span><br><span class="line"># 从GitHub下载依赖文件</span><br><span class="line">git clone https://github.com/theme-next/theme-next-pace source/lib/pace</span><br></pre></td></tr></table></figure>
+<pre><code># 进入主题目录
+cd themes/next
 
+# 从GitHub下载依赖文件
+git clone https://github.com/theme-next/theme-next-pace source/lib/pace
+</code></pre>
 <ul>
 <li>方法 2：启用 CDN(未使用过)</li>
 </ul>
 <p>我们可以在主题配置文件<code>_config.yml</code> 中修改：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vendors:</span><br><span class="line">  pace: //cdn.jsdelivr.net/npm/pace-js@1/pace.min.js</span><br><span class="line">  pace_css: //cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.min.css</span><br></pre></td></tr></table></figure>
-
+<pre><code>vendors:
+  pace: //cdn.jsdelivr.net/npm/pace-js@1/pace.min.js
+  pace_css: //cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.min.css
+</code></pre>
 <h3 id="在右上角或者左上角实现fork-me-on-github"><a href="#在右上角或者左上角实现fork-me-on-github" class="headerlink" title="在右上角或者左上角实现fork me on github"></a>在右上角或者左上角实现fork me on github</h3><p>1.首先到<a href="http://tholman.com/github-corners/">GitHub Corners</a>或者<a href="https://github.blog/2008-12-19-github-ribbons/">GitHub Ribbons</a>选择自己喜欢的图标，然后copy相应的代码</p>
 <p>2.然后将刚才复制的代码粘贴到<code>themes/next/layout/_layout.swig</code>文件中<div class="headband"></div>下面一行</p>
 <p>3.把代码中的href后面的值替换成你要跳转的地址，比如你的GitHub主页</p>
 <h3 id="顶部阅读进度条"><a href="#顶部阅读进度条" class="headerlink" title="顶部阅读进度条"></a>顶部阅读进度条</h3><p>在主题配置文件中修改<code>enable</code>为<code>true</code></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">reading_progress:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Available values: top | bottom</span></span><br><span class="line">  <span class="attr">position:</span> <span class="string">top</span></span><br><span class="line">  <span class="attr">color:</span> <span class="string">&quot;#37c6c0&quot;</span></span><br><span class="line">  <span class="attr">height:</span> <span class="string">3px</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="yaml">reading_progress:
+  enable: true
+  # Available values: top | bottom
+  position: top
+  color: &quot;#37c6c0&quot;
+  height: 3px
+</code></pre>
 <h3 id="修改文章底部的那个带-号的标签"><a href="#修改文章底部的那个带-号的标签" class="headerlink" title="修改文章底部的那个带#号的标签"></a>修改文章底部的那个带#号的标签</h3><p>打开配置文件<code>themes\next\layout\_macro\post.swg</code>，观察代码</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;%- if post.tags and post.tags.length %&#125;</span><br><span class="line">	<span class="comment">&lt;!--这里判断theme.tag_icon是否为true--&gt;</span></span><br><span class="line">         &#123;%- if theme.tag_icon %&#125;</span><br><span class="line">		<span class="comment">&lt;!--如果是则使用fa fa-tag图标--&gt;</span></span><br><span class="line">           &#123;%- set tag_indicate = &#x27;<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-tag&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>&#x27; %&#125;</span><br><span class="line">         &#123;% else %&#125;</span><br><span class="line">		<span class="comment">&lt;!--如果不是则使用&#x27;#&#x27;--&gt;</span></span><br><span class="line">           &#123;%- set tag_indicate = &#x27;#&#x27; %&#125;</span><br><span class="line">         &#123;%- endif %&#125;</span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;post-tags&quot;</span>&gt;</span></span><br><span class="line">           &#123;%- for tag in post.tags.toArray() %&#125;</span><br><span class="line">             <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;tag&quot;</span>&gt;</span>&#123;&#123; tag_indicate &#125;&#125; &#123;&#123; tag.name &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">           &#123;%- endfor %&#125;</span><br><span class="line">         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   &#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">    &#123;%- if post.tags and post.tags.length %&#125;
+        &lt;!--这里判断theme.tag_icon是否为true--&gt;
+          &#123;%- if theme.tag_icon %&#125;
+            &lt;!--如果是则使用fa fa-tag图标--&gt;
+            &#123;%- set tag_indicate = '<i class="fa fa-tag"></i>' %&#125;
+          &#123;% else %&#125;
+            &lt;!--如果不是则使用&#39;#&#39;--&gt;
+            &#123;%- set tag_indicate = '#' %&#125;
+          &#123;%- endif %&#125;
+          &lt;div class=&quot;post-tags&quot;&gt;
+            &#123;%- for tag in post.tags.toArray() %&#125;
+              &lt;a href=&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel=&quot;tag&quot;&gt;&#123;&#123; tag_indicate &#125;&#125; &#123;&#123; tag.name &#125;&#125;&lt;/a&gt;
+            &#123;%- endfor %&#125;
+          &lt;/div&gt;
+    &#123;%- endif %&#125;
+</code></pre>
 <p>因此，在主题配置文件<code>_config.yml</code>，将<code>tag_icon</code>设置为<code>true</code>。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Use icon instead of the symbol # to indicate the tag at the bottom of the post</span></span><br><span class="line"><span class="attr">tag_icon:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="yaml"># Use icon instead of the symbol # to indicate the tag at the bottom of the post
+tag_icon: true
+</code></pre>
 <h3 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h3><p>在你站点的根目录下</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
+<pre><code class="ruby">$ npm install hexo-generator-searchdb --save
+</code></pre>
 <p>打开 <code>Hexo</code> 站点的 <code>_config.yml</code>,添加配置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  <span class="built_in">limit</span>: 10000</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+</code></pre>
 <p>打开 <code>themes/next/_config.yml</code> ,搜索关键字 <code>local_search</code> ,设置为 <code>true</code>：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/flashlab/hexo-generator-search</span></span><br><span class="line">local_search:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  <span class="comment"># if auto, trigger search by changing input</span></span><br><span class="line">  <span class="comment"># if manual, trigger search by pressing enter key or search button</span></span><br><span class="line">  trigger: auto</span><br><span class="line">  <span class="comment"># show top n results per article, show all results by setting to -1</span></span><br><span class="line">  top_n_per_article: 1</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash"># Local search
+# Dependencies: https://github.com/flashlab/hexo-generator-search
+local_search:
+  enable: true
+  # if auto, trigger search by changing input
+  # if manual, trigger search by pressing enter key or search button
+  trigger: auto
+  # show top n results per article, show all results by setting to -1
+  top_n_per_article: 1
+</code></pre>
 <h3 id="修改网页底部"><a href="#修改网页底部" class="headerlink" title="修改网页底部"></a>修改网页底部</h3><ol>
 <li>在图标库中找到你自己喜欢的图标，修改桃心,打开 <code>themes/next/_config.yml</code> ,搜索关键字 <code>footer</code>,在<code>icon</code>中替换图标名</li>
 <li>隐藏网页底部 <code>Hexo 强力驱动</code>，打开主题配置文件,搜索关键字 <code>copyright</code> ，将<code>powered</code>设置为<code>false</code>:</li>
 </ol>
-<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">footer:</span><br><span class="line">  # Specify the date when the site was setup. If not defined, current year will be used.</span><br><span class="line">  <span class="meta">#since: 2015</span></span><br><span class="line"></span><br><span class="line">  # Icon between year and copyright info.</span><br><span class="line">  icon:</span><br><span class="line">    # Icon name <span class="keyword">in</span> Font Awesome. See: https:<span class="comment">//fontawesome.com/icons</span></span><br><span class="line">    name: fa fa-star</span><br><span class="line">    # If you want to animate the icon, set it to <span class="literal">true</span>.</span><br><span class="line">    animated: <span class="literal">false</span></span><br><span class="line">    # Change the color of icon, using Hex Code.</span><br><span class="line">    color: <span class="string">&quot;#ff0000&quot;</span></span><br><span class="line"></span><br><span class="line">  # If not defined, `author` from Hexo `_config.yml` will be used.设置作者名称</span><br><span class="line">  copyright: <span class="literal">false</span></span><br><span class="line">    </span><br><span class="line">  # Powered by Hexo &amp; NexT</span><br><span class="line">  powered: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<pre><code class="objectivec">footer:
+  # Specify the date when the site was setup. If not defined, current year will be used.
+  #since: 2015
 
-<h3 id="统计功能，统计功能-显示文章字数统计-阅读时长-总字数"><a href="#统计功能，统计功能-显示文章字数统计-阅读时长-总字数" class="headerlink" title="统计功能，统计功能,显示文章字数统计,阅读时长,总字数"></a>统计功能，统计功能,显示文章字数统计,阅读时长,总字数</h3><h4 id="首页文章属性"><a href="#首页文章属性" class="headerlink" title="首页文章属性"></a>首页文章属性</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_meta:</span><br><span class="line">  item_text: false    # 设为true 可以一行显示，文章的所有属性</span><br><span class="line">  created_at: true    # 显示创建时间</span><br><span class="line">  updated_at:</span><br><span class="line">    enabled: true     # 显示修改的时间</span><br><span class="line">    another_day: true # 设true时，如果创建时间和修改时间一样则显示一个时间</span><br><span class="line">  categories: true    # 显示分类信息</span><br></pre></td></tr></table></figure>
+  # Icon between year and copyright info.
+  icon:
+    # Icon name in Font Awesome. See: https://fontawesome.com/icons
+    name: fa fa-star
+    # If you want to animate the icon, set it to true.
+    animated: false
+    # Change the color of icon, using Hex Code.
+    color: &quot;#ff0000&quot;
 
-<h4 id="页面阅读统计"><a href="#页面阅读统计" class="headerlink" title="页面阅读统计"></a>页面阅读统计</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: false              # 设true 开启</span><br><span class="line">  total_visitors: true       # 总阅读人数（uv数）</span><br><span class="line">  total_visitors_icon: user  # 阅读总人数的图标</span><br><span class="line">  total_views: true          # 总阅读次数（pv数）</span><br><span class="line">  total_views_icon: eye      # 阅读总次数的图标</span><br><span class="line">  post_views: true           # 开启内容阅读次数</span><br><span class="line">  post_views_icon: eye       # 内容页阅读数的图标</span><br></pre></td></tr></table></figure>
-
+  # If not defined, `author` from Hexo `_config.yml` will be used.设置作者名称
+  copyright: false
+    
+  # Powered by Hexo &amp; NexT
+  powered: true
+</code></pre>
+<h3 id="统计功能，统计功能-显示文章字数统计-阅读时长-总字数"><a href="#统计功能，统计功能-显示文章字数统计-阅读时长-总字数" class="headerlink" title="统计功能，统计功能,显示文章字数统计,阅读时长,总字数"></a>统计功能，统计功能,显示文章字数统计,阅读时长,总字数</h3><h4 id="首页文章属性"><a href="#首页文章属性" class="headerlink" title="首页文章属性"></a>首页文章属性</h4><pre><code>post_meta:
+  item_text: false    # 设为true 可以一行显示，文章的所有属性
+  created_at: true    # 显示创建时间
+  updated_at:
+    enabled: true     # 显示修改的时间
+    another_day: true # 设true时，如果创建时间和修改时间一样则显示一个时间
+  categories: true    # 显示分类信息
+</code></pre>
+<h4 id="页面阅读统计"><a href="#页面阅读统计" class="headerlink" title="页面阅读统计"></a>页面阅读统计</h4><pre><code>busuanzi_count:
+  enable: false              # 设true 开启
+  total_visitors: true       # 总阅读人数（uv数）
+  total_visitors_icon: user  # 阅读总人数的图标
+  total_views: true          # 总阅读次数（pv数）
+  total_views_icon: eye      # 阅读总次数的图标
+  post_views: true           # 开启内容阅读次数
+  post_views_icon: eye       # 内容页阅读数的图标
+</code></pre>
 <h4 id="字数统计、阅读时长"><a href="#字数统计、阅读时长" class="headerlink" title="字数统计、阅读时长"></a>字数统计、阅读时长</h4><p>首先安装插件：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
-
+<pre><code>npm install hexo-symbols-count-time --save
+</code></pre>
 <p>主题配置文件<code>_config.yml</code> 修改如下：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">separated_meta:</span> <span class="literal">true</span>  <span class="comment"># false会显示一行</span></span><br><span class="line">  <span class="attr">item_text_post:</span> <span class="literal">true</span>  <span class="comment"># 显示属性名称,设为false后只显示图标和统计数字,不显示属性的文字</span></span><br><span class="line">  <span class="attr">item_text_total:</span> <span class="literal">true</span> <span class="comment"># 底部footer是否显示字数统计属性文字</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">4</span>                <span class="comment"># 计算字数的一个设置,没设置过</span></span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span>              <span class="comment"># 一分钟阅读的字数</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="yaml">symbols_count_time:
+  separated_meta: true  # false会显示一行
+  item_text_post: true  # 显示属性名称,设为false后只显示图标和统计数字,不显示属性的文字
+  item_text_total: true # 底部footer是否显示字数统计属性文字
+  awl: 4                # 计算字数的一个设置,没设置过
+  wpm: 275              # 一分钟阅读的字数
+</code></pre>
 <p>站点配置文件<code>_config.yml</code> 新增如下：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line"> <span class="comment">#文章内是否显示</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span></span><br><span class="line"> <span class="comment"># 网页底部是否显示</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="yaml">symbols_count_time:
+ #文章内是否显示
+  symbols: true
+  time: true
+ # 网页底部是否显示
+  total_symbols: true
+  total_time: true
+</code></pre>
 <h3 id="首页文章不展示全文显示摘要"><a href="#首页文章不展示全文显示摘要" class="headerlink" title="首页文章不展示全文显示摘要"></a>首页文章不展示全文显示摘要</h3><p>我们可以在主题配置文件中设置：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scroll_to_more: true      # 点击阅读全文后是否跳到&lt;!--more--&gt;标记处,设为false时点击阅读全文可以从头阅读</span><br><span class="line"></span><br><span class="line">save_scroll: false        # 自动保存每篇文章或页面上一次滚动的地方</span><br><span class="line"></span><br><span class="line">excerpt_description: true # 自动在首页对文章进行摘要描述作为前言文本</span><br><span class="line"></span><br><span class="line">auto_excerpt:   # 是否自动截取摘要</span><br><span class="line">  enable: false # 设置为true则自动截取150字当做首页摘要</span><br><span class="line">  length: 150   # 自动截取的字数</span><br></pre></td></tr></table></figure>
+<pre><code>scroll_to_more: true      # 点击阅读全文后是否跳到&lt;!--more--&gt;标记处,设为false时点击阅读全文可以从头阅读
 
+save_scroll: false        # 自动保存每篇文章或页面上一次滚动的地方
+
+excerpt_description: true # 自动在首页对文章进行摘要描述作为前言文本
+
+auto_excerpt:   # 是否自动截取摘要
+  enable: false # 设置为true则自动截取150字当做首页摘要
+  length: 150   # 自动截取的字数
+</code></pre>
 <blockquote>
 <p>官方公告：<code>auto_excerpt</code> 可以自动截断文章内容作为摘要。此功能不是一个 Hexo 主题应当负责的，这为主题的维护者带来了太大压力。自 7.6.0 版本开始，此功能被移除，请自行安装第三方插件，或阅读 Hexo 有关文档。当然，我们仍然建议通过 <code>&lt;!-- more --&gt;</code> 来精确控制 Read More 的位置。</p>
 </blockquote>
 <p><strong>因此，这个功能在新版的 NexT 已经被废弃了，大家可以直接在文章中添加 <code>&lt;!-- more --&gt;</code> 来精确控制摘要内容</strong>。</p>
 <h3 id="添加Live2D看板娘"><a href="#添加Live2D看板娘" class="headerlink" title="添加Live2D看板娘"></a>添加Live2D看板娘</h3><h4 id="普通版"><a href="#普通版" class="headerlink" title="普通版"></a>普通版</h4><p>输入如下命令获取 live2d ：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cnpm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
-
+<pre><code>cnpm install --save hexo-helper-live2d
+</code></pre>
 <p>输入以下命令，下载相应的模型，将 packagename 更换成模型名称即可，更多模型选择请<a href="https://github.com/xiazeyu/live2d-widget-models">点击此处</a>，各个模型的预览请<a href="https://huaji8.top/post/live2d-plugin-2.0/">访问原作者的博客</a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install packagename</span><br></pre></td></tr></table></figure>
-
+<pre><code>$ npm install packagename
+</code></pre>
 <p>打开站点目录下的 _config.yml 文件，添加如下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">复制live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-haruto #模型选择</span><br><span class="line">  display:</span><br><span class="line">    position: right  #模型位置</span><br><span class="line">    width: 150       #模型宽度</span><br><span class="line">    height: 300      #模型高度</span><br><span class="line">  mobile:</span><br><span class="line">    show: false      #是否在手机端显示</span><br></pre></td></tr></table></figure>
-
+<pre><code>复制live2d:
+  enable: true
+  scriptFrom: local
+  model:
+    use: live2d-widget-model-haruto #模型选择
+  display:
+    position: right  #模型位置
+    width: 150       #模型宽度
+    height: 300      #模型高度
+  mobile:
+    show: false      #是否在手机端显示
+</code></pre>
 <p>取消看板娘</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cnpm uninstall hexo-helper-live2d</span><br></pre></td></tr></table></figure>
-
+<pre><code>cnpm uninstall hexo-helper-live2d
+</code></pre>
 <h4 id="进阶版"><a href="#进阶版" class="headerlink" title="进阶版"></a><a href="https://blog.csdn.net/qq_39610915/article/details/90679768">进阶版</a></h4><h3 id="文章打赏功能"><a href="#文章打赏功能" class="headerlink" title="文章打赏功能"></a>文章打赏功能</h3><p>主题配置文件下：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Reward (Donate)</span></span><br><span class="line"><span class="comment"># Front-matter variable (unsupport animation).</span></span><br><span class="line"><span class="attr">reward_settings:</span></span><br><span class="line">  <span class="comment"># If true, reward will be displayed in every article by default.</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">animation:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment">#comment: Donate comment here.</span></span><br><span class="line"></span><br><span class="line"><span class="attr">reward:</span></span><br><span class="line">  <span class="attr">wechatpay:</span> <span class="string">/images/wechatpay.png</span></span><br><span class="line">  <span class="attr">alipay:</span> <span class="string">/images/alipay.png</span></span><br><span class="line">  <span class="comment">#paypal: /images/paypal.png</span></span><br><span class="line">  <span class="comment">#bitcoin: /images/bitcoin.png</span></span><br></pre></td></tr></table></figure>
+<pre><code class="yaml"># Reward (Donate)
+# Front-matter variable (unsupport animation).
+reward_settings:
+  # If true, reward will be displayed in every article by default.
+  enable: true
+  animation: false
+  #comment: Donate comment here.
 
+reward:
+  wechatpay: /images/wechatpay.png
+  alipay: /images/alipay.png
+  #paypal: /images/paypal.png
+  #bitcoin: /images/bitcoin.png
+</code></pre>
 <h3 id="内容页里的代码块新增复制按钮"><a href="#内容页里的代码块新增复制按钮" class="headerlink" title="内容页里的代码块新增复制按钮"></a>内容页里的代码块新增复制按钮</h3><p>主题配置文件下：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">codeblock:</span></span><br><span class="line">  <span class="comment"># Code Highlight theme</span></span><br><span class="line">  <span class="comment"># Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic</span></span><br><span class="line">  <span class="comment"># See: https://github.com/chriskempson/tomorrow-theme</span></span><br><span class="line">  <span class="attr">highlight_theme:</span> <span class="string">normal</span>	<span class="comment">#代码块色彩主题</span></span><br><span class="line">  <span class="comment"># Add copy button on codeblock</span></span><br><span class="line">  <span class="attr">copy_button:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span>			<span class="comment">#是否开启复制按钮</span></span><br><span class="line">    <span class="comment"># Show text copy result.</span></span><br><span class="line">    <span class="attr">show_result:</span> <span class="literal">true</span>		<span class="comment">#是否显示复制成功信息</span></span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    <span class="attr">style:</span> <span class="string">mac</span>				<span class="comment">#代码块主题</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="yaml">codeblock:
+  # Code Highlight theme
+  # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
+  # See: https://github.com/chriskempson/tomorrow-theme
+  highlight_theme: normal    #代码块色彩主题
+  # Add copy button on codeblock
+  copy_button:
+    enable: true            #是否开启复制按钮
+    # Show text copy result.
+    show_result: true        #是否显示复制成功信息
+    # Available values: default | flat | mac
+    style: mac                #代码块主题
+</code></pre>
 <h3 id="去除页面最上面的黑线"><a href="#去除页面最上面的黑线" class="headerlink" title="去除页面最上面的黑线"></a>去除页面最上面的黑线</h3><p>个人觉得看着很闹心。</p>
 <blockquote>
 <p>方法一：打开<code>themes\next\layout\_layout.swig</code></p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&#123;%- if theme.motion.enable %&#125; use-motion&#123;%- endif %&#125;&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">		&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt; 注释或者删除这句</span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">	......</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">&lt;div class=&quot;container&#123;%- if theme.motion.enable %&#125; use-motion&#123;%- endif %&#125;&quot;&gt;
+    &lt;!--
+        &lt;div class=&quot;headband&quot;&gt;&lt;/div&gt; 注释或者删除这句
+    --&gt;
+    ......
+&lt;/div&gt;
+</code></pre>
 <blockquote>
 <p>方法二：打开<code>themes\next\source\css\_variables\base.syl</code></p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Headband  将像素设置为0px</span><br><span class="line">// --------------------------------------------------</span><br><span class="line">$headband-height                = 3px;</span><br><span class="line">$headband-bg                    = $black-deep;</span><br></pre></td></tr></table></figure>
-
+<pre><code>// Headband  将像素设置为0px
+// --------------------------------------------------
+$headband-height                = 3px;
+$headband-bg                    = $black-deep;
+</code></pre>
 <h3 id="设置背景图片-博客内容透明化"><a href="#设置背景图片-博客内容透明化" class="headerlink" title="设置背景图片+博客内容透明化"></a>设置背景图片+博客内容透明化</h3><p>将<code>styles.styl</code>文件放入<code>themes\next\source\_data</code>以及<code>hexoblog\_data</code>中（没有文件、文件夹需要创建）</p>
 <p><code>styles.styl</code>文件内容：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">/images/background_pink.jpg</span>); // 可以是路径也可以是链接</span><br><span class="line">    <span class="attribute">background-repeat</span>: no-repeat; // 不重复</span><br><span class="line">    <span class="attribute">background-attachment</span>:fixed; // 固定住背景图片</span><br><span class="line">    <span class="attribute">background-position</span>:<span class="number">50%</span> <span class="number">50%</span>; // 图片位置：居中</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">100%</span> <span class="number">100%</span>; // 图片长宽扩充为<span class="number">100%</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//博客内容透明化</span><br><span class="line">//文章内容的透明度设置</span><br><span class="line"><span class="selector-class">.content-wrap</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//侧边框的透明度设置</span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//菜单栏的透明度设置</span><br><span class="line"><span class="selector-class">.header-inner</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.9</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//搜索框（local-search）的透明度设置</span><br><span class="line"><span class="selector-class">.popup</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.9</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="css">body &#123;
+    background:url(/images/background_pink.jpg); // 可以是路径也可以是链接
+    background-repeat: no-repeat; // 不重复
+    background-attachment:fixed; // 固定住背景图片
+    background-position:50% 50%; // 图片位置：居中
+    background-size: 100% 100%; // 图片长宽扩充为100%
+&#125;
 
+
+//博客内容透明化
+//文章内容的透明度设置
+.content-wrap &#123;
+  opacity: 0.9;
+&#125;
+
+//侧边框的透明度设置
+.sidebar &#123;
+  opacity: 0.9;
+&#125;
+
+//菜单栏的透明度设置
+.header-inner &#123;
+  background: rgba(255,255,255,0.9);
+&#125;
+
+//搜索框（local-search）的透明度设置
+.popup &#123;
+  opacity: 0.9;
+&#125;
+</code></pre>
 <p>打开<code>themes\next\source\css\main.styl</code>，添加最下面这句</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Custom Layer</span><br><span class="line">// --------------------------------------------------</span><br><span class="line">for $inject_style in hexo-config(&#x27;injects.style&#x27;)</span><br><span class="line">  @import $inject_style;</span><br><span class="line">  @import &quot;../_data/styles.styl&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code>// Custom Layer
+// --------------------------------------------------
+for $inject_style in hexo-config(&#39;injects.style&#39;)
+  @import $inject_style;
+  @import &quot;../_data/styles.styl&quot;
+</code></pre>
 <p>打开主题配置文件</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Define custom file paths.</span></span><br><span class="line"><span class="comment"># Create your custom files in site directory `source/_data` and uncomment needed files below.</span></span><br><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="comment">#head: source/_data/head.swig</span></span><br><span class="line">  <span class="comment">#header: source/_data/header.swig</span></span><br><span class="line">  <span class="comment">#sidebar: source/_data/sidebar.swig</span></span><br><span class="line">  <span class="comment">#postMeta: source/_data/post-meta.swig</span></span><br><span class="line">  <span class="comment">#postBodyEnd: source/_data/post-body-end.swig</span></span><br><span class="line">  <span class="comment">#footer: source/_data/footer.swig</span></span><br><span class="line">  <span class="comment">#bodyEnd: source/_data/body-end.swig</span></span><br><span class="line">  <span class="comment">#variable: source/_data/variables.styl</span></span><br><span class="line">  <span class="comment">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">source/_data/styles.styl</span>  <span class="comment">#取消这个注释  </span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="yaml"># Define custom file paths.
+# Create your custom files in site directory `source/_data` and uncomment needed files below.
+custom_file_path:
+  #head: source/_data/head.swig
+  #header: source/_data/header.swig
+  #sidebar: source/_data/sidebar.swig
+  #postMeta: source/_data/post-meta.swig
+  #postBodyEnd: source/_data/post-body-end.swig
+  #footer: source/_data/footer.swig
+  #bodyEnd: source/_data/body-end.swig
+  #variable: source/_data/variables.styl
+  #mixin: source/_data/mixins.styl
+  style: source/_data/styles.styl  #取消这个注释  
+</code></pre>
+<h3 id="每篇文章末尾统一添加“本文结束”标记"><a href="#每篇文章末尾统一添加“本文结束”标记" class="headerlink" title="每篇文章末尾统一添加“本文结束”标记"></a>每篇文章末尾统一添加“本文结束”标记</h3><p>在路径 <code>/themes/next/layout/_macro</code> 中新建  <code>passage-end-tag.swig</code> 文件,并添加以下内容：</p>
+<pre><code class="xml">&lt;div&gt;
+    &#123;% if not is_index %&#125;
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    &#123;% endif %&#125;
+&lt;/div&gt;
+</code></pre>
+<p>打开 <code>themes/next/layout/_macro/post.swig</code> 文件,添加：</p>
+<pre><code class="php">&lt;div&gt;
+    &#123;% if not is_index %&#125;
+    &#123;% include 'passage-end-tag.swig' %&#125;
+    &#123;% endif %&#125;
+ &lt;/div&gt;
+</code></pre>
+<p>然后打开主题配置文件 <code>_config.yml</code>,在末尾添加：</p>
+<pre><code class="yaml"># 文章末尾添加“本文结束”标记
+passage_end_tag:
+enabled: true
+</code></pre>
 ]]></content>
       <categories>
         <category>Hexo</category>
