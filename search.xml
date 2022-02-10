@@ -1,6 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>DFS/BFS刷题指南</title>
+    <url>/2021/09/24/DFS-BFS%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>总结：</p>
+<ol>
+<li>BFS问题与<code>队列Queue</code>分不开。</li>
+<li>DFS问题与<code>栈Stack</code>分不开。</li>
+</ol>
+<span id="more"></span>
+
+<h4 id="LeetCode-617-合并二叉树"><a href="#LeetCode-617-合并二叉树" class="headerlink" title="LeetCode 617. 合并二叉树"></a>LeetCode <a href="https://leetcode-cn.com/problems/merge-two-binary-trees/">617. 合并二叉树</a></h4><blockquote>
+<p>「方法一」DFS</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    public TreeNode mergeTrees(TreeNode root1, TreeNode root2) &#123;
+        if(root1 == null) return root2;
+        if(root2 == null) return root1;
+        root1.val = root1.val+root2.val;
+        root1.left = mergeTrees(root1.left,root2.left);
+        root1.right = mergeTrees(root1.right,root2.right);
+        return root1;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="LeetCode-116-填充每个节点的下一个右侧节点指针"><a href="#LeetCode-116-填充每个节点的下一个右侧节点指针" class="headerlink" title="LeetCode 116. 填充每个节点的下一个右侧节点指针"></a>LeetCode <a href="https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/">116. 填充每个节点的下一个右侧节点指针</a></h4><blockquote>
+<p>「方法一」DFS</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    public Node connect(Node root) &#123;
+        if(root == null) return null;
+        dfs(root);
+        return root;
+    &#125;
+
+    public void dfs(Node node)&#123;
+        if(node.left != null)&#123;
+            node.left.next = node.right;
+            if(node.next != null)&#123;
+                node.right.next = node.next.left;
+            &#125;
+        &#125;
+        if(node.left != null) dfs(node.left);
+        if(node.right != null) dfs(node.right);
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>「方法二」BFS</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    public Node connect(Node root) &#123;
+        if(root == null) return null;
+        Queue&lt;Node&gt; queue = new LinkedList&lt;&gt;();
+        queue.offer(root);
+        while(!queue.isEmpty())&#123;
+            int n = queue.size();
+
+            for(int i = 0;i &lt; n;i++)&#123;
+                Node node = queue.poll();
+                if(i &lt; n - 1)&#123;
+                    node.next = queue.peek();
+                &#125;
+                if(node.left != null)&#123;
+                    queue.offer(node.left);
+                &#125;
+                if(node.right != null)&#123;
+                    queue.offer(node.right);
+                &#125;
+            &#125;
+            
+        &#125;
+        return root;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="LeetCode-542-01-矩阵"><a href="#LeetCode-542-01-矩阵" class="headerlink" title="LeetCode 542. 01 矩阵"></a>LeetCode <a href="https://leetcode-cn.com/problems/01-matrix/">542. 01 矩阵</a></h4><blockquote>
+<p>「方法一」BFS</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    public int[][] updateMatrix(int[][] mat) &#123;
+
+        int[] dx = &#123;1,0,0,-1&#125;;
+        int[] dy = &#123;0,1,-1,0&#125;;
+        //模拟队列
+        Queue&lt;int[]&gt; queue = new LinkedList&lt;&gt;();
+
+        int rn = mat.length;
+        int cn = mat[0].length;
+
+        //初始化队列、二维数组
+        for(int i = 0; i &lt; rn; i++)&#123;
+            for(int j = 0; j &lt; cn; j++)&#123;
+                if(mat[i][j] == 0)&#123;
+                    queue.offer(new int[]&#123;i,j&#125;);
+                &#125;else&#123;
+                    mat[i][j] = -1;
+                &#125;
+            &#125;
+        &#125;
+
+        while(!queue.isEmpty())&#123;
+            int[] cell = queue.poll();
+            int x = cell[0];
+            int y = cell[1];
+            for(int i = 0; i &lt; 4; i++)&#123;
+                int newX = x + dx[i];
+                int newY = y + dy[i];
+                //当遇到未处理的位置
+                if(newX &gt;= 0 &amp;&amp; newX &lt; rn &amp;&amp; newY &gt;= 0 &amp;&amp; newY &lt; cn &amp;&amp; mat[newX][newY] == -1)&#123;
+                    //设置位置信息并且将该位置加入队列
+                    queue.offer(new int[]&#123;newX,newY&#125;);
+                    mat[newX][newY] = mat[x][y] + 1;
+                &#125;
+            &#125;
+        &#125;
+        return mat;
+
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>「方法二」DP（还没研究，再嗦）</p>
+</blockquote>
+<h4 id="LeetCode-994-腐烂的橘子"><a href="#LeetCode-994-腐烂的橘子" class="headerlink" title="LeetCode 994. 腐烂的橘子"></a>LeetCode <a href="https://leetcode-cn.com/problems/rotting-oranges/">994. 腐烂的橘子</a></h4><blockquote>
+<p>「方法一」BFS</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    public int orangesRotting(int[][] grid) &#123;
+        int[] dx = &#123;1,0,0,-1&#125;;
+        int[] dy = &#123;0,1,-1,0&#125;;
+
+        int rn = grid.length;
+        int cn = grid[0].length;
+
+        Queue&lt;Integer&gt; queue = new LinkedList&lt;&gt;();
+        Map&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();
+
+        for(int i = 0; i &lt; rn; i++)&#123;
+            for(int j = 0; j &lt; cn; j++)&#123;
+                if(grid[i][j] == 2)&#123;
+                    int rc = i * cn + j;
+                    queue.offer(rc);
+                    map.put(rc,0);
+                &#125;
+            &#125;
+        &#125;
+
+        int ans = 0;
+        while(!queue.isEmpty())&#123;
+            int rc = queue.poll();
+            int x = rc / cn;
+            int y = rc % cn;
+            for(int i = 0; i &lt; 4; i++)&#123;
+                int newX = x + dx[i];
+                int newY = y + dy[i];
+                if(newX &gt;= 0 &amp;&amp; newX &lt; rn &amp;&amp; newY &gt;= 0 &amp;&amp; newY &lt; cn &amp;&amp; grid[newX][newY] == 1 )&#123;
+                    int newRc = newX * cn + newY;
+                    queue.offer(newRc);
+                    grid[newX][newY] = 2;
+                    map.put(newRc ,map.get(rc) + 1);      
+                    ans = map.get(newRc);         
+                &#125;
+            &#125;
+        &#125;
+
+        for(int[] nums:grid)&#123;
+            for(int num: nums)&#123;
+                if(num == 1)   return -1;
+            &#125;
+        &#125;
+
+        return ans;
+    &#125;
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>DFS/BFS</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HashMap-Hashtable-ConcurrentHashMap</title>
+    <url>/2021/09/24/HashMap-Hashtable-ConcurrentHashMap/</url>
+    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/58621094">原文链接</a></p>
+<span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>JavaSE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo基本使用</title>
     <url>/2021/09/07/Hexo%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h2><p> <code>hexo init</code> 文件夹名称</p>
@@ -52,6 +251,13 @@
 <p><a href="https://leetcode-cn.com/problems/binary-search/">LeetCode 704. 二分查找</a></p>
 <p><a href="https://leetcode-cn.com/problems/first-bad-version/">LeetCode 278. 第一个错误的版本</a></p>
 <p><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode 35. 搜索插入位置</a></p>
+<p><a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置</a></p>
+<p><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/">LeetCode 153. 寻找旋转排序数组中的最小值</a></p>
+<p><a href="https://leetcode-cn.com/problems/find-peak-element/">LeetCode 162. 寻找峰值</a></p>
+<p>注意：</p>
+<ol>
+<li>模板的左右初始值细节很重要，但是<strong>应用时要注意根据具体情况取左右初始值和循环条件</strong>！！</li>
+</ol>
 <span id="more"></span>
 
 <p>本人懒狗一枚，详解可以看看上面链接，hhhhh。</p>
@@ -113,14 +319,65 @@
         return right -1;
     &#125;
 </code></pre>
+<h4 id="LeetCode-153-寻找旋转排序数组中的最小值"><a href="#LeetCode-153-寻找旋转排序数组中的最小值" class="headerlink" title="LeetCode 153. 寻找旋转排序数组中的最小值"></a>LeetCode 153. 寻找旋转排序数组中的最小值</h4><blockquote>
+<p>思路：根据左值，中值，右值的大小关系分类讨论.</p>
+<p>其中符合数组规律的大小关系如下:</p>
+</blockquote>
+<blockquote>
+<p>​        右            中值 &lt; 右值 ， 缩小右边界</p>
+<p>​    中</p>
+<p>左    </p>
+<hr>
+<p>​    中                中值 &gt; 右值 ， 缩小左边界</p>
+<p>左</p>
+<p>​        右</p>
+<hr>
+<p>左                    中值 &lt; 右值 ,    缩小右边界</p>
+<p>​        右</p>
+<p>​    中</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    public int findMin(int[] nums) &#123;
+        int left = 0,right = nums.length - 1;
+        while(left &lt; right)&#123;
+            int mid = (left + right) / 2;
+            if(nums[mid] &lt; nums[right])&#123;
+                right = mid;
+            &#125;else&#123;
+                left = mid + 1;
+            &#125;
+        &#125;
+        return nums[left];
+    &#125;
+&#125;
+</code></pre>
+<h4 id="LeetCode-162-寻找峰值"><a href="#LeetCode-162-寻找峰值" class="headerlink" title="LeetCode 162. 寻找峰值"></a>LeetCode 162. 寻找峰值</h4><blockquote>
+<p>根据左右指针计算中间位置 m，并比较 m 与 m+1 的值，如果 m 较大，则左侧存在峰值，r = m，如果 m + 1 较大，则右侧存在峰值，l = m + 1.</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    public int findPeakElement(int[] nums) &#123;
+        int left = 0,right = nums.length - 1;
+        while(left &lt; right)&#123;
+            int mid = (left + right) / 2;
+            if(nums[mid] &gt; nums[mid + 1])&#123;
+                right = mid;
+            &#125;else&#123;
+                left = mid + 1;
+            &#125;
+        &#125;
+        return left;
+
+    &#125;
+&#125;
+</code></pre>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>二分查找</tag>
         <tag>算法</tag>
         <tag>LeetCode</tag>
+        <tag>二分查找</tag>
         <tag>模板题</tag>
       </tags>
   </entry>
@@ -291,6 +548,123 @@ class Solution &#123;
         <tag>模板题</tag>
         <tag>数据结构</tag>
         <tag>二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态规划刷题指南</title>
+    <url>/2021/09/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h4 id="LeetCode-139-单词拆分"><a href="#LeetCode-139-单词拆分" class="headerlink" title="LeetCode 139. 单词拆分"></a>LeetCode <a href="https://leetcode-cn.com/problems/word-break/">139. 单词拆分</a></h4><ol>
+<li><p><code>dp[i*]</code> 表示字符串 <code>s</code> 前 <code>i</code> 个字符组成的字符串 <code>s[0..i-1]</code> 是否能被空格拆分成若干个字典中出现的单词 </p>
+</li>
+<li><p>在前 <code>i</code> 个字符组成的字符串找个位置 <code>j</code> 将字符串切成  <code>s[0..j-1]</code> 和 <code>s[j...i-1]</code> ,因此只需判断 <code>dp[j]</code> 是否为 <code>true</code> 以及后续单词 <code>s[j...i-1]</code>是否存在于列表中。</p>
+</li>
+<li><p>得出公式：</p>
+<p> ​                <code>dp[i]</code> = <code>dp[j]</code> &amp;&amp; <code>checks( s[j...i-1] )</code>;</p>
+</li>
+<li><p> 对于边界条件，我们定义 dp[0]=true 表示空串且合法。</p>
+</li>
+</ol>
+<pre><code class="java">    public boolean wordBreak(String s, List&lt;String&gt; wordDict) &#123;
+        //dp[i] 表示字符串 s 前 i 个字符组成的字符串 s[0..i-1] 是否能被空格拆分成若干个字典中出现的单词
+        HashSet&lt;String&gt; wordDictSet = new HashSet&lt;&gt;(wordDict);
+        int n = s.length();
+        boolean[] dp = new boolean[n + 1];
+        dp[0] = true;
+        for(int i = 1;i &lt;= n;i++)&#123;
+            for(int j = 0;j &lt; i;j++)&#123;
+                if(dp[j] &amp;&amp; wordDictSet.contains(s.substring(j,i)))&#123;
+                    dp[i] = true;
+                    break;
+                &#125;
+            &#125;
+        &#125;
+        return dp[n];
+    &#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>创建线程的方式</title>
+    <url>/2021/09/24/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/58821827">原文链接</a></p>
+<span id="more"></span>
+
+<p>我们常说的方式有以下三种：</p>
+<blockquote>
+<p>继承Thread<br>实现Runable接口<br>实现Callable接口（可以获取线程执行之后的返回值）</p>
+</blockquote>
+<p>但实际后两种，更准确的理解是创建了一个可执行的任务，要采用多线程的方式执行，</p>
+<p>还需要通过创建Thread对象来执行，比如 new Thread(new Runnable(){}).start();这样的方式来执行。</p>
+<p>在实际开发中，我们通常采用线程池的方式来完成Thread的创建，更好管理线程资源。</p>
+<p>案例：如何正确启动线程</p>
+<pre><code class="java">class MyThread extends Thread&#123;
+    @Override
+    public void run() &#123;
+        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
+    &#125;
+&#125;
+
+public static void main(String[] args) &#123;
+    MyThread thread = new MyThread();
+    //正确启动线程的方式
+    //thread.run();     //调用run方法并非开启线程
+    thread.start();
+&#125;
+</code></pre>
+<p>案例：实现runnable只是创建了一个可执行任务，并不是一个线程</p>
+<pre><code class="java">class MyTask implements Runnable&#123;
+    @Override
+    public void run() &#123;
+        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
+    &#125;
+&#125;
+
+public static void main(String[] args) &#123;
+    MyTask task = new MyTask();
+    //task.start();     //并不能直接以线程的方式来启动
+    new Thread(task).start();
+&#125;
+</code></pre>
+<p>案例三：runnable vs callable</p>
+<pre><code class="java">class MyTask2 implements Callable&lt;String&gt;&#123;
+    @Override
+    public String call() throws Exception &#123;
+        return Thread.currentThread().getName() + &quot;:running......&quot;;
+    &#125;
+&#125;
+// java5提供了Future接口来代表Callable接口里的call()方法的返回值，并为Future接口提供了一个FutureTask实现类，该实现类实现了Future接口，并实现了Runnable接口，所以这样可以作为Thread的target。
+//通过FutuerTask类的对象的get()方法来获取线程结束后的返回值
+public static void main(String[] args) &#123;
+    MyTask2 task2 = new MyTask2();
+    FutureTask&lt;String&gt; futureTask = new FutureTask&lt;&gt;(task2);
+
+    Thread thread1 = new Thread(futureTask,&quot;我是futureTask线程&quot;);
+    thread1.start();
+    try &#123;
+        System.out.println(futureTask.get());
+    &#125; catch (Exception e) &#123;
+        e.printStackTrace();
+    &#125;
+&#125;
+</code></pre>
+<p>明确一点：</p>
+<p><strong>本质上来说创建线程的方式就是继承Thread，就是线程池，内部也是创建好线程对象来执行任务。</strong></p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>线程</tag>
       </tags>
   </entry>
   <entry>
@@ -530,62 +904,6 @@ class Solution &#123;
       </tags>
   </entry>
   <entry>
-    <title>操作系统面经</title>
-    <url>/2021/09/15/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/</url>
-    <content><![CDATA[<!--mroe-->
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>动态规划刷题指南</title>
-    <url>/2021/09/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<h4 id="LeetCode-139-单词拆分"><a href="#LeetCode-139-单词拆分" class="headerlink" title="LeetCode 139. 单词拆分"></a>LeetCode <a href="https://leetcode-cn.com/problems/word-break/">139. 单词拆分</a></h4><ol>
-<li><p><code>dp[i*]</code> 表示字符串 <code>s</code> 前 <code>i</code> 个字符组成的字符串 <code>s[0..i-1]</code> 是否能被空格拆分成若干个字典中出现的单词 </p>
-</li>
-<li><p>在前 <code>i</code> 个字符组成的字符串找个位置 <code>j</code> 将字符串切成  <code>s[0..j-1]</code> 和 <code>s[j...i-1]</code> ,因此只需判断 <code>dp[j]</code> 是否为 <code>true</code> 以及后续单词 <code>s[j...i-1]</code>是否存在于列表中。</p>
-</li>
-<li><p>得出公式：</p>
-<p> ​                <code>dp[i]</code> = <code>dp[j]</code> &amp;&amp; <code>checks( s[j...i-1] )</code>;</p>
-</li>
-<li><p> 对于边界条件，我们定义 dp[0]=true 表示空串且合法。</p>
-</li>
-</ol>
-<pre><code class="java">    public boolean wordBreak(String s, List&lt;String&gt; wordDict) &#123;
-        //dp[i] 表示字符串 s 前 i 个字符组成的字符串 s[0..i-1] 是否能被空格拆分成若干个字典中出现的单词
-        HashSet&lt;String&gt; wordDictSet = new HashSet&lt;&gt;(wordDict);
-        int n = s.length();
-        boolean[] dp = new boolean[n + 1];
-        dp[0] = true;
-        for(int i = 1;i &lt;= n;i++)&#123;
-            for(int j = 0;j &lt; i;j++)&#123;
-                if(dp[j] &amp;&amp; wordDictSet.contains(s.substring(j,i)))&#123;
-                    dp[i] = true;
-                    break;
-                &#125;
-            &#125;
-        &#125;
-        return dp[n];
-    &#125;
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>我的第一篇博客文章</title>
     <url>/2021/09/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
     <content><![CDATA[<p>#第一章<br>hhh</p>
@@ -599,6 +917,173 @@ class Solution &#123;
       </categories>
       <tags>
         <tag>test1</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>岛屿问题专栏</title>
+    <url>/2021/09/23/%E5%B2%9B%E5%B1%BF%E9%97%AE%E9%A2%98%E4%B8%93%E6%A0%8F/</url>
+    <content><![CDATA[<p>针对岛屿问题的专栏</p>
+<span id="more"></span>
+
+<h4 id="LeetCode-733-图像渲染"><a href="#LeetCode-733-图像渲染" class="headerlink" title="LeetCode 733. 图像渲染"></a>LeetCode <a href="https://leetcode-cn.com/problems/flood-fill/">733. 图像渲染</a></h4><p><strong>做岛屿前可以先品一品这题，思路和解法都与岛屿问题很像。</strong></p>
+<blockquote>
+<p>「方法一」DFS</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    int[] dx = &#123;1,0,0,-1&#125;;
+    int[] dy = &#123;0,1,-1,0&#125;;
+
+    public int[][] floodFill(int[][] image, int sr, int sc, int newColor) &#123;
+        if(newColor == image[sr][sc]) return image;
+        int pastColor = image[sr][sc];
+        dfs(image,sr,sc,newColor,pastColor);
+        return image;
+    &#125;
+
+    public void dfs(int[][] image, int sr, int sc, int newColor,int pastColor)&#123;
+        if(sr &lt; 0 || sr &gt;= image.length || sc &lt; 0 || sc &gt;= image[0].length || image[sr][sc] != pastColor) return;
+        image[sr][sc] = newColor;
+        for(int i = 0;i &lt; 4;i++)&#123;
+            dfs(image,sr + dx[i],sc + dy[i],newColor,pastColor);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>「方法二」BFS</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    int[] dx = &#123;1,0,0,-1&#125;;
+    int[] dy = &#123;0,1,-1,0&#125;;
+
+    public int[][] floodFill(int[][] image, int sr, int sc, int newColor) &#123;
+        if(newColor == image[sr][sc]) return image;
+        int pastColor = image[sr][sc];
+        image[sr][sc] = newColor;
+        Queue&lt;int[]&gt; queue = new LinkedList&lt;&gt;();
+        queue.offer(new int[]&#123;sr,sc&#125;);
+        while(!queue.isEmpty())&#123;
+            int[] cell = queue.poll();
+            for(int i = 0;i &lt; 4;i++)&#123;
+                int x = cell[0] + dx[i];
+                int y = cell[1] + dy[i];
+                if(x &gt;= 0 &amp;&amp; x &lt; image.length &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; image[0].length &amp;&amp; image[x][y] == pastColor)&#123;
+                    queue.offer(new int[]&#123;x,y&#125;);
+                    image[x][y] = newColor;
+                &#125;
+            &#125;
+        &#125;
+        return image;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="LeetCode-200-岛屿数量"><a href="#LeetCode-200-岛屿数量" class="headerlink" title="LeetCode 200. 岛屿数量"></a>LeetCode <a href="https://leetcode-cn.com/problems/number-of-islands/">200. 岛屿数量</a></h4><blockquote>
+<p>「方法一」DFS</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    public int numIslands(char[][] grid) &#123;
+        int ans = 0;
+        int rn = grid.length;
+        int cn = grid[0].length;
+        for(int i = 0; i &lt; rn ; i++)&#123;
+            for(int j = 0 ; j &lt; cn ; j++)&#123;
+                if(grid[i][j] == &#39;1&#39;)&#123;
+                    ++ans;
+                    dfs(grid,i,j);
+                &#125;
+
+            &#125;
+        &#125;
+        return ans;
+    &#125;
+
+    public void dfs(char[][] grid,int row,int col)&#123;
+        if(row &lt; 0 || row &gt;= grid.length || col &lt; 0 || col &gt;=grid[0].length || grid[row][col] == &#39;0&#39;) return;
+
+        grid[row][col] = &#39;0&#39;;
+        dfs(grid,row + 1,col);
+        dfs(grid,row - 1,col);
+        dfs(grid,row,col + 1);
+        dfs(grid,row,col - 1);
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>「方法二」BFS</p>
+</blockquote>
+<blockquote>
+<p>「方法三」并查集（还没研究，再嗦）</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>DFS/BFS</tag>
+        <tag>LeetCode</tag>
+        <tag>岛屿问题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法工具函数汇总</title>
+    <url>/2021/09/13/%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<p>将刷算法题中的遇到和用到的工具函数汇总。</p>
+<span id="more"></span>
+
+<h3 id="一、数学"><a href="#一、数学" class="headerlink" title="一、数学"></a>一、数学</h3><h4 id="判断一个数是否是2的n次方"><a href="#判断一个数是否是2的n次方" class="headerlink" title="判断一个数是否是2的n次方"></a>判断一个数是否是2的n次方</h4><pre><code class="java">    public boolean isPowerOfTwo(int n) &#123;
+        return n &gt; 0 &amp;&amp; (n &amp; (n - 1)) == 0;
+    &#125;
+</code></pre>
+<h4 id="求最大公约数和最小公倍数"><a href="#求最大公约数和最小公倍数" class="headerlink" title="求最大公约数和最小公倍数"></a>求最大公约数和最小公倍数</h4><pre><code class="java">    //最大公约数
+    public int gcd(int x,int y)&#123;
+        return y &gt; 0 ? gcd(y , x % y) : x;
+    &#125;
+    //最小公倍数
+    public int lcm(int x,int y)&#123;
+            return x / gdc(x, y) * y;
+    &#125;
+</code></pre>
+<h3 id="二、数组操作"><a href="#二、数组操作" class="headerlink" title="二、数组操作"></a>二、数组操作</h3><h4 id="复制数组内容"><a href="#复制数组内容" class="headerlink" title="复制数组内容"></a>复制数组内容</h4><pre><code class="java">    //复制数组
+    System.arraycopy(fromArr,0,toArr,0,len);
+</code></pre>
+<h4 id="排序二维数组"><a href="#排序二维数组" class="headerlink" title="排序二维数组"></a>排序二维数组</h4><pre><code class="java">    Arrays.sort(arr, (o1, o2) -&gt; Integer.compare(o1[0], o2[0]));
+</code></pre>
+<h4 id="List-lt-int-gt-转换为int"><a href="#List-lt-int-gt-转换为int" class="headerlink" title="List&lt;int[ ]&gt;转换为int[ ][ ]"></a>List&lt;int[ ]&gt;转换为int[ ][ ]</h4><pre><code class="java">    arr.toArray(new int[arr.size()][]);
+</code></pre>
+<h4 id="List-lt-String-gt-转换为String"><a href="#List-lt-String-gt-转换为String" class="headerlink" title="List&lt;String&gt;转换为String[]"></a>List&lt;String&gt;转换为String[]</h4><pre><code class="java">    arr.toArray(new String[arr.size()]);
+</code></pre>
+<h3 id="三、字符串操作"><a href="#三、字符串操作" class="headerlink" title="三、字符串操作"></a>三、字符串操作</h3><h4 id="String类型转换大小写"><a href="#String类型转换大小写" class="headerlink" title="String类型转换大小写"></a>String类型转换大小写</h4><pre><code class="java">    s = s.toLowerCase();//转小写
+    s = s.toUpperCase();//转大写
+</code></pre>
+<h4 id="Character类型转换大小写"><a href="#Character类型转换大小写" class="headerlink" title="Character类型转换大小写"></a>Character类型转换大小写</h4><pre><code class="java">    ch = Character.toLowerCase(ch);
+    ch = Character.toUpperCase(ch);
+</code></pre>
+<h3 id="四、位运算"><a href="#四、位运算" class="headerlink" title="四、位运算"></a>四、位运算</h3><h4 id="Java位运算相加-C-和Python需要额外处理负数"><a href="#Java位运算相加-C-和Python需要额外处理负数" class="headerlink" title="Java位运算相加(C++和Python需要额外处理负数)"></a>Java位运算相加(C++和Python需要额外处理负数)</h4><pre><code class="java">    public int add(int a, int b) &#123;
+        return b == 0 ? a : add(a ^ b, (a &amp; b) &lt;&lt; 1);
+    &#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>工具函数</tag>
+        <tag>汇总</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统面经</title>
+    <url>/2021/09/15/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/</url>
+    <content><![CDATA[<!--mroe-->
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>操作系统</tag>
       </tags>
   </entry>
   <entry>
@@ -859,34 +1344,6 @@ class Solution &#123;
       </tags>
   </entry>
   <entry>
-    <title>算法工具函数汇总</title>
-    <url>/2021/09/13/%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<p>将刷算法题中的遇到和用到的工具函数汇总。</p>
-<span id="more"></span>
-
-<h4 id="求最大公约数和最小公倍数"><a href="#求最大公约数和最小公倍数" class="headerlink" title="求最大公约数和最小公倍数"></a>求最大公约数和最小公倍数</h4><pre><code class="java">    //最大公约数
-    public int gcd(int x,int y)&#123;
-        return y &gt; 0 ? gcd(y , x % y) : x;
-    &#125;
-    //最小公倍数
-    public int lcm(int x,int y)&#123;
-            return x / gdc * y;
-    &#125;
-</code></pre>
-<h4 id="复制数组内容"><a href="#复制数组内容" class="headerlink" title="复制数组内容"></a>复制数组内容</h4><pre><code class="java">    //复制数组
-    System.arraycopy(fromArr,0,toArr,0,len);
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>工具函数</tag>
-        <tag>汇总</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>滑动窗口刷题指南</title>
     <url>/2021/09/17/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p>出现以下情况时，考虑滑动窗口：</p>
@@ -903,6 +1360,76 @@ class Solution &#123;
         <tag>算法</tag>
         <tag>LeetCode</tag>
         <tag>滑动窗口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>背包问题</title>
+    <url>/2021/10/24/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>程序员节刷<a href="https://leetcode-cn.com/problems/shopping-offers/">LeetCode每日一题(638)</a>，发现是个背包问题，无从下笔，决定仔细研究一番背包问题</p>
+<span id="more"></span>
+
+<h4 id="ACWing-2-01背包问题"><a href="#ACWing-2-01背包问题" class="headerlink" title="ACWing 2. 01背包问题"></a><a href="https://www.acwing.com/problem/content/2/">ACWing 2. 01背包问题</a></h4><p><img src="C:\Users\yangyi\Desktop\工作\images\1（7）.png" alt="1（7）"></p>
+<pre><code class="java">import java.util.*;
+
+public class Main&#123;
+    final static int N = 1010;
+    static int n,m;
+    static int[] v = new int[N];//体积列表
+    static int[] w = new int[N];//价值列表
+    static int[][] dp = new int[N][N];
+    
+    public static void main(String[] args)&#123;
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+        for(int i = 1 ; i &lt;= n; i++)&#123;
+            v[i] = sc.nextInt();
+            w[i] = sc.nextInt();
+        &#125;
+        for(int i = 1; i &lt;= n; i++)&#123;
+            for(int j = 0; j &lt;= m; j++)&#123;
+                if(j &lt; v[i])&#123;
+                    dp[i][j] = dp[i-1][j];
+                &#125;else&#123;
+                    dp[i][j] = Math.max(dp[i-1][j],dp[i-1][j-v[i]] + w[i]);
+                &#125;
+            &#125;
+        &#125;
+        System.out.println(dp[n][m]);
+    &#125;
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>模板题</tag>
+        <tag>背包问题</tag>
+        <tag>DP</tag>
+        <tag>ACWing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>谈谈对面向对象思想的理解</title>
+    <url>/2021/09/25/%E8%B0%88%E8%B0%88%E5%AF%B9%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/52368590">原文链接</a></p>
+<span id="more"></span>
+
+<p>这个问题，通常会让很多人有点不知所措，感觉我一直在编码，但是说到思想很难去阐述。</p>
+<p>下面，我说说自己的想法，</p>
+<p>首先，谈谈“面向过程”vs“面向对象”</p>
+<p>我觉得这两者是思考角度的差异，面向过程更多是以“执行者”的角度来思考问题，而面向对象更多是以“组织者”的角度来思考问题，举个例子，比如我要产生一个0-10之间的随机数，如果以“面向过程”的思维，那我更多是关注如何去设计一个算法，然后保证比较均衡产生0-10的随机数，而面向对象的思维会更多关注，我找谁来帮我们做这件事，比如Random类，调用其中提供的方法即可。</p>
+<p>所以，面向对象的思维更多的是考虑如何去选择合适的工具，然后组织到一起干一件事。</p>
+<p>好比一个导演，要拍一场电影，那么首先要有男猪脚和女猪脚，然后还有其他等等，最后把这些资源组织起来，拍成一场电影。</p>
+<p>再说回我们的程序世界，这个组织者的思维无处不在，比如，我们要开发项目，以三层架构的模式来开发，那么这个时候，我们不需要重复造轮子，只需要选择市面上主流的框架即可，比如SpringMVC，Spring，MyBatis，这些都是各层的主流框架。</p>
+<p>好了，今天就到这，大家可以自己再想很多这样的例子出来，每天一篇，持续更新</p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面向对象</tag>
       </tags>
   </entry>
   <entry>
@@ -1112,7 +1639,7 @@ links: #连接
 <h3 id="代码块自定义样式"><a href="#代码块自定义样式" class="headerlink" title="代码块自定义样式"></a>代码块自定义样式</h3><blockquote>
 <p>不知道是啥</p>
 </blockquote>
-<pre><code class="csharp">// Custom styles.
+<pre><code class="css">// Custom styles.
 code &#123;
     color: #ff7600;
     background: #fbf7f8;

@@ -34,7 +34,7 @@
 <meta property="og:description" content="将刷算法题中的遇到和用到的工具函数汇总。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-13T12:05:17.000Z">
-<meta property="article:modified_time" content="2021-09-15T02:12:59.995Z">
+<meta property="article:modified_time" content="2021-11-11T09:29:09.365Z">
 <meta property="article:author" content="Josef Joestar">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="工具函数">
@@ -254,7 +254,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-15 10:12:59" itemprop="dateModified" datetime="2021-09-15T10:12:59+08:00">2021-09-15</time>
+                <time title="修改时间：2021-11-11 17:29:09" itemprop="dateModified" datetime="2021-11-11T17:29:09+08:00">2021-11-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -272,7 +272,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>208</span>
+              <span>757</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -294,17 +294,37 @@
         <p>将刷算法题中的遇到和用到的工具函数汇总。</p>
 <span id="more"></span>
 
+<h3 id="一、数学"><a href="#一、数学" class="headerlink" title="一、数学"></a>一、数学</h3><h4 id="判断一个数是否是2的n次方"><a href="#判断一个数是否是2的n次方" class="headerlink" title="判断一个数是否是2的n次方"></a>判断一个数是否是2的n次方</h4><pre><code class="java">    public boolean isPowerOfTwo(int n) &#123;
+        return n &gt; 0 &amp;&amp; (n &amp; (n - 1)) == 0;
+    &#125;
+</code></pre>
 <h4 id="求最大公约数和最小公倍数"><a href="#求最大公约数和最小公倍数" class="headerlink" title="求最大公约数和最小公倍数"></a>求最大公约数和最小公倍数</h4><pre><code class="java">    //最大公约数
     public int gcd(int x,int y)&#123;
         return y &gt; 0 ? gcd(y , x % y) : x;
     &#125;
     //最小公倍数
     public int lcm(int x,int y)&#123;
-            return x / gdc * y;
+            return x / gdc(x, y) * y;
     &#125;
 </code></pre>
-<h4 id="复制数组内容"><a href="#复制数组内容" class="headerlink" title="复制数组内容"></a>复制数组内容</h4><pre><code class="java">    //复制数组
+<h3 id="二、数组操作"><a href="#二、数组操作" class="headerlink" title="二、数组操作"></a>二、数组操作</h3><h4 id="复制数组内容"><a href="#复制数组内容" class="headerlink" title="复制数组内容"></a>复制数组内容</h4><pre><code class="java">    //复制数组
     System.arraycopy(fromArr,0,toArr,0,len);
+</code></pre>
+<h4 id="排序二维数组"><a href="#排序二维数组" class="headerlink" title="排序二维数组"></a>排序二维数组</h4><pre><code class="java">    Arrays.sort(arr, (o1, o2) -&gt; Integer.compare(o1[0], o2[0]));
+</code></pre>
+<h4 id="List-lt-int-gt-转换为int"><a href="#List-lt-int-gt-转换为int" class="headerlink" title="List&lt;int[ ]&gt;转换为int[ ][ ]"></a>List&lt;int[ ]&gt;转换为int[ ][ ]</h4><pre><code class="java">    arr.toArray(new int[arr.size()][]);
+</code></pre>
+<h4 id="List-lt-String-gt-转换为String"><a href="#List-lt-String-gt-转换为String" class="headerlink" title="List&lt;String&gt;转换为String[]"></a>List&lt;String&gt;转换为String[]</h4><pre><code class="java">    arr.toArray(new String[arr.size()]);
+</code></pre>
+<h3 id="三、字符串操作"><a href="#三、字符串操作" class="headerlink" title="三、字符串操作"></a>三、字符串操作</h3><h4 id="String类型转换大小写"><a href="#String类型转换大小写" class="headerlink" title="String类型转换大小写"></a>String类型转换大小写</h4><pre><code class="java">    s = s.toLowerCase();//转小写
+    s = s.toUpperCase();//转大写
+</code></pre>
+<h4 id="Character类型转换大小写"><a href="#Character类型转换大小写" class="headerlink" title="Character类型转换大小写"></a>Character类型转换大小写</h4><pre><code class="java">    ch = Character.toLowerCase(ch);
+    ch = Character.toUpperCase(ch);
+</code></pre>
+<h3 id="四、位运算"><a href="#四、位运算" class="headerlink" title="四、位运算"></a>四、位运算</h3><h4 id="Java位运算相加-C-和Python需要额外处理负数"><a href="#Java位运算相加-C-和Python需要额外处理负数" class="headerlink" title="Java位运算相加(C++和Python需要额外处理负数)"></a>Java位运算相加(C++和Python需要额外处理负数)</h4><pre><code class="java">    public int add(int a, int b) &#123;
+        return b == 0 ? a : add(a ^ b, (a &amp; b) &lt;&lt; 1);
+    &#125;
 </code></pre>
 
     </div>
@@ -439,7 +459,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">求最大公约数和最小公倍数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E6%95%B0%E7%BB%84%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">复制数组内容</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E5%AD%A6"><span class="nav-number">1.</span> <span class="nav-text">一、数学</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%98%AF%E5%90%A6%E6%98%AF2%E7%9A%84n%E6%AC%A1%E6%96%B9"><span class="nav-number">1.1.</span> <span class="nav-text">判断一个数是否是2的n次方</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">求最大公约数和最小公倍数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">二、数组操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E6%95%B0%E7%BB%84%E5%86%85%E5%AE%B9"><span class="nav-number">2.1.</span> <span class="nav-text">复制数组内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">2.2.</span> <span class="nav-text">排序二维数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List-lt-int-gt-%E8%BD%AC%E6%8D%A2%E4%B8%BAint"><span class="nav-number">2.3.</span> <span class="nav-text">List&lt;int[ ]&gt;转换为int[ ][ ]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List-lt-String-gt-%E8%BD%AC%E6%8D%A2%E4%B8%BAString"><span class="nav-number">2.4.</span> <span class="nav-text">List&lt;String&gt;转换为String[]</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">三、字符串操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#String%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="nav-number">3.1.</span> <span class="nav-text">String类型转换大小写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Character%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="nav-number">3.2.</span> <span class="nav-text">Character类型转换大小写</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">4.</span> <span class="nav-text">四、位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9B%B8%E5%8A%A0-C-%E5%92%8CPython%E9%9C%80%E8%A6%81%E9%A2%9D%E5%A4%96%E5%A4%84%E7%90%86%E8%B4%9F%E6%95%B0"><span class="nav-number">4.1.</span> <span class="nav-text">Java位运算相加(C++和Python需要额外处理负数)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -455,20 +475,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -519,7 +539,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-star"></i>
   </span>
@@ -529,13 +549,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">27k</span>
+    <span title="站点总字数">36k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">25 分钟</span>
+    <span title="站点阅读时长">33 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

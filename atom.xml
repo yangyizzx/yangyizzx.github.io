@@ -6,7 +6,7 @@
   <link href="https://yangyizzx.github.io/atom.xml" rel="self"/>
   
   <link href="https://yangyizzx.github.io/"/>
-  <updated>2021-09-17T15:13:28.345Z</updated>
+  <updated>2021-10-24T08:18:51.934Z</updated>
   <id>https://yangyizzx.github.io/</id>
   
   <author>
@@ -15,6 +15,140 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>背包问题</title>
+    <link href="https://yangyizzx.github.io/2021/10/24/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"/>
+    <id>https://yangyizzx.github.io/2021/10/24/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</id>
+    <published>2021-10-24T07:43:20.000Z</published>
+    <updated>2021-10-24T08:18:51.934Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;程序员节刷&lt;a href=&quot;https://leetcode-cn.com/problems/shopping-offers/&quot;&gt;LeetCode每日一题(638)&lt;/a&gt;，发现是个背包问题，无从下笔，决定仔细研究一番背包问题&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://yangyizzx.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="模板题" scheme="https://yangyizzx.github.io/tags/%E6%A8%A1%E6%9D%BF%E9%A2%98/"/>
+    
+    <category term="背包问题" scheme="https://yangyizzx.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"/>
+    
+    <category term="DP" scheme="https://yangyizzx.github.io/tags/DP/"/>
+    
+    <category term="ACWing" scheme="https://yangyizzx.github.io/tags/ACWing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>谈谈对面向对象思想的理解</title>
+    <link href="https://yangyizzx.github.io/2021/09/25/%E8%B0%88%E8%B0%88%E5%AF%B9%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <id>https://yangyizzx.github.io/2021/09/25/%E8%B0%88%E8%B0%88%E5%AF%B9%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E7%9A%84%E7%90%86%E8%A7%A3/</id>
+    <published>2021-09-25T10:45:07.000Z</published>
+    <updated>2021-09-25T15:53:26.210Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/52368590&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="面试" scheme="https://yangyizzx.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+    <category term="面向对象" scheme="https://yangyizzx.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>创建线程的方式</title>
+    <link href="https://yangyizzx.github.io/2021/09/24/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F/"/>
+    <id>https://yangyizzx.github.io/2021/09/24/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F/</id>
+    <published>2021-09-24T15:34:56.000Z</published>
+    <updated>2021-09-24T16:05:57.512Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/58821827&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="面试" scheme="https://yangyizzx.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+    <category term="线程" scheme="https://yangyizzx.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HashMap-Hashtable-ConcurrentHashMap</title>
+    <link href="https://yangyizzx.github.io/2021/09/24/HashMap-Hashtable-ConcurrentHashMap/"/>
+    <id>https://yangyizzx.github.io/2021/09/24/HashMap-Hashtable-ConcurrentHashMap/</id>
+    <published>2021-09-24T14:33:06.000Z</published>
+    <updated>2021-09-24T15:37:10.515Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/58621094&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="面试" scheme="https://yangyizzx.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+    <category term="JavaSE" scheme="https://yangyizzx.github.io/tags/JavaSE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DFS/BFS刷题指南</title>
+    <link href="https://yangyizzx.github.io/2021/09/24/DFS-BFS%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/"/>
+    <id>https://yangyizzx.github.io/2021/09/24/DFS-BFS%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</id>
+    <published>2021-09-24T08:15:05.000Z</published>
+    <updated>2021-09-26T10:08:25.333Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;总结：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;BFS问题与&lt;code&gt;队列Queue&lt;/code&gt;分不开。&lt;/li&gt;
+&lt;li&gt;DFS问题与&lt;code&gt;栈Stack&lt;/code&gt;分不开。&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://yangyizzx.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://yangyizzx.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="DFS/BFS" scheme="https://yangyizzx.github.io/tags/DFS-BFS/"/>
+    
+    <category term="LeetCode" scheme="https://yangyizzx.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>岛屿问题专栏</title>
+    <link href="https://yangyizzx.github.io/2021/09/23/%E5%B2%9B%E5%B1%BF%E9%97%AE%E9%A2%98%E4%B8%93%E6%A0%8F/"/>
+    <id>https://yangyizzx.github.io/2021/09/23/%E5%B2%9B%E5%B1%BF%E9%97%AE%E9%A2%98%E4%B8%93%E6%A0%8F/</id>
+    <published>2021-09-23T02:24:47.000Z</published>
+    <updated>2021-09-30T09:53:24.066Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;针对岛屿问题的专栏&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://yangyizzx.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://yangyizzx.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="DFS/BFS" scheme="https://yangyizzx.github.io/tags/DFS-BFS/"/>
+    
+    <category term="LeetCode" scheme="https://yangyizzx.github.io/tags/LeetCode/"/>
+    
+    <category term="岛屿问题" scheme="https://yangyizzx.github.io/tags/%E5%B2%9B%E5%B1%BF%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>滑动窗口刷题指南</title>
@@ -220,7 +354,7 @@
     <link href="https://yangyizzx.github.io/2021/09/13/Hexo+Next%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/"/>
     <id>https://yangyizzx.github.io/2021/09/13/Hexo+Next%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</id>
     <published>2021-09-13T12:29:07.000Z</published>
-    <updated>2021-09-14T06:53:54.132Z</updated>
+    <updated>2021-09-20T02:47:55.925Z</updated>
     
     
     <summary type="html">&lt;p&gt;Hexo版本：4.3.0&lt;/p&gt;
@@ -245,7 +379,7 @@
     <link href="https://yangyizzx.github.io/2021/09/13/%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/"/>
     <id>https://yangyizzx.github.io/2021/09/13/%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/</id>
     <published>2021-09-13T12:05:17.000Z</published>
-    <updated>2021-09-15T02:12:59.995Z</updated>
+    <updated>2021-11-11T09:29:09.365Z</updated>
     
     
     <summary type="html">&lt;p&gt;将刷算法题中的遇到和用到的工具函数汇总。&lt;/p&gt;</summary>
@@ -268,7 +402,7 @@
     <link href="https://yangyizzx.github.io/2021/09/13/%E5%8F%8C%E6%8C%87%E9%92%88%E6%8C%87%E5%8D%97/"/>
     <id>https://yangyizzx.github.io/2021/09/13/%E5%8F%8C%E6%8C%87%E9%92%88%E6%8C%87%E5%8D%97/</id>
     <published>2021-09-13T10:33:47.000Z</published>
-    <updated>2021-09-16T09:42:17.612Z</updated>
+    <updated>2021-09-22T15:38:13.732Z</updated>
     
     
     <summary type="html">&lt;p&gt;原题链接：&lt;/p&gt;
@@ -293,25 +427,32 @@
     <link href="https://yangyizzx.github.io/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/"/>
     <id>https://yangyizzx.github.io/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/</id>
     <published>2021-09-12T11:50:55.000Z</published>
-    <updated>2021-09-14T03:25:04.477Z</updated>
+    <updated>2021-09-30T08:58:04.989Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/binary-search/solution/er-fen-cha-zhao-xiang-jie-by-labuladong/&quot;&gt;原文链接:二分查找细节详解  –LeetCode labuladong&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;相关题目:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/binary-search/&quot;&gt;LeetCode 704. 二分查找&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/first-bad-version/&quot;&gt;LeetCode 278. 第一个错误的版本&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/search-insert-position/&quot;&gt;LeetCode 35. 搜索插入位置&lt;/a&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/search-insert-position/&quot;&gt;LeetCode 35. 搜索插入位置&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/&quot;&gt;LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/&quot;&gt;LeetCode 153. 寻找旋转排序数组中的最小值&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/find-peak-element/&quot;&gt;LeetCode 162. 寻找峰值&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;注意：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;模板的左右初始值细节很重要，但是&lt;strong&gt;应用时要注意根据具体情况取左右初始值和循环条件&lt;/strong&gt;！！&lt;/li&gt;
+&lt;/ol&gt;</summary>
     
     
     
     <category term="数据结构与算法" scheme="https://yangyizzx.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="二分查找" scheme="https://yangyizzx.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
-    
     <category term="算法" scheme="https://yangyizzx.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
     <category term="LeetCode" scheme="https://yangyizzx.github.io/tags/LeetCode/"/>
+    
+    <category term="二分查找" scheme="https://yangyizzx.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
     
     <category term="模板题" scheme="https://yangyizzx.github.io/tags/%E6%A8%A1%E6%9D%BF%E9%A2%98/"/>
     
