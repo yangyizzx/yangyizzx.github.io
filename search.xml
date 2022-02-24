@@ -200,6 +200,55 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo博客图片显示</title>
+    <url>/2022/02/24/Hexo%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/</url>
+    <content><![CDATA[<p>设置个人博客的图片实现问题。</p>
+<p>这里本人图片显示使用的是相对路径，其它问题自行百度。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/265077468">原文链接</a></p>
+<span id="more"></span>
+
+<h3 id="更改配置"><a href="#更改配置" class="headerlink" title="更改配置"></a>更改配置</h3><p>打开<code>_config.yml</code>文件，更改配置：</p>
+<pre><code class="yaml">post_asset_folder: true
+</code></pre>
+<pre><code class="shell">#重启Hexo,git中输入
+hexo clean
+hexo g
+</code></pre>
+<p>当该配置被应用后，使用<code>hexo new</code>命令创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹。</p>
+<h3 id="下载图片插件hexo-renderer-marked"><a href="#下载图片插件hexo-renderer-marked" class="headerlink" title="下载图片插件hexo-renderer-marked"></a>下载图片插件hexo-renderer-marked</h3><pre><code class="shell">cnpm install hexo-renderer-marked
+</code></pre>
+<p>之后在<code>config.yml</code>中更改配置如下：</p>
+<pre><code class="yaml">post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
+</code></pre>
+<p>全部设置完成后便可以方便的在Hexo中设置显示图片。</p>
+<ol>
+<li>使用<code>![图片描述](文章名/图片名称)</code>可以在本地编辑器中查看图片；</li>
+<li>但是在Hexo中需要使用<code>![图片描述](图片名称)</code>才可以查看，因此想要在Hexo上显示图片，本地编辑器就会显示不了图片。</li>
+</ol>
+<h3 id="Typora提供的便利操作"><a href="#Typora提供的便利操作" class="headerlink" title="Typora提供的便利操作"></a>Typora提供的便利操作</h3><h4 id="1-偏好设置"><a href="#1-偏好设置" class="headerlink" title="1.偏好设置"></a>1.偏好设置</h4><p>Typora对于插入图片的支持做得非常好，在<code>文件-&gt;偏好设置</code>或者<code>Ctrl+逗号</code>进入设置。</p>
+<p><img src="/2022/02/24/Hexo%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/image-20220224151507587.png" alt="image-20220224151507587"></p>
+<p>使用该配置后，可以直接复制网页中的图片地址，粘贴到Typora中后，<strong>会直接复制该图片到文章资源文件夹，同时自动更改路径</strong>。</p>
+<p>如复制网络路径的图片<code>https://...../image.jpg</code>粘贴到Typora中叫<code>文章名</code>的文章后，图片会自动变为<code>![](文章名/image.jpg)</code>。</p>
+<h4 id="2-图片路径问题"><a href="#2-图片路径问题" class="headerlink" title="2.图片路径问题"></a>2.图片路径问题</h4><p>但我们知道部署后，想要在Hexo上显示，图片文件路径还需要更改，所以当我们插入完所有的图片后，我们还需要删除每个图片路径中的<code>文件名/</code>。不慌，也很简单。</p>
+<blockquote>
+<p>这里发现一个bug，使用查找和替换时，字符串若为”文章名&#x2F;“ 查询失效，目前还没搞清楚为什么。</p>
+</blockquote>
+<p>在Typora编辑器中，使用快捷键<code>Ctrl+h</code>，将所有的<code>文章名/image</code>替换为<code>image</code>即可删除。</p>
+<p><img src="/2022/02/24/Hexo%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/image-20220224152016217.png" alt="image-20220224152016217"></p>
+<p>然后再将博客上传，图片就会随着文章一起打包。在网页中就可以看到正常显示的图片，大功告成。</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>技术问题解决</tag>
+        <tag>个人博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo基本使用</title>
     <url>/2021/09/07/Hexo%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h2><p> <code>hexo init</code> 文件夹名称</p>
@@ -246,11 +295,10 @@
   <entry>
     <title>img-test.md</title>
     <url>/2022/02/24/img-test-md/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>图片测试</p>
+<span id="more"></span>
 
 <p><img src="/2022/02/24/img-test-md/1%EF%BC%887%EF%BC%89.png" alt="图片测试"></p>
-
-
 <p><img src="/2022/02/24/img-test-md/v2-52220b2dba6901ee2181b72951d25a7b_r.jpg" alt="preview"></p>
 ]]></content>
       <categories>
@@ -283,226 +331,14 @@ deploy:
         <category>Hexo</category>
       </categories>
       <tags>
-        <tag>个人博客</tag>
         <tag>技术问题解决</tag>
+        <tag>个人博客</tag>
       </tags>
   </entry>
   <entry>
     <title>【计算机网络】HTTP知识</title>
     <url>/2022/02/20/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%80%91HTTP%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>二分查找详解</title>
-    <url>/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/binary-search/solution/er-fen-cha-zhao-xiang-jie-by-labuladong/">原文链接:二分查找细节详解  –LeetCode labuladong</a></p>
-<p>相关题目:</p>
-<p><a href="https://leetcode-cn.com/problems/binary-search/">LeetCode 704. 二分查找</a></p>
-<p><a href="https://leetcode-cn.com/problems/first-bad-version/">LeetCode 278. 第一个错误的版本</a></p>
-<p><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode 35. 搜索插入位置</a></p>
-<p><a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置</a></p>
-<p><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/">LeetCode 153. 寻找旋转排序数组中的最小值</a></p>
-<p><a href="https://leetcode-cn.com/problems/find-peak-element/">LeetCode 162. 寻找峰值</a></p>
-<p>注意：</p>
-<ol>
-<li>模板的左右初始值细节很重要，但是<strong>应用时要注意根据具体情况取左右初始值和循环条件</strong>！！</li>
-</ol>
-<span id="more"></span>
-
-<p>本人懒狗一枚，详解可以看看上面链接，hhhhh。</p>
-<h4 id="寻找一个数（基本的二分搜索）"><a href="#寻找一个数（基本的二分搜索）" class="headerlink" title="寻找一个数（基本的二分搜索）"></a>寻找一个数（基本的二分搜索）</h4><pre><code class="java">class Solution &#123;
-    public int search(int[] nums, int target) &#123;
-        int left = 0;
-        int right = nums.length - 1;    //这里-1时，while循环条件得加上=
-        while(left &lt;= right)&#123;            //注意
-            int mid = left + (right - left) / 2; //防止了 left 和 right 太大直接相加导致溢出
-            if(target == nums[mid])&#123;
-                return mid;
-            &#125;else if(target &lt; nums[mid])&#123;
-                //如果right初始化为nums.length - 1，这里应该为mid-1;
-                right = mid - 1;        
-            &#125;else if(target &gt; nums[mid])&#123;
-                left = mid + 1;            //注意
-            &#125;
-        &#125;
-        return -1;
-    &#125;
-&#125;
-</code></pre>
-<h4 id="寻找左侧边界的二分搜索"><a href="#寻找左侧边界的二分搜索" class="headerlink" title="寻找左侧边界的二分搜索"></a>寻找左侧边界的二分搜索</h4><pre><code class="java">public int search(int[] nums, int target) &#123;
-        int left = 0,right = nums.length;
-        while(left &lt; right)&#123;
-            int mid = left + (right - left) / 2;
-            //寻找左、右侧边界的二分搜索要注意
-            //收紧边界时的条件很重要，
-            //这里right = mid ，并且循环结束的条件是 right = left
-            //所以循环结束是 right = mid = left
-            if(target == nums[mid])&#123;
-                right = mid;
-            &#125;else if(target &lt; nums[mid])&#123;
-                right = mid;
-            &#125;else if(target &gt; nums[mid])&#123;
-                left = mid + 1;
-            &#125;
-        &#125;
-        if(left &gt;= nums.length || nums[left] != target) return -1;
-        return left;
-    &#125;
-</code></pre>
-<h4 id="寻找右侧边界的二分搜索"><a href="#寻找右侧边界的二分搜索" class="headerlink" title="寻找右侧边界的二分搜索"></a>寻找右侧边界的二分搜索</h4><pre><code class="java">public int search(int[] nums, int target) &#123;
-        int left = 0,right = nums.length;
-        while(left &lt; right)&#123;
-            int mid = left + (right - left) / 2;
-            if(target == nums[mid])&#123;
-                //收紧边界时的条件很重要，
-                //这里left = mid + 1;并且循环结束的条件是 right = left
-                //所以循环结束是 mid = left - 1 = right - 1；
-                left = mid + 1;
-            &#125;else if(target &lt; nums[mid])&#123;
-                right = mid;
-            &#125;else if(target &gt; nums[mid])&#123;
-                left = mid + 1;
-            &#125;
-        &#125;
-        if(right - 1 &lt; 0 || nums[right - 1] != target) return -1;
-        return right -1;
-    &#125;
-</code></pre>
-<h4 id="LeetCode-153-寻找旋转排序数组中的最小值"><a href="#LeetCode-153-寻找旋转排序数组中的最小值" class="headerlink" title="LeetCode 153. 寻找旋转排序数组中的最小值"></a>LeetCode 153. 寻找旋转排序数组中的最小值</h4><blockquote>
-<p>思路：根据左值，中值，右值的大小关系分类讨论.</p>
-<p>其中符合数组规律的大小关系如下:</p>
-</blockquote>
-<blockquote>
-<p>​        右            中值 &lt; 右值 ， 缩小右边界</p>
-<p>​    中</p>
-<p>左    </p>
-<hr>
-<p>​    中                中值 &gt; 右值 ， 缩小左边界</p>
-<p>左</p>
-<p>​        右</p>
-<hr>
-<p>左                    中值 &lt; 右值 ,    缩小右边界</p>
-<p>​        右</p>
-<p>​    中</p>
-</blockquote>
-<pre><code class="java">class Solution &#123;
-    public int findMin(int[] nums) &#123;
-        int left = 0,right = nums.length - 1;
-        while(left &lt; right)&#123;
-            int mid = (left + right) / 2;
-            if(nums[mid] &lt; nums[right])&#123;
-                right = mid;
-            &#125;else&#123;
-                left = mid + 1;
-            &#125;
-        &#125;
-        return nums[left];
-    &#125;
-&#125;
-</code></pre>
-<h4 id="LeetCode-162-寻找峰值"><a href="#LeetCode-162-寻找峰值" class="headerlink" title="LeetCode 162. 寻找峰值"></a>LeetCode 162. 寻找峰值</h4><blockquote>
-<p>根据左右指针计算中间位置 m，并比较 m 与 m+1 的值，如果 m 较大，则左侧存在峰值，r &#x3D; m，如果 m + 1 较大，则右侧存在峰值，l &#x3D; m + 1.</p>
-</blockquote>
-<pre><code class="java">class Solution &#123;
-    public int findPeakElement(int[] nums) &#123;
-        int left = 0,right = nums.length - 1;
-        while(left &lt; right)&#123;
-            int mid = (left + right) / 2;
-            if(nums[mid] &gt; nums[mid + 1])&#123;
-                right = mid;
-            &#125;else&#123;
-                left = mid + 1;
-            &#125;
-        &#125;
-        return left;
-
-    &#125;
-&#125;
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-        <tag>二分查找</tag>
-        <tag>模板题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>创建线程的方式</title>
-    <url>/2021/09/24/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/58821827">原文链接</a></p>
-<span id="more"></span>
-
-<p>我们常说的方式有以下三种：</p>
-<blockquote>
-<p>继承Thread<br>实现Runable接口<br>实现Callable接口（可以获取线程执行之后的返回值）</p>
-</blockquote>
-<p>但实际后两种，更准确的理解是创建了一个可执行的任务，要采用多线程的方式执行，</p>
-<p>还需要通过创建Thread对象来执行，比如 new Thread(new Runnable(){}).start();这样的方式来执行。</p>
-<p>在实际开发中，我们通常采用线程池的方式来完成Thread的创建，更好管理线程资源。</p>
-<p>案例：如何正确启动线程</p>
-<pre><code class="java">class MyThread extends Thread&#123;
-    @Override
-    public void run() &#123;
-        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
-    &#125;
-&#125;
-
-public static void main(String[] args) &#123;
-    MyThread thread = new MyThread();
-    //正确启动线程的方式
-    //thread.run();     //调用run方法并非开启线程
-    thread.start();
-&#125;
-</code></pre>
-<p>案例：实现runnable只是创建了一个可执行任务，并不是一个线程</p>
-<pre><code class="java">class MyTask implements Runnable&#123;
-    @Override
-    public void run() &#123;
-        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
-    &#125;
-&#125;
-
-public static void main(String[] args) &#123;
-    MyTask task = new MyTask();
-    //task.start();     //并不能直接以线程的方式来启动
-    new Thread(task).start();
-&#125;
-</code></pre>
-<p>案例三：runnable vs callable</p>
-<pre><code class="java">class MyTask2 implements Callable&lt;String&gt;&#123;
-    @Override
-    public String call() throws Exception &#123;
-        return Thread.currentThread().getName() + &quot;:running......&quot;;
-    &#125;
-&#125;
-// java5提供了Future接口来代表Callable接口里的call()方法的返回值，并为Future接口提供了一个FutureTask实现类，该实现类实现了Future接口，并实现了Runnable接口，所以这样可以作为Thread的target。
-//通过FutuerTask类的对象的get()方法来获取线程结束后的返回值
-public static void main(String[] args) &#123;
-    MyTask2 task2 = new MyTask2();
-    FutureTask&lt;String&gt; futureTask = new FutureTask&lt;&gt;(task2);
-
-    Thread thread1 = new Thread(futureTask,&quot;我是futureTask线程&quot;);
-    thread1.start();
-    try &#123;
-        System.out.println(futureTask.get());
-    &#125; catch (Exception e) &#123;
-        e.printStackTrace();
-    &#125;
-&#125;
-</code></pre>
-<p>明确一点：</p>
-<p><strong>本质上来说创建线程的方式就是继承Thread，就是线程池，内部也是创建好线程对象来执行任务。</strong></p>
-]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>线程</tag>
-      </tags>
   </entry>
   <entry>
     <title>二叉树遍历详解</title>
@@ -653,9 +489,236 @@ class Solution &#123;
       </categories>
       <tags>
         <tag>LeetCode</tag>
-        <tag>模板题</tag>
         <tag>数据结构</tag>
         <tag>二叉树</tag>
+        <tag>模板题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二分查找详解</title>
+    <url>/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/binary-search/solution/er-fen-cha-zhao-xiang-jie-by-labuladong/">原文链接:二分查找细节详解  –LeetCode labuladong</a></p>
+<p>相关题目:</p>
+<p><a href="https://leetcode-cn.com/problems/binary-search/">LeetCode 704. 二分查找</a></p>
+<p><a href="https://leetcode-cn.com/problems/first-bad-version/">LeetCode 278. 第一个错误的版本</a></p>
+<p><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode 35. 搜索插入位置</a></p>
+<p><a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置</a></p>
+<p><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/">LeetCode 153. 寻找旋转排序数组中的最小值</a></p>
+<p><a href="https://leetcode-cn.com/problems/find-peak-element/">LeetCode 162. 寻找峰值</a></p>
+<p>注意：</p>
+<ol>
+<li>模板的左右初始值细节很重要，但是<strong>应用时要注意根据具体情况取左右初始值和循环条件</strong>！！</li>
+</ol>
+<span id="more"></span>
+
+<p>本人懒狗一枚，详解可以看看上面链接，hhhhh。</p>
+<h4 id="寻找一个数（基本的二分搜索）"><a href="#寻找一个数（基本的二分搜索）" class="headerlink" title="寻找一个数（基本的二分搜索）"></a>寻找一个数（基本的二分搜索）</h4><pre><code class="java">class Solution &#123;
+    public int search(int[] nums, int target) &#123;
+        int left = 0;
+        int right = nums.length - 1;    //这里-1时，while循环条件得加上=
+        while(left &lt;= right)&#123;            //注意
+            int mid = left + (right - left) / 2; //防止了 left 和 right 太大直接相加导致溢出
+            if(target == nums[mid])&#123;
+                return mid;
+            &#125;else if(target &lt; nums[mid])&#123;
+                //如果right初始化为nums.length - 1，这里应该为mid-1;
+                right = mid - 1;        
+            &#125;else if(target &gt; nums[mid])&#123;
+                left = mid + 1;            //注意
+            &#125;
+        &#125;
+        return -1;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="寻找左侧边界的二分搜索"><a href="#寻找左侧边界的二分搜索" class="headerlink" title="寻找左侧边界的二分搜索"></a>寻找左侧边界的二分搜索</h4><pre><code class="java">public int search(int[] nums, int target) &#123;
+        int left = 0,right = nums.length;
+        while(left &lt; right)&#123;
+            int mid = left + (right - left) / 2;
+            //寻找左、右侧边界的二分搜索要注意
+            //收紧边界时的条件很重要，
+            //这里right = mid ，并且循环结束的条件是 right = left
+            //所以循环结束是 right = mid = left
+            if(target == nums[mid])&#123;
+                right = mid;
+            &#125;else if(target &lt; nums[mid])&#123;
+                right = mid;
+            &#125;else if(target &gt; nums[mid])&#123;
+                left = mid + 1;
+            &#125;
+        &#125;
+        if(left &gt;= nums.length || nums[left] != target) return -1;
+        return left;
+    &#125;
+</code></pre>
+<h4 id="寻找右侧边界的二分搜索"><a href="#寻找右侧边界的二分搜索" class="headerlink" title="寻找右侧边界的二分搜索"></a>寻找右侧边界的二分搜索</h4><pre><code class="java">public int search(int[] nums, int target) &#123;
+        int left = 0,right = nums.length;
+        while(left &lt; right)&#123;
+            int mid = left + (right - left) / 2;
+            if(target == nums[mid])&#123;
+                //收紧边界时的条件很重要，
+                //这里left = mid + 1;并且循环结束的条件是 right = left
+                //所以循环结束是 mid = left - 1 = right - 1；
+                left = mid + 1;
+            &#125;else if(target &lt; nums[mid])&#123;
+                right = mid;
+            &#125;else if(target &gt; nums[mid])&#123;
+                left = mid + 1;
+            &#125;
+        &#125;
+        if(right - 1 &lt; 0 || nums[right - 1] != target) return -1;
+        return right -1;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-153-寻找旋转排序数组中的最小值"><a href="#LeetCode-153-寻找旋转排序数组中的最小值" class="headerlink" title="LeetCode 153. 寻找旋转排序数组中的最小值"></a>LeetCode 153. 寻找旋转排序数组中的最小值</h4><blockquote>
+<p>思路：根据左值，中值，右值的大小关系分类讨论.</p>
+<p>其中符合数组规律的大小关系如下:</p>
+</blockquote>
+<blockquote>
+<p>​        右            中值 &lt; 右值 ， 缩小右边界</p>
+<p>​    中</p>
+<p>左    </p>
+<hr>
+<p>​    中                中值 &gt; 右值 ， 缩小左边界</p>
+<p>左</p>
+<p>​        右</p>
+<hr>
+<p>左                    中值 &lt; 右值 ,    缩小右边界</p>
+<p>​        右</p>
+<p>​    中</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    public int findMin(int[] nums) &#123;
+        int left = 0,right = nums.length - 1;
+        while(left &lt; right)&#123;
+            int mid = (left + right) / 2;
+            if(nums[mid] &lt; nums[right])&#123;
+                right = mid;
+            &#125;else&#123;
+                left = mid + 1;
+            &#125;
+        &#125;
+        return nums[left];
+    &#125;
+&#125;
+</code></pre>
+<h4 id="LeetCode-162-寻找峰值"><a href="#LeetCode-162-寻找峰值" class="headerlink" title="LeetCode 162. 寻找峰值"></a>LeetCode 162. 寻找峰值</h4><blockquote>
+<p>根据左右指针计算中间位置 m，并比较 m 与 m+1 的值，如果 m 较大，则左侧存在峰值，r &#x3D; m，如果 m + 1 较大，则右侧存在峰值，l &#x3D; m + 1.</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    public int findPeakElement(int[] nums) &#123;
+        int left = 0,right = nums.length - 1;
+        while(left &lt; right)&#123;
+            int mid = (left + right) / 2;
+            if(nums[mid] &gt; nums[mid + 1])&#123;
+                right = mid;
+            &#125;else&#123;
+                left = mid + 1;
+            &#125;
+        &#125;
+        return left;
+
+    &#125;
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>模板题</tag>
+        <tag>二分查找</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>创建线程的方式</title>
+    <url>/2021/09/24/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/58821827">原文链接</a></p>
+<span id="more"></span>
+
+<p>我们常说的方式有以下三种：</p>
+<blockquote>
+<p>继承Thread<br>实现Runable接口<br>实现Callable接口（可以获取线程执行之后的返回值）</p>
+</blockquote>
+<p>但实际后两种，更准确的理解是创建了一个可执行的任务，要采用多线程的方式执行，</p>
+<p>还需要通过创建Thread对象来执行，比如 new Thread(new Runnable(){}).start();这样的方式来执行。</p>
+<p>在实际开发中，我们通常采用线程池的方式来完成Thread的创建，更好管理线程资源。</p>
+<p>案例：如何正确启动线程</p>
+<pre><code class="java">class MyThread extends Thread&#123;
+    @Override
+    public void run() &#123;
+        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
+    &#125;
+&#125;
+
+public static void main(String[] args) &#123;
+    MyThread thread = new MyThread();
+    //正确启动线程的方式
+    //thread.run();     //调用run方法并非开启线程
+    thread.start();
+&#125;
+</code></pre>
+<p>案例：实现runnable只是创建了一个可执行任务，并不是一个线程</p>
+<pre><code class="java">class MyTask implements Runnable&#123;
+    @Override
+    public void run() &#123;
+        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
+    &#125;
+&#125;
+
+public static void main(String[] args) &#123;
+    MyTask task = new MyTask();
+    //task.start();     //并不能直接以线程的方式来启动
+    new Thread(task).start();
+&#125;
+</code></pre>
+<p>案例三：runnable vs callable</p>
+<pre><code class="java">class MyTask2 implements Callable&lt;String&gt;&#123;
+    @Override
+    public String call() throws Exception &#123;
+        return Thread.currentThread().getName() + &quot;:running......&quot;;
+    &#125;
+&#125;
+// java5提供了Future接口来代表Callable接口里的call()方法的返回值，并为Future接口提供了一个FutureTask实现类，该实现类实现了Future接口，并实现了Runnable接口，所以这样可以作为Thread的target。
+//通过FutuerTask类的对象的get()方法来获取线程结束后的返回值
+public static void main(String[] args) &#123;
+    MyTask2 task2 = new MyTask2();
+    FutureTask&lt;String&gt; futureTask = new FutureTask&lt;&gt;(task2);
+
+    Thread thread1 = new Thread(futureTask,&quot;我是futureTask线程&quot;);
+    thread1.start();
+    try &#123;
+        System.out.println(futureTask.get());
+    &#125; catch (Exception e) &#123;
+        e.printStackTrace();
+    &#125;
+&#125;
+</code></pre>
+<p>明确一点：</p>
+<p><strong>本质上来说创建线程的方式就是继承Thread，就是线程池，内部也是创建好线程对象来执行任务。</strong></p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>线程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>位运算刷题指南</title>
+    <url>/2021/09/16/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>位运算</tag>
       </tags>
   </entry>
   <entry>
@@ -699,21 +762,6 @@ class Solution &#123;
         <tag>算法</tag>
         <tag>LeetCode</tag>
         <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>位运算刷题指南</title>
-    <url>/2021/09/16/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<span id="more"></span>
-
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-        <tag>位运算</tag>
       </tags>
   </entry>
   <entry>
@@ -953,35 +1001,6 @@ class Solution &#123;
       </tags>
   </entry>
   <entry>
-    <title>我的第一篇博客文章</title>
-    <url>/2021/09/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>#第一章<br>hhh</p>
-<hr>
-<p>#第二章<br>hhh</p>
-<hr>
-<p>#第三章<br><a href="http://www.baidu.com/">www.baidu.com</a></p>
-]]></content>
-      <categories>
-        <category>test</category>
-      </categories>
-      <tags>
-        <tag>test1</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统面经</title>
-    <url>/2021/09/15/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/</url>
-    <content><![CDATA[<!--mroe-->
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>岛屿问题专栏</title>
     <url>/2021/09/23/%E5%B2%9B%E5%B1%BF%E9%97%AE%E9%A2%98%E4%B8%93%E6%A0%8F/</url>
     <content><![CDATA[<p>针对岛屿问题的专栏</p>
@@ -1088,70 +1107,32 @@ class Solution &#123;
       </tags>
   </entry>
   <entry>
-    <title>滑动窗口刷题指南</title>
-    <url>/2021/09/17/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>出现以下情况时，考虑滑动窗口：</p>
-<ol>
-<li>涉及到子串</li>
-</ol>
-<span id="more"></span>
-
-<h4 id="LeetCode-3-无重复字符的最长子串"><a href="#LeetCode-3-无重复字符的最长子串" class="headerlink" title="LeetCode 3. 无重复字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. 无重复字符的最长子串</a></h4><h4 id="LeetCode-30-串联所有单词的子串"><a href="#LeetCode-30-串联所有单词的子串" class="headerlink" title="LeetCode 30. 串联所有单词的子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/">30. 串联所有单词的子串</a></h4><h4 id="LeetCode-76-最小覆盖子串"><a href="#LeetCode-76-最小覆盖子串" class="headerlink" title="LeetCode 76. 最小覆盖子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-substring/">76. 最小覆盖子串</a></h4><h4 id="LeetCode-159-至多包含两个不同字符的最长子串"><a href="#LeetCode-159-至多包含两个不同字符的最长子串" class="headerlink" title="LeetCode 159. 至多包含两个不同字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters/">159. 至多包含两个不同字符的最长子串</a></h4><h4 id="LeetCode-209-长度最小的子数组"><a href="#LeetCode-209-长度最小的子数组" class="headerlink" title="LeetCode 209. 长度最小的子数组"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-size-subarray-sum/">209. 长度最小的子数组</a></h4><h4 id="LeetCode-239-滑动窗口最大值"><a href="#LeetCode-239-滑动窗口最大值" class="headerlink" title="LeetCode 239. 滑动窗口最大值"></a>LeetCode <a href="https://leetcode-cn.com/problems/sliding-window-maximum/">239. 滑动窗口最大值</a></h4><h4 id="LeetCode-567-字符串的排列"><a href="#LeetCode-567-字符串的排列" class="headerlink" title="LeetCode 567. 字符串的排列"></a>LeetCode <a href="https://leetcode-cn.com/problems/permutation-in-string/">567. 字符串的排列</a></h4><h4 id="LeetCode-632-最小区间"><a href="#LeetCode-632-最小区间" class="headerlink" title="LeetCode 632. 最小区间"></a>LeetCode <a href="https://leetcode-cn.com/problems/smallest-range/">632. 最小区间</a></h4><h4 id="LeetCode-727-最小窗口子序列"><a href="#LeetCode-727-最小窗口子序列" class="headerlink" title="LeetCode 727. 最小窗口子序列"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-subsequence/">727. 最小窗口子序列</a></h4>]]></content>
+    <title>我的第一篇博客文章</title>
+    <url>/2021/09/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>#第一章<br>hhh</p>
+<hr>
+<p>#第二章<br>hhh</p>
+<hr>
+<p>#第三章<br><a href="http://www.baidu.com/">www.baidu.com</a></p>
+]]></content>
       <categories>
-        <category>数据结构与算法</category>
+        <category>test</category>
       </categories>
       <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-        <tag>滑动窗口</tag>
+        <tag>test1</tag>
       </tags>
   </entry>
   <entry>
-    <title>背包问题</title>
-    <url>/2021/10/24/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>程序员节刷<a href="https://leetcode-cn.com/problems/shopping-offers/">LeetCode每日一题(638)</a>，发现是个背包问题，无从下笔，决定仔细研究一番背包问题</p>
-<span id="more"></span>
-
-<h4 id="ACWing-2-01背包问题"><a href="#ACWing-2-01背包问题" class="headerlink" title="ACWing 2. 01背包问题"></a><a href="https://www.acwing.com/problem/content/2/">ACWing 2. 01背包问题</a></h4><p><img src="C:\Users\yangyi\Desktop\工作\images\1（7）.png" alt="1（7）"></p>
-<pre><code class="java">import java.util.*;
-
-public class Main&#123;
-    final static int N = 1010;
-    static int n,m;
-    static int[] v = new int[N];//体积列表
-    static int[] w = new int[N];//价值列表
-    static int[][] dp = new int[N][N];
-    
-    public static void main(String[] args)&#123;
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        m = sc.nextInt();
-        for(int i = 1 ; i &lt;= n; i++)&#123;
-            v[i] = sc.nextInt();
-            w[i] = sc.nextInt();
-        &#125;
-        for(int i = 1; i &lt;= n; i++)&#123;
-            for(int j = 0; j &lt;= m; j++)&#123;
-                if(j &lt; v[i])&#123;
-                    dp[i][j] = dp[i-1][j];
-                &#125;else&#123;
-                    dp[i][j] = Math.max(dp[i-1][j],dp[i-1][j-v[i]] + w[i]);
-                &#125;
-            &#125;
-        &#125;
-        System.out.println(dp[n][m]);
-    &#125;
-&#125;
-</code></pre>
+    <title>操作系统面经</title>
+    <url>/2021/09/15/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/</url>
+    <content><![CDATA[<!--mroe-->
 ]]></content>
       <categories>
-        <category>数据结构与算法</category>
+        <category>操作系统</category>
       </categories>
       <tags>
-        <tag>模板题</tag>
-        <tag>背包问题</tag>
-        <tag>DP</tag>
-        <tag>ACWing</tag>
+        <tag>面经</tag>
+        <tag>操作系统</tag>
       </tags>
   </entry>
   <entry>
@@ -1412,6 +1393,25 @@ public class Main&#123;
       </tags>
   </entry>
   <entry>
+    <title>滑动窗口刷题指南</title>
+    <url>/2021/09/17/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>出现以下情况时，考虑滑动窗口：</p>
+<ol>
+<li>涉及到子串</li>
+</ol>
+<span id="more"></span>
+
+<h4 id="LeetCode-3-无重复字符的最长子串"><a href="#LeetCode-3-无重复字符的最长子串" class="headerlink" title="LeetCode 3. 无重复字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. 无重复字符的最长子串</a></h4><h4 id="LeetCode-30-串联所有单词的子串"><a href="#LeetCode-30-串联所有单词的子串" class="headerlink" title="LeetCode 30. 串联所有单词的子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/">30. 串联所有单词的子串</a></h4><h4 id="LeetCode-76-最小覆盖子串"><a href="#LeetCode-76-最小覆盖子串" class="headerlink" title="LeetCode 76. 最小覆盖子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-substring/">76. 最小覆盖子串</a></h4><h4 id="LeetCode-159-至多包含两个不同字符的最长子串"><a href="#LeetCode-159-至多包含两个不同字符的最长子串" class="headerlink" title="LeetCode 159. 至多包含两个不同字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters/">159. 至多包含两个不同字符的最长子串</a></h4><h4 id="LeetCode-209-长度最小的子数组"><a href="#LeetCode-209-长度最小的子数组" class="headerlink" title="LeetCode 209. 长度最小的子数组"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-size-subarray-sum/">209. 长度最小的子数组</a></h4><h4 id="LeetCode-239-滑动窗口最大值"><a href="#LeetCode-239-滑动窗口最大值" class="headerlink" title="LeetCode 239. 滑动窗口最大值"></a>LeetCode <a href="https://leetcode-cn.com/problems/sliding-window-maximum/">239. 滑动窗口最大值</a></h4><h4 id="LeetCode-567-字符串的排列"><a href="#LeetCode-567-字符串的排列" class="headerlink" title="LeetCode 567. 字符串的排列"></a>LeetCode <a href="https://leetcode-cn.com/problems/permutation-in-string/">567. 字符串的排列</a></h4><h4 id="LeetCode-632-最小区间"><a href="#LeetCode-632-最小区间" class="headerlink" title="LeetCode 632. 最小区间"></a>LeetCode <a href="https://leetcode-cn.com/problems/smallest-range/">632. 最小区间</a></h4><h4 id="LeetCode-727-最小窗口子序列"><a href="#LeetCode-727-最小窗口子序列" class="headerlink" title="LeetCode 727. 最小窗口子序列"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-subsequence/">727. 最小窗口子序列</a></h4>]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>滑动窗口</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>算法工具函数汇总</title>
     <url>/2021/09/13/%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<p>将刷算法题中的遇到和用到的工具函数汇总。</p>
@@ -1470,6 +1470,54 @@ public class Main&#123;
       <tags>
         <tag>面经</tag>
         <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>背包问题</title>
+    <url>/2021/10/24/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>程序员节刷<a href="https://leetcode-cn.com/problems/shopping-offers/">LeetCode每日一题(638)</a>，发现是个背包问题，无从下笔，决定仔细研究一番背包问题</p>
+<span id="more"></span>
+
+<h4 id="ACWing-2-01背包问题"><a href="#ACWing-2-01背包问题" class="headerlink" title="ACWing 2. 01背包问题"></a><a href="https://www.acwing.com/problem/content/2/">ACWing 2. 01背包问题</a></h4><p><img src="C:\Users\yangyi\Desktop\工作\images\1（7）.png" alt="1（7）"></p>
+<pre><code class="java">import java.util.*;
+
+public class Main&#123;
+    final static int N = 1010;
+    static int n,m;
+    static int[] v = new int[N];//体积列表
+    static int[] w = new int[N];//价值列表
+    static int[][] dp = new int[N][N];
+    
+    public static void main(String[] args)&#123;
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+        for(int i = 1 ; i &lt;= n; i++)&#123;
+            v[i] = sc.nextInt();
+            w[i] = sc.nextInt();
+        &#125;
+        for(int i = 1; i &lt;= n; i++)&#123;
+            for(int j = 0; j &lt;= m; j++)&#123;
+                if(j &lt; v[i])&#123;
+                    dp[i][j] = dp[i-1][j];
+                &#125;else&#123;
+                    dp[i][j] = Math.max(dp[i-1][j],dp[i-1][j-v[i]] + w[i]);
+                &#125;
+            &#125;
+        &#125;
+        System.out.println(dp[n][m]);
+    &#125;
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>模板题</tag>
+        <tag>背包问题</tag>
+        <tag>DP</tag>
+        <tag>ACWing</tag>
       </tags>
   </entry>
   <entry>

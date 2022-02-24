@@ -6,7 +6,7 @@
   <link href="https://yangyizzx.github.io/atom.xml" rel="self"/>
   
   <link href="https://yangyizzx.github.io/"/>
-  <updated>2022-02-24T06:43:42.751Z</updated>
+  <updated>2022-02-24T07:35:08.364Z</updated>
   <id>https://yangyizzx.github.io/</id>
   
   <author>
@@ -17,25 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hexo博客图片显示</title>
+    <link href="https://yangyizzx.github.io/2022/02/24/Hexo%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/"/>
+    <id>https://yangyizzx.github.io/2022/02/24/Hexo%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/</id>
+    <published>2022-02-24T06:51:23.000Z</published>
+    <updated>2022-02-24T07:35:08.364Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;设置个人博客的图片实现问题。&lt;/p&gt;
+&lt;p&gt;这里本人图片显示使用的是相对路径，其它问题自行百度。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/265077468&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Hexo" scheme="https://yangyizzx.github.io/categories/Hexo/"/>
+    
+    
+    <category term="技术问题解决" scheme="https://yangyizzx.github.io/tags/%E6%8A%80%E6%9C%AF%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    
+    <category term="个人博客" scheme="https://yangyizzx.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>img-test.md</title>
     <link href="https://yangyizzx.github.io/2022/02/24/img-test-md/"/>
     <id>https://yangyizzx.github.io/2022/02/24/img-test-md/</id>
     <published>2022-02-24T06:08:11.000Z</published>
-    <updated>2022-02-24T06:43:42.751Z</updated>
+    <updated>2022-02-24T06:49:59.799Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-&lt;p&gt;&lt;img src=&quot;/2022/02/24/img-test-md/1%EF%BC%887%EF%BC%89.png&quot; alt=&quot;图片测试&quot;&gt;&lt;/p&gt;
-
-
-&lt;p&gt;&lt;img</summary>
-        
-      
+    <summary type="html">&lt;p&gt;图片测试&lt;/p&gt;</summary>
     
     
     
@@ -73,9 +85,9 @@
     <category term="Hexo" scheme="https://yangyizzx.github.io/categories/Hexo/"/>
     
     
-    <category term="个人博客" scheme="https://yangyizzx.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    
     <category term="技术问题解决" scheme="https://yangyizzx.github.io/tags/%E6%8A%80%E6%9C%AF%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    
+    <category term="个人博客" scheme="https://yangyizzx.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
@@ -166,7 +178,7 @@
     <link href="https://yangyizzx.github.io/2021/09/24/DFS-BFS%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/"/>
     <id>https://yangyizzx.github.io/2021/09/24/DFS-BFS%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</id>
     <published>2021-09-24T08:15:05.000Z</published>
-    <updated>2021-09-26T10:08:25.333Z</updated>
+    <updated>2022-02-24T07:34:57.736Z</updated>
     
     
     <summary type="html">&lt;p&gt;总结：&lt;/p&gt;
@@ -324,11 +336,11 @@
     
     <category term="LeetCode" scheme="https://yangyizzx.github.io/tags/LeetCode/"/>
     
-    <category term="模板题" scheme="https://yangyizzx.github.io/tags/%E6%A8%A1%E6%9D%BF%E9%A2%98/"/>
-    
     <category term="数据结构" scheme="https://yangyizzx.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     <category term="二叉树" scheme="https://yangyizzx.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+    <category term="模板题" scheme="https://yangyizzx.github.io/tags/%E6%A8%A1%E6%9D%BF%E9%A2%98/"/>
     
   </entry>
   
@@ -417,7 +429,7 @@
     <link href="https://yangyizzx.github.io/2021/09/13/Hexo+Next%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/"/>
     <id>https://yangyizzx.github.io/2021/09/13/Hexo+Next%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</id>
     <published>2021-09-13T12:29:07.000Z</published>
-    <updated>2021-09-20T02:47:55.925Z</updated>
+    <updated>2022-02-24T06:50:46.367Z</updated>
     
     
     <summary type="html">&lt;p&gt;Hexo版本：4.3.0&lt;/p&gt;
@@ -482,42 +494,6 @@
     <category term="双指针" scheme="https://yangyizzx.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
     
     <category term="Leetcode" scheme="https://yangyizzx.github.io/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>二分查找详解</title>
-    <link href="https://yangyizzx.github.io/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/"/>
-    <id>https://yangyizzx.github.io/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/</id>
-    <published>2021-09-12T11:50:55.000Z</published>
-    <updated>2021-09-30T08:58:04.989Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/binary-search/solution/er-fen-cha-zhao-xiang-jie-by-labuladong/&quot;&gt;原文链接:二分查找细节详解  –LeetCode labuladong&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;相关题目:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/binary-search/&quot;&gt;LeetCode 704. 二分查找&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/first-bad-version/&quot;&gt;LeetCode 278. 第一个错误的版本&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/search-insert-position/&quot;&gt;LeetCode 35. 搜索插入位置&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/&quot;&gt;LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/&quot;&gt;LeetCode 153. 寻找旋转排序数组中的最小值&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/find-peak-element/&quot;&gt;LeetCode 162. 寻找峰值&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;注意：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;模板的左右初始值细节很重要，但是&lt;strong&gt;应用时要注意根据具体情况取左右初始值和循环条件&lt;/strong&gt;！！&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="数据结构与算法" scheme="https://yangyizzx.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="算法" scheme="https://yangyizzx.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="LeetCode" scheme="https://yangyizzx.github.io/tags/LeetCode/"/>
-    
-    <category term="二分查找" scheme="https://yangyizzx.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
-    
-    <category term="模板题" scheme="https://yangyizzx.github.io/tags/%E6%A8%A1%E6%9D%BF%E9%A2%98/"/>
     
   </entry>
   
