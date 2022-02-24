@@ -266,7 +266,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>637</span>
+              <span>647</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -293,9 +293,9 @@
 <li><p>在前 <code>i</code> 个字符组成的字符串找个位置 <code>j</code> 将字符串切成  <code>s[0..j-1]</code> 和 <code>s[j...i-1]</code> ,因此只需判断 <code>dp[j]</code> 是否为 <code>true</code> 以及后续单词 <code>s[j...i-1]</code>是否存在于列表中。</p>
 </li>
 <li><p>得出公式：</p>
-<p> ​                <code>dp[i]</code> = <code>dp[j]</code> &amp;&amp; <code>checks( s[j...i-1] )</code>;</p>
+<p> ​                <code>dp[i]</code> &#x3D; <code>dp[j]</code> &amp;&amp; <code>checks( s[j...i-1] )</code>;</p>
 </li>
-<li><p> 对于边界条件，我们定义 dp[0]=true 表示空串且合法。</p>
+<li><p>对于边界条件，我们定义 dp[0]&#x3D;true 表示空串且合法。</p>
 </li>
 </ol>
 <pre><code class="java">    public boolean wordBreak(String s, List&lt;String&gt; wordDict) &#123;
@@ -464,20 +464,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

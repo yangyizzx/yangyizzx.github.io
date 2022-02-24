@@ -206,12 +206,12 @@
 <h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p> <code>hexo new</code> 文章名称<br>(或者)<br> <code>hexo n</code> 文章名称</p>
 <h2 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h2><p> <code>hexo server</code><br>(或者)<br><code>hexo s</code></p>
 <h2 id="一键部署"><a href="#一键部署" class="headerlink" title="一键部署"></a>一键部署</h2><p> <code>hexo deploy</code><br>(或者)<br> <code>hexo d</code></p>
-<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes&#x2F;yilia</p>
 <p>hexo clean</p>
 <p>hexo g</p>
 <p>hexo s  localhost:4000查看</p>
 <p><code>hexo d</code> 推到GitHub远端</p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>—    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm –registry=<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>—    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm –registry&#x3D;<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -242,6 +242,55 @@
       <categories>
         <category>Hello</category>
       </categories>
+  </entry>
+  <entry>
+    <title>img-test.md</title>
+    <url>/2022/02/24/img-test-md/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p><img src="/2022/02/24/img-test-md/1%EF%BC%887%EF%BC%89.png" alt="图片测试"></p>
+
+
+<p><img src="/2022/02/24/img-test-md/v2-52220b2dba6901ee2181b72951d25a7b_r.jpg" alt="preview"></p>
+]]></content>
+      <categories>
+        <category>img</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>【Hexo】github开启令牌验证后无法更新Blog的问题</title>
+    <url>/2022/02/10/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。</p>
+<p><a href="https://nokiasonic.github.io/2021/08/30/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/">原文链接</a></p>
+<span id="more"></span>
+
+<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210830140625.png" alt="img"></p>
+<p><strong>解决方案</strong></p>
+<ol>
+<li>在<code>github</code>中注册一个<code>token令牌</code>：首先登入Github 账户，<code>Setting - Developer settings - Personal access tokens - Generate new token</code>, Note 填写 Hexo 或 Blog 之类，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</li>
+<li>在<code>Hexo配置文件</code>中修改<code>_config.yml</code>：</li>
+</ol>
+<pre><code class="yaml"># Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: &#39;git&#39;
+  repo: https://[复制生成的token]@github.com/nokiasonic/nokiasonic.github.io.git
+  branch: main
+</code></pre>
+<p>即可正常hexo d更新blog。</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>个人博客</tag>
+        <tag>技术问题解决</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【计算机网络】HTTP知识</title>
+    <url>/2022/02/20/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%80%91HTTP%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>二分查找详解</title>
@@ -352,7 +401,7 @@
 &#125;
 </code></pre>
 <h4 id="LeetCode-162-寻找峰值"><a href="#LeetCode-162-寻找峰值" class="headerlink" title="LeetCode 162. 寻找峰值"></a>LeetCode 162. 寻找峰值</h4><blockquote>
-<p>根据左右指针计算中间位置 m，并比较 m 与 m+1 的值，如果 m 较大，则左侧存在峰值，r = m，如果 m + 1 较大，则右侧存在峰值，l = m + 1.</p>
+<p>根据左右指针计算中间位置 m，并比较 m 与 m+1 的值，如果 m 较大，则左侧存在峰值，r &#x3D; m，如果 m + 1 较大，则右侧存在峰值，l &#x3D; m + 1.</p>
 </blockquote>
 <pre><code class="java">class Solution &#123;
     public int findPeakElement(int[] nums) &#123;
@@ -382,18 +431,77 @@
       </tags>
   </entry>
   <entry>
-    <title>位运算刷题指南</title>
-    <url>/2021/09/16/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<span id="more"></span>
+    <title>创建线程的方式</title>
+    <url>/2021/09/24/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/58821827">原文链接</a></p>
+<span id="more"></span>
 
+<p>我们常说的方式有以下三种：</p>
+<blockquote>
+<p>继承Thread<br>实现Runable接口<br>实现Callable接口（可以获取线程执行之后的返回值）</p>
+</blockquote>
+<p>但实际后两种，更准确的理解是创建了一个可执行的任务，要采用多线程的方式执行，</p>
+<p>还需要通过创建Thread对象来执行，比如 new Thread(new Runnable(){}).start();这样的方式来执行。</p>
+<p>在实际开发中，我们通常采用线程池的方式来完成Thread的创建，更好管理线程资源。</p>
+<p>案例：如何正确启动线程</p>
+<pre><code class="java">class MyThread extends Thread&#123;
+    @Override
+    public void run() &#123;
+        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
+    &#125;
+&#125;
+
+public static void main(String[] args) &#123;
+    MyThread thread = new MyThread();
+    //正确启动线程的方式
+    //thread.run();     //调用run方法并非开启线程
+    thread.start();
+&#125;
+</code></pre>
+<p>案例：实现runnable只是创建了一个可执行任务，并不是一个线程</p>
+<pre><code class="java">class MyTask implements Runnable&#123;
+    @Override
+    public void run() &#123;
+        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
+    &#125;
+&#125;
+
+public static void main(String[] args) &#123;
+    MyTask task = new MyTask();
+    //task.start();     //并不能直接以线程的方式来启动
+    new Thread(task).start();
+&#125;
+</code></pre>
+<p>案例三：runnable vs callable</p>
+<pre><code class="java">class MyTask2 implements Callable&lt;String&gt;&#123;
+    @Override
+    public String call() throws Exception &#123;
+        return Thread.currentThread().getName() + &quot;:running......&quot;;
+    &#125;
+&#125;
+// java5提供了Future接口来代表Callable接口里的call()方法的返回值，并为Future接口提供了一个FutureTask实现类，该实现类实现了Future接口，并实现了Runnable接口，所以这样可以作为Thread的target。
+//通过FutuerTask类的对象的get()方法来获取线程结束后的返回值
+public static void main(String[] args) &#123;
+    MyTask2 task2 = new MyTask2();
+    FutureTask&lt;String&gt; futureTask = new FutureTask&lt;&gt;(task2);
+
+    Thread thread1 = new Thread(futureTask,&quot;我是futureTask线程&quot;);
+    thread1.start();
+    try &#123;
+        System.out.println(futureTask.get());
+    &#125; catch (Exception e) &#123;
+        e.printStackTrace();
+    &#125;
+&#125;
+</code></pre>
+<p>明确一点：</p>
+<p><strong>本质上来说创建线程的方式就是继承Thread，就是线程池，内部也是创建好线程对象来执行任务。</strong></p>
 ]]></content>
       <categories>
-        <category>数据结构与算法</category>
+        <category>面试</category>
       </categories>
       <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-        <tag>位运算</tag>
+        <tag>线程</tag>
       </tags>
   </entry>
   <entry>
@@ -561,9 +669,9 @@ class Solution &#123;
 <li><p>在前 <code>i</code> 个字符组成的字符串找个位置 <code>j</code> 将字符串切成  <code>s[0..j-1]</code> 和 <code>s[j...i-1]</code> ,因此只需判断 <code>dp[j]</code> 是否为 <code>true</code> 以及后续单词 <code>s[j...i-1]</code>是否存在于列表中。</p>
 </li>
 <li><p>得出公式：</p>
-<p> ​                <code>dp[i]</code> = <code>dp[j]</code> &amp;&amp; <code>checks( s[j...i-1] )</code>;</p>
+<p> ​                <code>dp[i]</code> &#x3D; <code>dp[j]</code> &amp;&amp; <code>checks( s[j...i-1] )</code>;</p>
 </li>
-<li><p> 对于边界条件，我们定义 dp[0]=true 表示空串且合法。</p>
+<li><p>对于边界条件，我们定义 dp[0]&#x3D;true 表示空串且合法。</p>
 </li>
 </ol>
 <pre><code class="java">    public boolean wordBreak(String s, List&lt;String&gt; wordDict) &#123;
@@ -594,77 +702,18 @@ class Solution &#123;
       </tags>
   </entry>
   <entry>
-    <title>创建线程的方式</title>
-    <url>/2021/09/24/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/58821827">原文链接</a></p>
-<span id="more"></span>
+    <title>位运算刷题指南</title>
+    <url>/2021/09/16/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<span id="more"></span>
 
-<p>我们常说的方式有以下三种：</p>
-<blockquote>
-<p>继承Thread<br>实现Runable接口<br>实现Callable接口（可以获取线程执行之后的返回值）</p>
-</blockquote>
-<p>但实际后两种，更准确的理解是创建了一个可执行的任务，要采用多线程的方式执行，</p>
-<p>还需要通过创建Thread对象来执行，比如 new Thread(new Runnable(){}).start();这样的方式来执行。</p>
-<p>在实际开发中，我们通常采用线程池的方式来完成Thread的创建，更好管理线程资源。</p>
-<p>案例：如何正确启动线程</p>
-<pre><code class="java">class MyThread extends Thread&#123;
-    @Override
-    public void run() &#123;
-        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
-    &#125;
-&#125;
-
-public static void main(String[] args) &#123;
-    MyThread thread = new MyThread();
-    //正确启动线程的方式
-    //thread.run();     //调用run方法并非开启线程
-    thread.start();
-&#125;
-</code></pre>
-<p>案例：实现runnable只是创建了一个可执行任务，并不是一个线程</p>
-<pre><code class="java">class MyTask implements Runnable&#123;
-    @Override
-    public void run() &#123;
-        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
-    &#125;
-&#125;
-
-public static void main(String[] args) &#123;
-    MyTask task = new MyTask();
-    //task.start();     //并不能直接以线程的方式来启动
-    new Thread(task).start();
-&#125;
-</code></pre>
-<p>案例三：runnable vs callable</p>
-<pre><code class="java">class MyTask2 implements Callable&lt;String&gt;&#123;
-    @Override
-    public String call() throws Exception &#123;
-        return Thread.currentThread().getName() + &quot;:running......&quot;;
-    &#125;
-&#125;
-// java5提供了Future接口来代表Callable接口里的call()方法的返回值，并为Future接口提供了一个FutureTask实现类，该实现类实现了Future接口，并实现了Runnable接口，所以这样可以作为Thread的target。
-//通过FutuerTask类的对象的get()方法来获取线程结束后的返回值
-public static void main(String[] args) &#123;
-    MyTask2 task2 = new MyTask2();
-    FutureTask&lt;String&gt; futureTask = new FutureTask&lt;&gt;(task2);
-
-    Thread thread1 = new Thread(futureTask,&quot;我是futureTask线程&quot;);
-    thread1.start();
-    try &#123;
-        System.out.println(futureTask.get());
-    &#125; catch (Exception e) &#123;
-        e.printStackTrace();
-    &#125;
-&#125;
-</code></pre>
-<p>明确一点：</p>
-<p><strong>本质上来说创建线程的方式就是继承Thread，就是线程池，内部也是创建好线程对象来执行任务。</strong></p>
 ]]></content>
       <categories>
-        <category>面试</category>
+        <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>线程</tag>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>位运算</tag>
       </tags>
   </entry>
   <entry>
@@ -845,7 +894,7 @@ public static void main(String[] args) &#123;
 <ol>
 <li>将快指针start、慢指针end指向预先节点dummy</li>
 <li>start先走n个节点，然后start，end一起走</li>
-<li>当start走到链表最后一个节点时，end就到了链表倒数第 n + 1 个节点。 </li>
+<li>当start走到链表最后一个节点时，end就到了链表倒数第 n + 1 个节点。</li>
 </ol>
 </blockquote>
 <pre><code class="java">    public ListNode removeNthFromEnd(ListNode head, int n) &#123;
@@ -917,6 +966,19 @@ public static void main(String[] args) &#123;
       </categories>
       <tags>
         <tag>test1</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统面经</title>
+    <url>/2021/09/15/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/</url>
+    <content><![CDATA[<!--mroe-->
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>操作系统</tag>
       </tags>
   </entry>
   <entry>
@@ -1026,64 +1088,70 @@ public static void main(String[] args) &#123;
       </tags>
   </entry>
   <entry>
-    <title>算法工具函数汇总</title>
-    <url>/2021/09/13/%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<p>将刷算法题中的遇到和用到的工具函数汇总。</p>
+    <title>滑动窗口刷题指南</title>
+    <url>/2021/09/17/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>出现以下情况时，考虑滑动窗口：</p>
+<ol>
+<li>涉及到子串</li>
+</ol>
 <span id="more"></span>
 
-<h3 id="一、数学"><a href="#一、数学" class="headerlink" title="一、数学"></a>一、数学</h3><h4 id="判断一个数是否是2的n次方"><a href="#判断一个数是否是2的n次方" class="headerlink" title="判断一个数是否是2的n次方"></a>判断一个数是否是2的n次方</h4><pre><code class="java">    public boolean isPowerOfTwo(int n) &#123;
-        return n &gt; 0 &amp;&amp; (n &amp; (n - 1)) == 0;
+<h4 id="LeetCode-3-无重复字符的最长子串"><a href="#LeetCode-3-无重复字符的最长子串" class="headerlink" title="LeetCode 3. 无重复字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. 无重复字符的最长子串</a></h4><h4 id="LeetCode-30-串联所有单词的子串"><a href="#LeetCode-30-串联所有单词的子串" class="headerlink" title="LeetCode 30. 串联所有单词的子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/">30. 串联所有单词的子串</a></h4><h4 id="LeetCode-76-最小覆盖子串"><a href="#LeetCode-76-最小覆盖子串" class="headerlink" title="LeetCode 76. 最小覆盖子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-substring/">76. 最小覆盖子串</a></h4><h4 id="LeetCode-159-至多包含两个不同字符的最长子串"><a href="#LeetCode-159-至多包含两个不同字符的最长子串" class="headerlink" title="LeetCode 159. 至多包含两个不同字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters/">159. 至多包含两个不同字符的最长子串</a></h4><h4 id="LeetCode-209-长度最小的子数组"><a href="#LeetCode-209-长度最小的子数组" class="headerlink" title="LeetCode 209. 长度最小的子数组"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-size-subarray-sum/">209. 长度最小的子数组</a></h4><h4 id="LeetCode-239-滑动窗口最大值"><a href="#LeetCode-239-滑动窗口最大值" class="headerlink" title="LeetCode 239. 滑动窗口最大值"></a>LeetCode <a href="https://leetcode-cn.com/problems/sliding-window-maximum/">239. 滑动窗口最大值</a></h4><h4 id="LeetCode-567-字符串的排列"><a href="#LeetCode-567-字符串的排列" class="headerlink" title="LeetCode 567. 字符串的排列"></a>LeetCode <a href="https://leetcode-cn.com/problems/permutation-in-string/">567. 字符串的排列</a></h4><h4 id="LeetCode-632-最小区间"><a href="#LeetCode-632-最小区间" class="headerlink" title="LeetCode 632. 最小区间"></a>LeetCode <a href="https://leetcode-cn.com/problems/smallest-range/">632. 最小区间</a></h4><h4 id="LeetCode-727-最小窗口子序列"><a href="#LeetCode-727-最小窗口子序列" class="headerlink" title="LeetCode 727. 最小窗口子序列"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-subsequence/">727. 最小窗口子序列</a></h4>]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>滑动窗口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>背包问题</title>
+    <url>/2021/10/24/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>程序员节刷<a href="https://leetcode-cn.com/problems/shopping-offers/">LeetCode每日一题(638)</a>，发现是个背包问题，无从下笔，决定仔细研究一番背包问题</p>
+<span id="more"></span>
+
+<h4 id="ACWing-2-01背包问题"><a href="#ACWing-2-01背包问题" class="headerlink" title="ACWing 2. 01背包问题"></a><a href="https://www.acwing.com/problem/content/2/">ACWing 2. 01背包问题</a></h4><p><img src="C:\Users\yangyi\Desktop\工作\images\1（7）.png" alt="1（7）"></p>
+<pre><code class="java">import java.util.*;
+
+public class Main&#123;
+    final static int N = 1010;
+    static int n,m;
+    static int[] v = new int[N];//体积列表
+    static int[] w = new int[N];//价值列表
+    static int[][] dp = new int[N][N];
+    
+    public static void main(String[] args)&#123;
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+        for(int i = 1 ; i &lt;= n; i++)&#123;
+            v[i] = sc.nextInt();
+            w[i] = sc.nextInt();
+        &#125;
+        for(int i = 1; i &lt;= n; i++)&#123;
+            for(int j = 0; j &lt;= m; j++)&#123;
+                if(j &lt; v[i])&#123;
+                    dp[i][j] = dp[i-1][j];
+                &#125;else&#123;
+                    dp[i][j] = Math.max(dp[i-1][j],dp[i-1][j-v[i]] + w[i]);
+                &#125;
+            &#125;
+        &#125;
+        System.out.println(dp[n][m]);
     &#125;
-</code></pre>
-<h4 id="求最大公约数和最小公倍数"><a href="#求最大公约数和最小公倍数" class="headerlink" title="求最大公约数和最小公倍数"></a>求最大公约数和最小公倍数</h4><pre><code class="java">    //最大公约数
-    public int gcd(int x,int y)&#123;
-        return y &gt; 0 ? gcd(y , x % y) : x;
-    &#125;
-    //最小公倍数
-    public int lcm(int x,int y)&#123;
-            return x / gdc(x, y) * y;
-    &#125;
-</code></pre>
-<h3 id="二、数组操作"><a href="#二、数组操作" class="headerlink" title="二、数组操作"></a>二、数组操作</h3><h4 id="复制数组内容"><a href="#复制数组内容" class="headerlink" title="复制数组内容"></a>复制数组内容</h4><pre><code class="java">    //复制数组
-    System.arraycopy(fromArr,0,toArr,0,len);
-</code></pre>
-<h4 id="排序二维数组"><a href="#排序二维数组" class="headerlink" title="排序二维数组"></a>排序二维数组</h4><pre><code class="java">    Arrays.sort(arr, (o1, o2) -&gt; Integer.compare(o1[0], o2[0]));
-</code></pre>
-<h4 id="List-lt-int-gt-转换为int"><a href="#List-lt-int-gt-转换为int" class="headerlink" title="List&lt;int[ ]&gt;转换为int[ ][ ]"></a>List&lt;int[ ]&gt;转换为int[ ][ ]</h4><pre><code class="java">    arr.toArray(new int[arr.size()][]);
-</code></pre>
-<h4 id="List-lt-String-gt-转换为String"><a href="#List-lt-String-gt-转换为String" class="headerlink" title="List&lt;String&gt;转换为String[]"></a>List&lt;String&gt;转换为String[]</h4><pre><code class="java">    arr.toArray(new String[arr.size()]);
-</code></pre>
-<h3 id="三、字符串操作"><a href="#三、字符串操作" class="headerlink" title="三、字符串操作"></a>三、字符串操作</h3><h4 id="String类型转换大小写"><a href="#String类型转换大小写" class="headerlink" title="String类型转换大小写"></a>String类型转换大小写</h4><pre><code class="java">    s = s.toLowerCase();//转小写
-    s = s.toUpperCase();//转大写
-</code></pre>
-<h4 id="Character类型转换大小写"><a href="#Character类型转换大小写" class="headerlink" title="Character类型转换大小写"></a>Character类型转换大小写</h4><pre><code class="java">    ch = Character.toLowerCase(ch);
-    ch = Character.toUpperCase(ch);
-</code></pre>
-<h3 id="四、位运算"><a href="#四、位运算" class="headerlink" title="四、位运算"></a>四、位运算</h3><h4 id="Java位运算相加-C-和Python需要额外处理负数"><a href="#Java位运算相加-C-和Python需要额外处理负数" class="headerlink" title="Java位运算相加(C++和Python需要额外处理负数)"></a>Java位运算相加(C++和Python需要额外处理负数)</h4><pre><code class="java">    public int add(int a, int b) &#123;
-        return b == 0 ? a : add(a ^ b, (a &amp; b) &lt;&lt; 1);
-    &#125;
+&#125;
 </code></pre>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>算法</tag>
-        <tag>工具函数</tag>
-        <tag>汇总</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统面经</title>
-    <url>/2021/09/15/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/</url>
-    <content><![CDATA[<!--mroe-->
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>操作系统</tag>
+        <tag>模板题</tag>
+        <tag>背包问题</tag>
+        <tag>DP</tag>
+        <tag>ACWing</tag>
       </tags>
   </entry>
   <entry>
@@ -1260,7 +1328,7 @@ public static void main(String[] args) &#123;
     &#125;
 </code></pre>
 <blockquote>
-<p>方法二：前i天的最大收益 = max{前i-1天的最大收益，第i天的价格-前i-1天中的最小价格}</p>
+<p>方法二：前i天的最大收益 &#x3D; max{前i-1天的最大收益，第i天的价格-前i-1天中的最小价格}</p>
 <ol>
 <li>记录【今天之前买入的最小值】</li>
 <li>计算【今天之前最小值买入，今天卖出的获利】，也即【今天卖出的最大获利】</li>
@@ -1344,70 +1412,64 @@ public static void main(String[] args) &#123;
       </tags>
   </entry>
   <entry>
-    <title>滑动窗口刷题指南</title>
-    <url>/2021/09/17/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>出现以下情况时，考虑滑动窗口：</p>
-<ol>
-<li>涉及到子串</li>
-</ol>
+    <title>算法工具函数汇总</title>
+    <url>/2021/09/13/%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<p>将刷算法题中的遇到和用到的工具函数汇总。</p>
 <span id="more"></span>
 
-<h4 id="LeetCode-3-无重复字符的最长子串"><a href="#LeetCode-3-无重复字符的最长子串" class="headerlink" title="LeetCode 3. 无重复字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. 无重复字符的最长子串</a></h4><h4 id="LeetCode-30-串联所有单词的子串"><a href="#LeetCode-30-串联所有单词的子串" class="headerlink" title="LeetCode 30. 串联所有单词的子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/">30. 串联所有单词的子串</a></h4><h4 id="LeetCode-76-最小覆盖子串"><a href="#LeetCode-76-最小覆盖子串" class="headerlink" title="LeetCode 76. 最小覆盖子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-substring/">76. 最小覆盖子串</a></h4><h4 id="LeetCode-159-至多包含两个不同字符的最长子串"><a href="#LeetCode-159-至多包含两个不同字符的最长子串" class="headerlink" title="LeetCode 159. 至多包含两个不同字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters/">159. 至多包含两个不同字符的最长子串</a></h4><h4 id="LeetCode-209-长度最小的子数组"><a href="#LeetCode-209-长度最小的子数组" class="headerlink" title="LeetCode 209. 长度最小的子数组"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-size-subarray-sum/">209. 长度最小的子数组</a></h4><h4 id="LeetCode-239-滑动窗口最大值"><a href="#LeetCode-239-滑动窗口最大值" class="headerlink" title="LeetCode 239. 滑动窗口最大值"></a>LeetCode <a href="https://leetcode-cn.com/problems/sliding-window-maximum/">239. 滑动窗口最大值</a></h4><h4 id="LeetCode-567-字符串的排列"><a href="#LeetCode-567-字符串的排列" class="headerlink" title="LeetCode 567. 字符串的排列"></a>LeetCode <a href="https://leetcode-cn.com/problems/permutation-in-string/">567. 字符串的排列</a></h4><h4 id="LeetCode-632-最小区间"><a href="#LeetCode-632-最小区间" class="headerlink" title="LeetCode 632. 最小区间"></a>LeetCode <a href="https://leetcode-cn.com/problems/smallest-range/">632. 最小区间</a></h4><h4 id="LeetCode-727-最小窗口子序列"><a href="#LeetCode-727-最小窗口子序列" class="headerlink" title="LeetCode 727. 最小窗口子序列"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-subsequence/">727. 最小窗口子序列</a></h4>]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-        <tag>滑动窗口</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>背包问题</title>
-    <url>/2021/10/24/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>程序员节刷<a href="https://leetcode-cn.com/problems/shopping-offers/">LeetCode每日一题(638)</a>，发现是个背包问题，无从下笔，决定仔细研究一番背包问题</p>
-<span id="more"></span>
-
-<h4 id="ACWing-2-01背包问题"><a href="#ACWing-2-01背包问题" class="headerlink" title="ACWing 2. 01背包问题"></a><a href="https://www.acwing.com/problem/content/2/">ACWing 2. 01背包问题</a></h4><p><img src="C:\Users\yangyi\Desktop\工作\images\1（7）.png" alt="1（7）"></p>
-<pre><code class="java">import java.util.*;
-
-public class Main&#123;
-    final static int N = 1010;
-    static int n,m;
-    static int[] v = new int[N];//体积列表
-    static int[] w = new int[N];//价值列表
-    static int[][] dp = new int[N][N];
-    
-    public static void main(String[] args)&#123;
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        m = sc.nextInt();
-        for(int i = 1 ; i &lt;= n; i++)&#123;
-            v[i] = sc.nextInt();
-            w[i] = sc.nextInt();
-        &#125;
-        for(int i = 1; i &lt;= n; i++)&#123;
-            for(int j = 0; j &lt;= m; j++)&#123;
-                if(j &lt; v[i])&#123;
-                    dp[i][j] = dp[i-1][j];
-                &#125;else&#123;
-                    dp[i][j] = Math.max(dp[i-1][j],dp[i-1][j-v[i]] + w[i]);
-                &#125;
-            &#125;
-        &#125;
-        System.out.println(dp[n][m]);
+<h3 id="一、数学"><a href="#一、数学" class="headerlink" title="一、数学"></a>一、数学</h3><h4 id="判断一个数是否是2的n次方"><a href="#判断一个数是否是2的n次方" class="headerlink" title="判断一个数是否是2的n次方"></a>判断一个数是否是2的n次方</h4><pre><code class="java">    public boolean isPowerOfTwo(int n) &#123;
+        return n &gt; 0 &amp;&amp; (n &amp; (n - 1)) == 0;
     &#125;
-&#125;
+</code></pre>
+<h4 id="求最大公约数和最小公倍数"><a href="#求最大公约数和最小公倍数" class="headerlink" title="求最大公约数和最小公倍数"></a>求最大公约数和最小公倍数</h4><pre><code class="java">    //最大公约数
+    public int gcd(int x,int y)&#123;
+        return y &gt; 0 ? gcd(y , x % y) : x;
+    &#125;
+    //最小公倍数
+    public int lcm(int x,int y)&#123;
+            return x / gdc(x, y) * y;
+    &#125;
+</code></pre>
+<h3 id="二、数组操作"><a href="#二、数组操作" class="headerlink" title="二、数组操作"></a>二、数组操作</h3><h4 id="复制数组内容"><a href="#复制数组内容" class="headerlink" title="复制数组内容"></a>复制数组内容</h4><pre><code class="java">    //复制数组
+    System.arraycopy(fromArr,0,toArr,0,len);
+</code></pre>
+<h4 id="排序二维数组"><a href="#排序二维数组" class="headerlink" title="排序二维数组"></a>排序二维数组</h4><pre><code class="java">    Arrays.sort(arr, (o1, o2) -&gt; Integer.compare(o1[0], o2[0]));
+</code></pre>
+<h4 id="List-lt-int-gt-转换为int"><a href="#List-lt-int-gt-转换为int" class="headerlink" title="List&lt;int[ ]&gt;转换为int[ ][ ]"></a>List&lt;int[ ]&gt;转换为int[ ][ ]</h4><pre><code class="java">    arr.toArray(new int[arr.size()][]);
+</code></pre>
+<h4 id="List-lt-String-gt-转换为String"><a href="#List-lt-String-gt-转换为String" class="headerlink" title="List&lt;String&gt;转换为String[]"></a>List&lt;String&gt;转换为String[]</h4><pre><code class="java">    arr.toArray(new String[arr.size()]);
+</code></pre>
+<h3 id="三、字符串操作"><a href="#三、字符串操作" class="headerlink" title="三、字符串操作"></a>三、字符串操作</h3><h4 id="String类型转换大小写"><a href="#String类型转换大小写" class="headerlink" title="String类型转换大小写"></a>String类型转换大小写</h4><pre><code class="java">    s = s.toLowerCase();//转小写
+    s = s.toUpperCase();//转大写
+</code></pre>
+<h4 id="Character类型转换大小写"><a href="#Character类型转换大小写" class="headerlink" title="Character类型转换大小写"></a>Character类型转换大小写</h4><pre><code class="java">    ch = Character.toLowerCase(ch);
+    ch = Character.toUpperCase(ch);
+</code></pre>
+<h3 id="四、位运算"><a href="#四、位运算" class="headerlink" title="四、位运算"></a>四、位运算</h3><h4 id="Java位运算相加-C-和Python需要额外处理负数"><a href="#Java位运算相加-C-和Python需要额外处理负数" class="headerlink" title="Java位运算相加(C++和Python需要额外处理负数)"></a>Java位运算相加(C++和Python需要额外处理负数)</h4><pre><code class="java">    public int add(int a, int b) &#123;
+        return b == 0 ? a : add(a ^ b, (a &amp; b) &lt;&lt; 1);
+    &#125;
 </code></pre>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>模板题</tag>
-        <tag>背包问题</tag>
-        <tag>DP</tag>
-        <tag>ACWing</tag>
+        <tag>算法</tag>
+        <tag>工具函数</tag>
+        <tag>汇总</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络面经</title>
+    <url>/2021/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/</url>
+    <content><![CDATA[<span id="more"></span>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
@@ -1430,19 +1492,6 @@ public class Main&#123;
       </categories>
       <tags>
         <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络面经</title>
-    <url>/2021/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/</url>
-    <content><![CDATA[<span id="more"></span>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
@@ -1531,7 +1580,7 @@ avatar: http://example.com/avatar.png
 </code></pre>
 <h4 id="设置头像为圆形并且触碰旋转"><a href="#设置头像为圆形并且触碰旋转" class="headerlink" title="设置头像为圆形并且触碰旋转"></a>设置头像为圆形并且触碰旋转</h4><p>打开主题配置文件</p>
 <blockquote>
-<p>themes/next/_config.yml</p>
+<p>themes&#x2F;next&#x2F;_config.yml</p>
 </blockquote>
 <pre><code class="yaml"># Sidebar Avatar
 avatar:
@@ -1544,7 +1593,7 @@ avatar:
   rotated: true
 </code></pre>
 <p><a href="https://crayonnew.github.io/2018/11/05/Hexo-NexT%E4%B8%BB%E9%A2%98-%E8%AE%BE%E7%BD%AE%E5%9C%86%E5%BD%A2%E5%A4%B4%E5%83%8F%E5%B9%B6%E6%97%8B%E8%BD%AC/">旧版Hexo设置</a></p>
-<p>新版主题配置文件更换了位置(“/themes/next/source/css/_common/outline/sidebar/sidebar-author.styl”)</p>
+<p>新版主题配置文件更换了位置(“&#x2F;themes&#x2F;next&#x2F;source&#x2F;css&#x2F;_common&#x2F;outline&#x2F;sidebar&#x2F;sidebar-author.styl”)</p>
 <h3 id="浏览页面的时候显示当前浏览进度"><a href="#浏览页面的时候显示当前浏览进度" class="headerlink" title="浏览页面的时候显示当前浏览进度"></a>浏览页面的时候显示当前浏览进度</h3><p>打开 <code>themes/next/_config.yml</code> ,搜索关键字 <code>scrollpercent</code> ,把 <code>false</code> 改为 <code>true</code>。</p>
 <pre><code class="bash">  # Scroll percent label in b2t button
   scrollpercent: true
@@ -1986,9 +2035,9 @@ enabled: true
         <category>Hexo</category>
       </categories>
       <tags>
+        <tag>个人博客</tag>
         <tag>Hexo</tag>
         <tag>NexT</tag>
-        <tag>个人博客</tag>
       </tags>
   </entry>
 </search>
