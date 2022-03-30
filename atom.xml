@@ -6,7 +6,7 @@
   <link href="https://yangyizzx.github.io/atom.xml" rel="self"/>
   
   <link href="https://yangyizzx.github.io/"/>
-  <updated>2022-03-24T09:59:22.515Z</updated>
+  <updated>2022-03-30T15:20:42.770Z</updated>
   <id>https://yangyizzx.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【设计模式】单例模式</title>
+    <link href="https://yangyizzx.github.io/2022/03/30/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://yangyizzx.github.io/2022/03/30/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</id>
+    <published>2022-03-30T15:18:33.000Z</published>
+    <updated>2022-03-30T15:20:42.770Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;重点&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;五种单例模式的实现方式&lt;/li&gt;
+&lt;li&gt;为何 DCL 实现时要使用 volatile 修饰静态变量&lt;/li&gt;
+&lt;li&gt;jdk 中用到单例的场景&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="设计模式" scheme="https://yangyizzx.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+    <category term="单例模式" scheme="https://yangyizzx.github.io/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="设计模式" scheme="https://yangyizzx.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>【JavaSE】Java基础2</title>
@@ -116,9 +142,9 @@
     <category term="计算机网络" scheme="https://yangyizzx.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="http" scheme="https://yangyizzx.github.io/tags/http/"/>
-    
     <category term="计算机网络" scheme="https://yangyizzx.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="http" scheme="https://yangyizzx.github.io/tags/http/"/>
     
   </entry>
   
@@ -447,34 +473,6 @@
     <category term="数据结构" scheme="https://yangyizzx.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     <category term="二叉树" scheme="https://yangyizzx.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>操作系统面经</title>
-    <link href="https://yangyizzx.github.io/2021/09/15/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/"/>
-    <id>https://yangyizzx.github.io/2021/09/15/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/</id>
-    <published>2021-09-15T08:48:03.000Z</published>
-    <updated>2021-09-15T08:49:14.072Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;!--mroe--&gt;
-</summary>
-        
-      
-    
-    
-    
-    <category term="操作系统" scheme="https://yangyizzx.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="面经" scheme="https://yangyizzx.github.io/tags/%E9%9D%A2%E7%BB%8F/"/>
-    
-    <category term="操作系统" scheme="https://yangyizzx.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   

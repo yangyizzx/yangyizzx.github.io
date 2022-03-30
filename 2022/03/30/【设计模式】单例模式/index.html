@@ -26,20 +26,21 @@
     var CONFIG = {"hostname":"yangyizzx.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="将以往学习Java的笔记2转移到个人博客">
+  <meta name="description" content="重点  五种单例模式的实现方式 为何 DCL 实现时要使用 volatile 修饰静态变量 jdk 中用到单例的场景">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【JavaSE】Java基础2">
-<meta property="og:url" content="https://yangyizzx.github.io/2022/03/22/%E3%80%90JavaSE%E3%80%91Java%E5%9F%BA%E7%A1%802/index.html">
+<meta property="og:title" content="【设计模式】单例模式">
+<meta property="og:url" content="https://yangyizzx.github.io/2022/03/30/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="二乔二手车">
-<meta property="og:description" content="将以往学习Java的笔记2转移到个人博客">
+<meta property="og:description" content="重点  五种单例模式的实现方式 为何 DCL 实现时要使用 volatile 修饰静态变量 jdk 中用到单例的场景">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-22T10:17:42.000Z">
-<meta property="article:modified_time" content="2022-03-24T09:59:22.515Z">
+<meta property="article:published_time" content="2022-03-30T15:18:33.000Z">
+<meta property="article:modified_time" content="2022-03-30T15:20:42.770Z">
 <meta property="article:author" content="Josef Joestar">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="单例模式">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://yangyizzx.github.io/2022/03/22/%E3%80%90JavaSE%E3%80%91Java%E5%9F%BA%E7%A1%802/">
+<link rel="canonical" href="https://yangyizzx.github.io/2022/03/30/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
 
 
 <script id="page-configurations">
@@ -52,7 +53,7 @@
   };
 </script>
 
-  <title>【JavaSE】Java基础2 | 二乔二手车</title>
+  <title>【设计模式】单例模式 | 二乔二手车</title>
   
 
 
@@ -222,7 +223,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yangyizzx.github.io/2022/03/22/%E3%80%90JavaSE%E3%80%91Java%E5%9F%BA%E7%A1%802/">
+    <link itemprop="mainEntityOfPage" href="https://yangyizzx.github.io/2022/03/30/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -235,7 +236,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【JavaSE】Java基础2
+          【设计模式】单例模式
         </h1>
 
         <div class="post-meta">
@@ -244,23 +245,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-03-22 18:17:42" itemprop="dateCreated datePublished" datetime="2022-03-22T18:17:42+08:00">2022-03-22</time>
+              <time title="创建时间：2022-03-30 23:18:33 / 修改时间：23:20:42" itemprop="dateCreated datePublished" datetime="2022-03-30T23:18:33+08:00">2022-03-30</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-24 17:59:22" itemprop="dateModified" datetime="2022-03-24T17:59:22+08:00">2022-03-24</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
+                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
                 </span>
             </span>
 
@@ -270,7 +265,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>2.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -289,112 +284,152 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>将以往学习Java的笔记2转移到个人博客</p>
+        <p><strong>重点</strong></p>
+<ul>
+<li>五种单例模式的实现方式</li>
+<li>为何 DCL 实现时要使用 volatile 修饰静态变量</li>
+<li>jdk 中用到单例的场景</li>
+</ul>
 <span id="more"></span>
 
-<h1 id="Java基础-2"><a href="#Java基础-2" class="headerlink" title="Java基础 2"></a>Java基础 2</h1><h2 id="7-方法"><a href="#7-方法" class="headerlink" title="7 方法"></a>7 方法</h2><h3 id="7-1-方法概述"><a href="#7-1-方法概述" class="headerlink" title="7.1 方法概述"></a>7.1 方法概述</h3><h3 id="7-2-方法的定义和调用"><a href="#7-2-方法的定义和调用" class="headerlink" title="7.2 方法的定义和调用"></a>7.2 方法的定义和调用</h3><h4 id="7-2-1-方法定义："><a href="#7-2-1-方法定义：" class="headerlink" title="7.2.1 方法定义："></a>7.2.1 方法定义：</h4><ul>
-<li>格式<br>  public static void 方法名(){<br>  方法体；<br>  }</li>
-<li>范例：<pre><code class="java">  public static void main(String[] args) &#123;
-      HelloWorld();
-  &#125;
-  public static void HelloWorld()&#123; 
-      System.out.println(&quot;hello&quot;);
-  &#125;
-</code></pre>
-</li>
-</ul>
-<h3 id="7-3-带参数方法的定义和调用"><a href="#7-3-带参数方法的定义和调用" class="headerlink" title="7.3 带参数方法的定义和调用"></a>7.3 带参数方法的定义和调用</h3><pre><code class="java">    public static void main(String[] args) &#123;
-        getMax(2,3);
-    &#125;
-    public static void getMax(int a,int b)&#123;
-        if (a&gt;b)&#123;
-            System.out.println(a);
-        &#125;else &#123;
-            System.out.println(b);
+<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><h3 id="三种破坏单例模式的方法"><a href="#三种破坏单例模式的方法" class="headerlink" title="三种破坏单例模式的方法"></a>三种破坏单例模式的方法</h3><p><strong>反射破解单例</strong></p>
+<p><strong>反序列化破解单例</strong></p>
+<p><strong>unsafe破解单例</strong></p>
+<h3 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a><strong>饿汉式</strong></h3><pre><code class="java">public class Singleton1 implements Serializable &#123;
+    private Singleton1() &#123;
+        if (INSTANCE != null) &#123;
+            throw new RuntimeException(&quot;单例对象不能重复创建&quot;);
         &#125;
+        System.out.println(&quot;private Singleton1()&quot;);
     &#125;
-</code></pre>
-<h3 id="7-4-带返回值方法的定义和调用"><a href="#7-4-带返回值方法的定义和调用" class="headerlink" title="7.4 带返回值方法的定义和调用"></a>7.4 带返回值方法的定义和调用</h3><pre><code class="java">    public static int max(int[] a)&#123;
-        int max = a[0];   
-        for (int i = 1; i &lt; a.length; i++) &#123;        
-            max = a[i]&gt;max?a[i]:max; 
-        &#125;    
-        return max;
+
+    //给静态成员赋值这个操作相当于放在静态代码块中执行
+    //静态代码块中的线程安全 jvm 会进行处理，因此饿汉式是线程安全的。
+    private static final Singleton1 INSTANCE = new Singleton1();
+
+    public static Singleton1 getInstance() &#123;
+        return INSTANCE;
     &#125;
+
+    public static void otherMethod() &#123;
+        System.out.println(&quot;otherMethod()&quot;);
+    &#125;
+
+    public Object readResolve() &#123;
+        return INSTANCE;
+    &#125;
+&#125;
 </code></pre>
-<h3 id="7-5-方法的注意事项"><a href="#7-5-方法的注意事项" class="headerlink" title="7.5 方法的注意事项"></a>7.5 方法的注意事项</h3><ul>
-<li>方法不能<strong>嵌套定义</strong></li>
-<li>![Image [3]](【JavaSE】Java基础2&#x2F;Image [3].png)</li>
-</ul>
-<h3 id="7-6-方法的重载"><a href="#7-6-方法的重载" class="headerlink" title="7.6 方法的重载"></a>7.6 方法的重载</h3><h4 id="7-6-1-方法重载概述"><a href="#7-6-1-方法重载概述" class="headerlink" title="7.6.1 方法重载概述"></a>7.6.1 方法重载概述</h4><ul>
-<li>多个方法在<strong>同一个类中</strong></li>
-<li>多个方法具有<strong>相同的方法名</strong></li>
-<li>多个方法的<strong>参数不相同，类型不同或者数量不同</strong><h3 id="7-7-方法的参数传递"><a href="#7-7-方法的参数传递" class="headerlink" title="7.7 方法的参数传递"></a>7.7 方法的参数传递</h3><h4 id="7-7-1-方法参数传递-基本类型"><a href="#7-7-1-方法参数传递-基本类型" class="headerlink" title="7.7.1 方法参数传递(基本类型)"></a>7.7.1 方法参数传递(基本类型)</h4></li>
-</ul>
-<p>![Image [4]](【JavaSE】Java基础2&#x2F;Image [4].png)</p>
-<h4 id="7-7-2-方法参数传递-引用类型"><a href="#7-7-2-方法参数传递-引用类型" class="headerlink" title="7.7.2 方法参数传递(引用类型)"></a>7.7.2 方法参数传递(引用类型)</h4><p>![Image [5]](【JavaSE】Java基础2&#x2F;Image [5].png)</p>
-<h2 id="8-Debug"><a href="#8-Debug" class="headerlink" title="8 Debug"></a>8 Debug</h2><h3 id="8-1-Debug概述"><a href="#8-1-Debug概述" class="headerlink" title="8.1 Debug概述"></a>8.1 Debug概述</h3><ul>
-<li><strong>Debug</strong>：是供程序员使用的程序调式功能，它可以用于<strong>查看程序的执行流程</strong>，也可以用于追踪程序执行过程来<strong>调试程序</strong>。<h3 id="8-2-Debug操作流程"><a href="#8-2-Debug操作流程" class="headerlink" title="8.2 Debug操作流程"></a>8.2 Debug操作流程</h3>Debug调试，又被称为断点调试，</li>
-</ul>
-<ol>
-<li>如何加断点</li>
-<li>如何运行加了断点的程序</li>
-<li>看哪里<ul>
-<li>看Debugger窗口</li>
-<li>看Console窗口</li>
-</ul>
-</li>
-<li>点哪里<ul>
-<li>F7往下执行</li>
-<li>点stop结束</li>
-</ul>
-</li>
-<li>如何删除断点</li>
-</ol>
-<h2 id="9-面向对象基础"><a href="#9-面向对象基础" class="headerlink" title="9 面向对象基础"></a>9 面向对象基础</h2><h3 id="9-1-类和对象"><a href="#9-1-类和对象" class="headerlink" title="9.1 类和对象"></a>9.1 类和对象</h3><pre><code>* 对象：万物皆对象，客观存在的事实皆为对象。
-* 类是对现实生活中一类具有**共同属性和行为**的事物的抽象
-</code></pre>
-<hr>
-<p>  <strong>类的特点:</strong></p>
 <ul>
-<li>类是对象的数据类型</li>
-<li>类是具有相同属性和行为的一组对象的集合。</li>
+<li>构造方法抛出异常是防止反射破坏单例</li>
+<li><code>readResolve()</code> 是防止反序列化破坏单例</li>
 </ul>
-<hr>
-<p> <strong>对象的属性：</strong><br>         对象具有的各种特征，每个对象的每个<strong>属性</strong>都拥有特定的<strong>值</strong></p>
-<hr>
-<p> <strong>对象的行为：</strong><br>          对象能够执行的操作</p>
-<hr>
-<p> <em><strong>类是对象的抽象，对象是类的实体</strong></em></p>
-<p>![Image [6]](【JavaSE】Java基础2&#x2F;Image [6].png)</p>
-<hr>
-<ul>
-<li><p>类的定义：<br>&#96;&#96;&#96;java<br>&#x2F;&#x2F;手机类<br>public class Phone {</p>
-<p>  &#x2F;&#x2F;成员变量：品牌，价格<br>  String brand;<br>  int price;</p>
-<p>  &#x2F;&#x2F;成员方法：打电话，发送信息<br>  public void call(){<br>  System.out.println(“打电话”);<br>  }</p>
-<p>  public void sendMessage(){<br>  System.out.println(“发送信息”);<br>  }</p>
-</li>
-</ul>
-<p>}</p>
-<pre><code>******************
+<h3 id="枚举饿汉式"><a href="#枚举饿汉式" class="headerlink" title="枚举饿汉式"></a><strong>枚举饿汉式</strong></h3><pre><code class="java">public enum Singleton2 &#123;
+    INSTANCE;
 
-* 对象的使用
+    private Singleton2() &#123;
+        System.out.println(&quot;private Singleton2()&quot;);
+    &#125;
 
-![Image [7]](【JavaSE】Java基础2/Image [7].png)
+    @Override
+    public String toString() &#123;
+        return getClass().getName() + &quot;@&quot; + Integer.toHexString(hashCode());
+    &#125;
 
-### 9.2 对象内存图
-#### 9.2.1 对象内存图(单个对象)
+    public static Singleton2 getInstance() &#123;
+        return INSTANCE;
+    &#125;
 
-![Image [8]](【JavaSE】Java基础2/Image [8].png)
-
-#### 9.2.2 对象内存图(多个对象)
-
-![Image [9]](【JavaSE】Java基础2/Image [9].png)
-
-#### 9.2.3 对象内存图(多个对象指向相同)
-
-![Image [10]](【JavaSE】Java基础2/Image [10].png)
+    public static void otherMethod() &#123;
+        System.out.println(&quot;otherMethod()&quot;);
+    &#125;
+&#125;
 </code></pre>
+<ul>
+<li>枚举饿汉式能天然防止反射、反序列化破坏单例</li>
+</ul>
+<h3 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a><strong>懒汉式</strong></h3><pre><code class="java">public class Singleton3 implements Serializable &#123;
+    private Singleton3() &#123;
+        System.out.println(&quot;private Singleton3()&quot;);
+    &#125;
+
+    private static Singleton3 INSTANCE = null;
+
+    // Singleton3.class
+    public static synchronized Singleton3 getInstance() &#123;
+        if (INSTANCE == null) &#123;
+            INSTANCE = new Singleton3();
+        &#125;
+        return INSTANCE;
+    &#125;
+
+    public static void otherMethod() &#123;
+        System.out.println(&quot;otherMethod()&quot;);
+    &#125;
+
+&#125;
+</code></pre>
+<ul>
+<li>其实只有首次创建单例对象时才需要同步，但该代码实际上每次调用都会同步</li>
+<li>因此有了下面的双检锁改进</li>
+</ul>
+<h3 id="双检锁懒汉式"><a href="#双检锁懒汉式" class="headerlink" title="双检锁懒汉式"></a><strong>双检锁懒汉式</strong></h3><pre><code class="java">public class Singleton4 implements Serializable &#123;
+    private Singleton4() &#123;
+        System.out.println(&quot;private Singleton4()&quot;);
+    &#125;
+
+    private static volatile Singleton4 INSTANCE = null; // 可见性，有序性
+
+    public static Singleton4 getInstance() &#123;
+        if (INSTANCE == null) &#123;
+            synchronized (Singleton4.class) &#123;
+                if (INSTANCE == null) &#123;
+                    INSTANCE = new Singleton4();
+                &#125;
+            &#125;
+        &#125;
+        return INSTANCE;
+    &#125;
+
+    public static void otherMethod() &#123;
+        System.out.println(&quot;otherMethod()&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>为何必须加 volatile：</p>
+<ul>
+<li><code>INSTANCE = new Singleton4()</code> 不是原子的，分成 3 步：创建对象、调用构造、给静态变量赋值，其中后两步可能被指令重排序优化，变成先赋值、再调用构造</li>
+<li>如果线程1 先执行了赋值，线程2 执行到第一个 <code>INSTANCE == null</code> 时发现 INSTANCE 已经不为 null，此时就会返回一个未完全构造的对象</li>
+</ul>
+<h3 id="内部类懒汉式"><a href="#内部类懒汉式" class="headerlink" title="内部类懒汉式"></a><strong>内部类懒汉式</strong></h3><pre><code class="java">public class Singleton5 implements Serializable &#123;
+    private Singleton5() &#123;
+        System.out.println(&quot;private Singleton5()&quot;);
+    &#125;
+
+    private static class Holder &#123;
+        static Singleton5 INSTANCE = new Singleton5();
+    &#125;
+
+    public static Singleton5 getInstance() &#123;
+        return Holder.INSTANCE;
+    &#125;
+
+    public static void otherMethod() &#123;
+        System.out.println(&quot;otherMethod()&quot;);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>避免了双检锁的缺点</li>
+</ul>
+<p><strong>JDK 中单例的体现</strong></p>
+<ul>
+<li>Runtime 体现了饿汉式单例</li>
+<li>Console 体现了双检锁懒汉式单例</li>
+<li>Collections 中的 EmptyNavigableSet 内部类懒汉式单例</li>
+<li>ReverseComparator.REVERSE_ORDER 内部类懒汉式单例</li>
+<li>Comparators.NaturalOrderComparator.INSTANCE 枚举饿汉式单例</li>
+</ul>
 
     </div>
 	
@@ -440,7 +475,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://yangyizzx.github.io/2022/03/22/%E3%80%90JavaSE%E3%80%91Java%E5%9F%BA%E7%A1%802/" title="【JavaSE】Java基础2">https://yangyizzx.github.io/2022/03/22/【JavaSE】Java基础2/</a>
+    <a href="https://yangyizzx.github.io/2022/03/30/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" title="【设计模式】单例模式">https://yangyizzx.github.io/2022/03/30/【设计模式】单例模式/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -452,7 +487,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+              <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 单例模式</a>
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 设计模式</a>
           </div>
 
         
@@ -461,13 +497,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/03/22/HashMap%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="prev" title="HashMap知识点">
-      <i class="fa fa-chevron-left"></i> HashMap知识点
+    <a href="/2022/03/22/%E3%80%90JavaSE%E3%80%91Java%E5%9F%BA%E7%A1%802/" rel="prev" title="【JavaSE】Java基础2">
+      <i class="fa fa-chevron-left"></i> 【JavaSE】Java基础2
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/03/30/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="next" title="【设计模式】单例模式">
-      【设计模式】单例模式 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -526,7 +559,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%9F%BA%E7%A1%80-2"><span class="nav-number">1.</span> <span class="nav-text">Java基础 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">7 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-%E6%96%B9%E6%B3%95%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">7.1 方法概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%B0%83%E7%94%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">7.2 方法的定义和调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-1-%E6%96%B9%E6%B3%95%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">7.2.1 方法定义：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-%E5%B8%A6%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%B0%83%E7%94%A8"><span class="nav-number">1.1.3.</span> <span class="nav-text">7.3 带参数方法的定义和调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-%E5%B8%A6%E8%BF%94%E5%9B%9E%E5%80%BC%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%B0%83%E7%94%A8"><span class="nav-number">1.1.4.</span> <span class="nav-text">7.4 带返回值方法的定义和调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-%E6%96%B9%E6%B3%95%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.1.5.</span> <span class="nav-text">7.5 方法的注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E8%BD%BD"><span class="nav-number">1.1.6.</span> <span class="nav-text">7.6 方法的重载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-1-%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">7.6.1 方法重载概述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-7-%E6%96%B9%E6%B3%95%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">1.1.7.</span> <span class="nav-text">7.7 方法的参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-1-%E6%96%B9%E6%B3%95%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.7.1.</span> <span class="nav-text">7.7.1 方法参数传递(基本类型)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-2-%E6%96%B9%E6%B3%95%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92-%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.7.2.</span> <span class="nav-text">7.7.2 方法参数传递(引用类型)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Debug"><span class="nav-number">1.2.</span> <span class="nav-text">8 Debug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-Debug%E6%A6%82%E8%BF%B0"><span class="nav-number">1.2.1.</span> <span class="nav-text">8.1 Debug概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-Debug%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.2.</span> <span class="nav-text">8.2 Debug操作流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80"><span class="nav-number">1.3.</span> <span class="nav-text">9 面向对象基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.3.1.</span> <span class="nav-text">9.1 类和对象</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%A7%8D%E7%A0%B4%E5%9D%8F%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">三种破坏单例模式的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A5%BF%E6%B1%89%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">饿汉式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E9%A5%BF%E6%B1%89%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">枚举饿汉式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%87%92%E6%B1%89%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">懒汉式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E6%A3%80%E9%94%81%E6%87%92%E6%B1%89%E5%BC%8F"><span class="nav-number">1.5.</span> <span class="nav-text">双检锁懒汉式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB%E6%87%92%E6%B1%89%E5%BC%8F"><span class="nav-number">1.6.</span> <span class="nav-text">内部类懒汉式</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
