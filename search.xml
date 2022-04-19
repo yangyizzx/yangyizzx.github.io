@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>HashMap-Hashtable-ConcurrentHashMap</title>
+    <url>/2021/09/24/HashMap-Hashtable-ConcurrentHashMap/</url>
+    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/58621094">原文链接</a></p>
+<span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>JavaSE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DFS/BFS刷题指南</title>
     <url>/2021/09/24/DFS-BFS%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p>总结：</p>
@@ -186,41 +200,6 @@
       </tags>
   </entry>
   <entry>
-    <title>HashMap-Hashtable-ConcurrentHashMap</title>
-    <url>/2021/09/24/HashMap-Hashtable-ConcurrentHashMap/</url>
-    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/58621094">原文链接</a></p>
-<span id="more"></span>
-
-]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>JavaSE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo基本使用</title>
-    <url>/2021/09/07/Hexo%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h2><p> <code>hexo init</code> 文件夹名称</p>
-<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p> <code>hexo new</code> 文章名称<br>(或者)<br> <code>hexo n</code> 文章名称</p>
-<h2 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h2><p> <code>hexo server</code><br>(或者)<br><code>hexo s</code></p>
-<h2 id="一键部署"><a href="#一键部署" class="headerlink" title="一键部署"></a>一键部署</h2><p> <code>hexo deploy</code><br>(或者)<br> <code>hexo d</code></p>
-<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes&#x2F;yilia</p>
-<p>hexo clean</p>
-<p>hexo g</p>
-<p>hexo s  localhost:4000查看</p>
-<p><code>hexo d</code> 推到GitHub远端</p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>—    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm –registry&#x3D;<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo的基本使用</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo博客图片显示</title>
     <url>/2022/02/24/Hexo%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/</url>
     <content><![CDATA[<p>设置个人博客的图片实现问题。</p>
@@ -270,20 +249,6 @@ marked:
       </tags>
   </entry>
   <entry>
-    <title>JVM知识点</title>
-    <url>/2022/04/02/JVM%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<span id="more"></span>
-]]></content>
-      <categories>
-        <category>JVM</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-        <tag>八股文</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>IDEA使用小技巧</title>
     <url>/2022/04/08/IDEA%E4%BD%BF%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<p>汇总IDEA项目中有用、有趣的使用技巧</p>
@@ -314,6 +279,206 @@ marked:
       <tags>
         <tag>技术</tag>
         <tag>IDEA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo基本使用</title>
+    <url>/2021/09/07/Hexo%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h2><p> <code>hexo init</code> 文件夹名称</p>
+<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p> <code>hexo new</code> 文章名称<br>(或者)<br> <code>hexo n</code> 文章名称</p>
+<h2 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h2><p> <code>hexo server</code><br>(或者)<br><code>hexo s</code></p>
+<h2 id="一键部署"><a href="#一键部署" class="headerlink" title="一键部署"></a>一键部署</h2><p> <code>hexo deploy</code><br>(或者)<br> <code>hexo d</code></p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes&#x2F;yilia</p>
+<p>hexo clean</p>
+<p>hexo g</p>
+<p>hexo s  localhost:4000查看</p>
+<p><code>hexo d</code> 推到GitHub远端</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>—    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm –registry&#x3D;<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo的基本使用</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JVM知识点</title>
+    <url>/2022/04/02/JVM%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<span id="more"></span>
+]]></content>
+      <categories>
+        <category>JVM</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>八股文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL语句常用关键字与函数</title>
+    <url>/2022/04/16/SQL%E8%AF%AD%E5%8F%A5%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<p>在<code>leetcode</code>中刷<code>MySQL题目</code>时遇到很多平时没用过的函数，记录一下常用关键字与函数</p>
+<span id="more"></span>
+
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h4 id="查询结果组合关键字（union，union-all）"><a href="#查询结果组合关键字（union，union-all）" class="headerlink" title="查询结果组合关键字（union，union all）"></a>查询结果组合关键字（union，union all）</h4><blockquote>
+<p>MySQL  union 用于把来自多个select  语句的结果组合到一个结果集合中。语法为：</p>
+</blockquote>
+<pre><code class="mysql">    select  column,......from table1
+    union [all]
+    select  column,...... from table2
+</code></pre>
+<blockquote>
+<p>union all使用案例1：<a href="https://leetcode-cn.com/problems/employees-with-missing-information/">LeetCode1965. 丢失信息的雇员</a></p>
+</blockquote>
+<pre><code class="mysql">    select employee_id
+    from (
+        select employee_id from employees
+        union all
+        select employee_id from  salaries
+    ) ans
+    group by employee_id
+    having count(employee_id) = 1
+    order by employee_id
+</code></pre>
+<blockquote>
+<p>union all 使用案例2：<a href="https://leetcode-cn.com/problems/rearrange-products-table/">LeetCode1795. 每个产品在不同商店的价格</a></p>
+</blockquote>
+<pre><code class="mysql">    select product_id,&#39;store1&#39; as store,store1 as price from products where store1 is not null
+    union all
+    select product_id,&#39;store2&#39; as store,store2 as price from products where store2 is not null
+    union all
+    select product_id,&#39;store3&#39; as store,store3 as price from products where store3 is not null
+</code></pre>
+<p><strong>union  与 union all 的区别</strong></p>
+<p>当使用union  时，MySQL 会把结果集中重复的记录删掉，而使用union  all ，MySQL 会把所有的记录返回，且效率高于union 。</p>
+<h4 id="正则筛选关键字（regexp）"><a href="#正则筛选关键字（regexp）" class="headerlink" title="正则筛选关键字（regexp）"></a>正则筛选关键字（regexp）</h4><blockquote>
+<p>使用案例<a href="https://leetcode-cn.com/problems/patients-with-a-condition/">LeetCode1527. 患某种疾病的患者</a></p>
+</blockquote>
+<pre><code class="mysql">    select * 
+    from Patients
+    where conditions regexp &#39;^DIAB1|\\sDIAB1&#39;
+</code></pre>
+<h4 id="去重关键字（distinct）"><a href="#去重关键字（distinct）" class="headerlink" title="去重关键字（distinct）"></a>去重关键字（distinct）</h4><blockquote>
+<p>使用案例<a href="https://leetcode-cn.com/problems/second-highest-salary/">LeetCode 176. 第二高的薪水</a></p>
+</blockquote>
+<pre><code class="mysql">    select (
+        select distinct salary from Employee 
+        order by salary desc
+        limit 1,1
+    ) as SecondHighestSalary 
+</code></pre>
+<h5 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a><strong>扩展</strong></h5><p><strong><code>distinct</code> 是先排序结果然后去除相邻重复的结果，因此<code>distinct</code>结果是排序过的</strong></p>
+<h4 id="条件查询关键字-case-when"><a href="#条件查询关键字-case-when" class="headerlink" title="条件查询关键字(case when)"></a>条件查询关键字(case when)</h4><blockquote>
+<p>使用案例1：<a href="https://leetcode-cn.com/problems/calculate-special-bonus/">LeetCode1873. 计算特殊奖金</a></p>
+</blockquote>
+<pre><code class="mysql">    select employee_id,(
+        case when employee_id%2 = 1 and  name not like &#39;M%&#39; then salary else 0 end
+        ) as bonus 
+    from Employees 
+    order by employee_id
+</code></pre>
+<blockquote>
+<p>使用案例2：<a href="https://leetcode-cn.com/problems/swap-salary/">LeetCode627. 变更性别</a></p>
+</blockquote>
+<pre><code class="mysql">    #写法一
+    update Salary
+    set sex = (case when sex = &#39;f&#39; then &#39;m&#39; else &#39;f&#39; end)
+    #写法二
+    update Salary
+    set sex = (case sex when &#39;f&#39; then &#39;m&#39; else &#39;f&#39; end)
+</code></pre>
+<blockquote>
+<p>使用案例3：<a href="https://leetcode-cn.com/problems/tree-node/">LeetCode608. 树节点</a></p>
+</blockquote>
+<pre><code class="mysql">    select id,(
+        case
+        when p_id is null then &#39;Root&#39; 
+        when id in (select p_id from tree) then &#39;Inner&#39;
+        else &#39;Leaf&#39; 
+        end
+    ) as type
+    from tree
+</code></pre>
+<h4 id="分组关键字（group-by）"><a href="#分组关键字（group-by）" class="headerlink" title="分组关键字（group by）"></a>分组关键字（group by）</h4><blockquote>
+<p>使用案例<a href="https://leetcode-cn.com/problems/delete-duplicate-emails/">196. 删除重复的电子邮箱</a></p>
+</blockquote>
+<pre><code class="mysql">    DELETE from Person 
+    Where Id not in (
+        Select Id 
+        From(Select MIN(Id) as id From Person Group by Email) t
+    )
+    #同一题不同解法
+    DELETE p1
+    from person p1,person p2
+    where p1.email = p2.email and p1.id &gt; p2.id
+</code></pre>
+<h4 id="分页查询关键字（limit）"><a href="#分页查询关键字（limit）" class="headerlink" title="分页查询关键字（limit）"></a>分页查询关键字（limit）</h4><p>用法：limit start,pageSize</p>
+<p>​        start：表示从第start个数据开始查询</p>
+<p>​        pageSize：表示查询的数据长度为pageSize</p>
+<blockquote>
+<p>使用案例<a href="https://leetcode-cn.com/problems/second-highest-salary/">LeetCode 176. 第二高的薪水</a></p>
+</blockquote>
+<pre><code class="mysql">    select (
+        select distinct salary from Employee 
+        order by salary desc
+        limit 1,1
+    ) as SecondHighestSalary 
+</code></pre>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h4 id="字符串分割函数（left-right-substring-）"><a href="#字符串分割函数（left-right-substring-）" class="headerlink" title="字符串分割函数（left(),right(),substring()）"></a>字符串分割函数（left(),right(),substring()）</h4><p>用法：left (str,len) , right (str,len) , substring(str,start,len)</p>
+<p>​        第一个参数<code>str</code>表示处理的字符串</p>
+<p>​        left (str,len) ：表示截取<code>str</code>靠左的<code>len</code>个字符</p>
+<p>​        right (str,len) ：表示截取<code>str</code>靠右的<code>len</code>个字符</p>
+<p>​        substring (str,start,len) ：与<code>Java语法</code>中一致，不做解释(注意：**<code>MySQL</code>中字符串字符下标以1开始**)</p>
+<blockquote>
+<p>使用案例<a href="https://leetcode-cn.com/problems/fix-names-in-a-table/">1667. 修复表中的名字</a></p>
+</blockquote>
+<pre><code class="mysql">    select user_id,concat(upper(left(name,1)),lower(substring(name,2,1))) as name
+    from Users
+    order by user_id
+</code></pre>
+<h4 id="字符串合并函数（concat-group-concat-）"><a href="#字符串合并函数（concat-group-concat-）" class="headerlink" title="字符串合并函数（concat(),group_concat()）"></a>字符串合并函数（concat(),group_concat()）</h4><p>用法：concat( str1,str2,str3, … … ) , group_concat()</p>
+<blockquote>
+<p>使用案例<a href="https://leetcode-cn.com/problems/group-sold-products-by-the-date/">1484. 按日期分组销售产品</a></p>
+</blockquote>
+<pre><code class="mysql">    select sell_date,count(distinct product) as num_sold ,group_concat(distinct product) as products
+    from Activities 
+    group by sell_date
+    order by sell_date
+</code></pre>
+<h4 id="条件判断函数（if-）"><a href="#条件判断函数（if-）" class="headerlink" title="条件判断函数（if()）"></a>条件判断函数（if()）</h4><blockquote>
+<p>使用案例1：<a href="https://leetcode-cn.com/problems/calculate-special-bonus/">LeetCode1873. 计算特殊奖金</a></p>
+</blockquote>
+<pre><code class="mysql">    select employee_id,if(employee_id%2 = 1 &amp;&amp; left(name,1) != &#39;M&#39;,salary,0) as bonus 
+    from Employees 
+    order by employee_id        
+</code></pre>
+<blockquote>
+<p>使用案例2：<a href="https://leetcode-cn.com/problems/swap-salary/">LeetCode627. 变更性别</a></p>
+</blockquote>
+<pre><code class="mysql">    update Salary
+    set sex = if(sex = &#39;m&#39;,&#39;f&#39;,&#39;m&#39;)
+</code></pre>
+<blockquote>
+<p>使用案例3：<a href="https://leetcode-cn.com/problems/tree-node/">LeetCode608. 树节点</a></p>
+</blockquote>
+<pre><code class="mysql">    #根据提交结果来看，`is null`比`isnull()` 效率更高一点。因此这里使用is null判断更好
+    select id,
+        if(isnull(p_id),&#39;Root&#39;,if(id in (select p_id from tree),&#39;Inner&#39;,&#39;Leaf&#39;)) as type
+    from tree
+    
+    
+</code></pre>
+<h4 id="判空函数（isnull-）"><a href="#判空函数（isnull-）" class="headerlink" title="判空函数（isnull()）"></a>判空函数（isnull()）</h4><p><strong>与<code>is null</code>是一样的效果，反正就是在MySQL中不能使用<code>=null</code>判断是否为null</strong></p>
+<p>根据<a href="https://leetcode-cn.com/problems/tree-node/">LeetCode608. 树节点</a>提交结果来看，<code>is null</code>比<code>isnull()</code> 效率更高一点。</p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>汇总</tag>
       </tags>
   </entry>
   <entry>
@@ -830,160 +995,6 @@ System.out.println(&quot;max=&quot;+max);
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>二叉树遍历详解</title>
-    <url>/2021/09/15/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<h4 id="LeetCode-144-二叉树的前序遍历"><a href="#LeetCode-144-二叉树的前序遍历" class="headerlink" title="LeetCode 144. 二叉树的前序遍历"></a>LeetCode <a href="https://leetcode-cn.com/problems/binary-tree-preorder-traversal/">144. 二叉树的前序遍历</a></h4><blockquote>
-<p>「方法一」递归</p>
-</blockquote>
-<pre><code class="java">    public List&lt;Integer&gt; preorderTraversal(TreeNode root) &#123;
-        List&lt;Integer&gt; preArr = new ArrayList&lt;&gt;();
-        preorder(root,preArr);
-        return preArr;
-    &#125;
-
-    public void preorder(TreeNode root,List&lt;Integer&gt; preArr)&#123;
-        if(root == null) return;
-        arr.add(root.val);
-        preorder(root.left,preArr);
-        preorder(root.right,preArr);
-    &#125;
-</code></pre>
-<blockquote>
-<p>「方法二」迭代</p>
-</blockquote>
-<pre><code class="java">    public List&lt;Integer&gt; preorderTraversal(TreeNode root) &#123;
-        if(root == null) return new ArrayList&lt;&gt;();
-        List&lt;Integer&gt; preList = new ArrayList&lt;&gt;();
-        Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;();
-        stack.push(root);
-        while(!stack.isEmpty())&#123;
-            TreeNode node = stack.pop();
-            preList.add(node.val);
-            //因为出栈顺序是左子树，右子树
-            //所以入栈时右子树应该先进，左子树后进。
-            if(node.right != null)&#123;
-                stack.push(node.right);
-            &#125;
-            if(node.left != null)&#123;
-                stack.push(node.left);
-            &#125;
-        &#125;
-        return preList;
-    &#125;
-</code></pre>
-<h4 id="LeetCode-94-二叉树的中序遍历"><a href="#LeetCode-94-二叉树的中序遍历" class="headerlink" title="LeetCode 94. 二叉树的中序遍历"></a>LeetCode <a href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">94. 二叉树的中序遍历</a></h4><blockquote>
-<p>「方法一」递归</p>
-</blockquote>
-<pre><code class="java">    public List&lt;Integer&gt; inorderTraversal(TreeNode root) &#123;
-        List&lt;Integer&gt; inList = new ArrayList&lt;&gt;();
-        inorder(root,inList);
-        return inList;
-    &#125;
-
-    public void inorder(TreeNode root,List&lt;Integer&gt; inList)&#123;
-        if(root == null) return;
-        if(root.left != null) inorder(root.left,inList);
-        inList.add(root.val);
-        inorder(root.right,inList);
-    &#125;
-</code></pre>
-<blockquote>
-<p>「方法二」迭代</p>
-<ol>
-<li>创建一个Stack，然后按 左 中 右的顺序输出节点。</li>
-<li>尽可能的将这个节点的左子树压入Stack，此时栈顶的元素是最左侧的元素，其目的是找到一个最小单位的子树(也就是最左侧的一个节点)，并且在寻找的过程中记录了来源，才能返回上层,同时在返回上层的时候已经处理完毕左子树了。。</li>
-<li>当处理完最小单位的子树时，返回到上层处理了中间节点。（如果把整个左中右的遍历都理解成子树的话，就是处理完 左子树-&gt;中间(就是一个节点)-&gt;右子树）</li>
-<li>如果有右节点，其也要进行中序遍历。当整个左子树退栈的时候这个时候输出了该子树的根节点 2，之后输出中间节点 1。然后处理根节点为3右子树。</li>
-</ol>
-</blockquote>
-<pre><code class="java">    public List&lt;Integer&gt; inorderTraversal(TreeNode root) &#123;
-        if (root == null) return new ArrayList&lt;&gt;();
-        List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
-        Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;();
-        TreeNode cur = root;
-        while(!stack.isEmpty() || cur != null)&#123;
-            while(cur != null)&#123;
-                stack.push(cur);
-                cur = cur.left;
-            &#125;
-            TreeNode node = stack.pop();
-            list.add(node.val);
-            if(node.right != null)&#123;
-                cur = node.right;
-            &#125;
-        &#125;
-        return list;
-    &#125;
-</code></pre>
-<h4 id="LeetCode-145-二叉树的后序遍历"><a href="#LeetCode-145-二叉树的后序遍历" class="headerlink" title="LeetCode 145. 二叉树的后序遍历"></a>LeetCode <a href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal/">145. 二叉树的后序遍历</a></h4><blockquote>
-<p>「方法一」递归</p>
-</blockquote>
-<pre><code class="java">    public List&lt;Integer&gt; postorderTraversal(TreeNode root) &#123;
-        if(root == null) return new ArrayList&lt;&gt;();
-        List&lt;Integer&gt; postList = new ArrayList&lt;&gt;();
-        postorder(root,postList);
-        return postList;
-    &#125;
-    public void postorder(TreeNode root,List&lt;Integer&gt; postList)&#123;
-        if(root.left != null) postorder(root.left,postList);
-        if(root.right != null) postorder(root.right,postList);
-        postList.add(root.val);
-    &#125;
-</code></pre>
-<blockquote>
-<p>「方法二」迭代(还没研究，再嗦)</p>
-</blockquote>
-<h4 id="LeetCode-102-二叉树的层序遍历"><a href="#LeetCode-102-二叉树的层序遍历" class="headerlink" title="LeetCode 102. 二叉树的层序遍历"></a>LeetCode <a href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/">102. 二叉树的层序遍历</a></h4><blockquote>
-<p>使用队列模拟每一层</p>
-</blockquote>
-<pre><code class="java">/**
- Queue 前面的方法是Queue特有的方法，推荐使用前面的方法操作队列
- offer() add()        添加数据
- poll()  remove()    删除数据
- peek()  element()    返回第一个数据
- */
-class Solution &#123;
-    public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;
-        if(root == null) return new ArrayList&lt;&gt;();
-        List&lt;List&lt;Integer&gt;&gt; ansList = new ArrayList&lt;&gt;();
-        Queue&lt;TreeNode&gt; queue = new LinkedList&lt;&gt;();
-        queue.offer(root);
-        while(!queue.isEmpty())&#123;
-            //获取每次队列长度，因为循环中队列size()会改变
-            int n = queue.size();
-            List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
-            for(int i = 0;i &lt; n;i++)&#123;
-                TreeNode node = queue.poll();
-                list.add(node.val);
-                //入队前要判断是否存在左右节点。
-                if(node.left != null)&#123;
-                    queue.offer(node.left);
-                &#125;
-                if(node.right != null)&#123;
-                    queue.offer(node.right);
-                &#125;
-            &#125;
-            //将处理好的list加入ansList
-            ansList.add(list);
-        &#125;
-        return ansList;
-    &#125;
-&#125;
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>LeetCode</tag>
-        <tag>数据结构</tag>
-        <tag>二叉树</tag>
-        <tag>模板题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【设计模式】单例模式</title>
     <url>/2022/03/30/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<p><strong>重点</strong></p>
@@ -1142,6 +1153,249 @@ class Solution &#123;
       </tags>
   </entry>
   <entry>
+    <title>二叉树遍历详解</title>
+    <url>/2021/09/15/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h4 id="LeetCode-144-二叉树的前序遍历"><a href="#LeetCode-144-二叉树的前序遍历" class="headerlink" title="LeetCode 144. 二叉树的前序遍历"></a>LeetCode <a href="https://leetcode-cn.com/problems/binary-tree-preorder-traversal/">144. 二叉树的前序遍历</a></h4><blockquote>
+<p>「方法一」递归</p>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; preorderTraversal(TreeNode root) &#123;
+        List&lt;Integer&gt; preArr = new ArrayList&lt;&gt;();
+        preorder(root,preArr);
+        return preArr;
+    &#125;
+
+    public void preorder(TreeNode root,List&lt;Integer&gt; preArr)&#123;
+        if(root == null) return;
+        arr.add(root.val);
+        preorder(root.left,preArr);
+        preorder(root.right,preArr);
+    &#125;
+</code></pre>
+<blockquote>
+<p>「方法二」迭代</p>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; preorderTraversal(TreeNode root) &#123;
+        if(root == null) return new ArrayList&lt;&gt;();
+        List&lt;Integer&gt; preList = new ArrayList&lt;&gt;();
+        Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;();
+        stack.push(root);
+        while(!stack.isEmpty())&#123;
+            TreeNode node = stack.pop();
+            preList.add(node.val);
+            //因为出栈顺序是左子树，右子树
+            //所以入栈时右子树应该先进，左子树后进。
+            if(node.right != null)&#123;
+                stack.push(node.right);
+            &#125;
+            if(node.left != null)&#123;
+                stack.push(node.left);
+            &#125;
+        &#125;
+        return preList;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-94-二叉树的中序遍历"><a href="#LeetCode-94-二叉树的中序遍历" class="headerlink" title="LeetCode 94. 二叉树的中序遍历"></a>LeetCode <a href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">94. 二叉树的中序遍历</a></h4><blockquote>
+<p>「方法一」递归</p>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; inorderTraversal(TreeNode root) &#123;
+        List&lt;Integer&gt; inList = new ArrayList&lt;&gt;();
+        inorder(root,inList);
+        return inList;
+    &#125;
+
+    public void inorder(TreeNode root,List&lt;Integer&gt; inList)&#123;
+        if(root == null) return;
+        if(root.left != null) inorder(root.left,inList);
+        inList.add(root.val);
+        inorder(root.right,inList);
+    &#125;
+</code></pre>
+<blockquote>
+<p>「方法二」迭代</p>
+<ol>
+<li>创建一个Stack，然后按 左 中 右的顺序输出节点。</li>
+<li>尽可能的将这个节点的左子树压入Stack，此时栈顶的元素是最左侧的元素，其目的是找到一个最小单位的子树(也就是最左侧的一个节点)，并且在寻找的过程中记录了来源，才能返回上层,同时在返回上层的时候已经处理完毕左子树了。。</li>
+<li>当处理完最小单位的子树时，返回到上层处理了中间节点。（如果把整个左中右的遍历都理解成子树的话，就是处理完 左子树-&gt;中间(就是一个节点)-&gt;右子树）</li>
+<li>如果有右节点，其也要进行中序遍历。当整个左子树退栈的时候这个时候输出了该子树的根节点 2，之后输出中间节点 1。然后处理根节点为3右子树。</li>
+</ol>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; inorderTraversal(TreeNode root) &#123;
+        if (root == null) return new ArrayList&lt;&gt;();
+        List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+        Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;();
+        TreeNode cur = root;
+        while(!stack.isEmpty() || cur != null)&#123;
+            while(cur != null)&#123;
+                stack.push(cur);
+                cur = cur.left;
+            &#125;
+            TreeNode node = stack.pop();
+            list.add(node.val);
+            if(node.right != null)&#123;
+                cur = node.right;
+            &#125;
+        &#125;
+        return list;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-145-二叉树的后序遍历"><a href="#LeetCode-145-二叉树的后序遍历" class="headerlink" title="LeetCode 145. 二叉树的后序遍历"></a>LeetCode <a href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal/">145. 二叉树的后序遍历</a></h4><blockquote>
+<p>「方法一」递归</p>
+</blockquote>
+<pre><code class="java">    public List&lt;Integer&gt; postorderTraversal(TreeNode root) &#123;
+        if(root == null) return new ArrayList&lt;&gt;();
+        List&lt;Integer&gt; postList = new ArrayList&lt;&gt;();
+        postorder(root,postList);
+        return postList;
+    &#125;
+    public void postorder(TreeNode root,List&lt;Integer&gt; postList)&#123;
+        if(root.left != null) postorder(root.left,postList);
+        if(root.right != null) postorder(root.right,postList);
+        postList.add(root.val);
+    &#125;
+</code></pre>
+<blockquote>
+<p>「方法二」迭代(还没研究，再嗦)</p>
+</blockquote>
+<h4 id="LeetCode-102-二叉树的层序遍历"><a href="#LeetCode-102-二叉树的层序遍历" class="headerlink" title="LeetCode 102. 二叉树的层序遍历"></a>LeetCode <a href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/">102. 二叉树的层序遍历</a></h4><blockquote>
+<p>使用队列模拟每一层</p>
+</blockquote>
+<pre><code class="java">/**
+ Queue 前面的方法是Queue特有的方法，推荐使用前面的方法操作队列
+ offer() add()        添加数据
+ poll()  remove()    删除数据
+ peek()  element()    返回第一个数据
+ */
+class Solution &#123;
+    public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;
+        if(root == null) return new ArrayList&lt;&gt;();
+        List&lt;List&lt;Integer&gt;&gt; ansList = new ArrayList&lt;&gt;();
+        Queue&lt;TreeNode&gt; queue = new LinkedList&lt;&gt;();
+        queue.offer(root);
+        while(!queue.isEmpty())&#123;
+            //获取每次队列长度，因为循环中队列size()会改变
+            int n = queue.size();
+            List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+            for(int i = 0;i &lt; n;i++)&#123;
+                TreeNode node = queue.poll();
+                list.add(node.val);
+                //入队前要判断是否存在左右节点。
+                if(node.left != null)&#123;
+                    queue.offer(node.left);
+                &#125;
+                if(node.right != null)&#123;
+                    queue.offer(node.right);
+                &#125;
+            &#125;
+            //将处理好的list加入ansList
+            ansList.add(list);
+        &#125;
+        return ansList;
+    &#125;
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>数据结构</tag>
+        <tag>二叉树</tag>
+        <tag>模板题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>位运算刷题指南</title>
+    <url>/2021/09/16/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>位运算</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>创建线程的方式</title>
+    <url>/2021/09/24/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/58821827">原文链接</a></p>
+<span id="more"></span>
+
+<p>我们常说的方式有以下三种：</p>
+<blockquote>
+<p>继承Thread<br>实现Runable接口<br>实现Callable接口（可以获取线程执行之后的返回值）</p>
+</blockquote>
+<p>但实际后两种，更准确的理解是创建了一个可执行的任务，要采用多线程的方式执行，</p>
+<p>还需要通过创建Thread对象来执行，比如 new Thread(new Runnable(){}).start();这样的方式来执行。</p>
+<p>在实际开发中，我们通常采用线程池的方式来完成Thread的创建，更好管理线程资源。</p>
+<p>案例：如何正确启动线程</p>
+<pre><code class="java">class MyThread extends Thread&#123;
+    @Override
+    public void run() &#123;
+        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
+    &#125;
+&#125;
+
+public static void main(String[] args) &#123;
+    MyThread thread = new MyThread();
+    //正确启动线程的方式
+    //thread.run();     //调用run方法并非开启线程
+    thread.start();
+&#125;
+</code></pre>
+<p>案例：实现runnable只是创建了一个可执行任务，并不是一个线程</p>
+<pre><code class="java">class MyTask implements Runnable&#123;
+    @Override
+    public void run() &#123;
+        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
+    &#125;
+&#125;
+
+public static void main(String[] args) &#123;
+    MyTask task = new MyTask();
+    //task.start();     //并不能直接以线程的方式来启动
+    new Thread(task).start();
+&#125;
+</code></pre>
+<p>案例三：runnable vs callable</p>
+<pre><code class="java">class MyTask2 implements Callable&lt;String&gt;&#123;
+    @Override
+    public String call() throws Exception &#123;
+        return Thread.currentThread().getName() + &quot;:running......&quot;;
+    &#125;
+&#125;
+// java5提供了Future接口来代表Callable接口里的call()方法的返回值，并为Future接口提供了一个FutureTask实现类，该实现类实现了Future接口，并实现了Runnable接口，所以这样可以作为Thread的target。
+//通过FutuerTask类的对象的get()方法来获取线程结束后的返回值
+public static void main(String[] args) &#123;
+    MyTask2 task2 = new MyTask2();
+    FutureTask&lt;String&gt; futureTask = new FutureTask&lt;&gt;(task2);
+
+    Thread thread1 = new Thread(futureTask,&quot;我是futureTask线程&quot;);
+    thread1.start();
+    try &#123;
+        System.out.println(futureTask.get());
+    &#125; catch (Exception e) &#123;
+        e.printStackTrace();
+    &#125;
+&#125;
+</code></pre>
+<p>明确一点：</p>
+<p><strong>本质上来说创建线程的方式就是继承Thread，就是线程池，内部也是创建好线程对象来执行任务。</strong></p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>线程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二分查找详解</title>
     <url>/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/binary-search/solution/er-fen-cha-zhao-xiang-jie-by-labuladong/">原文链接:二分查找细节详解  –LeetCode labuladong</a></p>
@@ -1277,21 +1531,6 @@ class Solution &#123;
         <tag>LeetCode</tag>
         <tag>模板题</tag>
         <tag>二分查找</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>位运算刷题指南</title>
-    <url>/2021/09/16/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<span id="more"></span>
-
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-        <tag>位运算</tag>
       </tags>
   </entry>
   <entry>
@@ -1531,80 +1770,6 @@ class Solution &#123;
       </tags>
   </entry>
   <entry>
-    <title>创建线程的方式</title>
-    <url>/2021/09/24/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/58821827">原文链接</a></p>
-<span id="more"></span>
-
-<p>我们常说的方式有以下三种：</p>
-<blockquote>
-<p>继承Thread<br>实现Runable接口<br>实现Callable接口（可以获取线程执行之后的返回值）</p>
-</blockquote>
-<p>但实际后两种，更准确的理解是创建了一个可执行的任务，要采用多线程的方式执行，</p>
-<p>还需要通过创建Thread对象来执行，比如 new Thread(new Runnable(){}).start();这样的方式来执行。</p>
-<p>在实际开发中，我们通常采用线程池的方式来完成Thread的创建，更好管理线程资源。</p>
-<p>案例：如何正确启动线程</p>
-<pre><code class="java">class MyThread extends Thread&#123;
-    @Override
-    public void run() &#123;
-        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
-    &#125;
-&#125;
-
-public static void main(String[] args) &#123;
-    MyThread thread = new MyThread();
-    //正确启动线程的方式
-    //thread.run();     //调用run方法并非开启线程
-    thread.start();
-&#125;
-</code></pre>
-<p>案例：实现runnable只是创建了一个可执行任务，并不是一个线程</p>
-<pre><code class="java">class MyTask implements Runnable&#123;
-    @Override
-    public void run() &#123;
-        System.out.println(Thread.currentThread().getName()+&quot;:running......&quot;);
-    &#125;
-&#125;
-
-public static void main(String[] args) &#123;
-    MyTask task = new MyTask();
-    //task.start();     //并不能直接以线程的方式来启动
-    new Thread(task).start();
-&#125;
-</code></pre>
-<p>案例三：runnable vs callable</p>
-<pre><code class="java">class MyTask2 implements Callable&lt;String&gt;&#123;
-    @Override
-    public String call() throws Exception &#123;
-        return Thread.currentThread().getName() + &quot;:running......&quot;;
-    &#125;
-&#125;
-// java5提供了Future接口来代表Callable接口里的call()方法的返回值，并为Future接口提供了一个FutureTask实现类，该实现类实现了Future接口，并实现了Runnable接口，所以这样可以作为Thread的target。
-//通过FutuerTask类的对象的get()方法来获取线程结束后的返回值
-public static void main(String[] args) &#123;
-    MyTask2 task2 = new MyTask2();
-    FutureTask&lt;String&gt; futureTask = new FutureTask&lt;&gt;(task2);
-
-    Thread thread1 = new Thread(futureTask,&quot;我是futureTask线程&quot;);
-    thread1.start();
-    try &#123;
-        System.out.println(futureTask.get());
-    &#125; catch (Exception e) &#123;
-        e.printStackTrace();
-    &#125;
-&#125;
-</code></pre>
-<p>明确一点：</p>
-<p><strong>本质上来说创建线程的方式就是继承Thread，就是线程池，内部也是创建好线程对象来执行任务。</strong></p>
-]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>线程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>动态规划刷题指南</title>
     <url>/2021/09/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<span id="more"></span>
@@ -1781,6 +1946,22 @@ public static void main(String[] args) &#123;
         <tag>DFS/BFS</tag>
         <tag>LeetCode</tag>
         <tag>岛屿问题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博客文章</title>
+    <url>/2021/09/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>#第一章<br>hhh</p>
+<hr>
+<p>#第二章<br>hhh</p>
+<hr>
+<p>#第三章<br><a href="http://www.baidu.com/">www.baidu.com</a></p>
+]]></content>
+      <categories>
+        <category>test</category>
+      </categories>
+      <tags>
+        <tag>test1</tag>
       </tags>
   </entry>
   <entry>
@@ -2006,41 +2187,6 @@ public static void main(String[] args) &#123;
       <tags>
         <tag>面经</tag>
         <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇博客文章</title>
-    <url>/2021/09/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>#第一章<br>hhh</p>
-<hr>
-<p>#第二章<br>hhh</p>
-<hr>
-<p>#第三章<br><a href="http://www.baidu.com/">www.baidu.com</a></p>
-]]></content>
-      <categories>
-        <category>test</category>
-      </categories>
-      <tags>
-        <tag>test1</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>滑动窗口刷题指南</title>
-    <url>/2021/09/17/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<p>出现以下情况时，考虑滑动窗口：</p>
-<ol>
-<li>涉及到子串</li>
-</ol>
-<span id="more"></span>
-
-<h4 id="LeetCode-3-无重复字符的最长子串"><a href="#LeetCode-3-无重复字符的最长子串" class="headerlink" title="LeetCode 3. 无重复字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. 无重复字符的最长子串</a></h4><h4 id="LeetCode-30-串联所有单词的子串"><a href="#LeetCode-30-串联所有单词的子串" class="headerlink" title="LeetCode 30. 串联所有单词的子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/">30. 串联所有单词的子串</a></h4><h4 id="LeetCode-76-最小覆盖子串"><a href="#LeetCode-76-最小覆盖子串" class="headerlink" title="LeetCode 76. 最小覆盖子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-substring/">76. 最小覆盖子串</a></h4><h4 id="LeetCode-159-至多包含两个不同字符的最长子串"><a href="#LeetCode-159-至多包含两个不同字符的最长子串" class="headerlink" title="LeetCode 159. 至多包含两个不同字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters/">159. 至多包含两个不同字符的最长子串</a></h4><h4 id="LeetCode-209-长度最小的子数组"><a href="#LeetCode-209-长度最小的子数组" class="headerlink" title="LeetCode 209. 长度最小的子数组"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-size-subarray-sum/">209. 长度最小的子数组</a></h4><h4 id="LeetCode-239-滑动窗口最大值"><a href="#LeetCode-239-滑动窗口最大值" class="headerlink" title="LeetCode 239. 滑动窗口最大值"></a>LeetCode <a href="https://leetcode-cn.com/problems/sliding-window-maximum/">239. 滑动窗口最大值</a></h4><h4 id="LeetCode-567-字符串的排列"><a href="#LeetCode-567-字符串的排列" class="headerlink" title="LeetCode 567. 字符串的排列"></a>LeetCode <a href="https://leetcode-cn.com/problems/permutation-in-string/">567. 字符串的排列</a></h4><h4 id="LeetCode-632-最小区间"><a href="#LeetCode-632-最小区间" class="headerlink" title="LeetCode 632. 最小区间"></a>LeetCode <a href="https://leetcode-cn.com/problems/smallest-range/">632. 最小区间</a></h4><h4 id="LeetCode-727-最小窗口子序列"><a href="#LeetCode-727-最小窗口子序列" class="headerlink" title="LeetCode 727. 最小窗口子序列"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-subsequence/">727. 最小窗口子序列</a></h4>]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-        <tag>滑动窗口</tag>
       </tags>
   </entry>
   <entry>
@@ -2301,6 +2447,82 @@ public static void main(String[] args) &#123;
       </tags>
   </entry>
   <entry>
+    <title>滑动窗口刷题指南</title>
+    <url>/2021/09/17/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>出现以下情况时，考虑滑动窗口：</p>
+<ol>
+<li>涉及到子串</li>
+</ol>
+<span id="more"></span>
+
+<h4 id="LeetCode-3-无重复字符的最长子串"><a href="#LeetCode-3-无重复字符的最长子串" class="headerlink" title="LeetCode 3. 无重复字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. 无重复字符的最长子串</a></h4><h4 id="LeetCode-30-串联所有单词的子串"><a href="#LeetCode-30-串联所有单词的子串" class="headerlink" title="LeetCode 30. 串联所有单词的子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/">30. 串联所有单词的子串</a></h4><h4 id="LeetCode-76-最小覆盖子串"><a href="#LeetCode-76-最小覆盖子串" class="headerlink" title="LeetCode 76. 最小覆盖子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-substring/">76. 最小覆盖子串</a></h4><h4 id="LeetCode-159-至多包含两个不同字符的最长子串"><a href="#LeetCode-159-至多包含两个不同字符的最长子串" class="headerlink" title="LeetCode 159. 至多包含两个不同字符的最长子串"></a>LeetCode <a href="https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters/">159. 至多包含两个不同字符的最长子串</a></h4><h4 id="LeetCode-209-长度最小的子数组"><a href="#LeetCode-209-长度最小的子数组" class="headerlink" title="LeetCode 209. 长度最小的子数组"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-size-subarray-sum/">209. 长度最小的子数组</a></h4><h4 id="LeetCode-239-滑动窗口最大值"><a href="#LeetCode-239-滑动窗口最大值" class="headerlink" title="LeetCode 239. 滑动窗口最大值"></a>LeetCode <a href="https://leetcode-cn.com/problems/sliding-window-maximum/">239. 滑动窗口最大值</a></h4><h4 id="LeetCode-567-字符串的排列"><a href="#LeetCode-567-字符串的排列" class="headerlink" title="LeetCode 567. 字符串的排列"></a>LeetCode <a href="https://leetcode-cn.com/problems/permutation-in-string/">567. 字符串的排列</a></h4><h4 id="LeetCode-632-最小区间"><a href="#LeetCode-632-最小区间" class="headerlink" title="LeetCode 632. 最小区间"></a>LeetCode <a href="https://leetcode-cn.com/problems/smallest-range/">632. 最小区间</a></h4><h4 id="LeetCode-727-最小窗口子序列"><a href="#LeetCode-727-最小窗口子序列" class="headerlink" title="LeetCode 727. 最小窗口子序列"></a>LeetCode <a href="https://leetcode-cn.com/problems/minimum-window-subsequence/">727. 最小窗口子序列</a></h4>]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>滑动窗口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法工具函数汇总</title>
+    <url>/2021/09/13/%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<p>将刷算法题中的遇到和用到的工具函数汇总。</p>
+<span id="more"></span>
+
+<h3 id="一、数学"><a href="#一、数学" class="headerlink" title="一、数学"></a>一、数学</h3><h4 id="判断一个数是否是2的n次方"><a href="#判断一个数是否是2的n次方" class="headerlink" title="判断一个数是否是2的n次方"></a>判断一个数是否是2的n次方</h4><pre><code class="java">    public boolean isPowerOfTwo(int n) &#123;
+        return n &gt; 0 &amp;&amp; (n &amp; (n - 1)) == 0;
+    &#125;
+</code></pre>
+<h4 id="求最大公约数和最小公倍数"><a href="#求最大公约数和最小公倍数" class="headerlink" title="求最大公约数和最小公倍数"></a>求最大公约数和最小公倍数</h4><pre><code class="java">    //最大公约数
+    public int gcd(int x,int y)&#123;
+        return y &gt; 0 ? gcd(y , x % y) : x;
+    &#125;
+    //最小公倍数
+    public int lcm(int x,int y)&#123;
+            return x / gdc(x, y) * y;
+    &#125;
+</code></pre>
+<h3 id="二、数组操作"><a href="#二、数组操作" class="headerlink" title="二、数组操作"></a>二、数组操作</h3><h4 id="复制数组内容"><a href="#复制数组内容" class="headerlink" title="复制数组内容"></a>复制数组内容</h4><pre><code class="java">    //复制数组
+    System.arraycopy(fromArr,0,toArr,0,len);
+</code></pre>
+<h4 id="排序二维数组"><a href="#排序二维数组" class="headerlink" title="排序二维数组"></a>排序二维数组</h4><pre><code class="java">    Arrays.sort(arr, (o1, o2) -&gt; Integer.compare(o1[0], o2[0]));
+</code></pre>
+<h4 id="List-lt-int-gt-转换为int"><a href="#List-lt-int-gt-转换为int" class="headerlink" title="List&lt;int[ ]&gt;转换为int[ ][ ]"></a>List&lt;int[ ]&gt;转换为int[ ][ ]</h4><pre><code class="java">    arr.toArray(new int[arr.size()][]);
+</code></pre>
+<h4 id="List-lt-String-gt-转换为String"><a href="#List-lt-String-gt-转换为String" class="headerlink" title="List&lt;String&gt;转换为String[]"></a>List&lt;String&gt;转换为String[]</h4><pre><code class="java">    arr.toArray(new String[arr.size()]);
+</code></pre>
+<h3 id="三、字符串操作"><a href="#三、字符串操作" class="headerlink" title="三、字符串操作"></a>三、字符串操作</h3><h4 id="split-分割字符串注意"><a href="#split-分割字符串注意" class="headerlink" title="split()分割字符串注意"></a>split()分割字符串注意</h4><p>1、split方法转化字符串为数组：</p>
+<pre><code class="java">   String[] strPicArr = s.split(&quot;*&quot;);
+   //报错：
+   //java.util.[regex](https://so.csdn.net/so/search?q=regex&amp;spm=1001.2101.3001.7020).PatternSyntaxException: Dangling meta character &#39;*&#39; near index 0
+</code></pre>
+<p>因为+、*、|、\等符号在正则表达示中有相应的不同意义，所以在使用时要进行转义处理。</p>
+<p>   这里同样可以用</p>
+<pre><code class="java">   String[] strPicArr = map.get(&quot;hw_pic&quot;).toString().split(&quot;[*]&quot;);
+</code></pre>
+<h4 id="String类型转换大小写"><a href="#String类型转换大小写" class="headerlink" title="String类型转换大小写"></a>String类型转换大小写</h4><pre><code class="java">    s = s.toLowerCase();//转小写
+    s = s.toUpperCase();//转大写
+</code></pre>
+<h4 id="Character类型转换大小写"><a href="#Character类型转换大小写" class="headerlink" title="Character类型转换大小写"></a>Character类型转换大小写</h4><pre><code class="java">    ch = Character.toLowerCase(ch);
+    ch = Character.toUpperCase(ch);
+</code></pre>
+<h3 id="四、位运算"><a href="#四、位运算" class="headerlink" title="四、位运算"></a>四、位运算</h3><h4 id="Java位运算相加-C-和Python需要额外处理负数"><a href="#Java位运算相加-C-和Python需要额外处理负数" class="headerlink" title="Java位运算相加(C++和Python需要额外处理负数)"></a>Java位运算相加(C++和Python需要额外处理负数)</h4><pre><code class="java">    public int add(int a, int b) &#123;
+        return b == 0 ? a : add(a ^ b, (a &amp; b) &lt;&lt; 1);
+    &#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>汇总</tag>
+        <tag>工具函数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>背包问题</title>
     <url>/2021/10/24/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>程序员节刷<a href="https://leetcode-cn.com/problems/shopping-offers/">LeetCode每日一题(638)</a>，发现是个背包问题，无从下笔，决定仔细研究一番背包问题</p>
@@ -2346,54 +2568,6 @@ public class Main&#123;
         <tag>背包问题</tag>
         <tag>DP</tag>
         <tag>ACWing</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法工具函数汇总</title>
-    <url>/2021/09/13/%E7%AE%97%E6%B3%95%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<p>将刷算法题中的遇到和用到的工具函数汇总。</p>
-<span id="more"></span>
-
-<h3 id="一、数学"><a href="#一、数学" class="headerlink" title="一、数学"></a>一、数学</h3><h4 id="判断一个数是否是2的n次方"><a href="#判断一个数是否是2的n次方" class="headerlink" title="判断一个数是否是2的n次方"></a>判断一个数是否是2的n次方</h4><pre><code class="java">    public boolean isPowerOfTwo(int n) &#123;
-        return n &gt; 0 &amp;&amp; (n &amp; (n - 1)) == 0;
-    &#125;
-</code></pre>
-<h4 id="求最大公约数和最小公倍数"><a href="#求最大公约数和最小公倍数" class="headerlink" title="求最大公约数和最小公倍数"></a>求最大公约数和最小公倍数</h4><pre><code class="java">    //最大公约数
-    public int gcd(int x,int y)&#123;
-        return y &gt; 0 ? gcd(y , x % y) : x;
-    &#125;
-    //最小公倍数
-    public int lcm(int x,int y)&#123;
-            return x / gdc(x, y) * y;
-    &#125;
-</code></pre>
-<h3 id="二、数组操作"><a href="#二、数组操作" class="headerlink" title="二、数组操作"></a>二、数组操作</h3><h4 id="复制数组内容"><a href="#复制数组内容" class="headerlink" title="复制数组内容"></a>复制数组内容</h4><pre><code class="java">    //复制数组
-    System.arraycopy(fromArr,0,toArr,0,len);
-</code></pre>
-<h4 id="排序二维数组"><a href="#排序二维数组" class="headerlink" title="排序二维数组"></a>排序二维数组</h4><pre><code class="java">    Arrays.sort(arr, (o1, o2) -&gt; Integer.compare(o1[0], o2[0]));
-</code></pre>
-<h4 id="List-lt-int-gt-转换为int"><a href="#List-lt-int-gt-转换为int" class="headerlink" title="List&lt;int[ ]&gt;转换为int[ ][ ]"></a>List&lt;int[ ]&gt;转换为int[ ][ ]</h4><pre><code class="java">    arr.toArray(new int[arr.size()][]);
-</code></pre>
-<h4 id="List-lt-String-gt-转换为String"><a href="#List-lt-String-gt-转换为String" class="headerlink" title="List&lt;String&gt;转换为String[]"></a>List&lt;String&gt;转换为String[]</h4><pre><code class="java">    arr.toArray(new String[arr.size()]);
-</code></pre>
-<h3 id="三、字符串操作"><a href="#三、字符串操作" class="headerlink" title="三、字符串操作"></a>三、字符串操作</h3><h4 id="String类型转换大小写"><a href="#String类型转换大小写" class="headerlink" title="String类型转换大小写"></a>String类型转换大小写</h4><pre><code class="java">    s = s.toLowerCase();//转小写
-    s = s.toUpperCase();//转大写
-</code></pre>
-<h4 id="Character类型转换大小写"><a href="#Character类型转换大小写" class="headerlink" title="Character类型转换大小写"></a>Character类型转换大小写</h4><pre><code class="java">    ch = Character.toLowerCase(ch);
-    ch = Character.toUpperCase(ch);
-</code></pre>
-<h3 id="四、位运算"><a href="#四、位运算" class="headerlink" title="四、位运算"></a>四、位运算</h3><h4 id="Java位运算相加-C-和Python需要额外处理负数"><a href="#Java位运算相加-C-和Python需要额外处理负数" class="headerlink" title="Java位运算相加(C++和Python需要额外处理负数)"></a>Java位运算相加(C++和Python需要额外处理负数)</h4><pre><code class="java">    public int add(int a, int b) &#123;
-        return b == 0 ? a : add(a ^ b, (a &amp; b) &lt;&lt; 1);
-    &#125;
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>工具函数</tag>
-        <tag>汇总</tag>
       </tags>
   </entry>
   <entry>

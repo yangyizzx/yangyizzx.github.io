@@ -26,23 +26,21 @@
     var CONFIG = {"hostname":"yangyizzx.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。 原文链接">
+  <meta name="description" content="在leetcode中刷MySQL题目时遇到很多平时没用过的函数，记录一下常用关键字与函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Hexo】github开启令牌验证后无法更新Blog的问题">
-<meta property="og:url" content="https://yangyizzx.github.io/2022/02/10/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="SQL语句常用关键字与函数">
+<meta property="og:url" content="https://yangyizzx.github.io/2022/04/16/SQL%E8%AF%AD%E5%8F%A5%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="二乔二手车">
-<meta property="og:description" content="从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。 原文链接">
+<meta property="og:description" content="在leetcode中刷MySQL题目时遇到很多平时没用过的函数，记录一下常用关键字与函数">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20210830140625.png">
-<meta property="article:published_time" content="2022-02-10T11:37:46.000Z">
-<meta property="article:modified_time" content="2022-02-10T11:47:30.944Z">
+<meta property="article:published_time" content="2022-04-16T06:19:24.000Z">
+<meta property="article:modified_time" content="2022-04-19T01:50:41.436Z">
 <meta property="article:author" content="Josef Joestar">
-<meta property="article:tag" content="技术问题解决">
-<meta property="article:tag" content="个人博客">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="汇总">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/nokiasonic/pic/raw/master/img/20210830140625.png">
 
-<link rel="canonical" href="https://yangyizzx.github.io/2022/02/10/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/">
+<link rel="canonical" href="https://yangyizzx.github.io/2022/04/16/SQL%E8%AF%AD%E5%8F%A5%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%87%BD%E6%95%B0/">
 
 
 <script id="page-configurations">
@@ -55,7 +53,7 @@
   };
 </script>
 
-  <title>【Hexo】github开启令牌验证后无法更新Blog的问题 | 二乔二手车</title>
+  <title>SQL语句常用关键字与函数 | 二乔二手车</title>
   
 
 
@@ -225,7 +223,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yangyizzx.github.io/2022/02/10/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://yangyizzx.github.io/2022/04/16/SQL%E8%AF%AD%E5%8F%A5%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +236,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【Hexo】github开启令牌验证后无法更新Blog的问题
+          SQL语句常用关键字与函数
         </h1>
 
         <div class="post-meta">
@@ -247,17 +245,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-02-10 19:37:46 / 修改时间：19:47:30" itemprop="dateCreated datePublished" datetime="2022-02-10T19:37:46+08:00">2022-02-10</time>
+              <time title="创建时间：2022-04-16 14:19:24" itemprop="dateCreated datePublished" datetime="2022-04-16T14:19:24+08:00">2022-04-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-19 09:50:41" itemprop="dateModified" datetime="2022-04-19T09:50:41+08:00">2022-04-19</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                  <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
                 </span>
             </span>
 
@@ -267,14 +271,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>425</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -286,24 +290,159 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>从2021年8月13日起， github不再支持帐号密码验证Git操作，改用token(令牌)或SSH密钥。</p>
-<p><a target="_blank" rel="noopener" href="https://nokiasonic.github.io/2021/08/30/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/">原文链接</a></p>
+        <p>在<code>leetcode</code>中刷<code>MySQL题目</code>时遇到很多平时没用过的函数，记录一下常用关键字与函数</p>
 <span id="more"></span>
 
-<p><img src="https://gitee.com/nokiasonic/pic/raw/master/img/20210830140625.png" alt="img"></p>
-<p><strong>解决方案</strong></p>
-<ol>
-<li>在<code>github</code>中注册一个<code>token令牌</code>：首先登入Github 账户，<code>Setting - Developer settings - Personal access tokens - Generate new token</code>, Note 填写 Hexo 或 Blog 之类，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</li>
-<li>在<code>Hexo配置文件</code>中修改<code>_config.yml</code>：</li>
-</ol>
-<pre><code class="yaml"># Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: &#39;git&#39;
-  repo: https://[复制生成的token]@github.com/nokiasonic/nokiasonic.github.io.git
-  branch: main
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h4 id="查询结果组合关键字（union，union-all）"><a href="#查询结果组合关键字（union，union-all）" class="headerlink" title="查询结果组合关键字（union，union all）"></a>查询结果组合关键字（union，union all）</h4><blockquote>
+<p>MySQL  union 用于把来自多个select  语句的结果组合到一个结果集合中。语法为：</p>
+</blockquote>
+<pre><code class="mysql">    select  column,......from table1
+    union [all]
+    select  column,...... from table2
 </code></pre>
-<p>即可正常hexo d更新blog。</p>
+<blockquote>
+<p>union all使用案例1：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/employees-with-missing-information/">LeetCode1965. 丢失信息的雇员</a></p>
+</blockquote>
+<pre><code class="mysql">    select employee_id
+    from (
+        select employee_id from employees
+        union all
+        select employee_id from  salaries
+    ) ans
+    group by employee_id
+    having count(employee_id) = 1
+    order by employee_id
+</code></pre>
+<blockquote>
+<p>union all 使用案例2：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rearrange-products-table/">LeetCode1795. 每个产品在不同商店的价格</a></p>
+</blockquote>
+<pre><code class="mysql">    select product_id,&#39;store1&#39; as store,store1 as price from products where store1 is not null
+    union all
+    select product_id,&#39;store2&#39; as store,store2 as price from products where store2 is not null
+    union all
+    select product_id,&#39;store3&#39; as store,store3 as price from products where store3 is not null
+</code></pre>
+<p><strong>union  与 union all 的区别</strong></p>
+<p>当使用union  时，MySQL 会把结果集中重复的记录删掉，而使用union  all ，MySQL 会把所有的记录返回，且效率高于union 。</p>
+<h4 id="正则筛选关键字（regexp）"><a href="#正则筛选关键字（regexp）" class="headerlink" title="正则筛选关键字（regexp）"></a>正则筛选关键字（regexp）</h4><blockquote>
+<p>使用案例<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/patients-with-a-condition/">LeetCode1527. 患某种疾病的患者</a></p>
+</blockquote>
+<pre><code class="mysql">    select * 
+    from Patients
+    where conditions regexp &#39;^DIAB1|\\sDIAB1&#39;
+</code></pre>
+<h4 id="去重关键字（distinct）"><a href="#去重关键字（distinct）" class="headerlink" title="去重关键字（distinct）"></a>去重关键字（distinct）</h4><blockquote>
+<p>使用案例<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/second-highest-salary/">LeetCode 176. 第二高的薪水</a></p>
+</blockquote>
+<pre><code class="mysql">    select (
+        select distinct salary from Employee 
+        order by salary desc
+        limit 1,1
+    ) as SecondHighestSalary 
+</code></pre>
+<h5 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a><strong>扩展</strong></h5><p><strong><code>distinct</code> 是先排序结果然后去除相邻重复的结果，因此<code>distinct</code>结果是排序过的</strong></p>
+<h4 id="条件查询关键字-case-when"><a href="#条件查询关键字-case-when" class="headerlink" title="条件查询关键字(case when)"></a>条件查询关键字(case when)</h4><blockquote>
+<p>使用案例1：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/calculate-special-bonus/">LeetCode1873. 计算特殊奖金</a></p>
+</blockquote>
+<pre><code class="mysql">    select employee_id,(
+        case when employee_id%2 = 1 and  name not like &#39;M%&#39; then salary else 0 end
+        ) as bonus 
+    from Employees 
+    order by employee_id
+</code></pre>
+<blockquote>
+<p>使用案例2：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/swap-salary/">LeetCode627. 变更性别</a></p>
+</blockquote>
+<pre><code class="mysql">    #写法一
+    update Salary
+    set sex = (case when sex = &#39;f&#39; then &#39;m&#39; else &#39;f&#39; end)
+    #写法二
+    update Salary
+    set sex = (case sex when &#39;f&#39; then &#39;m&#39; else &#39;f&#39; end)
+</code></pre>
+<blockquote>
+<p>使用案例3：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/tree-node/">LeetCode608. 树节点</a></p>
+</blockquote>
+<pre><code class="mysql">    select id,(
+        case
+        when p_id is null then &#39;Root&#39; 
+        when id in (select p_id from tree) then &#39;Inner&#39;
+        else &#39;Leaf&#39; 
+        end
+    ) as type
+    from tree
+</code></pre>
+<h4 id="分组关键字（group-by）"><a href="#分组关键字（group-by）" class="headerlink" title="分组关键字（group by）"></a>分组关键字（group by）</h4><blockquote>
+<p>使用案例<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/delete-duplicate-emails/">196. 删除重复的电子邮箱</a></p>
+</blockquote>
+<pre><code class="mysql">    DELETE from Person 
+    Where Id not in (
+        Select Id 
+        From(Select MIN(Id) as id From Person Group by Email) t
+    )
+    #同一题不同解法
+    DELETE p1
+    from person p1,person p2
+    where p1.email = p2.email and p1.id &gt; p2.id
+</code></pre>
+<h4 id="分页查询关键字（limit）"><a href="#分页查询关键字（limit）" class="headerlink" title="分页查询关键字（limit）"></a>分页查询关键字（limit）</h4><p>用法：limit start,pageSize</p>
+<p>​        start：表示从第start个数据开始查询</p>
+<p>​        pageSize：表示查询的数据长度为pageSize</p>
+<blockquote>
+<p>使用案例<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/second-highest-salary/">LeetCode 176. 第二高的薪水</a></p>
+</blockquote>
+<pre><code class="mysql">    select (
+        select distinct salary from Employee 
+        order by salary desc
+        limit 1,1
+    ) as SecondHighestSalary 
+</code></pre>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h4 id="字符串分割函数（left-right-substring-）"><a href="#字符串分割函数（left-right-substring-）" class="headerlink" title="字符串分割函数（left(),right(),substring()）"></a>字符串分割函数（left(),right(),substring()）</h4><p>用法：left (str,len) , right (str,len) , substring(str,start,len)</p>
+<p>​        第一个参数<code>str</code>表示处理的字符串</p>
+<p>​        left (str,len) ：表示截取<code>str</code>靠左的<code>len</code>个字符</p>
+<p>​        right (str,len) ：表示截取<code>str</code>靠右的<code>len</code>个字符</p>
+<p>​        substring (str,start,len) ：与<code>Java语法</code>中一致，不做解释(注意：**<code>MySQL</code>中字符串字符下标以1开始**)</p>
+<blockquote>
+<p>使用案例<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fix-names-in-a-table/">1667. 修复表中的名字</a></p>
+</blockquote>
+<pre><code class="mysql">    select user_id,concat(upper(left(name,1)),lower(substring(name,2,1))) as name
+    from Users
+    order by user_id
+</code></pre>
+<h4 id="字符串合并函数（concat-group-concat-）"><a href="#字符串合并函数（concat-group-concat-）" class="headerlink" title="字符串合并函数（concat(),group_concat()）"></a>字符串合并函数（concat(),group_concat()）</h4><p>用法：concat( str1,str2,str3, … … ) , group_concat()</p>
+<blockquote>
+<p>使用案例<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/group-sold-products-by-the-date/">1484. 按日期分组销售产品</a></p>
+</blockquote>
+<pre><code class="mysql">    select sell_date,count(distinct product) as num_sold ,group_concat(distinct product) as products
+    from Activities 
+    group by sell_date
+    order by sell_date
+</code></pre>
+<h4 id="条件判断函数（if-）"><a href="#条件判断函数（if-）" class="headerlink" title="条件判断函数（if()）"></a>条件判断函数（if()）</h4><blockquote>
+<p>使用案例1：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/calculate-special-bonus/">LeetCode1873. 计算特殊奖金</a></p>
+</blockquote>
+<pre><code class="mysql">    select employee_id,if(employee_id%2 = 1 &amp;&amp; left(name,1) != &#39;M&#39;,salary,0) as bonus 
+    from Employees 
+    order by employee_id        
+</code></pre>
+<blockquote>
+<p>使用案例2：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/swap-salary/">LeetCode627. 变更性别</a></p>
+</blockquote>
+<pre><code class="mysql">    update Salary
+    set sex = if(sex = &#39;m&#39;,&#39;f&#39;,&#39;m&#39;)
+</code></pre>
+<blockquote>
+<p>使用案例3：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/tree-node/">LeetCode608. 树节点</a></p>
+</blockquote>
+<pre><code class="mysql">    #根据提交结果来看，`is null`比`isnull()` 效率更高一点。因此这里使用is null判断更好
+    select id,
+        if(isnull(p_id),&#39;Root&#39;,if(id in (select p_id from tree),&#39;Inner&#39;,&#39;Leaf&#39;)) as type
+    from tree
+    
+    
+</code></pre>
+<h4 id="判空函数（isnull-）"><a href="#判空函数（isnull-）" class="headerlink" title="判空函数（isnull()）"></a>判空函数（isnull()）</h4><p><strong>与<code>is null</code>是一样的效果，反正就是在MySQL中不能使用<code>=null</code>判断是否为null</strong></p>
+<p>根据<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/tree-node/">LeetCode608. 树节点</a>提交结果来看，<code>is null</code>比<code>isnull()</code> 效率更高一点。</p>
 
     </div>
 	
@@ -349,7 +488,7 @@ deploy:
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://yangyizzx.github.io/2022/02/10/%E3%80%90Hexo%E3%80%91github%E5%BC%80%E5%90%AF%E4%BB%A4%E7%89%8C%E9%AA%8C%E8%AF%81%E5%90%8E%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0Blog%E7%9A%84%E9%97%AE%E9%A2%98/" title="【Hexo】github开启令牌验证后无法更新Blog的问题">https://yangyizzx.github.io/2022/02/10/【Hexo】github开启令牌验证后无法更新Blog的问题/</a>
+    <a href="https://yangyizzx.github.io/2022/04/16/SQL%E8%AF%AD%E5%8F%A5%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%87%BD%E6%95%B0/" title="SQL语句常用关键字与函数">https://yangyizzx.github.io/2022/04/16/SQL语句常用关键字与函数/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -361,8 +500,8 @@ deploy:
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E6%8A%80%E6%9C%AF%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="tag"><i class="fa fa-tag"></i> 技术问题解决</a>
-              <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="tag"><i class="fa fa-tag"></i> 个人博客</a>
+              <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
+              <a href="/tags/%E6%B1%87%E6%80%BB/" rel="tag"><i class="fa fa-tag"></i> 汇总</a>
           </div>
 
         
@@ -371,13 +510,10 @@ deploy:
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/10/24/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" rel="prev" title="背包问题">
-      <i class="fa fa-chevron-left"></i> 背包问题
+    <a href="/2022/04/08/%E5%A4%8D%E5%88%B6SpringBoot%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9D%97/" rel="prev" title="复制SpringBoot基础模块">
+      <i class="fa fa-chevron-left"></i> 复制SpringBoot基础模块
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/02/20/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%80%91HTTP%E7%9F%A5%E8%AF%86/" rel="next" title="【计算机网络】HTTP知识">
-      【计算机网络】HTTP知识 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -436,6 +572,7 @@ deploy:
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E7%BB%84%E5%90%88%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88union%EF%BC%8Cunion-all%EF%BC%89"><span class="nav-number">1.0.1.</span> <span class="nav-text">查询结果组合关键字（union，union all）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E7%AD%9B%E9%80%89%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88regexp%EF%BC%89"><span class="nav-number">1.0.2.</span> <span class="nav-text">正则筛选关键字（regexp）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%BB%E9%87%8D%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88distinct%EF%BC%89"><span class="nav-number">1.0.3.</span> <span class="nav-text">去重关键字（distinct）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">扩展</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E5%85%B3%E9%94%AE%E5%AD%97-case-when"><span class="nav-number">1.0.4.</span> <span class="nav-text">条件查询关键字(case when)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88group-by%EF%BC%89"><span class="nav-number">1.0.5.</span> <span class="nav-text">分组关键字（group by）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88limit%EF%BC%89"><span class="nav-number">1.0.6.</span> <span class="nav-text">分页查询关键字（limit）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%86%E5%89%B2%E5%87%BD%E6%95%B0%EF%BC%88left-right-substring-%EF%BC%89"><span class="nav-number">2.0.1.</span> <span class="nav-text">字符串分割函数（left(),right(),substring()）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%87%BD%E6%95%B0%EF%BC%88concat-group-concat-%EF%BC%89"><span class="nav-number">2.0.2.</span> <span class="nav-text">字符串合并函数（concat(),group_concat()）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%87%BD%E6%95%B0%EF%BC%88if-%EF%BC%89"><span class="nav-number">2.0.3.</span> <span class="nav-text">条件判断函数（if()）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A4%E7%A9%BA%E5%87%BD%E6%95%B0%EF%BC%88isnull-%EF%BC%89"><span class="nav-number">2.0.4.</span> <span class="nav-text">判空函数（isnull()）</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
