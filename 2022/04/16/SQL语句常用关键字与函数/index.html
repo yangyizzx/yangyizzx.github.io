@@ -34,7 +34,7 @@
 <meta property="og:description" content="在leetcode中刷MySQL题目时遇到很多平时没用过的函数，记录一下常用关键字与函数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-16T06:19:24.000Z">
-<meta property="article:modified_time" content="2022-04-19T01:50:41.436Z">
+<meta property="article:modified_time" content="2022-05-16T05:31:20.010Z">
 <meta property="article:author" content="Josef Joestar">
 <meta property="article:tag" content="MySQL">
 <meta property="article:tag" content="汇总">
@@ -253,7 +253,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-19 09:50:41" itemprop="dateModified" datetime="2022-04-19T09:50:41+08:00">2022-04-19</time>
+                <time title="修改时间：2022-05-16 13:31:20" itemprop="dateModified" datetime="2022-05-16T13:31:20+08:00">2022-05-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -271,14 +271,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
+              <span>4.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -293,7 +293,7 @@
         <p>在<code>leetcode</code>中刷<code>MySQL题目</code>时遇到很多平时没用过的函数，记录一下常用关键字与函数</p>
 <span id="more"></span>
 
-<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h4 id="查询结果组合关键字（union，union-all）"><a href="#查询结果组合关键字（union，union-all）" class="headerlink" title="查询结果组合关键字（union，union all）"></a>查询结果组合关键字（union，union all）</h4><blockquote>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="基础关键字"><a href="#基础关键字" class="headerlink" title="基础关键字"></a>基础关键字</h3><h4 id="查询结果组合关键字（union，union-all）"><a href="#查询结果组合关键字（union，union-all）" class="headerlink" title="查询结果组合关键字（union，union all）"></a>查询结果组合关键字（union，union all）</h4><blockquote>
 <p>MySQL  union 用于把来自多个select  语句的结果组合到一个结果集合中。语法为：</p>
 </blockquote>
 <pre><code class="mysql">    select  column,......from table1
@@ -340,8 +340,46 @@
         limit 1,1
     ) as SecondHighestSalary 
 </code></pre>
-<h5 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a><strong>扩展</strong></h5><p><strong><code>distinct</code> 是先排序结果然后去除相邻重复的结果，因此<code>distinct</code>结果是排序过的</strong></p>
-<h4 id="条件查询关键字-case-when"><a href="#条件查询关键字-case-when" class="headerlink" title="条件查询关键字(case when)"></a>条件查询关键字(case when)</h4><blockquote>
+<p><strong>扩展</strong></p>
+<p><strong><code>distinct</code> 是先排序结果然后去除相邻重复的结果，因此<code>distinct</code>结果是排序过的</strong></p>
+<h4 id="分组关键字（group-by）"><a href="#分组关键字（group-by）" class="headerlink" title="分组关键字（group by）"></a>分组关键字（group by）</h4><blockquote>
+<p>使用案例<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/delete-duplicate-emails/">196. 删除重复的电子邮箱</a></p>
+</blockquote>
+<pre><code class="mysql">    DELETE from Person 
+    Where Id not in (
+        Select Id 
+        From(Select MIN(Id) as id From Person Group by Email) t
+    )
+    #同一题不同解法
+    DELETE p1
+    from person p1,person p2
+    where p1.email = p2.email and p1.id &gt; p2.id
+</code></pre>
+<p><strong>注意：使用group by和having。还需要记得优先顺序。<code>where &gt; group by &gt; having &gt; order by</code></strong></p>
+<h4 id="分页查询关键字（limit）"><a href="#分页查询关键字（limit）" class="headerlink" title="分页查询关键字（limit）"></a>分页查询关键字（limit）</h4><p>用法：limit start,pageSize</p>
+<p>​        start：表示从第start个数据开始查询</p>
+<p>​        pageSize：表示查询的数据长度为pageSize</p>
+<blockquote>
+<p>使用案例<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/second-highest-salary/">LeetCode 176. 第二高的薪水</a></p>
+</blockquote>
+<pre><code class="mysql">    select (
+        select distinct salary from Employee 
+        order by salary desc
+        limit 1,1
+    ) as SecondHighestSalary 
+</code></pre>
+<h4 id="in关键字"><a href="#in关键字" class="headerlink" title="in关键字"></a>in关键字</h4><blockquote>
+<p>使用案例<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/department-highest-salary/">LeetCode184. 部门工资最高的员工</a></p>
+</blockquote>
+<pre><code class="mysql">    select department.name as Department, employee.name as Employee, salary as Salary
+    from employee join department on employee.departmentId = department.id
+    where (departmentId,salary) in (
+        select departmentId,max(salary)
+        from employee
+        group by departmentId
+    )
+</code></pre>
+<h3 id="逻辑关键字"><a href="#逻辑关键字" class="headerlink" title="逻辑关键字"></a>逻辑关键字</h3><h4 id="条件查询关键字-case-when"><a href="#条件查询关键字-case-when" class="headerlink" title="条件查询关键字(case when)"></a>条件查询关键字(case when)</h4><blockquote>
 <p>使用案例1：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/calculate-special-bonus/">LeetCode1873. 计算特殊奖金</a></p>
 </blockquote>
 <pre><code class="mysql">    select employee_id,(
@@ -372,32 +410,16 @@
     ) as type
     from tree
 </code></pre>
-<h4 id="分组关键字（group-by）"><a href="#分组关键字（group-by）" class="headerlink" title="分组关键字（group by）"></a>分组关键字（group by）</h4><blockquote>
-<p>使用案例<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/delete-duplicate-emails/">196. 删除重复的电子邮箱</a></p>
-</blockquote>
-<pre><code class="mysql">    DELETE from Person 
-    Where Id not in (
-        Select Id 
-        From(Select MIN(Id) as id From Person Group by Email) t
-    )
-    #同一题不同解法
-    DELETE p1
-    from person p1,person p2
-    where p1.email = p2.email and p1.id &gt; p2.id
-</code></pre>
-<h4 id="分页查询关键字（limit）"><a href="#分页查询关键字（limit）" class="headerlink" title="分页查询关键字（limit）"></a>分页查询关键字（limit）</h4><p>用法：limit start,pageSize</p>
-<p>​        start：表示从第start个数据开始查询</p>
-<p>​        pageSize：表示查询的数据长度为pageSize</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><h4 id="SUM-函数"><a href="#SUM-函数" class="headerlink" title="SUM()函数"></a><code>SUM()</code>函数</h4><p><strong>注意：当sum函数参数为Boolean类型时，true为1，false为0；</strong></p>
 <blockquote>
-<p>使用案例<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/second-highest-salary/">LeetCode 176. 第二高的薪水</a></p>
+<p>使用案例1：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sales-analysis-iii/">LeetCode1084. 销售分析III</a></p>
 </blockquote>
-<pre><code class="mysql">    select (
-        select distinct salary from Employee 
-        order by salary desc
-        limit 1,1
-    ) as SecondHighestSalary 
+<pre><code class="mysql">    select distinct Product.product_id,product_name
+    from Product join sales on Product.product_id = sales.product_id
+    group by Product.product_id
+    having sum(sale_date &lt; &#39;2019-01-01&#39;) = 0 and sum(sale_date &gt; &#39;2019-03-31&#39;) = 0
 </code></pre>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h4 id="字符串分割函数（left-right-substring-）"><a href="#字符串分割函数（left-right-substring-）" class="headerlink" title="字符串分割函数（left(),right(),substring()）"></a>字符串分割函数（left(),right(),substring()）</h4><p>用法：left (str,len) , right (str,len) , substring(str,start,len)</p>
+<h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><h4 id="字符串分割函数（left-right-substring-）"><a href="#字符串分割函数（left-right-substring-）" class="headerlink" title="字符串分割函数（left(),right(),substring()）"></a>字符串分割函数（left(),right(),substring()）</h4><p>用法：left (str,len) , right (str,len) , substring(str,start,len)</p>
 <p>​        第一个参数<code>str</code>表示处理的字符串</p>
 <p>​        left (str,len) ：表示截取<code>str</code>靠左的<code>len</code>个字符</p>
 <p>​        right (str,len) ：表示截取<code>str</code>靠右的<code>len</code>个字符</p>
@@ -418,7 +440,7 @@
     group by sell_date
     order by sell_date
 </code></pre>
-<h4 id="条件判断函数（if-）"><a href="#条件判断函数（if-）" class="headerlink" title="条件判断函数（if()）"></a>条件判断函数（if()）</h4><blockquote>
+<h3 id="判断函数"><a href="#判断函数" class="headerlink" title="判断函数"></a>判断函数</h3><h4 id="条件判断函数（if-）"><a href="#条件判断函数（if-）" class="headerlink" title="条件判断函数（if()）"></a>条件判断函数（if()）</h4><blockquote>
 <p>使用案例1：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/calculate-special-bonus/">LeetCode1873. 计算特殊奖金</a></p>
 </blockquote>
 <pre><code class="mysql">    select employee_id,if(employee_id%2 = 1 &amp;&amp; left(name,1) != &#39;M&#39;,salary,0) as bonus 
@@ -443,6 +465,48 @@
 </code></pre>
 <h4 id="判空函数（isnull-）"><a href="#判空函数（isnull-）" class="headerlink" title="判空函数（isnull()）"></a>判空函数（isnull()）</h4><p><strong>与<code>is null</code>是一样的效果，反正就是在MySQL中不能使用<code>=null</code>判断是否为null</strong></p>
 <p>根据<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/tree-node/">LeetCode608. 树节点</a>提交结果来看，<code>is null</code>比<code>isnull()</code> 效率更高一点。</p>
+<h4 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h4><ol>
+<li>返回从0000年到现在的天数</li>
+</ol>
+<pre><code class="mysql">    to_days(&quot;2015-01-04&quot;)
+</code></pre>
+<ol start="2">
+<li>将时间&#x2F;日期间隔添加到日期</li>
+</ol>
+<pre><code class="mysql">    adddate(&quot;2015-01-03&quot;,INTERVAL 1 day) #2015-01-04
+</code></pre>
+<ol start="3">
+<li>TIMESTAMPDIFF</li>
+</ol>
+<pre><code class="mysql">    #计算相差天数：
+    select TIMESTAMPDIFF(DAY,&#39;2019-05-20&#39;, &#39;2019-05-21&#39;); # 1
+
+    #计算相差小时数：
+    select TIMESTAMPDIFF(HOUR, &#39;2015-03-22 07:00:00&#39;, &#39;2015-03-22 18:00:00&#39;); # 11
+
+    #计算相差秒数：
+    select TIMESTAMPDIFF(SECOND, &#39;2015-03-22 07:00:00&#39;, &#39;2015-03-22 7:01:01&#39;); # 61
+</code></pre>
+<ol start="4">
+<li>返回值是相差的天数</li>
+</ol>
+<pre><code class="mysql">    DATEDIFF(&#39;2007-12-31&#39;,&#39;2007-12-30&#39;);   # 1
+    DATEDIFF(&#39;2010-12-30&#39;,&#39;2010-12-31&#39;);   # -1
+</code></pre>
+<ol start="5">
+<li>从日期减去指定的时间间隔</li>
+</ol>
+<pre><code class="mysql">    DATE_SUB(&quot;2008-12-29&quot;,INTERVAL 2 DAY) #2008-12-27
+</code></pre>
+<ol start="6">
+<li>interval</li>
+</ol>
+<pre><code class="mysql">    &quot;2015-01-03&quot;+interval&#39;1&#39; day #2015-01-04
+</code></pre>
+<h3 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h3><p>&lt;窗口函数&gt; over (partition by &lt;分组列名&gt; order by &lt;排序列名&gt;)</p>
+<h4 id="rank"><a href="#rank" class="headerlink" title="rank()"></a>rank()</h4><p>  阶梯排序-前两个是并列的1，接下来就是第3名</p>
+<h4 id="dense-rank"><a href="#dense-rank" class="headerlink" title="dense_rank()"></a>dense_rank()</h4><p> 连续排序-前两个是并列的1，接下来就是第2名</p>
+<h4 id="row-number"><a href="#row-number" class="headerlink" title="row_number()"></a>row_number()</h4><p> 不会出现重复的排序</p>
 
     </div>
 	
@@ -513,7 +577,10 @@
     <a href="/2022/04/08/%E5%A4%8D%E5%88%B6SpringBoot%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9D%97/" rel="prev" title="复制SpringBoot基础模块">
       <i class="fa fa-chevron-left"></i> 复制SpringBoot基础模块
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/04/19/%E3%80%90MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2%E3%80%91MySQL%E4%B8%AD%E7%9A%84%E9%94%81/" rel="next" title="【MySQL实战45讲】MySQL中的锁">
+      【MySQL实战45讲】MySQL中的锁 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -572,7 +639,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E7%BB%84%E5%90%88%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88union%EF%BC%8Cunion-all%EF%BC%89"><span class="nav-number">1.0.1.</span> <span class="nav-text">查询结果组合关键字（union，union all）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E7%AD%9B%E9%80%89%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88regexp%EF%BC%89"><span class="nav-number">1.0.2.</span> <span class="nav-text">正则筛选关键字（regexp）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%BB%E9%87%8D%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88distinct%EF%BC%89"><span class="nav-number">1.0.3.</span> <span class="nav-text">去重关键字（distinct）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">扩展</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E5%85%B3%E9%94%AE%E5%AD%97-case-when"><span class="nav-number">1.0.4.</span> <span class="nav-text">条件查询关键字(case when)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88group-by%EF%BC%89"><span class="nav-number">1.0.5.</span> <span class="nav-text">分组关键字（group by）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88limit%EF%BC%89"><span class="nav-number">1.0.6.</span> <span class="nav-text">分页查询关键字（limit）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%86%E5%89%B2%E5%87%BD%E6%95%B0%EF%BC%88left-right-substring-%EF%BC%89"><span class="nav-number">2.0.1.</span> <span class="nav-text">字符串分割函数（left(),right(),substring()）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%87%BD%E6%95%B0%EF%BC%88concat-group-concat-%EF%BC%89"><span class="nav-number">2.0.2.</span> <span class="nav-text">字符串合并函数（concat(),group_concat()）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%87%BD%E6%95%B0%EF%BC%88if-%EF%BC%89"><span class="nav-number">2.0.3.</span> <span class="nav-text">条件判断函数（if()）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A4%E7%A9%BA%E5%87%BD%E6%95%B0%EF%BC%88isnull-%EF%BC%89"><span class="nav-number">2.0.4.</span> <span class="nav-text">判空函数（isnull()）</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.1.</span> <span class="nav-text">基础关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E7%BB%84%E5%90%88%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88union%EF%BC%8Cunion-all%EF%BC%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">查询结果组合关键字（union，union all）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E7%AD%9B%E9%80%89%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88regexp%EF%BC%89"><span class="nav-number">1.1.2.</span> <span class="nav-text">正则筛选关键字（regexp）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%BB%E9%87%8D%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88distinct%EF%BC%89"><span class="nav-number">1.1.3.</span> <span class="nav-text">去重关键字（distinct）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88group-by%EF%BC%89"><span class="nav-number">1.1.4.</span> <span class="nav-text">分组关键字（group by）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%88limit%EF%BC%89"><span class="nav-number">1.1.5.</span> <span class="nav-text">分页查询关键字（limit）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#in%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.1.6.</span> <span class="nav-text">in关键字</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.2.</span> <span class="nav-text">逻辑关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E5%85%B3%E9%94%AE%E5%AD%97-case-when"><span class="nav-number">1.2.1.</span> <span class="nav-text">条件查询关键字(case when)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">数学函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SUM-%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.1.</span> <span class="nav-text">SUM()函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">字符串函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%86%E5%89%B2%E5%87%BD%E6%95%B0%EF%BC%88left-right-substring-%EF%BC%89"><span class="nav-number">2.2.1.</span> <span class="nav-text">字符串分割函数（left(),right(),substring()）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%87%BD%E6%95%B0%EF%BC%88concat-group-concat-%EF%BC%89"><span class="nav-number">2.2.2.</span> <span class="nav-text">字符串合并函数（concat(),group_concat()）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.</span> <span class="nav-text">判断函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%87%BD%E6%95%B0%EF%BC%88if-%EF%BC%89"><span class="nav-number">2.3.1.</span> <span class="nav-text">条件判断函数（if()）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A4%E7%A9%BA%E5%87%BD%E6%95%B0%EF%BC%88isnull-%EF%BC%89"><span class="nav-number">2.3.2.</span> <span class="nav-text">判空函数（isnull()）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.3.</span> <span class="nav-text">日期函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.</span> <span class="nav-text">窗口函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#rank"><span class="nav-number">2.4.1.</span> <span class="nav-text">rank()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dense-rank"><span class="nav-number">2.4.2.</span> <span class="nav-text">dense_rank()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#row-number"><span class="nav-number">2.4.3.</span> <span class="nav-text">row_number()</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -588,20 +655,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -662,13 +729,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">96k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:18</span>
+    <span title="站点阅读时长">1:28</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

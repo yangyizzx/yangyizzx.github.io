@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>HashMap-Hashtable-ConcurrentHashMap</title>
-    <url>/2021/09/24/HashMap-Hashtable-ConcurrentHashMap/</url>
-    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/58621094">原文链接</a></p>
-<span id="more"></span>
-
-]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>JavaSE</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DFS/BFS刷题指南</title>
     <url>/2021/09/24/DFS-BFS%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p>总结：</p>
@@ -200,6 +186,20 @@
       </tags>
   </entry>
   <entry>
+    <title>HashMap-Hashtable-ConcurrentHashMap</title>
+    <url>/2021/09/24/HashMap-Hashtable-ConcurrentHashMap/</url>
+    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/58621094">原文链接</a></p>
+<span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>JavaSE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客图片显示</title>
     <url>/2022/02/24/Hexo%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/</url>
     <content><![CDATA[<p>设置个人博客的图片实现问题。</p>
@@ -249,6 +249,27 @@ marked:
       </tags>
   </entry>
   <entry>
+    <title>Hexo基本使用</title>
+    <url>/2021/09/07/Hexo%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h2><p> <code>hexo init</code> 文件夹名称</p>
+<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p> <code>hexo new</code> 文章名称<br>(或者)<br> <code>hexo n</code> 文章名称</p>
+<h2 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h2><p> <code>hexo server</code><br>(或者)<br><code>hexo s</code></p>
+<h2 id="一键部署"><a href="#一键部署" class="headerlink" title="一键部署"></a>一键部署</h2><p> <code>hexo deploy</code><br>(或者)<br> <code>hexo d</code></p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes&#x2F;yilia</p>
+<p>hexo clean</p>
+<p>hexo g</p>
+<p>hexo s  localhost:4000查看</p>
+<p><code>hexo d</code> 推到GitHub远端</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>—    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm –registry&#x3D;<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo的基本使用</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>IDEA使用小技巧</title>
     <url>/2022/04/08/IDEA%E4%BD%BF%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<p>汇总IDEA项目中有用、有趣的使用技巧</p>
@@ -282,27 +303,6 @@ marked:
       </tags>
   </entry>
   <entry>
-    <title>Hexo基本使用</title>
-    <url>/2021/09/07/Hexo%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h2><p> <code>hexo init</code> 文件夹名称</p>
-<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p> <code>hexo new</code> 文章名称<br>(或者)<br> <code>hexo n</code> 文章名称</p>
-<h2 id="在线预览"><a href="#在线预览" class="headerlink" title="在线预览"></a>在线预览</h2><p> <code>hexo server</code><br>(或者)<br><code>hexo s</code></p>
-<h2 id="一键部署"><a href="#一键部署" class="headerlink" title="一键部署"></a>一键部署</h2><p> <code>hexo deploy</code><br>(或者)<br> <code>hexo d</code></p>
-<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes&#x2F;yilia</p>
-<p>hexo clean</p>
-<p>hexo g</p>
-<p>hexo s  localhost:4000查看</p>
-<p><code>hexo d</code> 推到GitHub远端</p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>—    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm –registry&#x3D;<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo的基本使用</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JVM知识点</title>
     <url>/2022/04/02/JVM%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<span id="more"></span>
@@ -317,12 +317,35 @@ marked:
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2021/09/07/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>Hello</category>
+      </categories>
+  </entry>
+  <entry>
     <title>SQL语句常用关键字与函数</title>
     <url>/2022/04/16/SQL%E8%AF%AD%E5%8F%A5%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<p>在<code>leetcode</code>中刷<code>MySQL题目</code>时遇到很多平时没用过的函数，记录一下常用关键字与函数</p>
 <span id="more"></span>
 
-<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h4 id="查询结果组合关键字（union，union-all）"><a href="#查询结果组合关键字（union，union-all）" class="headerlink" title="查询结果组合关键字（union，union all）"></a>查询结果组合关键字（union，union all）</h4><blockquote>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="基础关键字"><a href="#基础关键字" class="headerlink" title="基础关键字"></a>基础关键字</h3><h4 id="查询结果组合关键字（union，union-all）"><a href="#查询结果组合关键字（union，union-all）" class="headerlink" title="查询结果组合关键字（union，union all）"></a>查询结果组合关键字（union，union all）</h4><blockquote>
 <p>MySQL  union 用于把来自多个select  语句的结果组合到一个结果集合中。语法为：</p>
 </blockquote>
 <pre><code class="mysql">    select  column,......from table1
@@ -369,8 +392,46 @@ marked:
         limit 1,1
     ) as SecondHighestSalary 
 </code></pre>
-<h5 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a><strong>扩展</strong></h5><p><strong><code>distinct</code> 是先排序结果然后去除相邻重复的结果，因此<code>distinct</code>结果是排序过的</strong></p>
-<h4 id="条件查询关键字-case-when"><a href="#条件查询关键字-case-when" class="headerlink" title="条件查询关键字(case when)"></a>条件查询关键字(case when)</h4><blockquote>
+<p><strong>扩展</strong></p>
+<p><strong><code>distinct</code> 是先排序结果然后去除相邻重复的结果，因此<code>distinct</code>结果是排序过的</strong></p>
+<h4 id="分组关键字（group-by）"><a href="#分组关键字（group-by）" class="headerlink" title="分组关键字（group by）"></a>分组关键字（group by）</h4><blockquote>
+<p>使用案例<a href="https://leetcode-cn.com/problems/delete-duplicate-emails/">196. 删除重复的电子邮箱</a></p>
+</blockquote>
+<pre><code class="mysql">    DELETE from Person 
+    Where Id not in (
+        Select Id 
+        From(Select MIN(Id) as id From Person Group by Email) t
+    )
+    #同一题不同解法
+    DELETE p1
+    from person p1,person p2
+    where p1.email = p2.email and p1.id &gt; p2.id
+</code></pre>
+<p><strong>注意：使用group by和having。还需要记得优先顺序。<code>where &gt; group by &gt; having &gt; order by</code></strong></p>
+<h4 id="分页查询关键字（limit）"><a href="#分页查询关键字（limit）" class="headerlink" title="分页查询关键字（limit）"></a>分页查询关键字（limit）</h4><p>用法：limit start,pageSize</p>
+<p>​        start：表示从第start个数据开始查询</p>
+<p>​        pageSize：表示查询的数据长度为pageSize</p>
+<blockquote>
+<p>使用案例<a href="https://leetcode-cn.com/problems/second-highest-salary/">LeetCode 176. 第二高的薪水</a></p>
+</blockquote>
+<pre><code class="mysql">    select (
+        select distinct salary from Employee 
+        order by salary desc
+        limit 1,1
+    ) as SecondHighestSalary 
+</code></pre>
+<h4 id="in关键字"><a href="#in关键字" class="headerlink" title="in关键字"></a>in关键字</h4><blockquote>
+<p>使用案例<a href="https://leetcode-cn.com/problems/department-highest-salary/">LeetCode184. 部门工资最高的员工</a></p>
+</blockquote>
+<pre><code class="mysql">    select department.name as Department, employee.name as Employee, salary as Salary
+    from employee join department on employee.departmentId = department.id
+    where (departmentId,salary) in (
+        select departmentId,max(salary)
+        from employee
+        group by departmentId
+    )
+</code></pre>
+<h3 id="逻辑关键字"><a href="#逻辑关键字" class="headerlink" title="逻辑关键字"></a>逻辑关键字</h3><h4 id="条件查询关键字-case-when"><a href="#条件查询关键字-case-when" class="headerlink" title="条件查询关键字(case when)"></a>条件查询关键字(case when)</h4><blockquote>
 <p>使用案例1：<a href="https://leetcode-cn.com/problems/calculate-special-bonus/">LeetCode1873. 计算特殊奖金</a></p>
 </blockquote>
 <pre><code class="mysql">    select employee_id,(
@@ -401,32 +462,16 @@ marked:
     ) as type
     from tree
 </code></pre>
-<h4 id="分组关键字（group-by）"><a href="#分组关键字（group-by）" class="headerlink" title="分组关键字（group by）"></a>分组关键字（group by）</h4><blockquote>
-<p>使用案例<a href="https://leetcode-cn.com/problems/delete-duplicate-emails/">196. 删除重复的电子邮箱</a></p>
-</blockquote>
-<pre><code class="mysql">    DELETE from Person 
-    Where Id not in (
-        Select Id 
-        From(Select MIN(Id) as id From Person Group by Email) t
-    )
-    #同一题不同解法
-    DELETE p1
-    from person p1,person p2
-    where p1.email = p2.email and p1.id &gt; p2.id
-</code></pre>
-<h4 id="分页查询关键字（limit）"><a href="#分页查询关键字（limit）" class="headerlink" title="分页查询关键字（limit）"></a>分页查询关键字（limit）</h4><p>用法：limit start,pageSize</p>
-<p>​        start：表示从第start个数据开始查询</p>
-<p>​        pageSize：表示查询的数据长度为pageSize</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><h4 id="SUM-函数"><a href="#SUM-函数" class="headerlink" title="SUM()函数"></a><code>SUM()</code>函数</h4><p><strong>注意：当sum函数参数为Boolean类型时，true为1，false为0；</strong></p>
 <blockquote>
-<p>使用案例<a href="https://leetcode-cn.com/problems/second-highest-salary/">LeetCode 176. 第二高的薪水</a></p>
+<p>使用案例1：<a href="https://leetcode-cn.com/problems/sales-analysis-iii/">LeetCode1084. 销售分析III</a></p>
 </blockquote>
-<pre><code class="mysql">    select (
-        select distinct salary from Employee 
-        order by salary desc
-        limit 1,1
-    ) as SecondHighestSalary 
+<pre><code class="mysql">    select distinct Product.product_id,product_name
+    from Product join sales on Product.product_id = sales.product_id
+    group by Product.product_id
+    having sum(sale_date &lt; &#39;2019-01-01&#39;) = 0 and sum(sale_date &gt; &#39;2019-03-31&#39;) = 0
 </code></pre>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h4 id="字符串分割函数（left-right-substring-）"><a href="#字符串分割函数（left-right-substring-）" class="headerlink" title="字符串分割函数（left(),right(),substring()）"></a>字符串分割函数（left(),right(),substring()）</h4><p>用法：left (str,len) , right (str,len) , substring(str,start,len)</p>
+<h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><h4 id="字符串分割函数（left-right-substring-）"><a href="#字符串分割函数（left-right-substring-）" class="headerlink" title="字符串分割函数（left(),right(),substring()）"></a>字符串分割函数（left(),right(),substring()）</h4><p>用法：left (str,len) , right (str,len) , substring(str,start,len)</p>
 <p>​        第一个参数<code>str</code>表示处理的字符串</p>
 <p>​        left (str,len) ：表示截取<code>str</code>靠左的<code>len</code>个字符</p>
 <p>​        right (str,len) ：表示截取<code>str</code>靠右的<code>len</code>个字符</p>
@@ -447,7 +492,7 @@ marked:
     group by sell_date
     order by sell_date
 </code></pre>
-<h4 id="条件判断函数（if-）"><a href="#条件判断函数（if-）" class="headerlink" title="条件判断函数（if()）"></a>条件判断函数（if()）</h4><blockquote>
+<h3 id="判断函数"><a href="#判断函数" class="headerlink" title="判断函数"></a>判断函数</h3><h4 id="条件判断函数（if-）"><a href="#条件判断函数（if-）" class="headerlink" title="条件判断函数（if()）"></a>条件判断函数（if()）</h4><blockquote>
 <p>使用案例1：<a href="https://leetcode-cn.com/problems/calculate-special-bonus/">LeetCode1873. 计算特殊奖金</a></p>
 </blockquote>
 <pre><code class="mysql">    select employee_id,if(employee_id%2 = 1 &amp;&amp; left(name,1) != &#39;M&#39;,salary,0) as bonus 
@@ -472,6 +517,48 @@ marked:
 </code></pre>
 <h4 id="判空函数（isnull-）"><a href="#判空函数（isnull-）" class="headerlink" title="判空函数（isnull()）"></a>判空函数（isnull()）</h4><p><strong>与<code>is null</code>是一样的效果，反正就是在MySQL中不能使用<code>=null</code>判断是否为null</strong></p>
 <p>根据<a href="https://leetcode-cn.com/problems/tree-node/">LeetCode608. 树节点</a>提交结果来看，<code>is null</code>比<code>isnull()</code> 效率更高一点。</p>
+<h4 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h4><ol>
+<li>返回从0000年到现在的天数</li>
+</ol>
+<pre><code class="mysql">    to_days(&quot;2015-01-04&quot;)
+</code></pre>
+<ol start="2">
+<li>将时间&#x2F;日期间隔添加到日期</li>
+</ol>
+<pre><code class="mysql">    adddate(&quot;2015-01-03&quot;,INTERVAL 1 day) #2015-01-04
+</code></pre>
+<ol start="3">
+<li>TIMESTAMPDIFF</li>
+</ol>
+<pre><code class="mysql">    #计算相差天数：
+    select TIMESTAMPDIFF(DAY,&#39;2019-05-20&#39;, &#39;2019-05-21&#39;); # 1
+
+    #计算相差小时数：
+    select TIMESTAMPDIFF(HOUR, &#39;2015-03-22 07:00:00&#39;, &#39;2015-03-22 18:00:00&#39;); # 11
+
+    #计算相差秒数：
+    select TIMESTAMPDIFF(SECOND, &#39;2015-03-22 07:00:00&#39;, &#39;2015-03-22 7:01:01&#39;); # 61
+</code></pre>
+<ol start="4">
+<li>返回值是相差的天数</li>
+</ol>
+<pre><code class="mysql">    DATEDIFF(&#39;2007-12-31&#39;,&#39;2007-12-30&#39;);   # 1
+    DATEDIFF(&#39;2010-12-30&#39;,&#39;2010-12-31&#39;);   # -1
+</code></pre>
+<ol start="5">
+<li>从日期减去指定的时间间隔</li>
+</ol>
+<pre><code class="mysql">    DATE_SUB(&quot;2008-12-29&quot;,INTERVAL 2 DAY) #2008-12-27
+</code></pre>
+<ol start="6">
+<li>interval</li>
+</ol>
+<pre><code class="mysql">    &quot;2015-01-03&quot;+interval&#39;1&#39; day #2015-01-04
+</code></pre>
+<h3 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h3><p>&lt;窗口函数&gt; over (partition by &lt;分组列名&gt; order by &lt;排序列名&gt;)</p>
+<h4 id="rank"><a href="#rank" class="headerlink" title="rank()"></a>rank()</h4><p>  阶梯排序-前两个是并列的1，接下来就是第3名</p>
+<h4 id="dense-rank"><a href="#dense-rank" class="headerlink" title="dense_rank()"></a>dense_rank()</h4><p> 连续排序-前两个是并列的1，接下来就是第2名</p>
+<h4 id="row-number"><a href="#row-number" class="headerlink" title="row_number()"></a>row_number()</h4><p> 不会出现重复的排序</p>
 ]]></content>
       <categories>
         <category>MySQL</category>
@@ -480,42 +567,6 @@ marked:
         <tag>MySQL</tag>
         <tag>汇总</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/09/07/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>Hello</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>img-test.md</title>
-    <url>/2022/02/24/img-test-md/</url>
-    <content><![CDATA[<p>图片测试</p>
-<span id="more"></span>
-
-<p><img src="/2022/02/24/img-test-md/1%EF%BC%887%EF%BC%89.png" alt="图片测试"></p>
-<p><img src="/2022/02/24/img-test-md/v2-52220b2dba6901ee2181b72951d25a7b_r.jpg" alt="preview"></p>
-]]></content>
-      <categories>
-        <category>img</category>
-      </categories>
   </entry>
   <entry>
     <title>【Hexo】github开启令牌验证后无法更新Blog的问题</title>
@@ -548,121 +599,17 @@ deploy:
       </tags>
   </entry>
   <entry>
-    <title>【JavaSE】Java基础2</title>
-    <url>/2022/03/22/%E3%80%90JavaSE%E3%80%91Java%E5%9F%BA%E7%A1%802/</url>
-    <content><![CDATA[<p>将以往学习Java的笔记2转移到个人博客</p>
+    <title>img-test.md</title>
+    <url>/2022/02/24/img-test-md/</url>
+    <content><![CDATA[<p>图片测试</p>
 <span id="more"></span>
 
-<h1 id="Java基础-2"><a href="#Java基础-2" class="headerlink" title="Java基础 2"></a>Java基础 2</h1><h2 id="7-方法"><a href="#7-方法" class="headerlink" title="7 方法"></a>7 方法</h2><h3 id="7-1-方法概述"><a href="#7-1-方法概述" class="headerlink" title="7.1 方法概述"></a>7.1 方法概述</h3><h3 id="7-2-方法的定义和调用"><a href="#7-2-方法的定义和调用" class="headerlink" title="7.2 方法的定义和调用"></a>7.2 方法的定义和调用</h3><h4 id="7-2-1-方法定义："><a href="#7-2-1-方法定义：" class="headerlink" title="7.2.1 方法定义："></a>7.2.1 方法定义：</h4><ul>
-<li>格式<br>  public static void 方法名(){<br>  方法体；<br>  }</li>
-<li>范例：<pre><code class="java">  public static void main(String[] args) &#123;
-      HelloWorld();
-  &#125;
-  public static void HelloWorld()&#123; 
-      System.out.println(&quot;hello&quot;);
-  &#125;
-</code></pre>
-</li>
-</ul>
-<h3 id="7-3-带参数方法的定义和调用"><a href="#7-3-带参数方法的定义和调用" class="headerlink" title="7.3 带参数方法的定义和调用"></a>7.3 带参数方法的定义和调用</h3><pre><code class="java">    public static void main(String[] args) &#123;
-        getMax(2,3);
-    &#125;
-    public static void getMax(int a,int b)&#123;
-        if (a&gt;b)&#123;
-            System.out.println(a);
-        &#125;else &#123;
-            System.out.println(b);
-        &#125;
-    &#125;
-</code></pre>
-<h3 id="7-4-带返回值方法的定义和调用"><a href="#7-4-带返回值方法的定义和调用" class="headerlink" title="7.4 带返回值方法的定义和调用"></a>7.4 带返回值方法的定义和调用</h3><pre><code class="java">    public static int max(int[] a)&#123;
-        int max = a[0];   
-        for (int i = 1; i &lt; a.length; i++) &#123;        
-            max = a[i]&gt;max?a[i]:max; 
-        &#125;    
-        return max;
-    &#125;
-</code></pre>
-<h3 id="7-5-方法的注意事项"><a href="#7-5-方法的注意事项" class="headerlink" title="7.5 方法的注意事项"></a>7.5 方法的注意事项</h3><ul>
-<li>方法不能<strong>嵌套定义</strong></li>
-<li>![Image [3]](【JavaSE】Java基础2&#x2F;Image [3].png)</li>
-</ul>
-<h3 id="7-6-方法的重载"><a href="#7-6-方法的重载" class="headerlink" title="7.6 方法的重载"></a>7.6 方法的重载</h3><h4 id="7-6-1-方法重载概述"><a href="#7-6-1-方法重载概述" class="headerlink" title="7.6.1 方法重载概述"></a>7.6.1 方法重载概述</h4><ul>
-<li>多个方法在<strong>同一个类中</strong></li>
-<li>多个方法具有<strong>相同的方法名</strong></li>
-<li>多个方法的<strong>参数不相同，类型不同或者数量不同</strong><h3 id="7-7-方法的参数传递"><a href="#7-7-方法的参数传递" class="headerlink" title="7.7 方法的参数传递"></a>7.7 方法的参数传递</h3><h4 id="7-7-1-方法参数传递-基本类型"><a href="#7-7-1-方法参数传递-基本类型" class="headerlink" title="7.7.1 方法参数传递(基本类型)"></a>7.7.1 方法参数传递(基本类型)</h4></li>
-</ul>
-<p>![Image [4]](【JavaSE】Java基础2&#x2F;Image [4].png)</p>
-<h4 id="7-7-2-方法参数传递-引用类型"><a href="#7-7-2-方法参数传递-引用类型" class="headerlink" title="7.7.2 方法参数传递(引用类型)"></a>7.7.2 方法参数传递(引用类型)</h4><p>![Image [5]](【JavaSE】Java基础2&#x2F;Image [5].png)</p>
-<h2 id="8-Debug"><a href="#8-Debug" class="headerlink" title="8 Debug"></a>8 Debug</h2><h3 id="8-1-Debug概述"><a href="#8-1-Debug概述" class="headerlink" title="8.1 Debug概述"></a>8.1 Debug概述</h3><ul>
-<li><strong>Debug</strong>：是供程序员使用的程序调式功能，它可以用于<strong>查看程序的执行流程</strong>，也可以用于追踪程序执行过程来<strong>调试程序</strong>。<h3 id="8-2-Debug操作流程"><a href="#8-2-Debug操作流程" class="headerlink" title="8.2 Debug操作流程"></a>8.2 Debug操作流程</h3>Debug调试，又被称为断点调试，</li>
-</ul>
-<ol>
-<li>如何加断点</li>
-<li>如何运行加了断点的程序</li>
-<li>看哪里<ul>
-<li>看Debugger窗口</li>
-<li>看Console窗口</li>
-</ul>
-</li>
-<li>点哪里<ul>
-<li>F7往下执行</li>
-<li>点stop结束</li>
-</ul>
-</li>
-<li>如何删除断点</li>
-</ol>
-<h2 id="9-面向对象基础"><a href="#9-面向对象基础" class="headerlink" title="9 面向对象基础"></a>9 面向对象基础</h2><h3 id="9-1-类和对象"><a href="#9-1-类和对象" class="headerlink" title="9.1 类和对象"></a>9.1 类和对象</h3><pre><code>* 对象：万物皆对象，客观存在的事实皆为对象。
-* 类是对现实生活中一类具有**共同属性和行为**的事物的抽象
-</code></pre>
-<hr>
-<p>  <strong>类的特点:</strong></p>
-<ul>
-<li>类是对象的数据类型</li>
-<li>类是具有相同属性和行为的一组对象的集合。</li>
-</ul>
-<hr>
-<p> <strong>对象的属性：</strong><br>         对象具有的各种特征，每个对象的每个<strong>属性</strong>都拥有特定的<strong>值</strong></p>
-<hr>
-<p> <strong>对象的行为：</strong><br>          对象能够执行的操作</p>
-<hr>
-<p> <em><strong>类是对象的抽象，对象是类的实体</strong></em></p>
-<p>![Image [6]](【JavaSE】Java基础2&#x2F;Image [6].png)</p>
-<hr>
-<ul>
-<li><p>类的定义：<br>&#96;&#96;&#96;java<br>&#x2F;&#x2F;手机类<br>public class Phone {</p>
-<p>  &#x2F;&#x2F;成员变量：品牌，价格<br>  String brand;<br>  int price;</p>
-<p>  &#x2F;&#x2F;成员方法：打电话，发送信息<br>  public void call(){<br>  System.out.println(“打电话”);<br>  }</p>
-<p>  public void sendMessage(){<br>  System.out.println(“发送信息”);<br>  }</p>
-</li>
-</ul>
-<p>}</p>
-<pre><code>******************
-
-* 对象的使用
-
-![Image [7]](【JavaSE】Java基础2/Image [7].png)
-
-### 9.2 对象内存图
-#### 9.2.1 对象内存图(单个对象)
-
-![Image [8]](【JavaSE】Java基础2/Image [8].png)
-
-#### 9.2.2 对象内存图(多个对象)
-
-![Image [9]](【JavaSE】Java基础2/Image [9].png)
-
-#### 9.2.3 对象内存图(多个对象指向相同)
-
-![Image [10]](【JavaSE】Java基础2/Image [10].png)
-</code></pre>
+<p><img src="/2022/02/24/img-test-md/1%EF%BC%887%EF%BC%89.png" alt="图片测试"></p>
+<p><img src="/2022/02/24/img-test-md/v2-52220b2dba6901ee2181b72951d25a7b_r.jpg" alt="preview"></p>
 ]]></content>
       <categories>
-        <category>JavaSE</category>
+        <category>img</category>
       </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
   </entry>
   <entry>
     <title>【JavaSE】Java基础1</title>
@@ -990,6 +937,123 @@ System.out.println(&quot;max=&quot;+max);
       </tags>
   </entry>
   <entry>
+    <title>【JavaSE】Java基础2</title>
+    <url>/2022/03/22/%E3%80%90JavaSE%E3%80%91Java%E5%9F%BA%E7%A1%802/</url>
+    <content><![CDATA[<p>将以往学习Java的笔记2转移到个人博客</p>
+<span id="more"></span>
+
+<h1 id="Java基础-2"><a href="#Java基础-2" class="headerlink" title="Java基础 2"></a>Java基础 2</h1><h2 id="7-方法"><a href="#7-方法" class="headerlink" title="7 方法"></a>7 方法</h2><h3 id="7-1-方法概述"><a href="#7-1-方法概述" class="headerlink" title="7.1 方法概述"></a>7.1 方法概述</h3><h3 id="7-2-方法的定义和调用"><a href="#7-2-方法的定义和调用" class="headerlink" title="7.2 方法的定义和调用"></a>7.2 方法的定义和调用</h3><h4 id="7-2-1-方法定义："><a href="#7-2-1-方法定义：" class="headerlink" title="7.2.1 方法定义："></a>7.2.1 方法定义：</h4><ul>
+<li>格式<br>  public static void 方法名(){<br>  方法体；<br>  }</li>
+<li>范例：<pre><code class="java">  public static void main(String[] args) &#123;
+      HelloWorld();
+  &#125;
+  public static void HelloWorld()&#123; 
+      System.out.println(&quot;hello&quot;);
+  &#125;
+</code></pre>
+</li>
+</ul>
+<h3 id="7-3-带参数方法的定义和调用"><a href="#7-3-带参数方法的定义和调用" class="headerlink" title="7.3 带参数方法的定义和调用"></a>7.3 带参数方法的定义和调用</h3><pre><code class="java">    public static void main(String[] args) &#123;
+        getMax(2,3);
+    &#125;
+    public static void getMax(int a,int b)&#123;
+        if (a&gt;b)&#123;
+            System.out.println(a);
+        &#125;else &#123;
+            System.out.println(b);
+        &#125;
+    &#125;
+</code></pre>
+<h3 id="7-4-带返回值方法的定义和调用"><a href="#7-4-带返回值方法的定义和调用" class="headerlink" title="7.4 带返回值方法的定义和调用"></a>7.4 带返回值方法的定义和调用</h3><pre><code class="java">    public static int max(int[] a)&#123;
+        int max = a[0];   
+        for (int i = 1; i &lt; a.length; i++) &#123;        
+            max = a[i]&gt;max?a[i]:max; 
+        &#125;    
+        return max;
+    &#125;
+</code></pre>
+<h3 id="7-5-方法的注意事项"><a href="#7-5-方法的注意事项" class="headerlink" title="7.5 方法的注意事项"></a>7.5 方法的注意事项</h3><ul>
+<li>方法不能<strong>嵌套定义</strong></li>
+<li>![Image [3]](【JavaSE】Java基础2&#x2F;Image [3].png)</li>
+</ul>
+<h3 id="7-6-方法的重载"><a href="#7-6-方法的重载" class="headerlink" title="7.6 方法的重载"></a>7.6 方法的重载</h3><h4 id="7-6-1-方法重载概述"><a href="#7-6-1-方法重载概述" class="headerlink" title="7.6.1 方法重载概述"></a>7.6.1 方法重载概述</h4><ul>
+<li>多个方法在<strong>同一个类中</strong></li>
+<li>多个方法具有<strong>相同的方法名</strong></li>
+<li>多个方法的<strong>参数不相同，类型不同或者数量不同</strong><h3 id="7-7-方法的参数传递"><a href="#7-7-方法的参数传递" class="headerlink" title="7.7 方法的参数传递"></a>7.7 方法的参数传递</h3><h4 id="7-7-1-方法参数传递-基本类型"><a href="#7-7-1-方法参数传递-基本类型" class="headerlink" title="7.7.1 方法参数传递(基本类型)"></a>7.7.1 方法参数传递(基本类型)</h4></li>
+</ul>
+<p>![Image [4]](【JavaSE】Java基础2&#x2F;Image [4].png)</p>
+<h4 id="7-7-2-方法参数传递-引用类型"><a href="#7-7-2-方法参数传递-引用类型" class="headerlink" title="7.7.2 方法参数传递(引用类型)"></a>7.7.2 方法参数传递(引用类型)</h4><p>![Image [5]](【JavaSE】Java基础2&#x2F;Image [5].png)</p>
+<h2 id="8-Debug"><a href="#8-Debug" class="headerlink" title="8 Debug"></a>8 Debug</h2><h3 id="8-1-Debug概述"><a href="#8-1-Debug概述" class="headerlink" title="8.1 Debug概述"></a>8.1 Debug概述</h3><ul>
+<li><strong>Debug</strong>：是供程序员使用的程序调式功能，它可以用于<strong>查看程序的执行流程</strong>，也可以用于追踪程序执行过程来<strong>调试程序</strong>。<h3 id="8-2-Debug操作流程"><a href="#8-2-Debug操作流程" class="headerlink" title="8.2 Debug操作流程"></a>8.2 Debug操作流程</h3>Debug调试，又被称为断点调试，</li>
+</ul>
+<ol>
+<li>如何加断点</li>
+<li>如何运行加了断点的程序</li>
+<li>看哪里<ul>
+<li>看Debugger窗口</li>
+<li>看Console窗口</li>
+</ul>
+</li>
+<li>点哪里<ul>
+<li>F7往下执行</li>
+<li>点stop结束</li>
+</ul>
+</li>
+<li>如何删除断点</li>
+</ol>
+<h2 id="9-面向对象基础"><a href="#9-面向对象基础" class="headerlink" title="9 面向对象基础"></a>9 面向对象基础</h2><h3 id="9-1-类和对象"><a href="#9-1-类和对象" class="headerlink" title="9.1 类和对象"></a>9.1 类和对象</h3><pre><code>* 对象：万物皆对象，客观存在的事实皆为对象。
+* 类是对现实生活中一类具有**共同属性和行为**的事物的抽象
+</code></pre>
+<hr>
+<p>  <strong>类的特点:</strong></p>
+<ul>
+<li>类是对象的数据类型</li>
+<li>类是具有相同属性和行为的一组对象的集合。</li>
+</ul>
+<hr>
+<p> <strong>对象的属性：</strong><br>         对象具有的各种特征，每个对象的每个<strong>属性</strong>都拥有特定的<strong>值</strong></p>
+<hr>
+<p> <strong>对象的行为：</strong><br>          对象能够执行的操作</p>
+<hr>
+<p> <em><strong>类是对象的抽象，对象是类的实体</strong></em></p>
+<p>![Image [6]](【JavaSE】Java基础2&#x2F;Image [6].png)</p>
+<hr>
+<ul>
+<li><p>类的定义：<br>&#96;&#96;&#96;java<br>&#x2F;&#x2F;手机类<br>public class Phone {</p>
+<p>  &#x2F;&#x2F;成员变量：品牌，价格<br>  String brand;<br>  int price;</p>
+<p>  &#x2F;&#x2F;成员方法：打电话，发送信息<br>  public void call(){<br>  System.out.println(“打电话”);<br>  }</p>
+<p>  public void sendMessage(){<br>  System.out.println(“发送信息”);<br>  }</p>
+</li>
+</ul>
+<p>}</p>
+<pre><code>******************
+
+* 对象的使用
+
+![Image [7]](【JavaSE】Java基础2/Image [7].png)
+
+### 9.2 对象内存图
+#### 9.2.1 对象内存图(单个对象)
+
+![Image [8]](【JavaSE】Java基础2/Image [8].png)
+
+#### 9.2.2 对象内存图(多个对象)
+
+![Image [9]](【JavaSE】Java基础2/Image [9].png)
+
+#### 9.2.3 对象内存图(多个对象指向相同)
+
+![Image [10]](【JavaSE】Java基础2/Image [10].png)
+</code></pre>
+]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【计算机网络】HTTP知识</title>
     <url>/2022/02/20/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%80%91HTTP%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[]]></content>
@@ -1153,6 +1217,228 @@ System.out.println(&quot;max=&quot;+max);
       </tags>
   </entry>
   <entry>
+    <title>【MySQL实战45讲】普通索引和唯一索引</title>
+    <url>/2022/04/21/%E3%80%90MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2%E3%80%91%E6%99%AE%E9%80%9A%E7%B4%A2%E5%BC%95%E5%92%8C%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/</url>
+    <content><![CDATA[<p>参考原文：<a href="https://time.geekbang.org/column/article/70848">MySQL实战45讲一一一极客时间</a></p>
+<p>根据例子详细讲讲普通索引和唯一索引的区别，以及不同的场景下如何选择更合适的索引。</p>
+<span id="more"></span>
+
+<img src="1ed9536031d6698570ea175a7b7f9a46.png" alt="img" style="zoom:50%;"/>
+
+<p>首先我们就从这两种索引对查询语句和更新语句的性能影响来进行分析。</p>
+<h3 id="查询过程"><a href="#查询过程" class="headerlink" title="查询过程"></a>查询过程</h3><p>假设，执行查询的语句是 </p>
+<pre><code class="mysql">    select id from T where k=5
+</code></pre>
+<p>这个查询语句在索引树上查找的过程，先是通过 B+ 树从树根开始，按层搜索到叶子节点，也就是图中右下角的这个数据页，然后可以认为数据页内部通过二分法来定位记录。</p>
+<ul>
+<li><strong>对于普通索引来说，查找到满足条件的第一个记录 (5,500) 后，需要查找下一个记录，直到碰到第一个不满足 k&#x3D;5 条件的记录。</strong></li>
+<li><strong>对于唯一索引来说，由于索引定义了唯一性，查找到第一个满足条件的记录后，就会停止继续检索。</strong></li>
+</ul>
+<p>那么，这个不同带来的性能差距会有多少呢？答案是，微乎其微。</p>
+<p>因为引擎是按页读写的，所以说，当找到 k&#x3D;5 的记录的时候，它所在的数据页就都在内存里了。那么，对于普通索引来说，要多做的那一次“查找和判断下一条记录”的操作，就只需要一次指针寻找和一次计算。</p>
+<p>当然，如果 k&#x3D;5 这个记录刚好是这个数据页的最后一个记录，那么要取下一个记录，必须读取下一个数据页，这个操作会稍微复杂一些。对于整型字段，一个数据页可以放近千个 key，因此出现这种情况的概率会很低。所以，我们计算平均性能差异时，仍可以认为这个操作成本对于现在的 CPU 来说可以忽略不计。</p>
+<blockquote>
+<p>对于查询语句来说，普通索引和唯一索引带来的性能差距是微乎其微的。</p>
+</blockquote>
+<h3 id="🌶🌶更新过程"><a href="#🌶🌶更新过程" class="headerlink" title="🌶🌶更新过程"></a>🌶🌶更新过程</h3><p>为了说明普通索引和唯一索引对更新语句性能的影响这个问题，需要先理解 <code>change buffer</code>。</p>
+<p>当需要更新一个数据页时，如果数据页在内存中就直接更新，而<strong>如果这个数据页还没有在内存中的话，在不影响数据一致性的前提下，<code>InnoDB</code> 会将这些更新操作缓存在 <code>change buffer</code> 中，这样就不需要从磁盘中读入这个数据页了</strong>。在下次查询需要访问这个数据页的时候，将数据页读入内存，然后执行 <code>change buffer</code> 中与这个页有关的操作。通过这种方式就能保证这个数据逻辑的正确性。</p>
+<blockquote>
+<p>【然后执行 <code>change buffer</code> 中与这个页有关的操作】：</p>
+<p>🌶🌶这里操作为：</p>
+<ol>
+<li><p>从磁盘读入数据页到内存（老版本的数据页）；</p>
+</li>
+<li><p>从 <code>change buffer</code> 里找出这个数据页的 <code>change buffer</code> 记录 (可能有多个），依次应用，得到新版数据页；</p>
+</li>
+<li><p>写 <code>redo log</code>。这个 <code>redo log</code> 包含了<strong>数据的变更和 change buffer 的变更。</strong></p>
+<p>也就是下文所说的<code>merge</code></p>
+</li>
+</ol>
+</blockquote>
+<p>需要说明的是，虽然名字叫作 change buffer，实际上它是可以持久化的数据。也就是说，change buffer 在内存中有拷贝，也会被写入到磁盘上。</p>
+<p>将 change buffer 中的操作应用到原数据页，得到最新结果的过程称为 merge。除了访问这个数据页会触发 merge 外，系统有后台线程会定期 merge。在数据库正常关闭（shutdown）的过程中，也会执行 merge 操作。</p>
+<blockquote>
+<p>如果能够将更新操作先记录在 <code>change buffer</code>，减少读磁盘，语句的执行速度会得到明显的提升。而且，数据读入内存是需要占用 <code>buffer pool</code> 的，所以这种方式还能够避免占用内存，提高内存利用率。</p>
+</blockquote>
+<h4 id="那么，什么条件下可以使用-change-buffer-呢？"><a href="#那么，什么条件下可以使用-change-buffer-呢？" class="headerlink" title="那么，什么条件下可以使用 change buffer 呢？"></a>那么，什么条件下可以使用 change buffer 呢？</h4><p>对于唯一索引来说，所有的更新操作都要先判断这个操作是否违反唯一性约束。比如，要插入 (4,400) 这个记录，就要先判断现在表中是否已经存在 k&#x3D;4 的记录，而这必须要将数据页读入内存才能判断。如果都已经读入到内存了，那直接更新内存会更快，就没必要使用 change buffer 了。</p>
+<blockquote>
+<p>因此，唯一索引的更新就不能使用 change buffer，实际上也只有普通索引可以使用。</p>
+</blockquote>
+<p><code>change buffer</code> 用的是 <code>buffer pool</code> 里的内存，因此不能无限增大。&#96;&#96;change buffer<code>的大小，可以通过参数</code>innodb_change_buffer_max_size&#96; 来动态设置。这个参数设置为 50 的时候，表示 change buffer 的大小最多只能占用 buffer pool 的 50%。</p>
+<p>🌶🌶🌶接下来，<strong>如果要在这张表中插入一个新记录 (4,400) 的话，InnoDB 的处理流程是怎样的</strong>。</p>
+<p>🌶第一种情况是，这个记录<strong>要更新的目标页在内存中</strong>。这时，InnoDB 的处理流程如下：</p>
+<ul>
+<li>对于唯一索引来说，找到 3 和 5 之间的位置，判断到没有冲突，插入这个值，语句执行结束；</li>
+<li>对于普通索引来说，找到 3 和 5 之间的位置，插入这个值，语句执行结束。</li>
+</ul>
+<blockquote>
+<p>在第一种情况下，普通索引和唯一索引对更新语句性能影响的差别，只是一个判断，只会耗费微小的 CPU 时间。</p>
+</blockquote>
+<p>🌶🌶🌶第二种情况是，这个记录<strong>要更新的目标页不在内存中</strong>。这时，InnoDB 的处理流程如下：</p>
+<ul>
+<li>对于唯一索引来说，需要将数据页读入内存，判断到没有冲突，插入这个值，语句执行结束；</li>
+<li>对于普通索引来说，则是将更新记录在 change buffer，语句执行就结束了。</li>
+</ul>
+<blockquote>
+<p>这里普通索引没有将数据页从磁盘读入内存，而是直接更新记录在 <code>change buffer</code>，而将数据从磁盘读入内存涉及随机 IO 的访问，是数据库里面成本最高的操作之一。因此<code>change buffer</code>对更新性能的提升是会很明显的。</p>
+</blockquote>
+<h3 id="change-buffer-的使用场景"><a href="#change-buffer-的使用场景" class="headerlink" title="change buffer 的使用场景"></a>change buffer 的使用场景</h3><p>那么，现在有一个问题就是：普通索引的所有场景，使用 change buffer 都可以起到加速作用吗？</p>
+<p>因为 merge 的时候是真正进行数据更新的时刻，而 change buffer 的主要目的就是将记录的变更动作缓存下来，所以在一个数据页做 merge 之前，change buffer 记录的变更越多（也就是这个页面上要更新的次数越多），收益就越大。</p>
+<p>因此，对于写多读少的业务来说，页面在写完以后马上被访问到的概率比较小，此时 change buffer 的使用效果最好。这种业务模型常见的就是账单类、日志类的系统。</p>
+<p>反过来，假设一个业务的更新模式是写入之后马上会做查询，那么即使满足了条件，将更新先记录在 change buffer，但之后由于马上要访问这个数据页，会立即触发 merge 过程。这样随机访问 IO 的次数不会减少，反而增加了 change buffer 的维护代价。所以，对于这种业务模式来说，change buffer 反而起到了副作用。</p>
+<blockquote>
+<p>写多读少的业务适合使用<code>change buffer</code>，因为每次读取访问数据页都要merge，少的读取数据能让<code>change buffer</code>起到较好的加速作用。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>MySQL实战45讲</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>索引</tag>
+        <tag>普通索引</tag>
+        <tag>唯一索引</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二分查找详解</title>
+    <url>/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/binary-search/solution/er-fen-cha-zhao-xiang-jie-by-labuladong/">原文链接:二分查找细节详解  –LeetCode labuladong</a></p>
+<p>相关题目:</p>
+<p><a href="https://leetcode-cn.com/problems/binary-search/">LeetCode 704. 二分查找</a></p>
+<p><a href="https://leetcode-cn.com/problems/first-bad-version/">LeetCode 278. 第一个错误的版本</a></p>
+<p><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode 35. 搜索插入位置</a></p>
+<p><a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置</a></p>
+<p><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/">LeetCode 153. 寻找旋转排序数组中的最小值</a></p>
+<p><a href="https://leetcode-cn.com/problems/find-peak-element/">LeetCode 162. 寻找峰值</a></p>
+<p>注意：</p>
+<ol>
+<li>模板的左右初始值细节很重要，但是<strong>应用时要注意根据具体情况取左右初始值和循环条件</strong>！！</li>
+</ol>
+<span id="more"></span>
+
+<p>本人懒狗一枚，详解可以看看上面链接，hhhhh。</p>
+<h4 id="寻找一个数（基本的二分搜索）"><a href="#寻找一个数（基本的二分搜索）" class="headerlink" title="寻找一个数（基本的二分搜索）"></a>寻找一个数（基本的二分搜索）</h4><pre><code class="java">class Solution &#123;
+    public int search(int[] nums, int target) &#123;
+        int left = 0;
+        int right = nums.length - 1;    //这里-1时，while循环条件得加上=
+        while(left &lt;= right)&#123;            //注意
+            int mid = left + (right - left) / 2; //防止了 left 和 right 太大直接相加导致溢出
+            if(target == nums[mid])&#123;
+                return mid;
+            &#125;else if(target &lt; nums[mid])&#123;
+                //如果right初始化为nums.length - 1，这里应该为mid-1;
+                right = mid - 1;        
+            &#125;else if(target &gt; nums[mid])&#123;
+                left = mid + 1;            //注意
+            &#125;
+        &#125;
+        return -1;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="寻找左侧边界的二分搜索"><a href="#寻找左侧边界的二分搜索" class="headerlink" title="寻找左侧边界的二分搜索"></a>寻找左侧边界的二分搜索</h4><pre><code class="java">public int search(int[] nums, int target) &#123;
+        int left = 0,right = nums.length;
+        while(left &lt; right)&#123;
+            int mid = left + (right - left) / 2;
+            //寻找左、右侧边界的二分搜索要注意
+            //收紧边界时的条件很重要，
+            //这里right = mid ，并且循环结束的条件是 right = left
+            //所以循环结束是 right = mid = left
+            if(target == nums[mid])&#123;
+                right = mid;
+            &#125;else if(target &lt; nums[mid])&#123;
+                right = mid;
+            &#125;else if(target &gt; nums[mid])&#123;
+                left = mid + 1;
+            &#125;
+        &#125;
+        if(left &gt;= nums.length || nums[left] != target) return -1;
+        return left;
+    &#125;
+</code></pre>
+<h4 id="寻找右侧边界的二分搜索"><a href="#寻找右侧边界的二分搜索" class="headerlink" title="寻找右侧边界的二分搜索"></a>寻找右侧边界的二分搜索</h4><pre><code class="java">public int search(int[] nums, int target) &#123;
+        int left = 0,right = nums.length;
+        while(left &lt; right)&#123;
+            int mid = left + (right - left) / 2;
+            if(target == nums[mid])&#123;
+                //收紧边界时的条件很重要，
+                //这里left = mid + 1;并且循环结束的条件是 right = left
+                //所以循环结束是 mid = left - 1 = right - 1；
+                left = mid + 1;
+            &#125;else if(target &lt; nums[mid])&#123;
+                right = mid;
+            &#125;else if(target &gt; nums[mid])&#123;
+                left = mid + 1;
+            &#125;
+        &#125;
+        if(right - 1 &lt; 0 || nums[right - 1] != target) return -1;
+        return right -1;
+    &#125;
+</code></pre>
+<h4 id="LeetCode-153-寻找旋转排序数组中的最小值"><a href="#LeetCode-153-寻找旋转排序数组中的最小值" class="headerlink" title="LeetCode 153. 寻找旋转排序数组中的最小值"></a>LeetCode 153. 寻找旋转排序数组中的最小值</h4><blockquote>
+<p>思路：根据左值，中值，右值的大小关系分类讨论.</p>
+<p>其中符合数组规律的大小关系如下:</p>
+</blockquote>
+<blockquote>
+<p>​        右            中值 &lt; 右值 ， 缩小右边界</p>
+<p>​    中</p>
+<p>左    </p>
+<hr>
+<p>​    中                中值 &gt; 右值 ， 缩小左边界</p>
+<p>左</p>
+<p>​        右</p>
+<hr>
+<p>左                    中值 &lt; 右值 ,    缩小右边界</p>
+<p>​        右</p>
+<p>​    中</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    public int findMin(int[] nums) &#123;
+        int left = 0,right = nums.length - 1;
+        while(left &lt; right)&#123;
+            int mid = (left + right) / 2;
+            if(nums[mid] &lt; nums[right])&#123;
+                right = mid;
+            &#125;else&#123;
+                left = mid + 1;
+            &#125;
+        &#125;
+        return nums[left];
+    &#125;
+&#125;
+</code></pre>
+<h4 id="LeetCode-162-寻找峰值"><a href="#LeetCode-162-寻找峰值" class="headerlink" title="LeetCode 162. 寻找峰值"></a>LeetCode 162. 寻找峰值</h4><blockquote>
+<p>根据左右指针计算中间位置 m，并比较 m 与 m+1 的值，如果 m 较大，则左侧存在峰值，r &#x3D; m，如果 m + 1 较大，则右侧存在峰值，l &#x3D; m + 1.</p>
+</blockquote>
+<pre><code class="java">class Solution &#123;
+    public int findPeakElement(int[] nums) &#123;
+        int left = 0,right = nums.length - 1;
+        while(left &lt; right)&#123;
+            int mid = (left + right) / 2;
+            if(nums[mid] &gt; nums[mid + 1])&#123;
+                right = mid;
+            &#125;else&#123;
+                left = mid + 1;
+            &#125;
+        &#125;
+        return left;
+
+    &#125;
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>二分查找</tag>
+        <tag>模板题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二叉树遍历详解</title>
     <url>/2021/09/15/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<span id="more"></span>
@@ -1301,24 +1587,9 @@ class Solution &#123;
       </categories>
       <tags>
         <tag>LeetCode</tag>
+        <tag>模板题</tag>
         <tag>数据结构</tag>
         <tag>二叉树</tag>
-        <tag>模板题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>位运算刷题指南</title>
-    <url>/2021/09/16/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<span id="more"></span>
-
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-        <tag>位运算</tag>
       </tags>
   </entry>
   <entry>
@@ -1396,131 +1667,37 @@ public static void main(String[] args) &#123;
       </tags>
   </entry>
   <entry>
-    <title>二分查找详解</title>
-    <url>/2021/09/12/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/binary-search/solution/er-fen-cha-zhao-xiang-jie-by-labuladong/">原文链接:二分查找细节详解  –LeetCode labuladong</a></p>
-<p>相关题目:</p>
-<p><a href="https://leetcode-cn.com/problems/binary-search/">LeetCode 704. 二分查找</a></p>
-<p><a href="https://leetcode-cn.com/problems/first-bad-version/">LeetCode 278. 第一个错误的版本</a></p>
-<p><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode 35. 搜索插入位置</a></p>
-<p><a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置</a></p>
-<p><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/">LeetCode 153. 寻找旋转排序数组中的最小值</a></p>
-<p><a href="https://leetcode-cn.com/problems/find-peak-element/">LeetCode 162. 寻找峰值</a></p>
-<p>注意：</p>
-<ol>
-<li>模板的左右初始值细节很重要，但是<strong>应用时要注意根据具体情况取左右初始值和循环条件</strong>！！</li>
+    <title>动态规划刷题指南</title>
+    <url>/2021/09/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h4 id="LeetCode-139-单词拆分"><a href="#LeetCode-139-单词拆分" class="headerlink" title="LeetCode 139. 单词拆分"></a>LeetCode <a href="https://leetcode-cn.com/problems/word-break/">139. 单词拆分</a></h4><ol>
+<li><p><code>dp[i*]</code> 表示字符串 <code>s</code> 前 <code>i</code> 个字符组成的字符串 <code>s[0..i-1]</code> 是否能被空格拆分成若干个字典中出现的单词 </p>
+</li>
+<li><p>在前 <code>i</code> 个字符组成的字符串找个位置 <code>j</code> 将字符串切成  <code>s[0..j-1]</code> 和 <code>s[j...i-1]</code> ,因此只需判断 <code>dp[j]</code> 是否为 <code>true</code> 以及后续单词 <code>s[j...i-1]</code>是否存在于列表中。</p>
+</li>
+<li><p>得出公式：</p>
+<p> ​                <code>dp[i]</code> &#x3D; <code>dp[j]</code> &amp;&amp; <code>checks( s[j...i-1] )</code>;</p>
+</li>
+<li><p>对于边界条件，我们定义 dp[0]&#x3D;true 表示空串且合法。</p>
+</li>
 </ol>
-<span id="more"></span>
-
-<p>本人懒狗一枚，详解可以看看上面链接，hhhhh。</p>
-<h4 id="寻找一个数（基本的二分搜索）"><a href="#寻找一个数（基本的二分搜索）" class="headerlink" title="寻找一个数（基本的二分搜索）"></a>寻找一个数（基本的二分搜索）</h4><pre><code class="java">class Solution &#123;
-    public int search(int[] nums, int target) &#123;
-        int left = 0;
-        int right = nums.length - 1;    //这里-1时，while循环条件得加上=
-        while(left &lt;= right)&#123;            //注意
-            int mid = left + (right - left) / 2; //防止了 left 和 right 太大直接相加导致溢出
-            if(target == nums[mid])&#123;
-                return mid;
-            &#125;else if(target &lt; nums[mid])&#123;
-                //如果right初始化为nums.length - 1，这里应该为mid-1;
-                right = mid - 1;        
-            &#125;else if(target &gt; nums[mid])&#123;
-                left = mid + 1;            //注意
+<pre><code class="java">    public boolean wordBreak(String s, List&lt;String&gt; wordDict) &#123;
+        //dp[i] 表示字符串 s 前 i 个字符组成的字符串 s[0..i-1] 是否能被空格拆分成若干个字典中出现的单词
+        HashSet&lt;String&gt; wordDictSet = new HashSet&lt;&gt;(wordDict);
+        int n = s.length();
+        boolean[] dp = new boolean[n + 1];
+        dp[0] = true;
+        for(int i = 1;i &lt;= n;i++)&#123;
+            for(int j = 0;j &lt; i;j++)&#123;
+                if(dp[j] &amp;&amp; wordDictSet.contains(s.substring(j,i)))&#123;
+                    dp[i] = true;
+                    break;
+                &#125;
             &#125;
         &#125;
-        return -1;
+        return dp[n];
     &#125;
-&#125;
-</code></pre>
-<h4 id="寻找左侧边界的二分搜索"><a href="#寻找左侧边界的二分搜索" class="headerlink" title="寻找左侧边界的二分搜索"></a>寻找左侧边界的二分搜索</h4><pre><code class="java">public int search(int[] nums, int target) &#123;
-        int left = 0,right = nums.length;
-        while(left &lt; right)&#123;
-            int mid = left + (right - left) / 2;
-            //寻找左、右侧边界的二分搜索要注意
-            //收紧边界时的条件很重要，
-            //这里right = mid ，并且循环结束的条件是 right = left
-            //所以循环结束是 right = mid = left
-            if(target == nums[mid])&#123;
-                right = mid;
-            &#125;else if(target &lt; nums[mid])&#123;
-                right = mid;
-            &#125;else if(target &gt; nums[mid])&#123;
-                left = mid + 1;
-            &#125;
-        &#125;
-        if(left &gt;= nums.length || nums[left] != target) return -1;
-        return left;
-    &#125;
-</code></pre>
-<h4 id="寻找右侧边界的二分搜索"><a href="#寻找右侧边界的二分搜索" class="headerlink" title="寻找右侧边界的二分搜索"></a>寻找右侧边界的二分搜索</h4><pre><code class="java">public int search(int[] nums, int target) &#123;
-        int left = 0,right = nums.length;
-        while(left &lt; right)&#123;
-            int mid = left + (right - left) / 2;
-            if(target == nums[mid])&#123;
-                //收紧边界时的条件很重要，
-                //这里left = mid + 1;并且循环结束的条件是 right = left
-                //所以循环结束是 mid = left - 1 = right - 1；
-                left = mid + 1;
-            &#125;else if(target &lt; nums[mid])&#123;
-                right = mid;
-            &#125;else if(target &gt; nums[mid])&#123;
-                left = mid + 1;
-            &#125;
-        &#125;
-        if(right - 1 &lt; 0 || nums[right - 1] != target) return -1;
-        return right -1;
-    &#125;
-</code></pre>
-<h4 id="LeetCode-153-寻找旋转排序数组中的最小值"><a href="#LeetCode-153-寻找旋转排序数组中的最小值" class="headerlink" title="LeetCode 153. 寻找旋转排序数组中的最小值"></a>LeetCode 153. 寻找旋转排序数组中的最小值</h4><blockquote>
-<p>思路：根据左值，中值，右值的大小关系分类讨论.</p>
-<p>其中符合数组规律的大小关系如下:</p>
-</blockquote>
-<blockquote>
-<p>​        右            中值 &lt; 右值 ， 缩小右边界</p>
-<p>​    中</p>
-<p>左    </p>
-<hr>
-<p>​    中                中值 &gt; 右值 ， 缩小左边界</p>
-<p>左</p>
-<p>​        右</p>
-<hr>
-<p>左                    中值 &lt; 右值 ,    缩小右边界</p>
-<p>​        右</p>
-<p>​    中</p>
-</blockquote>
-<pre><code class="java">class Solution &#123;
-    public int findMin(int[] nums) &#123;
-        int left = 0,right = nums.length - 1;
-        while(left &lt; right)&#123;
-            int mid = (left + right) / 2;
-            if(nums[mid] &lt; nums[right])&#123;
-                right = mid;
-            &#125;else&#123;
-                left = mid + 1;
-            &#125;
-        &#125;
-        return nums[left];
-    &#125;
-&#125;
-</code></pre>
-<h4 id="LeetCode-162-寻找峰值"><a href="#LeetCode-162-寻找峰值" class="headerlink" title="LeetCode 162. 寻找峰值"></a>LeetCode 162. 寻找峰值</h4><blockquote>
-<p>根据左右指针计算中间位置 m，并比较 m 与 m+1 的值，如果 m 较大，则左侧存在峰值，r &#x3D; m，如果 m + 1 较大，则右侧存在峰值，l &#x3D; m + 1.</p>
-</blockquote>
-<pre><code class="java">class Solution &#123;
-    public int findPeakElement(int[] nums) &#123;
-        int left = 0,right = nums.length - 1;
-        while(left &lt; right)&#123;
-            int mid = (left + right) / 2;
-            if(nums[mid] &gt; nums[mid + 1])&#123;
-                right = mid;
-            &#125;else&#123;
-                left = mid + 1;
-            &#125;
-        &#125;
-        return left;
-
-    &#125;
-&#125;
 </code></pre>
 ]]></content>
       <categories>
@@ -1529,8 +1706,22 @@ public static void main(String[] args) &#123;
       <tags>
         <tag>算法</tag>
         <tag>LeetCode</tag>
-        <tag>模板题</tag>
-        <tag>二分查找</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>位运算刷题指南</title>
+    <url>/2021/09/16/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+        <tag>位运算</tag>
       </tags>
   </entry>
   <entry>
@@ -1770,79 +1961,6 @@ public static void main(String[] args) &#123;
       </tags>
   </entry>
   <entry>
-    <title>动态规划刷题指南</title>
-    <url>/2021/09/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<h4 id="LeetCode-139-单词拆分"><a href="#LeetCode-139-单词拆分" class="headerlink" title="LeetCode 139. 单词拆分"></a>LeetCode <a href="https://leetcode-cn.com/problems/word-break/">139. 单词拆分</a></h4><ol>
-<li><p><code>dp[i*]</code> 表示字符串 <code>s</code> 前 <code>i</code> 个字符组成的字符串 <code>s[0..i-1]</code> 是否能被空格拆分成若干个字典中出现的单词 </p>
-</li>
-<li><p>在前 <code>i</code> 个字符组成的字符串找个位置 <code>j</code> 将字符串切成  <code>s[0..j-1]</code> 和 <code>s[j...i-1]</code> ,因此只需判断 <code>dp[j]</code> 是否为 <code>true</code> 以及后续单词 <code>s[j...i-1]</code>是否存在于列表中。</p>
-</li>
-<li><p>得出公式：</p>
-<p> ​                <code>dp[i]</code> &#x3D; <code>dp[j]</code> &amp;&amp; <code>checks( s[j...i-1] )</code>;</p>
-</li>
-<li><p>对于边界条件，我们定义 dp[0]&#x3D;true 表示空串且合法。</p>
-</li>
-</ol>
-<pre><code class="java">    public boolean wordBreak(String s, List&lt;String&gt; wordDict) &#123;
-        //dp[i] 表示字符串 s 前 i 个字符组成的字符串 s[0..i-1] 是否能被空格拆分成若干个字典中出现的单词
-        HashSet&lt;String&gt; wordDictSet = new HashSet&lt;&gt;(wordDict);
-        int n = s.length();
-        boolean[] dp = new boolean[n + 1];
-        dp[0] = true;
-        for(int i = 1;i &lt;= n;i++)&#123;
-            for(int j = 0;j &lt; i;j++)&#123;
-                if(dp[j] &amp;&amp; wordDictSet.contains(s.substring(j,i)))&#123;
-                    dp[i] = true;
-                    break;
-                &#125;
-            &#125;
-        &#125;
-        return dp[n];
-    &#125;
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>复制SpringBoot基础模块</title>
-    <url>/2022/04/08/%E5%A4%8D%E5%88%B6SpringBoot%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9D%97/</url>
-    <content><![CDATA[<p>复制SpringBoot基础模块以便后续练习使用。</p>
-<span id="more"></span>
-
-<h3 id="复制SpringBoot基础模块"><a href="#复制SpringBoot基础模块" class="headerlink" title="复制SpringBoot基础模块"></a>复制SpringBoot基础模块</h3><p><strong>步骤一：</strong>创建一个SpringBoot项目（springboot_base）</p>
-<p><strong>步骤二：</strong>在工作空间中复制对应的工程，并修改工程名称</p>
-<p><img src="/2022/04/08/%E5%A4%8D%E5%88%B6SpringBoot%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9D%97/image-20220408204922686.png" alt="image-20220408204922686"></p>
-<p><strong>步骤三：</strong>删除Idea相关配置文件，仅保留src目录与pom.xml文件</p>
-<p><img src="/2022/04/08/%E5%A4%8D%E5%88%B6SpringBoot%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9D%97/image-20220408205055622.png" alt="image-20220408205055622"></p>
-<p><strong>步骤四：</strong>修改pom.xml文件中artifactId与新工程&#x2F;模块名相同</p>
-<p><strong>步骤五：</strong>删除name标签</p>
-<pre><code class="xml">    &lt;groupId&gt;com.yang&lt;/groupId&gt;
-    &lt;artifactId&gt;springboot_base&lt;/artifactId&gt;&lt;!-- 修改为新工程/模块名，注意！此处最好在导入Idea前修改 --&gt;
-    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
-    &lt;!-- 下面两行可以选择删除 --&gt;
-    &lt;name&gt;springboot_01_01_quickstart&lt;/name&gt;
-    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
-</code></pre>
-<p><strong>步骤六：</strong>保留备份工程以便后期使用</p>
-]]></content>
-      <categories>
-        <category>SpringBoot</category>
-      </categories>
-      <tags>
-        <tag>IDEA</tag>
-        <tag>SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>岛屿问题专栏</title>
     <url>/2021/09/23/%E5%B2%9B%E5%B1%BF%E9%97%AE%E9%A2%98%E4%B8%93%E6%A0%8F/</url>
     <content><![CDATA[<p>针对岛屿问题的专栏</p>
@@ -1949,19 +2067,33 @@ public static void main(String[] args) &#123;
       </tags>
   </entry>
   <entry>
-    <title>我的第一篇博客文章</title>
-    <url>/2021/09/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>#第一章<br>hhh</p>
-<hr>
-<p>#第二章<br>hhh</p>
-<hr>
-<p>#第三章<br><a href="http://www.baidu.com/">www.baidu.com</a></p>
+    <title>复制SpringBoot基础模块</title>
+    <url>/2022/04/08/%E5%A4%8D%E5%88%B6SpringBoot%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9D%97/</url>
+    <content><![CDATA[<p>复制SpringBoot基础模块以便后续练习使用。</p>
+<span id="more"></span>
+
+<h3 id="复制SpringBoot基础模块"><a href="#复制SpringBoot基础模块" class="headerlink" title="复制SpringBoot基础模块"></a>复制SpringBoot基础模块</h3><p><strong>步骤一：</strong>创建一个SpringBoot项目（springboot_base）</p>
+<p><strong>步骤二：</strong>在工作空间中复制对应的工程，并修改工程名称</p>
+<p><img src="/2022/04/08/%E5%A4%8D%E5%88%B6SpringBoot%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9D%97/image-20220408204922686.png" alt="image-20220408204922686"></p>
+<p><strong>步骤三：</strong>删除Idea相关配置文件，仅保留src目录与pom.xml文件</p>
+<p><img src="/2022/04/08/%E5%A4%8D%E5%88%B6SpringBoot%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9D%97/image-20220408205055622.png" alt="image-20220408205055622"></p>
+<p><strong>步骤四：</strong>修改pom.xml文件中artifactId与新工程&#x2F;模块名相同</p>
+<p><strong>步骤五：</strong>删除name标签</p>
+<pre><code class="xml">    &lt;groupId&gt;com.yang&lt;/groupId&gt;
+    &lt;artifactId&gt;springboot_base&lt;/artifactId&gt;&lt;!-- 修改为新工程/模块名，注意！此处最好在导入Idea前修改 --&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;!-- 下面两行可以选择删除 --&gt;
+    &lt;name&gt;springboot_01_01_quickstart&lt;/name&gt;
+    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
+</code></pre>
+<p><strong>步骤六：</strong>保留备份工程以便后期使用</p>
 ]]></content>
       <categories>
-        <category>test</category>
+        <category>SpringBoot</category>
       </categories>
       <tags>
-        <tag>test1</tag>
+        <tag>IDEA</tag>
+        <tag>SpringBoot</tag>
       </tags>
   </entry>
   <entry>
@@ -2187,6 +2319,22 @@ public static void main(String[] args) &#123;
       <tags>
         <tag>面经</tag>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博客文章</title>
+    <url>/2021/09/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>#第一章<br>hhh</p>
+<hr>
+<p>#第二章<br>hhh</p>
+<hr>
+<p>#第三章<br><a href="http://www.baidu.com/">www.baidu.com</a></p>
+]]></content>
+      <categories>
+        <category>test</category>
+      </categories>
+      <tags>
+        <tag>test1</tag>
       </tags>
   </entry>
   <entry>
@@ -2487,7 +2635,14 @@ public static void main(String[] args) &#123;
 <h3 id="二、数组操作"><a href="#二、数组操作" class="headerlink" title="二、数组操作"></a>二、数组操作</h3><h4 id="复制数组内容"><a href="#复制数组内容" class="headerlink" title="复制数组内容"></a>复制数组内容</h4><pre><code class="java">    //复制数组
     System.arraycopy(fromArr,0,toArr,0,len);
 </code></pre>
-<h4 id="排序二维数组"><a href="#排序二维数组" class="headerlink" title="排序二维数组"></a>排序二维数组</h4><pre><code class="java">    Arrays.sort(arr, (o1, o2) -&gt; Integer.compare(o1[0], o2[0]));
+<h4 id="排序二维数组"><a href="#排序二维数组" class="headerlink" title="排序二维数组"></a>排序二维数组</h4><pre><code class="java">    //方法一
+    Arrays.sort(arr, (o1, o2) -&gt; Integer.compare(o1[0], o2[0]));
+    //方法二
+    Arrays.sort(arr,new Comparator&lt;int[]&gt;()&#123;
+        public int compare(int[] a,int[] b)&#123;
+            return a[0] == b[0] ? a[1]-b[1] : a[0]-b[0];
+        &#125;
+    &#125;);
 </code></pre>
 <h4 id="List-lt-int-gt-转换为int"><a href="#List-lt-int-gt-转换为int" class="headerlink" title="List&lt;int[ ]&gt;转换为int[ ][ ]"></a>List&lt;int[ ]&gt;转换为int[ ][ ]</h4><pre><code class="java">    arr.toArray(new int[arr.size()][]);
 </code></pre>
@@ -3196,6 +3351,201 @@ enabled: true
         <tag>个人博客</tag>
         <tag>Hexo</tag>
         <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【MySQL实战45讲】MySQL中的锁</title>
+    <url>/2022/04/19/%E3%80%90MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2%E3%80%91MySQL%E4%B8%AD%E7%9A%84%E9%94%81/</url>
+    <content><![CDATA[<p>参考文章：</p>
+<p>MySQL实战45讲一一一极客时间</p>
+<p><a href="https://xiaolincoding.com/mysql/lock/mysql_lock.html">小林coding 图解MySQL锁篇</a></p>
+<p>数据库锁设计的初衷是处理并发问题。作为多用户共享的资源，当出现并发访问的时候，数据库需要合理地控制资源的访问规则。而锁就是用来实现这些访问规则的重要数据结构。</p>
+<span id="more"></span>
+
+<p><strong>根据加锁的范围，MySQL 里面的锁大致可以分成全局锁、表级锁和行锁三类。</strong></p>
+<h1 id="🍗全局锁"><a href="#🍗全局锁" class="headerlink" title="🍗全局锁"></a>🍗全局锁</h1><blockquote>
+<p>全局锁是怎么用的？</p>
+</blockquote>
+<p>要使用全局锁，则要执行这条命：</p>
+<pre><code class="mysql">    flush tables with read lock
+</code></pre>
+<p>执行后，<strong>整个数据库就处于只读状态了</strong>，这时其他线程执行以下操作，都会被阻塞：</p>
+<ul>
+<li>对数据的增删改操作，比如 insert、delete、update等语句；</li>
+<li>对表结构的更改操作，比如 alter table、drop table 等语句。</li>
+</ul>
+<p>如果要释放全局锁，则要执行这条命令：</p>
+<pre><code class="sql">    unlock tables
+</code></pre>
+<p>当然，当会话断开了，全局锁会被自动释放。</p>
+<blockquote>
+<p>全局锁应用场景是什么？</p>
+</blockquote>
+<p>全局锁主要应用于做<strong>全库逻辑备份</strong>，这样在备份数据库期间，不会因为数据或表结构的更新，而出现备份文件的数据与预期的不一样。</p>
+<blockquote>
+<p>加全局锁又会带来什么缺点呢？</p>
+</blockquote>
+<p>加上全局锁，意味着整个数据库都是只读状态。</p>
+<p>那么如果数据库里有很多数据，备份就会花费很多的时间，关键是备份期间，业务只能读数据，而不能更新数据，这样会造成业务停滞。</p>
+<blockquote>
+<p>🥦🥦既然备份数据库数据的时候，使用全局锁会影响业务，那有什么其他方式可以避免？</p>
+</blockquote>
+<p>有的，如果数据库的引擎支持的事务支持<strong>可重复读的隔离级别</strong>，那么在备份数据库之前先开启事务，会先创建 Read View，然后整个事务执行期间都在用这个 Read View，而且由于 MVCC 的支持，备份期间业务依然可以对数据进行更新操作。</p>
+<p>因为在可重复读的隔离级别下，即使其他事务更新了表的数据，也不会影响备份数据库时的 Read View，这就是事务四大特性中的隔离性，这样备份期间备份的数据一直是在开启事务时的数据。</p>
+<p>官方的备份数据库工具是 mysqldump，在使用 mysqldump 时加上 <code>–single-transaction</code> 参数的时候，就会在备份数据库之前先开启事务。这种方法只适用于支持「可重复读隔离级别的事务」的存储引擎。</p>
+<p>InnoDB 存储引擎默认的事务隔离级别正是可重复读，因此可以采用这种方式来备份数据库。</p>
+<p>但是，对于 MyISAM 这种不支持事务的引擎，在备份数据库时就要使用全局锁的方法。</p>
+<h1 id="🍗🍗表级锁"><a href="#🍗🍗表级锁" class="headerlink" title="🍗🍗表级锁"></a>🍗🍗表级锁</h1><blockquote>
+<p>MySQL 表级锁有哪些？具体怎么用的。</p>
+</blockquote>
+<p>MySQL 里面表级别的锁有这几种：</p>
+<ul>
+<li>表锁；</li>
+<li>元数据锁（MDL）;</li>
+<li>意向锁；</li>
+<li>AUTO-INC 锁；</li>
+</ul>
+<h3 id="🥦表锁"><a href="#🥦表锁" class="headerlink" title="🥦表锁"></a>🥦表锁</h3><p>如果我们想对学生表（t_student）加表锁，可以使用下面的命令：</p>
+<pre><code class="sql">    //表级别的共享锁，也就是读锁；
+    lock tables t_student read;
+
+    //表级别的独占锁，也就是写锁；
+    lock tables t_stuent wirte;
+</code></pre>
+<p>需要注意的是，表锁除了会限制别的线程的读写外，也会限制本线程接下来的读写操作。</p>
+<p>也就是说如果本线程对学生表加了「共享表锁」，那么本线程接下来如果要对学生表执行写操作的语句，是会被阻塞的，当然其他线程对学生表进行写操作时也会被阻塞，直到锁被释放。</p>
+<p>要释放表锁，可以使用下面这条命令，会释放当前会话的所有表锁：</p>
+<pre><code class="sql">    unlock tables
+</code></pre>
+<p>另外，当会话退出后，也会释放所有表锁。</p>
+<p>不过尽量避免在使用 InnoDB 引擎的表使用表锁，因为表锁的颗粒度太大，会影响并发性能，<strong>InnoDB 牛逼的地方在于实现了颗粒度更细的行级锁</strong>。</p>
+<h3 id="🥦🥦元数据锁（metadata-lock）"><a href="#🥦🥦元数据锁（metadata-lock）" class="headerlink" title="🥦🥦元数据锁（metadata lock）"></a>🥦🥦元数据锁（metadata lock）</h3><p>我们不需要显式的使用 MDL，因为当我们对数据库表进行操作时，会自动给这个表加上 MDL：</p>
+<ul>
+<li>对一张表进行 CRUD （DML）操作时，加的是 <strong>MDL 读锁</strong>；</li>
+<li>对一张表做结构变更操作（DDL）的时候，加的是 <strong>MDL 写锁</strong>；</li>
+</ul>
+<p><strong>🥦注意：操作表结构（DDL语句）时，才会加上MDL写锁。</strong></p>
+<p>MDL 是为了保证当用户对表执行 CRUD 操作时，防止其他线程对这个表结构做了变更。</p>
+<p>当有线程在执行 select 语句（ 加 MDL 读锁）的期间，如果有其他线程要更改该表的结构（ 申请 MDL 写锁），那么将会被阻塞，直到执行完 select 语句（ 释放 MDL 读锁）。</p>
+<p>反之，当有线程对表结构进行变更（ 加 MDL 写锁）的期间，如果有其他线程执行了 CRUD 操作（ 申请 MDL 读锁），那么就会被阻塞，直到表结构变更完成（ 释放 MDL 写锁）。</p>
+<blockquote>
+<p>🥦MDL 不需要显示调用，那它是在什么时候释放的?</p>
+</blockquote>
+<p>MDL 是在事务提交后才会释放，这意味着<strong>事务执行期间，MDL 是一直持有的</strong>。</p>
+<p>那如果数据库有一个长事务（所谓的长事务，就是开启了事务，但是一直还没提交），那在对表结构做变更操作的时候，可能会发生意想不到的事情，比如下面这个顺序的场景：</p>
+<ol>
+<li>首先，线程 A 先启用了事务（但是一直不提交），然后执行一条 select 语句，此时就先对该表加上 MDL 读锁；</li>
+<li>然后，线程 B 也执行了同样的 select 语句，此时并不会阻塞，因为「读读」并不冲突；</li>
+<li>接着，线程 C 修改了表字段，此时由于线程 A 的事务并没有提交，也就是 MDL 读锁还在占用着，这时线程 C 就无法申请到 MDL 写锁，就会被阻塞，</li>
+</ol>
+<p>那么在线程 C 阻塞后，后续有对该表的 select 语句，就都会被阻塞，如果此时有大量该表的 select 语句的请求到来，就会有大量的线程被阻塞住，这时数据库的线程很快就会爆满了。</p>
+<blockquote>
+<p>🥦为什么线程 C 因为申请不到 MDL 写锁，而导致后续的申请读锁的查询操作也会被阻塞？</p>
+</blockquote>
+<p>这是因为申请 MDL 锁的操作会形成一个队列，队列中<strong>写锁获取优先级高于读锁</strong>，一旦出现 MDL 写锁等待，会阻塞后续该表的所有 CRUD 操作。</p>
+<p>所以为了能安全的对表结构进行变更，在对表结构变更前，先要看看数据库中的长事务，是否有事务已经对表加上了 MDL 读锁，如果可以考虑 kill 掉这个长事务，然后再做表结构的变更。</p>
+<blockquote>
+<p>基于上面的两个问题，提出一个问题，<strong>如何安全地给小表加字段？</strong></p>
+</blockquote>
+<p>首先我们要解决长事务，事务不提交，就会一直占着 MDL 锁。在 MySQL 的 information_schema 库的 <code>innodb_trx</code> 表中，你可以查到当前执行中的事务。如果你要做 DDL 变更的表刚好有长事务在执行，要考虑先暂停 DDL，或者 kill 掉这个长事务。</p>
+<p>但考虑一下这个场景。如果你要变更的表是一个热点表，虽然数据量不大，但是上面的请求很频繁，而你不得不加个字段，你该怎么做呢？</p>
+<p>这时候 kill 可能未必管用，因为新的请求马上就来了。<strong>比较理想的机制是，在 alter table 语句里面设定等待时间，如果在这个指定的等待时间里面能够拿到 MDL 写锁最好，拿不到也不要阻塞后面的业务语句，先放弃。</strong>之后开发人员或者 DBA 再通过重试命令重复这个过程。</p>
+<p><a href="https://baike.baidu.com/item/mariaDB/6466119">MariaDB</a> 已经合并了 <a href="https://developer.aliyun.com/article/69646">AliSQL</a> 的这个功能，所以这两个开源分支目前都支持 DDL NOWAIT&#x2F;WAIT n 这个语法。</p>
+<pre><code class="mysql">    ALTER TABLE tbl_name NOWAIT N add column ...
+    ALTER TABLE tbl_name WAIT N add column ... 
+</code></pre>
+<h3 id="意向锁"><a href="#意向锁" class="headerlink" title="意向锁"></a>意向锁</h3><p>接着，说说<strong>意向锁</strong>。</p>
+<ul>
+<li>在使用 InnoDB 引擎的表里对某些记录加上「共享锁」之前，需要先在表级别加上一个「意向共享锁」；</li>
+<li>在使用 InnoDB 引擎的表里对某些纪录加上「独占锁」之前，需要先在表级别加上一个「意向独占锁」；</li>
+</ul>
+<p>也就是，当执行插入、更新、删除操作，需要先对表加上「意向独占锁」，然后对该记录加独占锁。</p>
+<p>而普通的 select 是不会加行级锁的，普通的 select 语句是利用 MVCC 实现一致性读，是无锁的。</p>
+<p>不过，select 也是可以对记录加共享锁和独占锁的，具体方式如下：</p>
+<pre><code class="sql">    //先在表上加上意向共享锁，然后对读取的记录加共享锁
+    select ... lock in share mode;
+
+    //先表上加上意向独占锁，然后对读取的记录加独占锁
+    select ... for update;
+</code></pre>
+<p><strong>意向共享锁和意向独占锁是表级锁，不会和行级的共享锁和独占锁发生冲突，而且意向锁之间也不会发生冲突，只会和共享表锁（*lock tables … read*）和独占表锁（*lock tables … write*）发生冲突。</strong></p>
+<p>表锁和行锁是满足读读共享、读写互斥、写写互斥的。</p>
+<p>如果没有「意向锁」，那么加「独占表锁」时，就需要遍历表里所有记录，查看是否有记录存在独占锁，这样效率会很慢。</p>
+<p>那么有了「意向锁」，由于在对记录加独占锁前，先会加上表级别的意向独占锁，那么在加「独占表锁」时，直接查该表是否有意向独占锁，如果有就意味着表里已经有记录被加了独占锁，这样就不用去遍历表里的记录。</p>
+<p>所以，<strong>意向锁的目的是为了快速判断表里是否有记录被加锁</strong>。</p>
+<h3 id="AUTO-INC-锁"><a href="#AUTO-INC-锁" class="headerlink" title="AUTO-INC 锁"></a>AUTO-INC 锁</h3><p>在为某个字段声明 <code>AUTO_INCREMENT</code> 属性时，之后可以在插入数据时，可以不指定该字段的值，数据库会自动给该字段赋值递增的值，这主要是通过 AUTO-INC 锁实现的。</p>
+<p>AUTO-INC 锁是特殊的表锁机制，锁<strong>不是再一个事务提交后才释放，而是在执行完插入语句后就会立即释放</strong>。</p>
+<p><strong>在插入数据时，会加一个表级别的 AUTO-INC 锁</strong>，然后为被 <code>AUTO_INCREMENT</code> 修饰的字段赋值递增的值，等插入语句执行完成后，才会把 AUTO-INC 锁释放掉。</p>
+<p>那么，一个事务在持有 AUTO-INC 锁的过程中，其他事务的如果要向该表插入语句都会被阻塞，从而保证插入数据时，被 <code>AUTO_INCREMENT</code> 修饰的字段的值是连续递增的。</p>
+<p>但是， AUTO-INC 锁再对大量数据进行插入的时候，会影响插入性能，因为另一个事务中的插入会被阻塞。</p>
+<p>因此， 在 MySQL 5.1.22 版本开始，InnoDB 存储引擎提供了一种<strong>轻量级的锁</strong>来实现自增。</p>
+<p>一样也是在插入数据的时候，会为被 <code>AUTO_INCREMENT</code> 修饰的字段加上轻量级锁，<strong>然后给该字段赋值一个自增的值，就把这个轻量级锁释放了，而不需要等待整个插入语句执行完后才释放锁</strong>。</p>
+<p>InnoDB 存储引擎提供了个 <code>innodb_autoinc_lock_mode</code> 的系统变量，是用来控制选择用 AUTO-INC 锁，还是轻量级的锁。</p>
+<ul>
+<li>当 <code>innodb_autoinc_lock_mode = 0</code>，就采用 AUTO-INC 锁；</li>
+<li>当 <code>innodb_autoinc_lock_mode = 2</code>，就采用轻量级锁；</li>
+<li>当 <code>innodb_autoinc_lock_mode = 1</code>，这个是默认值，两种锁混着用，如果能够确定插入记录的数量就采用轻量级锁，不确定时就采用 AUTO-INC 锁。</li>
+</ul>
+<p>不过，当 <code>innodb_autoinc_lock_mode = 2</code> 是性能最高的方式，但是会带来一定的问题。因为并发插入的存在，在每次插入时，自增长的值可能不是连续的，<strong>这在有主从复制的场景中是不安全的</strong>。</p>
+<h1 id="🍗🍗🍗行锁"><a href="#🍗🍗🍗行锁" class="headerlink" title="🍗🍗🍗行锁"></a>🍗🍗🍗行锁</h1><blockquote>
+<p>行级锁有哪些？</p>
+</blockquote>
+<p>InnoDB 引擎是支持行级锁的，而 MyISAM 引擎并不支持行级锁。</p>
+<p>行级锁的类型主要有三类：</p>
+<ul>
+<li>Record Lock，记录锁，也就是仅仅把一条记录锁上；</li>
+<li>Gap Lock，间隙锁，锁定一个范围，但是不包含记录本身；</li>
+<li>Next-Key Lock：<code>Record Lock + Gap Lock</code> 的组合，锁定一个范围，并且锁定记录本身。</li>
+</ul>
+<p>前面也提到，普通的 select 语句是不会对记录加锁的，如果要在查询时对记录加行锁，可以使用下面这两个方式：</p>
+<pre><code class="sql">//对读取的记录加共享锁
+select ... lock in share mode;
+
+//对读取的记录加独占锁
+select ... for update;
+</code></pre>
+<p>上面这两条语句必须再一个事务中，当事务提交了，锁就会被释放，因此在使用这两条语句的时候，要加上 begin、start transaction 或者 <code>set autocommit = 0</code>。</p>
+<p>对记录加锁时，<strong>加锁的基本单位是 next-key lock</strong>，它是由记录锁和间隙锁组合而成的，<strong>next-key lock 是前开后闭区间，而间隙锁是前开后开区间</strong>。</p>
+<h3 id="🥦两阶段锁协议"><a href="#🥦两阶段锁协议" class="headerlink" title="🥦两阶段锁协议"></a>🥦两阶段锁协议</h3><p>在下面的操作序列中，事务 B 的 update 语句执行时会是什么现象呢？假设字段 id 是表 t 的主键。</p>
+<img src="51f501f718e420244b0a2ec2ce858710.jpg" alt="img" style="zoom:55%;" />
+
+<img src="【MySQL实战45讲】MySQL中的锁/51f501f718e420244b0a2ec2ce858710.jpg" alt="img" style="zoom:55%;" />
+
+<p>实际上事务 B 的 update 语句会被阻塞，直到事务 A 执行 commit 之后，事务 B 才能继续执行。事务 A 持有的两个记录的行锁，都是在 commit 的时候才释放的。</p>
+<p>也就是说，<font color = red><strong>在 InnoDB 事务中，行锁是在需要的时候才加上的，但并不是不需要了就立刻释放，而是要等到事务结束时才释放。这个就是两阶段锁协议。</strong></font></p>
+<p>知道了这个设定，对我们使用事务有什么帮助呢？那就是，<strong>如果你的事务中需要锁多个行，要把最可能造成锁冲突、最可能影响并发度的锁尽量往后放</strong>。我给你举个例子。</p>
+<h3 id="死锁和死锁检测"><a href="#死锁和死锁检测" class="headerlink" title="死锁和死锁检测"></a>死锁和死锁检测</h3><h4 id="🥦🥦死锁"><a href="#🥦🥦死锁" class="headerlink" title="🥦🥦死锁"></a>🥦🥦死锁</h4><p>当并发系统中不同线程出现循环资源依赖，涉及的线程都在等待别的线程释放资源时，就会导致这几个线程都进入无限等待的状态，称为死锁。用数据库中的行锁举个例子。</p>
+<img src="【MySQL实战45讲】MySQL中的锁/4d0eeec7b136371b79248a0aed005a52.jpg" alt="img" style="zoom:55%;" />
+
+<img src="4d0eeec7b136371b79248a0aed005a52.jpg" alt="img" style="zoom:55%;" />
+
+<p>这时候，事务 A 在等待事务 B 释放 id&#x3D;2 的行锁，而事务 B 在等待事务 A 释放 id&#x3D;1 的行锁。 事务 A 和事务 B 在互相等待对方的资源释放，就是进入了死锁状态。当出现死锁以后，有两种策略：</p>
+<ul>
+<li>一种策略是，直接进入等待，直到超时。这个超时时间可以通过参数 <code>innodb_lock_wait_timeout</code> 来设置。</li>
+<li>另一种策略是，发起死锁检测，发现死锁后，主动回滚死锁链条中的某一个事务，让其他事务得以继续执行。将参数 <code>innodb_deadlock_detect</code> 设置为 on，表示开启这个逻辑。</li>
+</ul>
+<p>在 InnoDB 中，<code>innodb_lock_wait_timeout</code> 的默认值是 50s，意味着如果采用第一个策略，当出现死锁以后，第一个被锁住的线程要过 50s 才会超时退出，然后其他线程才有可能继续执行。对于在线服务来说，这个等待时间往往是无法接受的。</p>
+<p>但是，我们又不可能直接把这个时间设置成一个很小的值，比如 1s。这样当出现死锁的时候，确实很快就可以解开，但如果不是死锁，而是简单的锁等待呢？所以，超时时间设置太短的话，会出现很多误伤。</p>
+<blockquote>
+<p>🥦总结：对于策略一，需要注意超时时间时通过参数<code>innodb_lock_wait_timeout</code>（默认值是50）来设置。该参数得设置合理，太大等待时间无法接受，太小了可能会误判锁等待为死锁，因此如果需要使用策略一，需要合理设置参数。</p>
+</blockquote>
+<h4 id="🥦🥦死锁检测"><a href="#🥦🥦死锁检测" class="headerlink" title="🥦🥦死锁检测"></a>🥦🥦死锁检测</h4><p>所以，正常情况下我们还是要采用第二种策略，即：主动死锁检测，而且 <code>innodb_deadlock_detect</code> 的默认值本身就是 on。主动死锁检测在发生死锁的时候，是能够快速发现并进行处理的，但是它也是有额外负担的。</p>
+<p>你可以想象一下这个过程：每当一个事务被锁的时候，就要看看它所依赖的线程有没有被别人锁住，如此循环，最后判断是否出现了循环等待，也就是死锁。</p>
+<p>那如果是我们上面说到的所有事务都要更新同一行的场景呢？每个新来的被堵住的线程，都要判断会不会由于自己的加入导致了死锁，这是一个时间复杂度是 O(n) 的操作。假设有 1000 个并发线程要同时更新同一行，那么死锁检测操作就是 100 万这个量级的。虽然最终检测的结果是没有死锁，但是这期间要消耗大量的 CPU 资源。因此，你就会看到 CPU 利用率很高，但是每秒却执行不了几个事务。</p>
+<p>根据上面的分析，我们来讨论一下，<font color= red>怎么解决由这种热点行更新导致的性能问题呢？</font>问题的症结在于，死锁检测要耗费大量的 CPU 资源。</p>
+<p><strong>一种头痛医头的方法，就是如果你能确保这个业务一定不会出现死锁，可以临时把死锁检测关掉。</strong>但是这种操作本身带有一定的风险，因为业务设计的时候一般不会把死锁当做一个严重错误，毕竟出现死锁了，就回滚，然后通过业务重试一般就没问题了，这是业务无损的。而关掉死锁检测意味着可能会出现大量的超时，这是业务有损的。</p>
+<p><strong>另一个思路是控制并发度。</strong>根据上面的分析，你会发现如果并发能够控制住，比如同一行同时最多只有 10 个线程在更新，那么死锁检测的成本很低，就不会出现这个问题。一个直接的想法就是，在客户端做并发控制。但是，你会很快发现这个方法不太可行，因为客户端很多。我见过一个应用，有 600 个客户端，这样即使每个客户端控制到只有 5 个并发线程，汇总到数据库服务端以后，峰值并发数也可能要达到 3000。</p>
+<p>因此这个并发控制要做在数据库服务端。如果你有中间件，可以考虑在中间件实现；如果你的团队有能修改 MySQL 源码的人，也可以做在 MySQL 里面。基本思路就是，对于相同行的更新，在进入引擎之前排队。这样在 InnoDB 内部就不会有大量的死锁检测工作了。</p>
+<p>可能你会问，如果团队里暂时没有数据库方面的专家，<strong>不能实现这样的方案，能不能从设计上优化这个问题呢？</strong></p>
+<p>你可以考虑通过将一行改成逻辑上的多行来减少锁冲突。还是以影院账户为例，可以考虑放在多条记录上，比如 10 个记录，影院的账户总额等于这 10 个记录的值的总和。这样每次要给影院账户加金额的时候，随机选其中一条记录来加。这样每次冲突概率变成原来的 1&#x2F;10，可以减少锁等待个数，也就减少了死锁检测的 CPU 消耗。</p>
+<p>这个方案看上去是无损的，但其实这类方案需要根据业务逻辑做详细设计。如果账户余额可能会减少，比如退票逻辑，那么这时候就需要考虑当一部分行记录变成 0 的时候，代码要有特殊处理。</p>
+]]></content>
+      <categories>
+        <category>MySQL实战45讲</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>Lock</tag>
       </tags>
   </entry>
   <entry>
